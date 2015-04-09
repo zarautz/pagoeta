@@ -96,7 +96,7 @@ INSTALLED_APPS = (
     # Admin
     'grappelli',
     'easy_select2',
-    'pagedown',
+    #'pagedown', Fix this when package is fixed
     'django.contrib.admin',
 )
 
