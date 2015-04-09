@@ -174,6 +174,7 @@ CACHES = {
 }
 
 CACHE_MIDDLEWARE_SECONDS = 300
+USE_ETAGS = True
 
 
 # Email
