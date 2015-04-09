@@ -11,8 +11,6 @@ from pagoeta.apps.places.serializers import PlaceListSerializer
 
 
 class PharmacyGuardScraper():
-    cache_key = 'health.pharmacy.guard'
-    cache_timeout = 14400 # 4 hours in seconds
     pharmacies = []
     place_ids = []
 
@@ -20,16 +18,10 @@ class PharmacyGuardScraper():
         return { 'COFG': 'https://www.cofgipuzkoa.com/' }
 
     def get_data(self):
-        data = cache.get(self.cache_key)
-
-        if not data:
-            data = {
-                'hours': self.get_hours(),
-                'places': self.get_places()
-            }
-            cache.set(self.cache_key, data, self.cache_timeout)
-
-        return data
+        return {
+            'hours': self.get_hours(),
+            'places': self.get_places()
+        }
 
     def get_places(self):
         places = {}

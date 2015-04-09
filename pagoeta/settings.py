@@ -103,9 +103,11 @@ INSTALLED_APPS = (
 MIDDLEWARE_CLASSES = (
     'django.middleware.gzip.GZipMiddleware',
     'pagoeta.apps.core.middleware.LanguageOnQueryParamMiddleware',
+    'django.middleware.cache.UpdateCacheMiddleware',
     'django.middleware.common.CommonMiddleware',
+    'django.middleware.cache.FetchFromCacheMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
-    'pagoeta.apps.core.middleware.AnonymousSessionMiddleware',
+    'django.contrib.sessions.middleware.SessionMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
@@ -161,6 +163,17 @@ if not DEBUG:
     REST_FRAMEWORK.update({
         'DEFAULT_RENDERER_CLASSES': ('rest_framework.renderers.JSONRenderer',),
     })
+
+# CACHE
+# https://docs.djangoproject.com/en/1.8/topics/cache/
+
+CACHES = {
+    'default': {
+        'BACKEND': 'django.core.cache.backends.locmem.LocMemCache'
+    }
+}
+
+CACHE_MIDDLEWARE_SECONDS = 300
 
 
 # Email
@@ -235,9 +248,6 @@ STATICFILES_DIRS = (
 if not DEBUG:
     STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
     WHITENOISE_ROOT = os.path.join(BASE_DIR, 'staticfiles/www')
-
-CACHE_CONTROL_MAX_AGE = 300
-USE_ETAGS = True
 
 
 # wkhtmltopdf

@@ -1,3 +1,4 @@
+from django.views.decorators.cache import cache_control
 from rest_framework.permissions import IsAuthenticatedOrReadOnly
 from rest_framework.response import Response
 from rest_framework.viewsets import ViewSet, ReadOnlyModelViewSet
@@ -11,11 +12,12 @@ class ZuZarautzPostViewSet(ViewSet):
     """
     permission_classes = (IsAuthenticatedOrReadOnly,)
 
+    @cache_control(max_age=7200, s_maxage=7200)
     def list(self, request):
         scraper = ZuZarautzPostScraper()
         data = scraper.get_data()
 
-        response = Response({
+        return Response({
             "meta": {
                 "language": "eu",
                 "lastUpdated": scraper.updated,
@@ -24,6 +26,3 @@ class ZuZarautzPostViewSet(ViewSet):
             },
             'data': data
         })
-        response['Cache-Control'] = 'public, max-age=%s' % scraper.cache_timeout
-
-        return response

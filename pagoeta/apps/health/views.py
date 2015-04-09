@@ -1,3 +1,4 @@
+from django.views.decorators.cache import cache_control
 from rest_framework.permissions import IsAuthenticatedOrReadOnly
 from rest_framework.response import Response
 from rest_framework.viewsets import ViewSet, ReadOnlyModelViewSet
@@ -11,6 +12,7 @@ class PharmacyViewSet(ViewSet):
     """
     permission_classes = (IsAuthenticatedOrReadOnly,)
 
+    @cache_control(max_age=7200, s_maxage=7200)
     def list(self, request):
         scraper = PharmacyGuardScraper()
 

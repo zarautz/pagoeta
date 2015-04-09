@@ -14,21 +14,13 @@ from pagoeta.apps.core.models import XeroxImage
 
 
 class ZuZarautzPostScraper():
-    cache_key = 'blog.zuzarautz.post'
-    cache_timeout = 7200 # 2 hours in seconds
     updated = None
 
     def get_source(self):
         return { 'Zu Zarautz': 'http://zuzarautz.info/' }
 
     def get_data(self):
-        data = cache.get(self.cache_key)
-
-        if not data:
-            data = self.parse_rss_feed()
-            cache.set(self.cache_key, data, self.cache_timeout)
-
-        return data
+        return self.parse_rss_feed()
 
     def parse_rss_feed(self):
         allowed_tags = feedparser._HTMLSanitizer.acceptable_elements.union(set(['object', 'embed', 'iframe']))
