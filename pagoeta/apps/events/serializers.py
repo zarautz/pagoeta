@@ -1,9 +1,9 @@
-from django.conf import settings
 from hvad.contrib.restframework import TranslatableModelSerializer
 from rest_framework import serializers
 from rest_framework.reverse import reverse
 
 from .models import Category, TargetGroup, TargetAge, Event
+from pagoeta.apps.core.functions import get_absolute_uri
 from pagoeta.apps.places.serializers import PlaceListSerializer
 
 
@@ -32,4 +32,4 @@ class EventSerializer(TranslatableModelSerializer):
         exclude = ('start_at', 'end_at', 'is_featured', 'is_visible', 'language_code')
 
     def get_href(self, obj):
-        return '%s%s' % (settings.BASE_URL, reverse('v1:event-detail', [obj.id]))
+        return get_absolute_uri(reverse('v1:event-detail', [obj.id]))

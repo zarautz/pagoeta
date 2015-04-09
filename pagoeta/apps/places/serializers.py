@@ -1,9 +1,9 @@
-from django.conf import settings
 from hvad.contrib.restframework import TranslatableModelSerializer
 from rest_framework import serializers
 from rest_framework.reverse import reverse
 
 from .models import Place, Type
+from pagoeta.apps.core.functions import get_absolute_uri
 
 
 class TypeSerializer(TranslatableModelSerializer):
@@ -29,7 +29,7 @@ class PlaceSerializer(TranslatableModelSerializer):
         }
 
     def get_href(self, obj):
-        return '%s%s' % (settings.BASE_URL, reverse('v1:place-detail', [obj.id]))
+        return get_absolute_uri(reverse('v1:place-detail', [obj.id]))
 
 
 class PlaceListSerializer(PlaceSerializer):
