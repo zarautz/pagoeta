@@ -1,0 +1,30 @@
+# --------------------
+# OS or Editor folders
+# --------------------
+.DS_Store
+._*
+.cache
+.idea
+.project
+.settings
+.tmproj
+nbproject
+*.sublime-project
+*.sublime-workspace
+*.mo
+Thumbs.db
+
+
+# ---
+# APP
+# ---
+.coverage
+*.pyc
+*.pyo
+*.sass-cache
+
+
+# -----------
+# CREDENTIALS
+# -----------
+creds.json

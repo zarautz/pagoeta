@@ -1,0 +1,22 @@
+{
+    "CONFIG": {
+        "CONFIG_VARS": {
+            "aws__access_key_id": "aws__access_key_id",
+            "aws__bucket_name": "aws__bucket_name",
+            "aws__s3_host": "aws__s3_host",
+            "aws__secret_access_key": "aws__secret_access_key",
+            "mandrill__production_key": "mandrill__production_key",
+            "mandrill__test_key": "mandrill__test_key",
+            "mandrill__username": "mandrill__username",
+            "secret": "secret",
+            "site_host": "site_host"
+        }
+    },
+    "MYSQLS": {
+        "MYSQLS_DATABASE": "MYSQLS_DATABASE",
+        "MYSQLS_HOSTNAME": "MYSQLS_HOSTNAME",
+        "MYSQLS_PASSWORD": "MYSQLS_PASSWORD",
+        "MYSQLS_PORT": 3306,
+        "MYSQLS_USERNAME": "MYSQLS_USERNAME"
+    }
+}

@@ -1,0 +1,171 @@
+[
+    {
+        "model": "events.category",
+        "fields": {
+            "id": 1,
+            "code": "movie"
+        }
+    },
+    {
+        "model": "events.categorytranslation",
+        "fields": {
+            "master": 1,
+            "name": "Zinema",
+            "language_code": "eu"
+        }
+    },
+    {
+        "model": "events.categorytranslation",
+        "fields": {
+            "master": 1,
+            "name": "Cine",
+            "language_code": "es"
+        }
+    },
+    {
+        "model": "events.categorytranslation",
+        "fields": {
+            "master": 1,
+            "name": "Movies",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "events.categorytranslation",
+        "fields": {
+            "master": 1,
+            "name": "Cinéma",
+            "language_code": "fr"
+        }
+    },
+    {
+        "model": "events.targetgroup",
+        "fields": {
+            "id": 1,
+            "code": "all"
+        }
+    },
+    {
+        "model": "events.targetgrouptranslation",
+        "fields": {
+            "master": 1,
+            "name": "Guztiak",
+            "language_code": "eu"
+        }
+    },
+    {
+        "model": "events.targetgrouptranslation",
+        "fields": {
+            "master": 1,
+            "name": "Todos",
+            "language_code": "es"
+        }
+    },
+    {
+        "model": "events.targetgrouptranslation",
+        "fields": {
+            "master": 1,
+            "name": "All",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "events.targetgrouptranslation",
+        "fields": {
+            "master": 1,
+            "name": "Tous",
+            "language_code": "fr"
+        }
+    },
+    {
+        "model": "events.targetage",
+        "fields": {
+            "id": 1,
+            "code": "all"
+        }
+    },
+    {
+        "model": "events.targetagetranslation",
+        "fields": {
+            "master": 1,
+            "name": "Guztiak",
+            "language_code": "eu"
+        }
+    },
+    {
+        "model": "events.targetagetranslation",
+        "fields": {
+            "master": 1,
+            "name": "Todos",
+            "language_code": "es"
+        }
+    },
+    {
+        "model": "events.targetagetranslation",
+        "fields": {
+            "master": 1,
+            "name": "All",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "events.targetagetranslation",
+        "fields": {
+            "master": 1,
+            "name": "Tous",
+            "language_code": "fr"
+        }
+    },
+    {
+        "model": "events.event",
+        "fields": {
+            "id": 1,
+            "category_id": 1,
+            "target_group_id": 1,
+            "target_age_id": 1,
+            "place_id": 2,
+            "start_at": "2015-04-07T17:00:00+0200",
+            "end_at": null,
+            "price": 4,
+            "url": null,
+            "is_featured": false,
+            "is_visible": false
+        }
+    },
+    {
+        "model": "events.eventtranslation",
+        "fields": {
+            "master": 1,
+            "name": "Zine emanaldia Modelo Aretoan",
+            "description": "\"El nuevo exotico Hotel Marigold\"\r\nikuslearen eguna 4€",
+            "language_code": "eu"
+        }
+    },
+    {
+        "model": "events.eventtranslation",
+        "fields": {
+            "master": 1,
+            "name": "Proyección de cine en el Modelo",
+            "description": "\"El nuevo exotico Hotel Marigold\"\r\ndía del espectador 4€",
+            "language_code": "es"
+        }
+    },
+    {
+        "model": "events.eventtranslation",
+        "fields": {
+            "master": 1,
+            "name": "Film screening",
+            "description": "\"El nuevo exotico Hotel Marigold\"",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "events.eventtranslation",
+        "fields": {
+            "master": 1,
+            "name": "Projection cinématographique",
+            "description": "\"El nuevo exotico Hotel Marigold\"",
+            "language_code": "fr"
+        }
+    }
+]

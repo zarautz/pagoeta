@@ -1,0 +1,291 @@
+[
+    {
+        "model": "places.type",
+        "fields": {
+            "id": 1,
+            "code": "art_gallery"
+        }
+    },
+    {
+        "model": "places.typetranslation",
+        "fields": {
+            "master": 1,
+            "name": "Arte galeria",
+            "language_code": "eu"
+        }
+    },
+    {
+        "model": "places.typetranslation",
+        "fields": {
+            "master": 1,
+            "name": "Galería de arte",
+            "language_code": "es"
+        }
+    },
+    {
+        "model": "places.typetranslation",
+        "fields": {
+            "master": 1,
+            "name": "Art gallery",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "places.typetranslation",
+        "fields": {
+            "master": 1,
+            "name": "Galerie d'art",
+            "language_code": "fr"
+        }
+    },
+    {
+        "model": "places.type",
+        "fields": {
+            "id": 2,
+            "code": "book_store"
+        }
+    },
+    {
+        "model": "places.typetranslation",
+        "fields": {
+            "master": 2,
+            "name": "Liburu-denda",
+            "language_code": "eu"
+        }
+    },
+    {
+        "model": "places.typetranslation",
+        "fields": {
+            "master": 2,
+            "name": "Tienda de libros",
+            "language_code": "es"
+        }
+    },
+    {
+        "model": "places.typetranslation",
+        "fields": {
+            "master": 2,
+            "name": "Book store",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "places.typetranslation",
+        "fields": {
+            "master": 2,
+            "name": "Librairie",
+            "language_code": "fr"
+        }
+    },
+    {
+        "model": "places.type",
+        "fields": {
+            "id": 3,
+            "code": "architectural_heritage"
+        }
+    },
+    {
+        "model": "places.typetranslation",
+        "fields": {
+            "master": 3,
+            "name": "Ondare arkitektonikoa",
+            "language_code": "eu"
+        }
+    },
+    {
+        "model": "places.typetranslation",
+        "fields": {
+            "master": 3,
+            "name": "Patrimonio arquitectónico",
+            "language_code": "es"
+        }
+    },
+    {
+        "model": "places.typetranslation",
+        "fields": {
+            "master": 3,
+            "name": "Architectural heritage",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "places.typetranslation",
+        "fields": {
+            "master": 3,
+            "name": "Patrimoine architectural",
+            "language_code": "fr"
+        }
+    },
+    {
+        "model": "places.type",
+        "fields": {
+            "id": 4,
+            "code": "cultural_center"
+        }
+    },
+    {
+        "model": "places.typetranslation",
+        "fields": {
+            "master": 4,
+            "name": "Kultur gunea",
+            "language_code": "eu"
+        }
+    },
+    {
+        "model": "places.typetranslation",
+        "fields": {
+            "master": 4,
+            "name": "Centro cultural",
+            "language_code": "es"
+        }
+    },
+    {
+        "model": "places.typetranslation",
+        "fields": {
+            "master": 4,
+            "name": "Cultural center",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "places.typetranslation",
+        "fields": {
+            "master": 4,
+            "name": "Centre culturel",
+            "language_code": "fr"
+        }
+    },
+    {
+        "model": "places.type",
+        "fields": {
+            "id": 5,
+            "code": "theater"
+        }
+    },
+    {
+        "model": "places.typetranslation",
+        "fields": {
+            "master": 5,
+            "name": "Antzezlekua",
+            "language_code": "eu"
+        }
+    },
+    {
+        "model": "places.typetranslation",
+        "fields": {
+            "master": 5,
+            "name": "Teatro",
+            "language_code": "es"
+        }
+    },
+    {
+        "model": "places.typetranslation",
+        "fields": {
+            "master": 5,
+            "name": "Theater",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "places.typetranslation",
+        "fields": {
+            "master": 5,
+            "name": "Théâtre",
+            "language_code": "fr"
+        }
+    },
+    {
+        "model": "places.place",
+        "fields": {
+            "id": 1,
+            "types": [1, 2],
+            "address": "Trinidade 7",
+            "latitude": 43.28631973267,
+            "longitude": -2.1760699749,
+            "telephone": "+34 943 83 25 07",
+            "email": "info@egaroa.com",
+            "url": "http://www.egaroa.com"
+        }
+    },
+    {
+        "model": "places.placetranslation",
+        "fields": {
+            "master": 1,
+            "name": "Garoa",
+            "language_code": "eu"
+        }
+    },
+    {
+        "model": "places.placetranslation",
+        "fields": {
+            "master": 1,
+            "name": "Garoa",
+            "language_code": "es"
+        }
+    },
+    {
+        "model": "places.placetranslation",
+        "fields": {
+            "master": 1,
+            "name": "Garoa",
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "places.placetranslation",
+        "fields": {
+            "master": 1,
+            "name": "Garoa",
+            "language_code": "fr"
+        }
+    },
+    {
+        "model": "places.place",
+        "fields": {
+            "id": 2,
+            "types": [3,4,5],
+            "address": "Zigordia 2",
+            "latitude": 43.285589488719,
+            "longitude": -2.176274608549,
+            "telephone": null,
+            "email": null,
+            "url": null
+        }
+    },
+    {
+        "model": "places.placetranslation",
+        "fields": {
+            "master": 2,
+            "name": "Modelo Aretoa",
+            "description": "Oin irregularreko eraikin konplexu horretan, etxebizitzak eta zine-areto bat daude. Félix LLanos Goiburuk eraiki zuen. Zenbait mugimendu estetiko biltzen ditu: arrazionalismoaren erreferentzia aurki daiteke baoen sinpletasunean eta, aldiz, klasizismoaren ukituak topa ditzakegu zinearen fatxadan.",
+            "language_code": "eu"
+        }
+    },
+    {
+        "model": "places.placetranslation",
+        "fields": {
+            "master": 2,
+            "name": "Sala Modelo",
+            "description": "Edificio complejo de planta irregular donde se levantan viviendas y un cine. Fue construido por Félix Llanos Goiburu. Asimila distintos movimientos estéticos y no es difícil encontrar referencias al racionalismo en la simplicidad de los vanos o al clasicismo en la fachada del cine.",
+            "language_code": "es"
+        }
+    },
+    {
+        "model": "places.placetranslation",
+        "fields": {
+            "master": 2,
+            "name": "Modelo Aretoa",
+            "description": null,
+            "language_code": "en"
+        }
+    },
+    {
+        "model": "places.placetranslation",
+        "fields": {
+            "master": 2,
+            "name": "Modelo Aretoa",
+            "description": null,
+            "language_code": "fr"
+        }
+    }
+]

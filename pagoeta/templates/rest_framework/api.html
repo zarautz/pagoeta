@@ -1,0 +1,10 @@
+{% extends "rest_framework/base.html" %}
+{# http://www.django-rest-framework.org/topics/browsable-api/#customizing #}
+
+{% block title %}Pagoeta API{% endblock %}
+
+{% block branding %}
+    <a class="navbar-brand" href="{% url 'v1:api-root' %}">
+        Pagoeta API
+    </a>
+{% endblock %}
