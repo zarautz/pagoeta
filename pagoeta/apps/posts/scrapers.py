@@ -3,7 +3,6 @@ import feedparser
 import hashlib
 
 from datetime import date, datetime, timedelta
-from django.core.cache import cache
 from django.core.urlresolvers import reverse
 from django.utils import timezone
 from lxml.html import parse, fromstring

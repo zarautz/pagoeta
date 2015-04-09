@@ -1,7 +1,6 @@
 import json
 
 from datetime import date, timedelta
-from django.core.cache import cache
 from requests import post
 from requests.exceptions import RequestException
 
