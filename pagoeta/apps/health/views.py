@@ -12,7 +12,7 @@ class PharmacyViewSet(ViewSet):
     """
     permission_classes = (IsAuthenticatedOrReadOnly,)
 
-    @cache_control(max_age=7200, s_maxage=7200)
+    @cache_control(max_age=14400, s_maxage=14400)
     def list(self, request):
         scraper = PharmacyGuardScraper()
 
