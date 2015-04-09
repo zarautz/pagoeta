@@ -51,7 +51,7 @@ if DEBUG:
     ALLOWED_HOSTS = ('localhost',)
     INTERNAL_IPS = ('127.0.0.1',)
 else:
-    ALLOWED_HOSTS = ('.pagoeta.cloudcontrolled.com')
+    ALLOWED_HOSTS = ('pagoeta.cloudcontrolled.com', '.pagoeta.cloudcontrolled.com')
     HOST = 'pagoeta.cloudcontrolled.com'
 
 
