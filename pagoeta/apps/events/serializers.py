@@ -17,8 +17,10 @@ class TypeField(serializers.RelatedField):
 
 class EventSerializer(TranslatableModelSerializer):
     category = TypeField(read_only=True)
-    targetGroup = target_group = TypeField(read_only=True)
-    targetAge = target_age = TypeField(read_only=True)
+    target_group = TypeField(read_only=True)
+    targetGroup = target_group
+    target_age = TypeField(read_only=True)
+    targetAge = target_age
     place = PlaceListSerializer(read_only=True)
     # camelCase some field names
     startAt = serializers.DateTimeField(source='start_at', read_only=True)

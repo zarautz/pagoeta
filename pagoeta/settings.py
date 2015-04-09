@@ -164,6 +164,7 @@ if not DEBUG:
         'DEFAULT_RENDERER_CLASSES': ('rest_framework.renderers.JSONRenderer',),
     })
 
+
 # CACHE
 # https://docs.djangoproject.com/en/1.8/topics/cache/
 
