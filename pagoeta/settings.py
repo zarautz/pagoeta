@@ -25,33 +25,27 @@ BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 # Local file mimics cloudControl creds
 # https://www.cloudcontrol.com/dev-center/platform-documentation#add-ons
 
-
 if 'CRED_FILE' in os.environ:
     cred_file = os.environ['CRED_FILE']
     DEBUG = False
+    ALLOWED_HOSTS = ('pagoeta.cloudcontrolled.com', '.pagoeta.cloudcontrolled.com')
 
 elif 'BUILDPACK_RUNNING' in os.environ:
     cred_file = os.path.join(BASE_DIR, 'creds.json.txt')
     DEBUG = False
+    ALLOWED_HOSTS = ['*']
 
 else:
     cred_file = os.path.join(BASE_DIR, 'creds.json')
     DEBUG = True
+    ALLOWED_HOSTS = ('localhost',)
+    INTERNAL_IPS = ('127.0.0.1',)
 
 # Load and massage credentials
 cred_data = open(cred_file)
 creds = json.load(cred_data)
 cred_data.close()
 CONFIG_VARS = creds['CONFIG']['CONFIG_VARS']
-
-
-# Allowed hosts
-
-if DEBUG:
-    ALLOWED_HOSTS = ('localhost',)
-    INTERNAL_IPS = ('127.0.0.1',)
-else:
-    ALLOWED_HOSTS = ('pagoeta.cloudcontrolled.com', '.pagoeta.cloudcontrolled.com')
 
 
 # Development settings
