@@ -113,7 +113,7 @@ class WeatherScraper():
             2: ('00-12', '12-24'),
             3: ('00-24',)
         }
-        wind_direction_map = { 'N': 'N', 'NE': 'NE', 'E': 'E', 'SE': 'SE', 'S': 'S', 'SO': 'SW', 'O': 'W', 'NO': 'NW', 'C':'C' }
+        wind_direction_map = { 'N': 'N', 'NE': 'NE', 'E': 'E', 'SE': 'SE', 'S': 'S', 'SO': 'SW', 'O': 'W', 'NO': 'NW', 'C': 'C' }
         forecast_data = []
 
         if element.xpath('.//estado_cielo[@periodo="00-06"]'):
@@ -126,7 +126,7 @@ class WeatherScraper():
         if period_group < 3:
             for period in period_groups[period_group]:
                 """We need to check if data for a given period exists,
-                because AEMET hides the data once the period has passed."""
+                because AEMET hides the data once the period is over."""
                 if element.xpath('.//estado_cielo[@periodo="%s"]' % period)[0].text:
                     forecast_data.append({
                         'period': period,
