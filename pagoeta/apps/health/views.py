@@ -1,3 +1,4 @@
+from django.utils import timezone
 from django.views.decorators.cache import cache_control
 from rest_framework.permissions import IsAuthenticatedOrReadOnly
 from rest_framework.response import Response
@@ -18,7 +19,7 @@ class PharmacyViewSet(ViewSet):
 
         return Response({
             "meta": {
-                "lastUpdated": None,
+                "lastUpdated": timezone.now(),
                 "source": scraper.get_source()
             },
             'data': scraper.get_data()
