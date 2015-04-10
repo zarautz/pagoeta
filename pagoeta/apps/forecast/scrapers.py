@@ -98,53 +98,51 @@ class WeatherScraper():
             date_str = element.get('fecha')
 
             if date_str in self.date_str_list:
-                if element.xpath('.//estado_cielo[@periodo="00-06"]'):
-                    period_group = 1
-                elif element.xpath('.//estado_cielo[@periodo="00-12"]'):
-                    period_group = 2
-                else:
-                    period_group = 3
-
                 data[date_str] = {
                     'tempMin': int(element.xpath('.//temperatura/minima')[0].text),
                     'tempMax': int(element.xpath('.//temperatura/maxima')[0].text),
                     'uvMax': int(element.find('uv_max').text) if element.find('uv_max') is not None else None,
-                    'forecast': self.parse_forecast_subelements(element, period_group),
+                    'forecast': self.parse_forecast_subelements(element),
                 }
 
         return data
 
-    def parse_forecast_subelements(self, element, period_group):
+    def parse_forecast_subelements(self, element):
         period_groups = {
             1: ('00-06', '06-12', '12-18', '18-24'),
             2: ('00-12', '12-24'),
             3: ('00-24',)
         }
-        wind_direction_map = { 'N': 'N', 'NE': 'NE', 'E': 'E', 'SE': 'SE', 'S': 'S', 'SO': 'SW', 'O': 'W', 'NO': 'NW' }
+        wind_direction_map = { 'N': 'N', 'NE': 'NE', 'E': 'E', 'SE': 'SE', 'S': 'S', 'SO': 'SW', 'O': 'W', 'NO': 'NW', 'C':'C' }
         forecast_data = []
+
+        if element.xpath('.//estado_cielo[@periodo="00-06"]'):
+            period_group = 1
+        elif element.xpath('.//estado_cielo[@periodo="00-12"]'):
+            period_group = 2
+        else:
+            period_group = 3
 
         if period_group < 3:
             for period in period_groups[period_group]:
                 """We need to check if data for a given period exists,
-                because AEMET hides the data once the period has expired."""
+                because AEMET hides the data once the period has passed."""
                 if element.xpath('.//estado_cielo[@periodo="%s"]' % period)[0].text:
-                    wind_direction = element.xpath('.//viento/direccion')[0].text
                     forecast_data.append({
                         'period': period,
                         'code': int(element.xpath('.//estado_cielo[@periodo="%s"]' % period)[0].text.replace('n', '')),
                         'precipitationProb': int(element.xpath('.//prob_precipitacion[@periodo="%s"]' % period)[0].text),
-                        'windDirection': wind_direction_map[wind_direction] if wind_direction in wind_direction_map else None,
+                        'windDirection': element.xpath('.//viento/direccion')[0].text,
                         'windSpeed': int(element.xpath('.//viento[@periodo="%s"]/velocidad' % period)[0].text),
                     })
 
         else:
             period = period_groups[period_group][0]
-            wind_direction = element.xpath('.//viento/direccion')[0].text
             forecast_data.append({
                 'period': period,
                 'code': int(element.find('estado_cielo').text.replace('n', '')),
                 'precipitationProb': int(element.find('prob_precipitacion').text),
-                'windDirection': wind_direction_map[wind_direction] if wind_direction in wind_direction_map else None,
+                'windDirection': element.xpath('.//viento/direccion')[0].text,
                 'windSpeed': int(element.xpath('.//viento/velocidad')[0].text),
             })
 
