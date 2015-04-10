@@ -1,21 +1,26 @@
 Pagoeta
 =======
 
-`Pagoeta` is the code name of the application used to manage the  agenda, places’ information and overall information for the city of [Zarautz](http://zarautz.org/). It provides a private administration area and a **public API** based in the `Open Data` philosophy.
- 
+`Pagoeta` is the code name of the application used to manage the  agenda, places’ information
+and overall information for the city of [Zarautz](http://www.zarautz.org/). It provides a private
+administration area and a **public API** based in the `Open Data` philosophy.
+
 You can access the API at [http://pagoeta.cloudcontrolled.com/](http://pagoeta.cloudcontrolled.com/).
 
 API Usage policy
 ----------------
-Usage of the Pagoeta API is currently unrestricted. API keys are not used. Please be gentle with our server! In the future, we may require registration and API keys for heavy use.
+Usage of the Pagoeta API is currently unrestricted. API keys are not used. Please be gentle with
+our server! In the future, we may require registration and API keys for heavy use.
 
-All data is licensed using a [CC 3.0 Attribution](https://creativecommons.org/licenses/by/3.0/) license. Whenever external sources are mentioned you should mention them too when you present the data.
+All data is licensed using a [CC 3.0 Attribution](https://creativecommons.org/licenses/by/3.0/)
+license. Whenever external sources are mentioned you should mention them too when you present the data.
 
 
 For developers
 ==============
 
-Pagoeta uses [Django](https://www.djangoproject.com/) and the [Django REST Framework](http://www.django-rest-framework.org/). Feel free to contribute to the project.
+Pagoeta uses [Django](https://www.djangoproject.com/) and the [Django REST Framework](http://www.django-rest-framework.org/).
+Feel free to contribute to the project.
 
 Application dependencies
 ------------------------
@@ -32,9 +37,11 @@ The application looks for the necessary configuration/credentials in a JSON file
 This file mimics the credentials file that will be automatically generated at a
 [cloudControl](https://www.cloudcontrol.com/dev-center/quickstart) deployment.
 
-For development, just copy `creds.json.txt` to `creds.json` and fill in the options (only real database information is strictly necessary).
+For development, just copy `creds.json.txt` to `creds.json` and fill in the options (only real
+database information is strictly necessary).
 
-Once the database configuration is filled in you can generate the necessary tables and load some fixtures using `manage.py`:
+Once the database configuration is filled in you can generate the necessary tables and load some
+fixtures using `manage.py`:
 
     $ python manage.py migrate
 
