@@ -25,6 +25,7 @@ urlpatterns = [
     url(r'^grappelli/', include('grappelli.urls')),
     url(r'^admin/', include(admin.site.urls)),
     url(r'^assets/ximg/(?P<filter>[\w-]+)/(?P<hash>[\w-]+).jpeg', core_views.XeroxView.as_view(), name='xerox'),
+    url(r'^api/docs/', include('rest_framework_swagger.urls')),
     url(r'^v1/', include(router_v1.urls, namespace='v1')),
     url(r'^$', core_views.RedirectView.as_view(), name='redirect'),
 ]

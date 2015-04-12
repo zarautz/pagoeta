@@ -19,7 +19,7 @@ class PharmacyGuardScraper():
     def get_data(self):
         return {
             'hours': self.get_hours(),
-            'places': self.get_places()
+            'places': self.get_places(),
         }
 
     def get_places(self):
@@ -46,7 +46,7 @@ class PharmacyGuardScraper():
                 '0000-0859': self.parse_pharmacy_id(today, 'night'),
                 '0900-2159': self.parse_pharmacy_id(tomorrow, 'day'),
                 '2200-2359': self.parse_pharmacy_id(tomorrow, 'night'),
-            }
+            },
         )
 
     def get_internal_pharmacy_id(self, cofg_pharmacy_id):
@@ -77,7 +77,7 @@ class PharmacyGuardScraper():
                 'month': date.month,
                 'day': date.day,
                 'guardtime': 0 if guard_time == 'day' else 1,
-                'guardzone': 18
+                'guardzone': 18,
             }
 
             return post('http://m.cofgipuzkoa.com/ws/cofg_ws.php', data=data)

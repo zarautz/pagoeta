@@ -31,7 +31,7 @@ class ForecastScraperWrapper():
                 'date': date_str,
                 'astronomy': astronomical_data[date_str],
                 'tide': tide_data[date_str],
-                'weather': weather_data[date_str] if date_str in weather_data else None
+                'weather': weather_data[date_str] if date_str in weather_data else None,
             })
 
         return data
@@ -55,8 +55,9 @@ class TideScraper():
         return data
 
     def parse_html(self, month):
-        url = 'http://www4.gipuzkoa.net/MedioAmbiente/gipuzkoaingurumena/eu/secciones/playas/mareas.asp?filtroMesMarea=%d' % month
-        source = get(url).text
+        url = ('http://www4.gipuzkoa.net/MedioAmbiente/gipuzkoaingurumena/eu/secciones/'
+            'playas/mareas.asp?filtroMesMarea=%d')
+        source = get(url % month).text
         data = {}
 
         for row, tr in enumerate(html.fromstring(source).cssselect('.tabla tbody > tr')):
@@ -79,8 +80,9 @@ class TideScraper():
 
 
 class WeatherScraper():
-    def __init__(self, date_list):
+    def __init__(self, date_list, url=None):
         self.date_str_list = [str(date) for date in date_list]
+        self.url = url if url else 'http://www.aemet.es/xml/municipios/localidad_20079.xml'
 
     def get_source(self):
         return { 'AEMET': 'http://www.aemet.es/' }
@@ -89,8 +91,7 @@ class WeatherScraper():
         return self.parse_xml()
 
     def parse_xml(self):
-        url = 'http://www.aemet.es/xml/municipios/localidad_20079.xml'
-        source = get(url).text.encode('utf-8')
+        source = get(self.url).text.encode('utf-8')
         root = etree.fromstring(source)
         data = {}
 

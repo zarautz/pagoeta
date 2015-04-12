@@ -16,7 +16,7 @@ class RedirectView(generic.View):
     Redirects to current API version.
     """
     def dispatch(self, request, *args, **kwargs):
-        return redirect(reverse('v1:api-root'))
+        return redirect(reverse('django.swagger.base.view'))
 
 
 class XeroxView(generic.View):

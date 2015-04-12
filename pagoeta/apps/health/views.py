@@ -8,19 +8,29 @@ from .scrapers import PharmacyGuardScraper
 
 
 class PharmacyViewSet(ViewSet):
-    """
-    Get information about pharmacies on duty today and tomorrow.
-    """
     permission_classes = (IsAuthenticatedOrReadOnly,)
 
     @cache_control(max_age=14400, s_maxage=14400)
     def list(self, request):
+        """
+        Get information about pharmacies on duty today and tomorrow.
+        The corresponding Places (pharmacies) are included in the response.
+        ---
+        parameters:
+        -   name: language
+            paramType: query
+            type: string
+            description: ISO 639-1 language code.
+            enum: [eu, es, en, fr]
+            defaultValue: eu
+        """
         scraper = PharmacyGuardScraper()
 
         return Response({
-            "meta": {
-                "lastUpdated": timezone.now(),
-                "source": scraper.get_source()
+            'meta': {
+                'language': request.LANGUAGE_CODE,
+                'lastUpdated': timezone.now(),
+                'source': scraper.get_source(),
             },
-            'data': scraper.get_data()
+            'data': scraper.get_data(),
         })

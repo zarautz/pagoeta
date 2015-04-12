@@ -11,7 +11,7 @@ class TypeField(serializers.RelatedField):
     def to_representation(self, value):
         return {
             'code': value.code,
-            'name': value.name
+            'name': value.name,
         }
 
 

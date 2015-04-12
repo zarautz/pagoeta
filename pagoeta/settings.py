@@ -80,6 +80,7 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     # Custom apps
     'rest_framework',
+    'rest_framework_swagger',
     'pagoeta.apps.core',
     'pagoeta.apps.places',
     'pagoeta.apps.events',
@@ -149,7 +150,7 @@ REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': (
         'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly',
     ),
-    'URL_FIELD_NAME': 'href'
+    'URL_FIELD_NAME': 'href',
 }
 
 if not DEBUG:
@@ -157,13 +158,29 @@ if not DEBUG:
         'DEFAULT_RENDERER_CLASSES': ('rest_framework.renderers.JSONRenderer',),
     })
 
+SWAGGER_SETTINGS = {
+    'exclude_namespaces': [],
+    'api_version': '1.0',
+    'enabled_methods': ('get',),
+    'info': {
+        'title': 'Pagoeta API',
+        'contact': 'team@illarra.com',
+        'description': '`Pagoeta` is the public APi of the city of Zarautz, Basque Country. '
+            'The information you can find here is free for you to use in your applications, '
+            'but please be gentle with our server (we mean, cache this results on your side too)! '
+            'All data is made available under the Open Database License: '
+            'http://opendatacommons.org/licenses/odbl/1.0/. '
+            'Whenever external sources are mentioned you should mention them too.',
+    },
+}
+
 
 # CACHE
 # https://docs.djangoproject.com/en/1.8/topics/cache/
 
 CACHES = {
     'default': {
-        'BACKEND': 'django.core.cache.backends.locmem.LocMemCache'
+        'BACKEND': 'django.core.cache.backends.locmem.LocMemCache',
     }
 }
 

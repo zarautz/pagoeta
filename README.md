@@ -12,14 +12,18 @@ API Usage policy
 Usage of the Pagoeta API is currently unrestricted. API keys are not used. Please be gentle with
 our server! In the future, we may require registration and API keys for heavy use.
 
-All data is licensed using a [CC 3.0 Attribution](https://creativecommons.org/licenses/by/3.0/)
-license. Whenever external sources are mentioned you should mention them too when you present the data.
+All data is licensed using a is made available under the
+[Open Database License](http://opendatacommons.org/licenses/odbl/1.0/). Any rights in individual
+contents of the database are licensed under the
+[Database Contents License](http://opendatacommons.org/licenses/dbcl/1.0/). Whenever external
+sources are mentioned you should mention them too when you present the data.
 
 
 For developers
 ==============
 
-Pagoeta uses [Django](https://www.djangoproject.com/) and the [Django REST Framework](http://www.django-rest-framework.org/).
+Pagoeta uses [Django](https://www.djangoproject.com/) and the
+[Django REST Framework](http://www.django-rest-framework.org/).
 Feel free to contribute to the project.
 
 Application dependencies

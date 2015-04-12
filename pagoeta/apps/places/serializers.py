@@ -25,7 +25,7 @@ class PlaceSerializer(TranslatableModelSerializer):
     def get_geometry(self, obj):
         return {
             'type': 'Point',
-            'coordinates': (obj.longitude, obj.latitude)
+            'coordinates': (obj.longitude, obj.latitude),
         }
 
     def get_href(self, obj):

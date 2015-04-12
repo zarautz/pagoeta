@@ -3,6 +3,7 @@ import feedparser
 import hashlib
 
 from datetime import date, datetime, timedelta
+from django.db import IntegrityError
 from django.core.urlresolvers import reverse
 from django.utils import timezone
 from lxml.html import parse, fromstring
@@ -49,7 +50,7 @@ class ZuZarautzPostScraper():
                 'content': content,
                 'publishedAt': post.published,
                 'tags': [tag.term.lower() for tag in post.tags],
-                'contentImages': content_images
+                'contentImages': content_images,
             })
 
         return posts
@@ -60,8 +61,7 @@ class ZuZarautzPostScraper():
         try:
             x = XeroxImage(hash=hash, url=image_source)
             x.save()
-        except:
-            # https://docs.djangoproject.com/en/dev/ref/exceptions/#database-exceptions
+        except IntegrityError:
             pass
 
         return {
@@ -69,6 +69,6 @@ class ZuZarautzPostScraper():
                 'square': get_absolute_uri(reverse('xerox', args=('square', hash))),
                 'small': get_absolute_uri(reverse('xerox', args=('small', hash))),
                 'medium': get_absolute_uri(reverse('xerox', args=('medium', hash))),
-                'large': get_absolute_uri(reverse('xerox', args=('large', hash)))
+                'large': get_absolute_uri(reverse('xerox', args=('large', hash))),
             }
         }

@@ -7,22 +7,22 @@ from .scrapers import ZuZarautzPostScraper
 
 
 class ZuZarautzPostViewSet(ViewSet):
-    """
-    Get the latest Zu Zarautz news.
-    """
     permission_classes = (IsAuthenticatedOrReadOnly,)
 
     @cache_control(max_age=7200, s_maxage=7200)
     def list(self, request):
+        """
+        Get the latest Zu Zarautz (http://zuzarautz.net/) news (language="eu").
+        """
         scraper = ZuZarautzPostScraper()
         data = scraper.get_data()
 
         return Response({
-            "meta": {
-                "language": "eu",
-                "lastUpdated": scraper.updated,
-                "source": scraper.get_source(),
-                "totalCount": len(data)
+            'meta': {
+                'language': 'eu',
+                'lastUpdated': scraper.updated,
+                'source': scraper.get_source(),
+                'totalCount': len(data),
             },
-            'data': data
+            'data': data,
         })
