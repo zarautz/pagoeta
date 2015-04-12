@@ -16,7 +16,6 @@ class PlaceSerializer(TranslatableModelSerializer):
     types = serializers.StringRelatedField(many=True, read_only=True)
     events = serializers.PrimaryKeyRelatedField(many=True, read_only=True)
     geometry = serializers.SerializerMethodField()
-    href = serializers.SerializerMethodField()
 
     class Meta(object):
         model = Place
@@ -28,10 +27,12 @@ class PlaceSerializer(TranslatableModelSerializer):
             'coordinates': (obj.longitude, obj.latitude),
         }
 
-    def get_href(self, obj):
-        return get_absolute_uri(reverse('v1:place-detail', [obj.id]))
-
 
 class PlaceListSerializer(PlaceSerializer):
+    href = serializers.SerializerMethodField()
+
     class Meta(PlaceSerializer.Meta):
         exclude = PlaceSerializer.Meta.exclude + ('url', 'description')
+
+    def get_href(self, obj):
+        return get_absolute_uri(reverse('v1:place-detail', [obj.id]))

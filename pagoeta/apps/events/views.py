@@ -4,7 +4,7 @@ from rest_framework.response import Response
 from rest_framework.viewsets import ReadOnlyModelViewSet
 
 from .models import Event
-from .serializers import EventSerializer
+from .serializers import EventSerializer, EventListSerializer
 
 
 class EventViewSet(ReadOnlyModelViewSet):
@@ -45,7 +45,7 @@ class EventViewSet(ReadOnlyModelViewSet):
             raise ParseError('Difference between dates cannot be more than 180 days.')
 
         queryset = self.queryset.filter(start_at__gte=from_date, end_at__lte=to_date)
-        serializer = EventSerializer(queryset, many=True)
+        serializer = EventListSerializer(queryset, many=True)
 
         return Response({
             'meta': {

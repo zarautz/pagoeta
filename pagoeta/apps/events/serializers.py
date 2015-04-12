@@ -25,11 +25,14 @@ class EventSerializer(TranslatableModelSerializer):
     endAt = serializers.DateTimeField(source='end_at', read_only=True)
     isFeatured = serializers.BooleanField(source='is_featured', read_only=True)
     isVisible = serializers.BooleanField(source='is_visible', read_only=True)
-    href = serializers.SerializerMethodField()
 
     class Meta(object):
         model = Event
         exclude = ('target_group', 'target_age', 'start_at', 'end_at', 'is_featured', 'is_visible', 'language_code')
+
+
+class EventListSerializer(EventSerializer):
+    href = serializers.SerializerMethodField()
 
     def get_href(self, obj):
         return get_absolute_uri(reverse('v1:event-detail', [obj.id]))
