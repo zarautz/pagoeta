@@ -35,7 +35,7 @@ class AstronomicalObserver():
 
 
     def get_sortered_moon_phases(self, date):
-        """ We process next moon phase dates ordering them by date."""
+        """Returns next moon phase dates, ordered by date."""
         phases = [
             { 'code': 'new', 'date': ephem.localtime(ephem.next_new_moon(date)) },
             { 'code': 'q1', 'date': ephem.localtime(ephem.next_first_quarter_moon(date)) },

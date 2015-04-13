@@ -3,8 +3,10 @@ import re
 from lxml import html, etree
 from lxml.cssselect import CSSSelector
 from requests import get
+from requests.exceptions import RequestException
 
 from .helpers import AstronomicalObserver
+from pagoeta.apps.core.exceptions import ServiceUnavailableException
 
 
 class ForecastScraperWrapper():
@@ -55,9 +57,13 @@ class TideScraper():
         return data
 
     def parse_html(self, month):
-        url = ('http://www4.gipuzkoa.net/MedioAmbiente/gipuzkoaingurumena/eu/secciones/'
-            'playas/mareas.asp?filtroMesMarea=%d')
-        source = get(url % month).text
+        try:
+            url = ('http://www4.gipuzkoa.net/MedioAmbiente/gipuzkoaingurumena/eu/secciones/playas/'
+                'mareas.asp?filtroMesMarea=%d')
+            source = get(url % month).text
+        except RequestException:
+            raise ServiceUnavailableException
+
         data = {}
 
         for row, tr in enumerate(html.fromstring(source).cssselect('.tabla tbody > tr')):
@@ -91,8 +97,12 @@ class WeatherScraper():
         return self.parse_xml()
 
     def parse_xml(self):
-        source = get(self.url).text.encode('utf-8')
-        root = etree.fromstring(source)
+        try:
+            source = get(self.url).text.encode('utf-8')
+            root = etree.fromstring(source)
+        except (RequestException, etree.XMLSyntaxError):
+            raise ServiceUnavailableException
+
         data = {}
 
         for element in root.iter('dia'):
@@ -114,7 +124,7 @@ class WeatherScraper():
             2: ('00-12', '12-24'),
             3: ('00-24',)
         }
-        wind_direction_map = { 'N': 'N', 'NE': 'NE', 'E': 'E', 'SE': 'SE', 'S': 'S', 'SO': 'SW', 'O': 'W', 'NO': 'NW', 'C': 'C' }
+        wind_map = { 'N': 'N', 'NE': 'NE', 'E': 'E', 'SE': 'SE', 'S': 'S', 'SO': 'SW', 'O': 'W', 'NO': 'NW', 'C': 'C' }
         forecast_data = []
 
         if element.xpath('.//estado_cielo[@periodo="00-06"]'):
@@ -129,21 +139,23 @@ class WeatherScraper():
                 """We need to check if data for a given period exists,
                 because AEMET hides the data once the period is over."""
                 if element.xpath('.//estado_cielo[@periodo="%s"]' % period)[0].text:
+                    print element.xpath('.//viento/direccion')[0].text
                     forecast_data.append({
                         'period': period,
                         'code': int(element.xpath('.//estado_cielo[@periodo="%s"]' % period)[0].text.replace('n', '')),
                         'precipitationProb': int(element.xpath('.//prob_precipitacion[@periodo="%s"]' % period)[0].text),
-                        'windDirection': element.xpath('.//viento/direccion')[0].text,
+                        'windDirection': wind_map[element.xpath('.//viento[@periodo="%s"]/direccion' % period)[0].text],
                         'windSpeed': int(element.xpath('.//viento[@periodo="%s"]/velocidad' % period)[0].text),
                     })
 
         else:
             period = period_groups[period_group][0]
+            print element.xpath('.//viento/direccion')[0].text
             forecast_data.append({
                 'period': period,
                 'code': int(element.find('estado_cielo').text.replace('n', '')),
                 'precipitationProb': int(element.find('prob_precipitacion').text),
-                'windDirection': element.xpath('.//viento/direccion')[0].text,
+                'windDirection': wind_map[element.xpath('.//viento/direccion')[0].text],
                 'windSpeed': int(element.xpath('.//viento/velocidad')[0].text),
             })
 

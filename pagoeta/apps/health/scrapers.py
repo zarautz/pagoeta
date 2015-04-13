@@ -5,6 +5,7 @@ from requests import post
 from requests.exceptions import RequestException
 
 from .models import Pharmacy
+from pagoeta.apps.core.exceptions import ServiceUnavailableException
 from pagoeta.apps.places.models import Place
 from pagoeta.apps.places.serializers import PlaceListSerializer
 
@@ -61,13 +62,10 @@ class PharmacyGuardScraper():
 
     def parse_pharmacy_id(self, date, guard_time='day'):
         request = self.request_data_from_cofg(date, guard_time)
+        cofg_pharmacy_id = int(json.loads(request.text)[0]['id'])
+        pharmacy_id = self.get_internal_pharmacy_id(cofg_pharmacy_id)
 
-        if request.status_code == 200:
-            cofg_pharmacy_id = int(json.loads(request.text)[0]['id'])
-            pharmacy_id = self.get_internal_pharmacy_id(cofg_pharmacy_id)
-            return pharmacy_id
-        else:
-            return None
+        return pharmacy_id
 
     def request_data_from_cofg(self, date, guard_time='day'):
         try:
@@ -83,5 +81,5 @@ class PharmacyGuardScraper():
             return post('http://m.cofgipuzkoa.com/ws/cofg_ws.php', data=data)
 
         except RequestException:
-            return { 'status_code': 500 }
+            raise ServiceUnavailableException
 

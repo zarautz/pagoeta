@@ -8,7 +8,7 @@ from pagoeta.apps.places.models import Place
 class Type(TranslatableModel):
     code = models.CharField(max_length=100)
     translations = TranslatedFields(
-        name = models.CharField(max_length=255)
+        name = models.CharField(max_length=255),
     )
 
     objects = TranslationManager(default_class=TranslationQueryset)
@@ -45,7 +45,7 @@ class Event(TranslatableModel):
     is_visible = models.BooleanField('Visible', default=True)
     translations = TranslatedFields(
         name = models.CharField(max_length=255),
-        description = models.TextField()
+        description = models.TextField(),
     )
 
     objects = TranslationManager(default_class=TranslationQueryset)

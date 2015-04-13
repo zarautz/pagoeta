@@ -28,7 +28,8 @@ class EventSerializer(TranslatableModelSerializer):
 
     class Meta(object):
         model = Event
-        exclude = ('target_group', 'target_age', 'start_at', 'end_at', 'is_featured', 'is_visible', 'language_code')
+        camel_cased_fields = ('target_group', 'target_age', 'start_at', 'end_at', 'is_featured', 'is_visible')
+        exclude = camel_cased_fields + ('language_code',)
 
 
 class EventListSerializer(EventSerializer):

@@ -4,7 +4,7 @@ from PIL import Image, ImageOps
 
 def get_absolute_uri(relative_uri):
     protocol = 'https://' if settings.SESSION_COOKIE_SECURE else 'http://'
-    return '%s%s%s' % (protocol, settings.SITE_HOST, relative_uri)
+    return protocol + settings.SITE_HOST + relative_uri
 
 
 def resize_image(image, image_filter):
