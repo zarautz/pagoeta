@@ -1,9 +1,10 @@
 from django.contrib import admin
+from modeltranslation.admin import TranslationAdmin
 
 from .models import WeatherCode
 
 
-class WeatherCodeAdmin(admin.ModelAdmin):
+class WeatherCodeAdmin(TranslationAdmin):
     list_display = ('id', 'code', 'name')
     search_fields = ('name',)
 
