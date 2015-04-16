@@ -1,7 +1,7 @@
 from rest_framework import serializers
 from rest_framework.reverse import reverse
 
-from .models import Place, Type
+from .models import Place
 from pagoeta.apps.core.functions import get_absolute_uri
 from pagoeta.apps.core.serializers import TranslationModelSerializer
 
