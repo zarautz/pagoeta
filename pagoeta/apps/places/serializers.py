@@ -3,20 +3,22 @@ from rest_framework.reverse import reverse
 
 from .models import Place, Type
 from pagoeta.apps.core.functions import get_absolute_uri
+from pagoeta.apps.core.serializers import TranslationModelSerializer
 
 
-class TypeSerializer(serializers.ModelSerializer):
-    class Meta(object):
-        model = Type
+class TypeField(serializers.RelatedField):
+    def to_representation(self, value):
+        return value.code
 
 
-class PlaceSerializer(serializers.ModelSerializer):
-    types = serializers.StringRelatedField(many=True, read_only=True)
+class PlaceSerializer(TranslationModelSerializer):
+    types = TypeField(many=True, read_only=True)
     events = serializers.PrimaryKeyRelatedField(many=True, read_only=True)
     geometry = serializers.SerializerMethodField()
 
     class Meta(object):
         model = Place
+        translation_fields = ('name', 'description')
         exclude = ('latitude', 'longitude', 'price_level')
 
     def get_geometry(self, obj):
