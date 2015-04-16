@@ -23,6 +23,7 @@ class AstronomicalObserver():
                 'sunset': ephem.localtime(observer.next_setting(sun)).strftime('%H:%M'),
                 'moon': {
                     'illuminatedPercent': int(moon.moon_phase * 100),
+                    'phase': moon_phases[3]['code'],
                     'phaseChangesToday': (date == moon_phases[0]['date'].date()),
                     'nextPhase': moon_phases[0]['code'],
                     'nextPhaseDatetime': moon_phases[0]['date'],
