@@ -68,7 +68,6 @@ INSTALLED_APPS = (
     # Helpers
     'djrill',
     'imagekit',
-    'markdown_deux',
     'storages',
     'wkhtmltopdf',
     # Default Django apps
@@ -88,8 +87,6 @@ INSTALLED_APPS = (
     'pagoeta.apps.posts',
     # Admin
     'grappelli',
-    'easy_select2',
-    # 'pagedown', Fix this when package is fixed
     'django.contrib.admin',
 )
 
