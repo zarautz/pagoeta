@@ -12,8 +12,7 @@ API Usage policy
 Usage of the Pagoeta API is currently unrestricted. API keys are not used. Please be gentle with our server!
 In the future, we may require registration and API keys for heavy use.
 
-All data is licensed using a is made available under the
-[Open Database License](http://opendatacommons.org/licenses/odbl/1.0/).
+All data is made available under the [Open Database License](http://opendatacommons.org/licenses/odbl/1.0/).
 Any rights in individual contents of the database are licensed under the
 [Database Contents License](http://opendatacommons.org/licenses/dbcl/1.0/).
 Whenever external sources are mentioned you should mention them too when you present the data.
@@ -60,4 +59,3 @@ It is recommended to use [flake8](https://pypi.python.org/pypi/flake8) which com
 (`flake8` is included in the development requirements):
 
     $ flake8 --max-line-length=119 pagoeta
-
