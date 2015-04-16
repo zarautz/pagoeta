@@ -145,7 +145,7 @@ class WeatherScraper():
     def parse_forecast(self, element, period, is_detailed=False):
         wind_map = {'N': 'N', 'NE': 'NE', 'E': 'E', 'SE': 'SE', 'S': 'S', 'SO': 'SW', 'O': 'W', 'NO': 'NW', 'C': 'C'}
         xpattern = ('[@periodo="%s"]' % period) if is_detailed else ''
-        print xpattern
+
         return {
             'period': period,
             'code': int(element.xpath('.//estado_cielo%s' % xpattern)[0].text.replace('n', '')),
