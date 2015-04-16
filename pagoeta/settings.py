@@ -10,7 +10,6 @@ https://docs.djangoproject.com/en/1.8/ref/settings/
 
 import json
 import os
-import sys
 
 from django.conf import global_settings
 
@@ -65,7 +64,7 @@ TEMPLATE_DIRS = (
 
 INSTALLED_APPS = (
     # Translations
-    'hvad',
+    'modeltranslation',
     # Helpers
     'djrill',
     'imagekit',
@@ -90,21 +89,25 @@ INSTALLED_APPS = (
     # Admin
     'grappelli',
     'easy_select2',
-    #'pagedown', Fix this when package is fixed
+    # 'pagedown', Fix this when package is fixed
     'django.contrib.admin',
 )
 
+# http://stackoverflow.com/questions/4632323/practical-rules-for-django-middleware-ordering
+
 MIDDLEWARE_CLASSES = (
-    'django.middleware.gzip.GZipMiddleware',
-    'pagoeta.apps.core.middleware.LanguageOnQueryParamMiddleware',
     'django.middleware.cache.UpdateCacheMiddleware',
-    'django.middleware.common.CommonMiddleware',
-    'django.middleware.cache.FetchFromCacheMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware',
+    'django.middleware.gzip.GZipMiddleware',
+    'django.middleware.http.ConditionalGetMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.middleware.locale.LocaleMiddleware',
+    'pagoeta.apps.core.middleware.LanguageOnQueryParamMiddleware',
+    'django.middleware.common.CommonMiddleware',
+    'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django.middleware.cache.FetchFromCacheMiddleware',
 )
 
 if DEBUG:
@@ -136,7 +139,8 @@ DATABASES = {
         'HOST': creds['MYSQLS']['MYSQLS_HOSTNAME'],
         'PORT': creds['MYSQLS']['MYSQLS_PORT'],
         'OPTIONS': {
-            'init_command': 'SET storage_engine=INNODB,character_set_connection=utf8,collation_connection=utf8_unicode_ci;',
+            'init_command': 'SET storage_engine=INNODB,character_set_connection=utf8,'
+                            'collation_connection=utf8_unicode_ci;',
         }
     }
 }
@@ -165,12 +169,12 @@ SWAGGER_SETTINGS = {
     'info': {
         'title': 'Pagoeta API',
         'contact': 'team@illarra.com',
-        'description': '`Pagoeta` is the public APi of the city of Zarautz, Basque Country. '
-            'The information you can find here is free for you to use in your applications, '
-            'but please be gentle with our server (we mean, cache this results on your side too)! '
-            'All data is made available under the Open Database License: '
-            'http://opendatacommons.org/licenses/odbl/1.0/. '
-            'Whenever external sources are mentioned you should mention them too.',
+        'description': '`Pagoeta` is the public API of the city of Zarautz, Basque Country. '
+                       'The information you can find here is free for you to use in your applications, '
+                       'but please be gentle with our server (you should cache this results on your side too). '
+                       'All data is made available under the Open Database License: '
+                       'http://opendatacommons.org/licenses/odbl/1.0/. '
+                       'Whenever external sources are mentioned you should mention them too.',
     },
 }
 
@@ -209,6 +213,7 @@ SERVER_EMAIL = 'root@zarautz.org'
 # https://docs.djangoproject.com/en/1.8/topics/i18n/
 
 LANGUAGE_CODE = 'eu'
+MODELTRANSLATION_DEFAULT_LANGUAGE = LANGUAGE_CODE
 USE_L10N = True
 
 USE_I18N = True
@@ -218,6 +223,8 @@ LANGUAGES = (
     ('en', 'English'),
     ('fr', 'French'),
 )
+
+LOCALE_PATHS = (os.path.join(BASE_DIR, 'pagoeta/locale'),)
 
 
 # Time zones
@@ -233,7 +240,7 @@ TIME_ZONE = 'Europe/Madrid'
 # https://docs.djangoproject.com/en/1.8/ref/settings/#media-root
 # https://django-storages.readthedocs.org/en/latest/backends/amazon-S3.html
 
-AWS_HEADERS = { # see http://developer.yahoo.com/performance/rules.html#expires
+AWS_HEADERS = {  # see http://developer.yahoo.com/performance/rules.html#expires
     'Expires': 'Thu, 31 Dec 2099 20:00:00 GMT',
     'Cache-Control': 'max-age=94608000',
 }
@@ -287,7 +294,7 @@ TEMPLATE_CONTEXT_PROCESSORS = global_settings.TEMPLATE_CONTEXT_PROCESSORS + (
 FIRST_DAY_OF_WEEK = 1
 DATE_FORMAT = 'N j, Y'
 TIME_FORMAT = 'H:i'
-DATETIME_FORMAT = DATE_FORMAT +', '+ TIME_FORMAT
+DATETIME_FORMAT = DATE_FORMAT + ', ' + TIME_FORMAT
 
 GRAPPELLI_ADMIN_TITLE = 'Pagoeta API'
 GRAPPELLI_CLEAN_INPUT_TYPES = False

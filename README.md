@@ -33,7 +33,6 @@ While in development, you will need to read the dependencies from the following 
 
     $ pip install -r requirements/development.txt
 
-
 Configuration
 -------------
 The application looks for the necessary configuration/credentials in a JSON file at the root folder.
@@ -48,13 +47,17 @@ Once the database configuration is filled in you can generate the necessary tabl
 
     $ python manage.py migrate
 
-
 Running the server
 ------------------
     $ python manage.py runserver
 
-
 Style guide
 -----------
-Unless otherwise specified, follow [Django Coding Style](https://docs.djangoproject.com/en/1.8/internals/contributing/writing-code/coding-style/). Tab size is 4 **spaces**.
+Unless otherwise specified, follow
+[Django Coding Style](https://docs.djangoproject.com/en/1.8/internals/contributing/writing-code/coding-style/).
+Tab size is 4 **spaces**. Maximum line length is 119. Furthermore your code has to validate against pyflakes.
+It is recommended to use [flake8](https://pypi.python.org/pypi/flake8) which combines all the checks
+(`flake8` is included in the development requirements):
+
+    $ flake8 --max-line-length=119 pagoeta
 

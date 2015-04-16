@@ -1,7 +1,4 @@
-import re
-
 from lxml import html, etree
-from lxml.cssselect import CSSSelector
 from requests import get
 from requests.exceptions import RequestException
 
@@ -47,7 +44,7 @@ class TideScraper():
         self.months = sorted(list(set([date.month for date in date_list])))
 
     def get_source(self):
-        return { 'Gipuzkoako Foru Aldundia': 'http://www.gipuzkoa.eus/' }
+        return {'Gipuzkoako Foru Aldundia': 'http://www.gipuzkoa.eus/'}
 
     def get_data(self):
         data = {}
@@ -59,7 +56,7 @@ class TideScraper():
     def parse_html(self, month):
         try:
             url = ('http://www4.gipuzkoa.net/MedioAmbiente/gipuzkoaingurumena/eu/secciones/playas/'
-                'mareas.asp?filtroMesMarea=%d')
+                   'mareas.asp?filtroMesMarea=%d')
             source = get(url % month).text
         except RequestException:
             raise ServiceUnavailableException
@@ -72,13 +69,13 @@ class TideScraper():
 
             if date_formatted in self.formatted_date_dict:
                 date_str = str(self.formatted_date_dict[date_formatted])
-                data[date_str] = { 'low': [], 'high': [] }
+                data[date_str] = {'low': [], 'high': []}
                 cols.pop(0)
             else:
                 continue
 
             for col, td in enumerate(cols):
-                """mod % 2 to detect even cols"""
+                """mod % 2 to detect even cols."""
                 tide = 'high' if ((col % 2) == 0) else 'low'
                 data[date_str][tide].append(td.text_content().strip())
 
@@ -91,7 +88,7 @@ class WeatherScraper():
         self.url = url if url else 'http://www.aemet.es/xml/municipios/localidad_20079.xml'
 
     def get_source(self):
-        return { 'AEMET': 'http://www.aemet.es/' }
+        return {'AEMET': 'http://www.aemet.es/'}
 
     def get_data(self):
         return self.parse_xml()
@@ -124,7 +121,6 @@ class WeatherScraper():
             2: ('00-12', '12-24'),
             3: ('00-24',)
         }
-        wind_map = { 'N': 'N', 'NE': 'NE', 'E': 'E', 'SE': 'SE', 'S': 'S', 'SO': 'SW', 'O': 'W', 'NO': 'NW', 'C': 'C' }
         forecast_data = []
 
         if element.xpath('.//estado_cielo[@periodo="00-06"]'):
@@ -134,29 +130,26 @@ class WeatherScraper():
         else:
             period_group = 3
 
-        if period_group < 3:
+        if period_group == 3:
+            period = period_groups[period_group][0]
+            forecast_data.append(self.parse_forecast(element, period, False))
+        else:
             for period in period_groups[period_group]:
                 """We need to check if data for a given period exists,
                 because AEMET hides the data once the period is over."""
                 if element.xpath('.//estado_cielo[@periodo="%s"]' % period)[0].text:
-                    print element.xpath('.//viento/direccion')[0].text
-                    forecast_data.append({
-                        'period': period,
-                        'code': int(element.xpath('.//estado_cielo[@periodo="%s"]' % period)[0].text.replace('n', '')),
-                        'precipitationProb': int(element.xpath('.//prob_precipitacion[@periodo="%s"]' % period)[0].text),
-                        'windDirection': wind_map[element.xpath('.//viento[@periodo="%s"]/direccion' % period)[0].text],
-                        'windSpeed': int(element.xpath('.//viento[@periodo="%s"]/velocidad' % period)[0].text),
-                    })
-
-        else:
-            period = period_groups[period_group][0]
-            print element.xpath('.//viento/direccion')[0].text
-            forecast_data.append({
-                'period': period,
-                'code': int(element.find('estado_cielo').text.replace('n', '')),
-                'precipitationProb': int(element.find('prob_precipitacion').text),
-                'windDirection': wind_map[element.xpath('.//viento/direccion')[0].text],
-                'windSpeed': int(element.xpath('.//viento/velocidad')[0].text),
-            })
+                    forecast_data.append(self.parse_forecast(element, period, True))
 
         return forecast_data
+
+    def parse_forecast(self, element, period, is_detailed=False):
+        wind_map = {'N': 'N', 'NE': 'NE', 'E': 'E', 'SE': 'SE', 'S': 'S', 'SO': 'SW', 'O': 'W', 'NO': 'NW', 'C': 'C'}
+        xpattern = ('[@periodo="%s"]' % period) if is_detailed else ''
+        print xpattern
+        return {
+            'period': period,
+            'code': int(element.xpath('.//estado_cielo%s' % xpattern)[0].text.replace('n', '')),
+            'precipitationProb': int(element.xpath('.//prob_precipitacion%s' % xpattern)[0].text),
+            'windDirection': wind_map[element.xpath('.//viento%s/direccion' % xpattern)[0].text],
+            'windSpeed': int(element.xpath('.//viento%s/velocidad' % xpattern)[0].text),
+        }

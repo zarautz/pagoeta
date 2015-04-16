@@ -1,54 +1,59 @@
 from django.db import models
-from hvad.manager import TranslationManager, TranslationQueryset
-from hvad.models import TranslatableModel, TranslatedFields
+from django.utils.translation import ugettext_lazy as _
 
 from pagoeta.apps.places.models import Place
 
 
-class Type(TranslatableModel):
+class Type(models.Model):
     code = models.CharField(max_length=100)
-    translations = TranslatedFields(
-        name = models.CharField(max_length=255),
-    )
-
-    objects = TranslationManager(default_class=TranslationQueryset)
+    name = models.CharField(max_length=255)
 
     class Meta(object):
         abstract = True
 
     def __unicode__(self):
-        return u'%s' % self.code
+        return u'%s' % self.name
 
 
 class Category(Type):
-    translations = TranslatedFields()
-
-
-class TargetGroup(Type):
-    translations = TranslatedFields()
+    class Meta(object):
+        verbose_name = _('category')
+        verbose_name_plural = _('categories')
+        ordering = ('name',)
 
 
 class TargetAge(Type):
-    translations = TranslatedFields()
+    class Meta(object):
+        verbose_name = _('target age group')
+        verbose_name_plural = _('target age groups')
 
 
-class Event(TranslatableModel):
+class TargetGroup(Type):
+    class Meta(object):
+        verbose_name = _('target group')
+        verbose_name_plural = _('target groups')
+
+
+class Event(models.Model):
+    name = models.CharField(max_length=255)
+    description = models.TextField()
     place = models.ForeignKey(Place, related_name='events')
     category = models.ForeignKey(Category, related_name='events')
+    parent = models.ForeignKey('self', null=True, blank=True, related_name='subevents')
     target_group = models.ForeignKey(TargetGroup, related_name='events')
     target_age = models.ForeignKey(TargetAge, related_name='events')
     start_at = models.DateTimeField()
     end_at = models.DateTimeField(null=True, blank=True)
-    price = models.PositiveSmallIntegerField()
+    price = models.PositiveSmallIntegerField(null=True, blank=True)
     url = models.URLField(null=True, blank=True)
     is_featured = models.BooleanField('Featured', default=False)
     is_visible = models.BooleanField('Visible', default=True)
-    translations = TranslatedFields(
-        name = models.CharField(max_length=255),
-        description = models.TextField(),
-    )
 
-    objects = TranslationManager(default_class=TranslationQueryset)
+    is_superevent = models.BooleanField('Visible', default=True)
+
+    class Meta(object):
+        verbose_name = _('event')
+        verbose_name_plural = _('events')
 
     def __unicode__(self):
         return u'%s' % self.name

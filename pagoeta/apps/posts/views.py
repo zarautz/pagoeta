@@ -1,7 +1,7 @@
 from django.views.decorators.cache import cache_control
 from rest_framework.permissions import IsAuthenticatedOrReadOnly
 from rest_framework.response import Response
-from rest_framework.viewsets import ViewSet, ReadOnlyModelViewSet
+from rest_framework.viewsets import ViewSet
 
 from .scrapers import ZuZarautzPostScraper
 

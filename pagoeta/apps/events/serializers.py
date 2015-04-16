@@ -1,8 +1,7 @@
-from hvad.contrib.restframework import TranslatableModelSerializer
 from rest_framework import serializers
 from rest_framework.reverse import reverse
 
-from .models import Category, TargetGroup, TargetAge, Event
+from .models import Event
 from pagoeta.apps.core.functions import get_absolute_uri
 from pagoeta.apps.places.serializers import PlaceListSerializer
 
@@ -15,7 +14,7 @@ class TypeField(serializers.RelatedField):
         }
 
 
-class EventSerializer(TranslatableModelSerializer):
+class EventSerializer(serializers.ModelSerializer):
     category = TypeField(read_only=True)
     place = PlaceListSerializer(read_only=True)
     # camelCase some field names
@@ -29,7 +28,7 @@ class EventSerializer(TranslatableModelSerializer):
     class Meta(object):
         model = Event
         camel_cased_fields = ('target_group', 'target_age', 'start_at', 'end_at', 'is_featured', 'is_visible')
-        exclude = camel_cased_fields + ('language_code',)
+        exclude = camel_cased_fields
 
 
 class EventListSerializer(EventSerializer):

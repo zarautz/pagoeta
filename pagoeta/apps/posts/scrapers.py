@@ -2,11 +2,10 @@ import bleach
 import feedparser
 import hashlib
 
-from datetime import date, datetime, timedelta
+from datetime import datetime
 from django.db import IntegrityError
 from django.core.urlresolvers import reverse
-from django.utils import timezone
-from lxml.html import parse, fromstring
+from lxml.html import fromstring
 from time import mktime
 
 from pagoeta.apps.core.functions import get_absolute_uri
@@ -17,7 +16,7 @@ class ZuZarautzPostScraper():
     updated = None
 
     def get_source(self):
-        return { 'Zu Zarautz': 'http://zuzarautz.info/' }
+        return {'Zu Zarautz': 'http://zuzarautz.info/'}
 
     def get_data(self):
         return self.parse_rss_feed()
@@ -39,7 +38,6 @@ class ZuZarautzPostScraper():
 
             for img in fromstring(content).cssselect('img'):
                 image_source = img.get('src')
-                hash = hashlib.sha1(image_source).hexdigest()
                 content_images[image_source] = self.get_xerox_image_sources(image_source)
 
             posts.append({

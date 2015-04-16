@@ -15,7 +15,7 @@ class PharmacyGuardScraper():
     place_ids = []
 
     def get_source(self):
-        return { 'COFG': 'https://www.cofgipuzkoa.com/' }
+        return {'COFG': 'https://www.cofgipuzkoa.com/'}
 
     def get_data(self):
         return {
@@ -82,4 +82,3 @@ class PharmacyGuardScraper():
 
         except RequestException:
             raise ServiceUnavailableException
-

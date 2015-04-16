@@ -1,4 +1,3 @@
-from hvad.contrib.restframework import TranslatableModelSerializer
 from rest_framework import serializers
 from rest_framework.reverse import reverse
 
@@ -6,20 +5,19 @@ from .models import Place, Type
 from pagoeta.apps.core.functions import get_absolute_uri
 
 
-class TypeSerializer(TranslatableModelSerializer):
+class TypeSerializer(serializers.ModelSerializer):
     class Meta(object):
         model = Type
-        exclude = ('language_code',)
 
 
-class PlaceSerializer(TranslatableModelSerializer):
+class PlaceSerializer(serializers.ModelSerializer):
     types = serializers.StringRelatedField(many=True, read_only=True)
     events = serializers.PrimaryKeyRelatedField(many=True, read_only=True)
     geometry = serializers.SerializerMethodField()
 
     class Meta(object):
         model = Place
-        exclude = ('latitude', 'longitude', 'price_level', 'language_code')
+        exclude = ('latitude', 'longitude', 'price_level')
 
     def get_geometry(self, obj):
         return {

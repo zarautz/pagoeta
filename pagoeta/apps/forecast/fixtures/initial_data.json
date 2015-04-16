@@ -3,1248 +3,352 @@
         "model": "forecast.weathercode",
         "fields": {
             "id": 1,
-            "code": "11"
-        }
-    },
-    {
-        "model": "forecast.weathercodetranslation",
-        "fields": {
-            "master": 1,
-            "name": "Oskarbi",
-            "language_code": "eu"
-        }
-    },
-    {
-        "model": "forecast.weathercodetranslation",
-        "fields": {
-            "master": 1,
-            "name": "Despejado",
-            "language_code": "es"
-        }
-    },
-    {
-        "model": "forecast.weathercodetranslation",
-        "fields": {
-            "master": 1,
-            "name": "Cloudless",
-            "language_code": "en"
-        }
-    },
-    {
-        "model": "forecast.weathercodetranslation",
-        "fields": {
-            "master": 1,
-            "name": "Dégagé",
-            "language_code": "fr"
+            "code": "11",
+            "name_eu": "Oskarbi",
+            "name_es": "Despejado",
+            "name_en": "Cloudless",
+            "name_fr": "Dégagé"
         }
     },
     {
         "model": "forecast.weathercode",
         "fields": {
             "id": 2,
-            "code": "12"
-        }
-    },
-    {
-        "model": "forecast.weathercodetranslation",
-        "fields": {
-            "master": 2,
-            "name": "Hodei ahulak",
-            "language_code": "eu"
-        }
-    },
-    {
-        "model": "forecast.weathercodetranslation",
-        "fields": {
-            "master": 2,
-            "name": "Poco nuboso",
-            "language_code": "es"
-        }
-    },
-    {
-        "model": "forecast.weathercodetranslation",
-        "fields": {
-            "master": 2,
-            "name": "Low cloud cover",
-            "language_code": "en"
-        }
-    },
-    {
-        "model": "forecast.weathercodetranslation",
-        "fields": {
-            "master": 2,
-            "name": "Belles éclaircies",
-            "language_code": "fr"
+            "code": "12",
+            "name_eu": "Hodei ahulak",
+            "name_es": "Poco nuboso",
+            "name_en": "Low cloud cover",
+            "name_fr": "Belles éclaircies"
         }
     },
     {
         "model": "forecast.weathercode",
         "fields": {
             "id": 3,
-            "code": "13"
-        }
-    },
-    {
-        "model": "forecast.weathercodetranslation",
-        "fields": {
-            "master": 3,
-            "name": "Lainoguneak",
-            "language_code": "eu"
-        }
-    },
-    {
-        "model": "forecast.weathercodetranslation",
-        "fields": {
-            "master": 3,
-            "name": "Intervalos nubosos",
-            "language_code": "es"
-        }
-    },
-    {
-        "model": "forecast.weathercodetranslation",
-        "fields": {
-            "master": 3,
-            "name": "Fluffy clouds",
-            "language_code": "en"
-        }
-    },
-    {
-        "model": "forecast.weathercodetranslation",
-        "fields": {
-            "master": 3,
-            "name": "Partiellement nuageux",
-            "language_code": "fr"
+            "code": "13",
+            "name_eu": "Lainoguneak",
+            "name_es": "Intervalos nubosos",
+            "name_en": "Fluffy clouds",
+            "name_fr": "Partiellement nuageux"
         }
     },
     {
         "model": "forecast.weathercode",
         "fields": {
             "id": 4,
-            "code": "14"
-        }
-    },
-    {
-        "model": "forecast.weathercodetranslation",
-        "fields": {
-            "master": 4,
-            "name": "Hodeitsua",
-            "language_code": "eu"
-        }
-    },
-    {
-        "model": "forecast.weathercodetranslation",
-        "fields": {
-            "master": 4,
-            "name": "Nuboso",
-            "language_code": "es"
-        }
-    },
-    {
-        "model": "forecast.weathercodetranslation",
-        "fields": {
-            "master": 4,
-            "name": "Cloudy sky",
-            "language_code": "en"
-        }
-    },
-    {
-        "model": "forecast.weathercodetranslation",
-        "fields": {
-            "master": 4,
-            "name": "Nuageux",
-            "language_code": "fr"
+            "code": "14",
+            "name_eu": "Hodeitsua",
+            "name_es": "Nuboso",
+            "name_en": "Cloudy sky",
+            "name_fr": "Nuageux"
         }
     },
     {
         "model": "forecast.weathercode",
         "fields": {
             "id": 5,
-            "code": "15"
-        }
-    },
-    {
-        "model": "forecast.weathercodetranslation",
-        "fields": {
-            "master": 5,
-            "name": "Oso hodeitsua",
-            "language_code": "eu"
-        }
-    },
-    {
-        "model": "forecast.weathercodetranslation",
-        "fields": {
-            "master": 5,
-            "name": "Muy nuboso",
-            "language_code": "es"
-        }
-    },
-    {
-        "model": "forecast.weathercodetranslation",
-        "fields": {
-            "master": 5,
-            "name": "Mostly cloudy",
-            "language_code": "en"
-        }
-    },
-    {
-        "model": "forecast.weathercodetranslation",
-        "fields": {
-            "master": 5,
-            "name": "Très nuageux",
-            "language_code": "fr"
+            "code": "15",
+            "name_eu": "Oso hodeitsua",
+            "name_es": "Muy nuboso",
+            "name_en": "Mostly cloudy",
+            "name_fr": "Très nuageux"
         }
     },
     {
         "model": "forecast.weathercode",
         "fields": {
             "id": 6,
-            "code": "16"
-        }
-    },
-    {
-        "model": "forecast.weathercodetranslation",
-        "fields": {
-            "master": 6,
-            "name": "Estalia",
-            "language_code": "eu"
-        }
-    },
-    {
-        "model": "forecast.weathercodetranslation",
-        "fields": {
-            "master": 6,
-            "name": "Cubierto",
-            "language_code": "es"
-        }
-    },
-    {
-        "model": "forecast.weathercodetranslation",
-        "fields": {
-            "master": 6,
-            "name": "Cloudy",
-            "language_code": "en"
-        }
-    },
-    {
-        "model": "forecast.weathercodetranslation",
-        "fields": {
-            "master": 6,
-            "name": "Ciel couvert",
-            "language_code": "fr"
+            "code": "16",
+            "name_eu": "Estalia",
+            "name_es": "Cubierto",
+            "name_en": "Cloudy",
+            "name_fr": "Ciel couvert"
         }
     },
     {
         "model": "forecast.weathercode",
         "fields": {
             "id": 7,
-            "code": "17"
-        }
-    },
-    {
-        "model": "forecast.weathercodetranslation",
-        "fields": {
-            "master": 7,
-            "name": "Hodei altuak",
-            "language_code": "eu"
-        }
-    },
-    {
-        "model": "forecast.weathercodetranslation",
-        "fields": {
-            "master": 7,
-            "name": "Nubes altas",
-            "language_code": "es"
-        }
-    },
-    {
-        "model": "forecast.weathercodetranslation",
-        "fields": {
-            "master": 7,
-            "name": "High clouds",
-            "language_code": "en"
-        }
-    },
-    {
-        "model": "forecast.weathercodetranslation",
-        "fields": {
-            "master": 7,
-            "name": "Nuages hauts",
-            "language_code": "fr"
+            "code": "17",
+            "name_eu": "Hodei altuak",
+            "name_es": "Nubes altas",
+            "name_en": "High clouds",
+            "name_fr": "Nuages hauts"
         }
     },
     {
         "model": "forecast.weathercode",
         "fields": {
             "id": 8,
-            "code": "23"
-        }
-    },
-    {
-        "model": "forecast.weathercodetranslation",
-        "fields": {
-            "master": 8,
-            "name": "Lainoguneak eta euria",
-            "language_code": "eu"
-        }
-    },
-    {
-        "model": "forecast.weathercodetranslation",
-        "fields": {
-            "master": 8,
-            "name": "Intervalos nubosos con lluvia",
-            "language_code": "es"
-        }
-    },
-    {
-        "model": "forecast.weathercodetranslation",
-        "fields": {
-            "master": 8,
-            "name": "Broken clouds with rainfall",
-            "language_code": "en"
-        }
-    },
-    {
-        "model": "forecast.weathercodetranslation",
-        "fields": {
-            "master": 8,
-            "name": "Partiellement nuageux et rares averses",
-            "language_code": "fr"
+            "code": "23",
+            "name_eu": "Lainoguneak eta euria",
+            "name_es": "Intervalos nubosos con lluvia",
+            "name_en": "Broken clouds with rainfall",
+            "name_fr": "Partiellement nuageux et rares averses"
         }
     },
     {
         "model": "forecast.weathercode",
         "fields": {
             "id": 9,
-            "code": "24"
-        }
-    },
-    {
-        "model": "forecast.weathercodetranslation",
-        "fields": {
-            "master": 9,
-            "name": "Hodeitsua eta euria",
-            "language_code": "eu"
-        }
-    },
-    {
-        "model": "forecast.weathercodetranslation",
-        "fields": {
-            "master": 9,
-            "name": "Nuboso con lluvia",
-            "language_code": "es"
-        }
-    },
-    {
-        "model": "forecast.weathercodetranslation",
-        "fields": {
-            "master": 9,
-            "name": "Cloudy with rainfall",
-            "language_code": "en"
-        }
-    },
-    {
-        "model": "forecast.weathercodetranslation",
-        "fields": {
-            "master": 9,
-            "name": "Pluie et bruine",
-            "language_code": "fr"
+            "code": "24",
+            "name_eu": "Hodeitsua eta euria",
+            "name_es": "Nuboso con lluvia",
+            "name_en": "Cloudy with rainfall",
+            "name_fr": "Pluie et bruine"
         }
     },
     {
         "model": "forecast.weathercode",
         "fields": {
             "id": 10,
-            "code": "25"
-        }
-    },
-    {
-        "model": "forecast.weathercodetranslation",
-        "fields": {
-            "master": 10,
-            "name": "Oso hodeitsua eta euria",
-            "language_code": "eu"
-        }
-    },
-    {
-        "model": "forecast.weathercodetranslation",
-        "fields": {
-            "master": 10,
-            "name": "Muy nuboso con lluvia",
-            "language_code": "es"
-        }
-    },
-    {
-        "model": "forecast.weathercodetranslation",
-        "fields": {
-            "master": 10,
-            "name": "Mostly cloudy with rainfall",
-            "language_code": "en"
-        }
-    },
-    {
-        "model": "forecast.weathercodetranslation",
-        "fields": {
-            "master": 10,
-            "name": "Pluies éparses et bruine",
-            "language_code": "fr"
+            "code": "25",
+            "name_eu": "Oso hodeitsua eta euria",
+            "name_es": "Muy nuboso con lluvia",
+            "name_en": "Mostly cloudy with rainfall",
+            "name_fr": "Pluies éparses et bruine"
         }
     },
     {
         "model": "forecast.weathercode",
         "fields": {
             "id": 11,
-            "code": "26"
-        }
-    },
-    {
-        "model": "forecast.weathercodetranslation",
-        "fields": {
-            "master": 11,
-            "name": "Guztiz estalia eta euria",
-            "language_code": "eu"
-        }
-    },
-    {
-        "model": "forecast.weathercodetranslation",
-        "fields": {
-            "master": 11,
-            "name": "Cubierto con lluvia",
-            "language_code": "es"
-        }
-    },
-    {
-        "model": "forecast.weathercodetranslation",
-        "fields": {
-            "master": 11,
-            "name": "Covered with rainfall",
-            "language_code": "en"
-        }
-    },
-    {
-        "model": "forecast.weathercodetranslation",
-        "fields": {
-            "master": 11,
-            "name": "Couvert et pluie",
-            "language_code": "fr"
+            "code": "26",
+            "name_eu": "Guztiz estalia eta euria",
+            "name_es": "Cubierto con lluvia",
+            "name_en": "Covered with rainfall",
+            "name_fr": "Couvert et pluie"
         }
     },
     {
         "model": "forecast.weathercode",
         "fields": {
             "id": 12,
-            "code": "33"
-        }
-    },
-    {
-        "model": "forecast.weathercodetranslation",
-        "fields": {
-            "master": 12,
-            "name": "Elurra eta lainoguneak",
-            "language_code": "eu"
-        }
-    },
-    {
-        "model": "forecast.weathercodetranslation",
-        "fields": {
-            "master": 12,
-            "name": "Intervalos nubosos con nieve",
-            "language_code": "es"
-        }
-    },
-    {
-        "model": "forecast.weathercodetranslation",
-        "fields": {
-            "master": 12,
-            "name": "Broken clouds with mid snow",
-            "language_code": "en"
-        }
-    },
-    {
-        "model": "forecast.weathercodetranslation",
-        "fields": {
-            "master": 12,
-            "name": "Partiellement couvert et chutes de neige",
-            "language_code": "fr"
+            "code": "33",
+            "name_eu": "Elurra eta lainoguneak",
+            "name_es": "Intervalos nubosos con nieve",
+            "name_en": "Broken clouds with mid snow",
+            "name_fr": "Partiellement couvert et chutes de neige"
         }
     },
     {
         "model": "forecast.weathercode",
         "fields": {
             "id": 13,
-            "code": "34"
-        }
-    },
-    {
-        "model": "forecast.weathercodetranslation",
-        "fields": {
-            "master": 13,
-            "name": "Zeru estalia eta elurra",
-            "language_code": "eu"
-        }
-    },
-    {
-        "model": "forecast.weathercodetranslation",
-        "fields": {
-            "master": 13,
-            "name": "Nuboso con nieve",
-            "language_code": "es"
-        }
-    },
-    {
-        "model": "forecast.weathercodetranslation",
-        "fields": {
-            "master": 13,
-            "name": "Cloudy with mid snow",
-            "language_code": "en"
-        }
-    },
-    {
-        "model": "forecast.weathercodetranslation",
-        "fields": {
-            "master": 13,
-            "name": "Nuageux et chutes de neige",
-            "language_code": "fr"
+            "code": "34",
+            "name_eu": "Zeru estalia eta elurra",
+            "name_es": "Nuboso con nieve",
+            "name_en": "Cloudy with mid snow",
+            "name_fr": "Nuageux et chutes de neige"
         }
     },
     {
         "model": "forecast.weathercode",
         "fields": {
             "id": 14,
-            "code": "35"
-        }
-    },
-    {
-        "model": "forecast.weathercodetranslation",
-        "fields": {
-            "master": 14,
-            "name": "Elurra eta hodeitsu",
-            "language_code": "eu"
-        }
-    },
-    {
-        "model": "forecast.weathercodetranslation",
-        "fields": {
-            "master": 14,
-            "name": "Muy nuboso con nieve",
-            "language_code": "es"
-        }
-    },
-    {
-        "model": "forecast.weathercodetranslation",
-        "fields": {
-            "master": 14,
-            "name": "Mostly cloudy with mid snow",
-            "language_code": "en"
-        }
-    },
-    {
-        "model": "forecast.weathercodetranslation",
-        "fields": {
-            "master": 14,
-            "name": "Très nuageux et chutes de neige",
-            "language_code": "fr"
+            "code": "35",
+            "name_eu": "Elurra eta hodeitsu",
+            "name_es": "Muy nuboso con nieve",
+            "name_en": "Mostly cloudy with mid snow",
+            "name_fr": "Très nuageux et chutes de neige"
         }
     },
     {
         "model": "forecast.weathercode",
         "fields": {
             "id": 15,
-            "code": "36"
-        }
-    },
-    {
-        "model": "forecast.weathercodetranslation",
-        "fields": {
-            "master": 15,
-            "name": "Elurra eta zeru estalia",
-            "language_code": "eu"
-        }
-    },
-    {
-        "model": "forecast.weathercodetranslation",
-        "fields": {
-            "master": 15,
-            "name": "Cubierto con nieve",
-            "language_code": "es"
-        }
-    },
-    {
-        "model": "forecast.weathercodetranslation",
-        "fields": {
-            "master": 15,
-            "name": "Covered with mid snow",
-            "language_code": "en"
-        }
-    },
-    {
-        "model": "forecast.weathercodetranslation",
-        "fields": {
-            "master": 15,
-            "name": "Ciel couvert et chutes de neige",
-            "language_code": "fr"
+            "code": "36",
+            "name_eu": "Elurra eta zeru estalia",
+            "name_es": "Cubierto con nieve",
+            "name_en": "Covered with mid snow",
+            "name_fr": "Ciel couvert et chutes de neige"
         }
     },
     {
         "model": "forecast.weathercode",
         "fields": {
             "id": 16,
-            "code": "43"
-        }
-    },
-    {
-        "model": "forecast.weathercodetranslation",
-        "fields": {
-            "master": 16,
-            "name": "Lainoguneak xirimiri arriskuarekin",
-            "language_code": "eu"
-        }
-    },
-    {
-        "model": "forecast.weathercodetranslation",
-        "fields": {
-            "master": 16,
-            "name": "Intervalos nubosos con lluvia escasa",
-            "language_code": "es"
-        }
-    },
-    {
-        "model": "forecast.weathercodetranslation",
-        "fields": {
-            "master": 16,
-            "name": "Broken clouds, light drizzle",
-            "language_code": "en"
-        }
-    },
-    {
-        "model": "forecast.weathercodetranslation",
-        "fields": {
-            "master": 16,
-            "name": "Rares averses",
-            "language_code": "fr"
+            "code": "43",
+            "name_eu": "Lainoguneak xirimiri arriskuarekin",
+            "name_es": "Intervalos nubosos con lluvia escasa",
+            "name_en": "Broken clouds, light drizzle",
+            "name_fr": "Rares averses"
         }
     },
     {
         "model": "forecast.weathercode",
         "fields": {
             "id": 17,
-            "code": "44"
-        }
-    },
-    {
-        "model": "forecast.weathercodetranslation",
-        "fields": {
-            "master": 17,
-            "name": "Hodeitsua xirimiri arriskuarekin",
-            "language_code": "eu"
-        }
-    },
-    {
-        "model": "forecast.weathercodetranslation",
-        "fields": {
-            "master": 17,
-            "name": "Nuboso con lluvia escasa",
-            "language_code": "es"
-        }
-    },
-    {
-        "model": "forecast.weathercodetranslation",
-        "fields": {
-            "master": 17,
-            "name": "Partially cloudy with light drizzle",
-            "language_code": "en"
-        }
-    },
-    {
-        "model": "forecast.weathercodetranslation",
-        "fields": {
-            "master": 17,
-            "name": "Nuageux et rares averses",
-            "language_code": "fr"
+            "code": "44",
+            "name_eu": "Hodeitsua xirimiri arriskuarekin",
+            "name_es": "Nuboso con lluvia escasa",
+            "name_en": "Partially cloudy with light drizzle",
+            "name_fr": "Nuageux et rares averses"
         }
     },
     {
         "model": "forecast.weathercode",
         "fields": {
             "id": 18,
-            "code": "45"
-        }
-    },
-    {
-        "model": "forecast.weathercodetranslation",
-        "fields": {
-            "master": 18,
-            "name": "Oso hodeitsu euri ahulekin",
-            "language_code": "eu"
-        }
-    },
-    {
-        "model": "forecast.weathercodetranslation",
-        "fields": {
-            "master": 18,
-            "name": "Muy nuboso con lluvia escasa",
-            "language_code": "es"
-        }
-    },
-    {
-        "model": "forecast.weathercodetranslation",
-        "fields": {
-            "master": 18,
-            "name": "Mostly cloudy with light drizzle",
-            "language_code": "en"
-        }
-    },
-    {
-        "model": "forecast.weathercodetranslation",
-        "fields": {
-            "master": 18,
-            "name": "Très nuageux et rares averses",
-            "language_code": "fr"
+            "code": "45",
+            "name_eu": "Oso hodeitsu euri ahulekin",
+            "name_es": "Muy nuboso con lluvia escasa",
+            "name_en": "Mostly cloudy with light drizzle",
+            "name_fr": "Très nuageux et rares averses"
         }
     },
     {
         "model": "forecast.weathercode",
         "fields": {
             "id": 19,
-            "code": "46"
-        }
-    },
-    {
-        "model": "forecast.weathercodetranslation",
-        "fields": {
-            "master": 19,
-            "name": "Zeru estalia euri ahulekin",
-            "language_code": "eu"
-        }
-    },
-    {
-        "model": "forecast.weathercodetranslation",
-        "fields": {
-            "master": 19,
-            "name": "Cubierto con lluvia escasa",
-            "language_code": "es"
-        }
-    },
-    {
-        "model": "forecast.weathercodetranslation",
-        "fields": {
-            "master": 19,
-            "name": "Covered with light drizzle",
-            "language_code": "en"
-        }
-    },
-    {
-        "model": "forecast.weathercodetranslation",
-        "fields": {
-            "master": 19,
-            "name": "Ciel couvert et rares averses",
-            "language_code": "fr"
+            "code": "46",
+            "name_eu": "Zeru estalia euri ahulekin",
+            "name_es": "Cubierto con lluvia escasa",
+            "name_en": "Covered with light drizzle",
+            "name_fr": "Ciel couvert et rares averses"
         }
     },
     {
         "model": "forecast.weathercode",
         "fields": {
             "id": 20,
-            "code": "51"
-        }
-    },
-    {
-        "model": "forecast.weathercodetranslation",
-        "fields": {
-            "master": 20,
-            "name": "Lainoguneak trumoi-ekaitz ahulekin",
-            "language_code": "eu"
-        }
-    },
-    {
-        "model": "forecast.weathercodetranslation",
-        "fields": {
-            "master": 20,
-            "name": "Intervalos nubosos con tormenta",
-            "language_code": "es"
-        }
-    },
-    {
-        "model": "forecast.weathercodetranslation",
-        "fields": {
-            "master": 20,
-            "name": "Broken clouds with storm",
-            "language_code": "en"
-        }
-    },
-    {
-        "model": "forecast.weathercodetranslation",
-        "fields": {
-            "master": 20,
-            "name": "Partiellement nuageux et averses orageuses",
-            "language_code": "fr"
+            "code": "51",
+            "name_eu": "Lainoguneak trumoi-ekaitz ahulekin",
+            "name_es": "Intervalos nubosos con tormenta",
+            "name_en": "Broken clouds with storm",
+            "name_fr": "Partiellement nuageux et averses orageuses"
         }
     },
     {
         "model": "forecast.weathercode",
         "fields": {
             "id": 21,
-            "code": "52"
-        }
-    },
-    {
-        "model": "forecast.weathercodetranslation",
-        "fields": {
-            "master": 21,
-            "name": "Trumoi hodeiak",
-            "language_code": "eu"
-        }
-    },
-    {
-        "model": "forecast.weathercodetranslation",
-        "fields": {
-            "master": 21,
-            "name": "Nuboso con tormenta",
-            "language_code": "es"
-        }
-    },
-    {
-        "model": "forecast.weathercodetranslation",
-        "fields": {
-            "master": 21,
-            "name": "Cloudy sky with storm",
-            "language_code": "en"
-        }
-    },
-    {
-        "model": "forecast.weathercodetranslation",
-        "fields": {
-            "master": 21,
-            "name": "Averses localement orageuses",
-            "language_code": "fr"
+            "code": "52",
+            "name_eu": "Trumoi hodeiak",
+            "name_es": "Nuboso con tormenta",
+            "name_en": "Cloudy sky with storm",
+            "name_fr": "Averses localement orageuses"
         }
     },
     {
         "model": "forecast.weathercode",
         "fields": {
             "id": 22,
-            "code": "53"
-        }
-    },
-    {
-        "model": "forecast.weathercodetranslation",
-        "fields": {
-            "master": 22,
-            "name": "Oso hodeitsua trumoi arriskuarekin",
-            "language_code": "eu"
-        }
-    },
-    {
-        "model": "forecast.weathercodetranslation",
-        "fields": {
-            "master": 22,
-            "name": "Muy nuboso con tormenta",
-            "language_code": "es"
-        }
-    },
-    {
-        "model": "forecast.weathercodetranslation",
-        "fields": {
-            "master": 22,
-            "name": "Mostly cloudy with storm",
-            "language_code": "en"
-        }
-    },
-    {
-        "model": "forecast.weathercodetranslation",
-        "fields": {
-            "master": 22,
-            "name": "Très nuageux et averses orageuses",
-            "language_code": "fr"
+            "code": "53",
+            "name_eu": "Oso hodeitsua trumoi arriskuarekin",
+            "name_es": "Muy nuboso con tormenta",
+            "name_en": "Mostly cloudy with storm",
+            "name_fr": "Très nuageux et averses orageuses"
         }
     },
     {
         "model": "forecast.weathercode",
         "fields": {
             "id": 23,
-            "code": "54"
-        }
-    },
-    {
-        "model": "forecast.weathercodetranslation",
-        "fields": {
-            "master": 23,
-            "name": "Trumoi hodeiez estalia",
-            "language_code": "eu"
-        }
-    },
-    {
-        "model": "forecast.weathercodetranslation",
-        "fields": {
-            "master": 23,
-            "name": "Cubierto con tormenta",
-            "language_code": "es"
-        }
-    },
-    {
-        "model": "forecast.weathercodetranslation",
-        "fields": {
-            "master": 23,
-            "name": "Covered with storm",
-            "language_code": "en"
-        }
-    },
-    {
-        "model": "forecast.weathercodetranslation",
-        "fields": {
-            "master": 23,
-            "name": "Ciel couvert avec orages",
-            "language_code": "fr"
+            "code": "54",
+            "name_eu": "Trumoi hodeiez estalia",
+            "name_es": "Cubierto con tormenta",
+            "name_en": "Covered with storm",
+            "name_fr": "Ciel couvert avec orages"
         }
     },
     {
         "model": "forecast.weathercode",
         "fields": {
             "id": 24,
-            "code": "61"
-        }
-    },
-    {
-        "model": "forecast.weathercodetranslation",
-        "fields": {
-            "master": 24,
-            "name": "Lainoguneak euri eta ekaitz ahulekin",
-            "language_code": "eu"
-        }
-    },
-    {
-        "model": "forecast.weathercodetranslation",
-        "fields": {
-            "master": 24,
-            "name": "Intervalos nubosos con tormenta y lluvia escasa",
-            "language_code": "es"
-        }
-    },
-    {
-        "model": "forecast.weathercodetranslation",
-        "fields": {
-            "master": 24,
-            "name": "Broken clouds with storm and light drizzle",
-            "language_code": "en"
-        }
-    },
-    {
-        "model": "forecast.weathercodetranslation",
-        "fields": {
-            "master": 24,
-            "name": "Partiellement nuageux et rares averses",
-            "language_code": "fr"
+            "code": "61",
+            "name_eu": "Lainoguneak euri eta ekaitz ahulekin",
+            "name_es": "Intervalos nubosos con tormenta y lluvia escasa",
+            "name_en": "Broken clouds with storm and light drizzle",
+            "name_fr": "Partiellement nuageux et rares averses"
         }
     },
     {
         "model": "forecast.weathercode",
         "fields": {
             "id": 25,
-            "code": "62"
-        }
-    },
-    {
-        "model": "forecast.weathercodetranslation",
-        "fields": {
-            "master": 25,
-            "name": "Lainoguneak, trumoiak eta xirimiria",
-            "language_code": "eu"
-        }
-    },
-    {
-        "model": "forecast.weathercodetranslation",
-        "fields": {
-            "master": 25,
-            "name": "Nuboso con tormenta y lluvia escasa",
-            "language_code": "es"
-        }
-    },
-    {
-        "model": "forecast.weathercodetranslation",
-        "fields": {
-            "master": 25,
-            "name": "Cloudy sky with storm and light drizzle",
-            "language_code": "en"
-        }
-    },
-    {
-        "model": "forecast.weathercodetranslation",
-        "fields": {
-            "master": 25,
-            "name": "Nuageux et rares averses",
-            "language_code": "fr"
+            "code": "62",
+            "name_eu": "Lainoguneak, trumoiak eta xirimiria",
+            "name_es": "Nuboso con tormenta y lluvia escasa",
+            "name_en": "Cloudy sky with storm and light drizzle",
+            "name_fr": "Nuageux et rares averses"
         }
     },
     {
         "model": "forecast.weathercode",
         "fields": {
             "id": 26,
-            "code": "63"
-        }
-    },
-    {
-        "model": "forecast.weathercodetranslation",
-        "fields": {
-            "master": 26,
-            "name": "Oso hodeitsua, trumoi eta xirimiri arriskuarekin",
-            "language_code": "eu"
-        }
-    },
-    {
-        "model": "forecast.weathercodetranslation",
-        "fields": {
-            "master": 26,
-            "name": "Muy nuboso con tormenta y lluvia escasa",
-            "language_code": "es"
-        }
-    },
-    {
-        "model": "forecast.weathercodetranslation",
-        "fields": {
-            "master": 26,
-            "name": "Mostly cloudy with storm and light drizzle",
-            "language_code": "en"
-        }
-    },
-    {
-        "model": "forecast.weathercodetranslation",
-        "fields": {
-            "master": 26,
-            "name": "Très nuageux et rares averses",
-            "language_code": "fr"
+            "code": "63",
+            "name_eu": "Oso hodeitsua, trumoi eta xirimiri arriskuarekin",
+            "name_es": "Muy nuboso con tormenta y lluvia escasa",
+            "name_en": "Mostly cloudy with storm and light drizzle",
+            "name_fr": "Très nuageux et rares averses"
         }
     },
     {
         "model": "forecast.weathercode",
         "fields": {
             "id": 27,
-            "code": "64"
-        }
-    },
-    {
-        "model": "forecast.weathercodetranslation",
-        "fields": {
-            "master": 27,
-            "name": "Zeru estalia, trumoi arriskua eta xirimiria",
-            "language_code": "eu"
-        }
-    },
-    {
-        "model": "forecast.weathercodetranslation",
-        "fields": {
-            "master": 27,
-            "name": "Covered with storm and light drizzle",
-            "language_code": "es"
-        }
-    },
-    {
-        "model": "forecast.weathercodetranslation",
-        "fields": {
-            "master": 27,
-            "name": "Oso hodeitsua eta elur ahula",
-            "language_code": "en"
-        }
-    },
-    {
-        "model": "forecast.weathercodetranslation",
-        "fields": {
-            "master": 27,
-            "name": "Ciel couvert et pluies éparses",
-            "language_code": "fr"
+            "code": "64",
+            "name_eu": "Zeru estalia, trumoi arriskua eta xirimiria",
+            "name_es": "Covered with storm and light drizzle",
+            "name_en": "Oso hodeitsua eta elur ahula",
+            "name_fr": "Ciel couvert et pluies éparses"
         }
     },
     {
         "model": "forecast.weathercode",
         "fields": {
             "id": 28,
-            "code": "71"
-        }
-    },
-    {
-        "model": "forecast.weathercodetranslation",
-        "fields": {
-            "master": 28,
-            "name": "Lainoguneak eta elur ahula",
-            "language_code": "eu"
-        }
-    },
-    {
-        "model": "forecast.weathercodetranslation",
-        "fields": {
-            "master": 28,
-            "name": "Intervalos nubosos con nieve escasa",
-            "language_code": "es"
-        }
-    },
-    {
-        "model": "forecast.weathercodetranslation",
-        "fields": {
-            "master": 28,
-            "name": "Broken clouds with light snow",
-            "language_code": "en"
-        }
-    },
-    {
-        "model": "forecast.weathercodetranslation",
-        "fields": {
-            "master": 28,
-            "name": "Partiellement nuageux et faible neige",
-            "language_code": "fr"
+            "code": "71",
+            "name_eu": "Lainoguneak eta elur ahula",
+            "name_es": "Intervalos nubosos con nieve escasa",
+            "name_en": "Broken clouds with light snow",
+            "name_fr": "Partiellement nuageux et faible neige"
         }
     },
     {
         "model": "forecast.weathercode",
         "fields": {
             "id": 29,
-            "code": "72"
-        }
-    },
-    {
-        "model": "forecast.weathercodetranslation",
-        "fields": {
-            "master": 29,
-            "name": "Hodeitsua eta elur ahula",
-            "language_code": "eu"
-        }
-    },
-    {
-        "model": "forecast.weathercodetranslation",
-        "fields": {
-            "master": 29,
-            "name": "Nuboso con nieve escasa",
-            "language_code": "es"
-        }
-    },
-    {
-        "model": "forecast.weathercodetranslation",
-        "fields": {
-            "master": 29,
-            "name": "Cloudy with light snow",
-            "language_code": "en"
-        }
-    },
-    {
-        "model": "forecast.weathercodetranslation",
-        "fields": {
-            "master": 29,
-            "name": "Très nuageux et faibles chutes de neige",
-            "language_code": "fr"
+            "code": "72",
+            "name_eu": "Hodeitsua eta elur ahula",
+            "name_es": "Nuboso con nieve escasa",
+            "name_en": "Cloudy with light snow",
+            "name_fr": "Très nuageux et faibles chutes de neige"
         }
     },
     {
         "model": "forecast.weathercode",
         "fields": {
             "id": 30,
-            "code": "73"
-        }
-    },
-    {
-        "model": "forecast.weathercodetranslation",
-        "fields": {
-            "master": 30,
-            "name": "Oso hodeitsua eta elur ahula",
-            "language_code": "eu"
-        }
-    },
-    {
-        "model": "forecast.weathercodetranslation",
-        "fields": {
-            "master": 30,
-            "name": "Muy nuboso con nieve escasa",
-            "language_code": "es"
-        }
-    },
-    {
-        "model": "forecast.weathercodetranslation",
-        "fields": {
-            "master": 30,
-            "name": "Mostly cloudy with light snow",
-            "language_code": "en"
-        }
-    },
-    {
-        "model": "forecast.weathercodetranslation",
-        "fields": {
-            "master": 30,
-            "name": "Nuageux et faibles chutes de neige",
-            "language_code": "fr"
+            "code": "73",
+            "name_eu": "Oso hodeitsua eta elur ahula",
+            "name_es": "Muy nuboso con nieve escasa",
+            "name_en": "Mostly cloudy with light snow",
+            "name_fr": "Nuageux et faibles chutes de neige"
         }
     },
     {
         "model": "forecast.weathercode",
         "fields": {
             "id": 31,
-            "code": "74"
-        }
-    },
-    {
-        "model": "forecast.weathercodetranslation",
-        "fields": {
-            "master": 31,
-            "name": "Zeru estalia eta elur ahula",
-            "language_code": "eu"
-        }
-    },
-    {
-        "model": "forecast.weathercodetranslation",
-        "fields": {
-            "master": 31,
-            "name": "Cubierto con nieve escasa",
-            "language_code": "es"
-        }
-    },
-    {
-        "model": "forecast.weathercodetranslation",
-        "fields": {
-            "master": 31,
-            "name": "Covered with light snow",
-            "language_code": "en"
-        }
-    },
-    {
-        "model": "forecast.weathercodetranslation",
-        "fields": {
-            "master": 31,
-            "name": "Ciel couvert et faibles chutes de neige",
-            "language_code": "fr"
+            "code": "74",
+            "name_eu": "Zeru estalia eta elur ahula",
+            "name_es": "Cubierto con nieve escasa",
+            "name_en": "Covered with light snow",
+            "name_fr": "Ciel couvert et faibles chutes de neige"
         }
     },
     {
         "model": "forecast.weathercode",
         "fields": {
             "id": 32,
-            "code": "0"
-        }
-    },
-    {
-        "model": "forecast.weathercodetranslation",
-        "fields": {
-            "master": 32,
-            "name": "Oskarbi",
-            "language_code": "eu"
-        }
-    },
-    {
-        "model": "forecast.weathercodetranslation",
-        "fields": {
-            "master": 32,
-            "name": "Despejado",
-            "language_code": "es"
-        }
-    },
-    {
-        "model": "forecast.weathercodetranslation",
-        "fields": {
-            "master": 32,
-            "name": "Cloudless",
-            "language_code": "en"
-        }
-    },
-    {
-        "model": "forecast.weathercodetranslation",
-        "fields": {
-            "master": 32,
-            "name": "Dégagé",
-            "language_code": "fr"
+            "code": "0",
+            "name_eu": "Oskarbi",
+            "name_es": "Despejado",
+            "name_en": "Cloudless",
+            "name_fr": "Dégagé"
         }
     }
 ]

@@ -3,6 +3,7 @@ mysql-python==1.2.5
 
 djangorestframework==3.1.1
 django-rest-swagger==0.2.9
+django-modeltranslation==0.9
 
 boto==2.36.0
 bleach==1.4.1
@@ -10,7 +11,6 @@ cssselect==0.9.1
 django-countries==3.2
 django-easy-select2==1.2.12
 django-grappelli==2.6.4
-django-hvad==1.2.0
 django-imagekit==3.2.6
 django-markdown-deux==1.0.5
 -e git+https://github.com/eillarra/django-pagedown@c8a7b9acc6c66a44eeb9ceac91587bb8ad08ad89#egg=django_pagedown-master

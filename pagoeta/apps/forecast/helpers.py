@@ -33,15 +33,14 @@ class AstronomicalObserver():
 
         return data
 
-
     def get_sortered_moon_phases(self, date):
         """Returns next moon phase dates, ordered by date."""
         phases = [
-            { 'code': 'new', 'date': ephem.localtime(ephem.next_new_moon(date)) },
-            { 'code': 'q1', 'date': ephem.localtime(ephem.next_first_quarter_moon(date)) },
-            { 'code': 'full', 'date': ephem.localtime(ephem.next_full_moon(date)) },
-            { 'code': 'q3', 'date': ephem.localtime(ephem.next_last_quarter_moon(date)) },
+            {'code': 'new', 'date': ephem.localtime(ephem.next_new_moon(date))},
+            {'code': 'q1', 'date': ephem.localtime(ephem.next_first_quarter_moon(date))},
+            {'code': 'full', 'date': ephem.localtime(ephem.next_full_moon(date))},
+            {'code': 'q3', 'date': ephem.localtime(ephem.next_last_quarter_moon(date))},
         ]
-        phases.sort(key = itemgetter('date'))
+        phases.sort(key=itemgetter('date'))
 
         return phases
