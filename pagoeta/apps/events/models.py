@@ -34,6 +34,11 @@ class TargetGroup(Type):
         verbose_name_plural = _('target groups')
 
 
+class EventManager(models.Manager):
+    def visible(self):
+        return self.filter(is_visible=True)
+
+
 class Event(models.Model):
     name = models.CharField(max_length=255)
     description = models.TextField()
@@ -50,6 +55,8 @@ class Event(models.Model):
     is_visible = models.BooleanField('Visible', default=True)
 
     is_superevent = models.BooleanField('Visible', default=True)
+
+    objects = EventManager()
 
     class Meta(object):
         verbose_name = _('event')

@@ -45,7 +45,7 @@
             "price": 4,
             "url": null,
             "is_featured": false,
-            "is_visible": false,
+            "is_visible": true,
             "name_eu": "Zine emanaldia Modelo Aretoan",
             "description_eu": "\"El nuevo exotico Hotel Marigold\"\r\nikuslearen eguna 4€",
             "name_es": "Proyección de cine en el Modelo",
@@ -53,6 +53,30 @@
             "name_en": "Film screening",
             "description_en": "\"El nuevo exotico Hotel Marigold\"",
             "name_fr": "Projection cinématographique",
+            "description_fr": "\"El nuevo exotico Hotel Marigold\""
+        }
+    },
+    {
+        "model": "events.event",
+        "fields": {
+            "id": 2,
+            "category_id": 1,
+            "target_group_id": 1,
+            "target_age_id": 1,
+            "place_id": 2,
+            "start_at": "2015-04-07T17:00:00+0200",
+            "end_at": null,
+            "price": 4,
+            "url": null,
+            "is_featured": false,
+            "is_visible": false,
+            "name_eu": "Invisible Zine emanaldia Modelo Aretoan",
+            "description_eu": "\"El nuevo exotico Hotel Marigold\"\r\nikuslearen eguna 4€",
+            "name_es": "Invisible Proyección de cine en el Modelo",
+            "description_es": "\"El nuevo exotico Hotel Marigold\"\r\ndía del espectador 4€",
+            "name_en": "Invisible Film screening",
+            "description_en": "\"El nuevo exotico Hotel Marigold\"",
+            "name_fr": "Invisible Projection cinématographique",
             "description_fr": "\"El nuevo exotico Hotel Marigold\""
         }
     }

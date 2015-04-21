@@ -37,4 +37,4 @@ class EventListSerializer(EventSerializer):
     href = serializers.SerializerMethodField()
 
     def get_href(self, obj):
-        return get_absolute_uri(reverse('v1:event-detail', [obj.id]))
+        return get_absolute_uri(reverse('v1:event-detail', (obj.id,)))

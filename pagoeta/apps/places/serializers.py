@@ -35,4 +35,4 @@ class PlaceListSerializer(PlaceSerializer):
         exclude = PlaceSerializer.Meta.exclude + ('url', 'description')
 
     def get_href(self, obj):
-        return get_absolute_uri(reverse('v1:place-detail', [obj.id]))
+        return get_absolute_uri(reverse('v1:place-detail', (obj.id,)))

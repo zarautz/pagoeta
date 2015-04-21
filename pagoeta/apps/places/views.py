@@ -7,8 +7,10 @@ from .serializers import PlaceSerializer, PlaceListSerializer
 
 
 class PlaceViewSet(ReadOnlyModelViewSet):
-    queryset = Place.objects.prefetch_related('types').all()
+    queryset = Place.objects.visible().prefetch_related('types')
     serializer_class = PlaceSerializer
+    DEFAULT_LIMIT = 20
+    MAX_LIMIT = 50
 
     def list(self, request):
         """
@@ -43,34 +45,35 @@ class PlaceViewSet(ReadOnlyModelViewSet):
                 specified Type `code`s (when using "+" separated values: "typeCode1+typeCode2").'
         """
         try:
-            offset = int(request.QUERY_PARAMS.get('offset', 0))
-            limit = int(request.QUERY_PARAMS.get('limit', 20))
-            types, types_meta = request.QUERY_PARAMS.get('types', None), None
+            offset = int(request.GET.get('offset', 0))
+            limit = int(request.GET.get('limit', self.DEFAULT_LIMIT))
+            types, types_meta = request.GET.get('types', None), None
         except ValueError:
             raise ParseError('Offset and limit should be numeric.')
 
         if offset < 0:
             raise ParseError('Offset should not be lower than 0.')
 
-        if limit > 50:
-            raise ParseError('Limit cannot be higher than 50.')
+        if limit > self.MAX_LIMIT:
+            raise ParseError('Limit cannot be higher than %d.' % self.MAX_LIMIT)
 
         if types:
-            if ',' in types:
-                types_meta = {
-                    'filter': types.split(','),
-                    'operator': 'OR',
-                }
-                self.queryset = self.queryset.filter(types__code__in=types_meta['filter'])
-            if ' ' in types:
-                if types_meta:
-                    raise ParseError('Only one operator in allowed for `types`: OR (,) or AND (+).')
+            if ',' in types and ' ' in types:
+                raise ParseError('Only one operator in allowed for `types`: OR (,) or AND (+).')
+            elif ' ' in types:
                 types_meta = {
                     'filter': types.split(' '),
                     'operator': 'AND',
                 }
                 for type_code in types_meta['filter']:
                     self.queryset = self.queryset.filter(types__code=type_code)
+            else:
+                types_filter = types.split(',')
+                types_meta = {
+                    'filter': types_filter,
+                    'operator': 'OR' if len(types_filter) > 1 else None,
+                }
+                self.queryset = self.queryset.filter(types__code__in=types_filter)
 
         queryset = self.queryset[offset:(offset + limit)]
         serializer = PlaceListSerializer(queryset, many=True)
@@ -81,7 +84,7 @@ class PlaceViewSet(ReadOnlyModelViewSet):
                 'offset': offset,
                 'limit': limit,
                 'types': types_meta,
-                'totalCount': Place.objects.count(),
+                'totalCount': Place.objects.visible().count(),
             },
             'data': serializer.data,
         })
@@ -126,7 +129,7 @@ class TypeViewSet(ViewSet):
         """
         data = {}
 
-        for item in Type.objects.all():
+        for item in self.queryset:
             data[item.code] = {
                 'name': item.name,
             }
@@ -134,7 +137,7 @@ class TypeViewSet(ViewSet):
         return Response({
             'meta': {
                 'language': request.LANGUAGE_CODE,
-                'totalCount': Type.objects.count(),
+                'totalCount': len(data),
             },
             'data': data,
         })

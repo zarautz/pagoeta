@@ -50,6 +50,15 @@ Running the server
 ------------------
     $ python manage.py runserver
 
+Running spec tests
+------------------
+    $ python manage.py test pagoeta.apps
+
+Coverage of the tests
+---------------------
+    $ coverage run --source='pagoeta/apps' manage.py test pagoeta.apps
+    $ coverage report -m
+
 Style guide
 -----------
 Unless otherwise specified, follow

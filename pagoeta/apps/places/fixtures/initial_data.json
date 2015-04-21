@@ -68,7 +68,8 @@
             "longitude": -2.1760699749,
             "telephone": "+34 943 83 25 07",
             "email": "info@egaroa.com",
-            "url": "http://www.egaroa.com"
+            "url": "http://www.egaroa.com",
+            "is_visible": true
         }
     },
     {
@@ -89,7 +90,26 @@
             "longitude": -2.176274608549,
             "telephone": null,
             "email": null,
-            "url": null
+            "url": null,
+            "is_visible": true
+        }
+    },
+    {
+        "model": "places.place",
+        "fields": {
+            "id": 3,
+            "types": [3,4,5],
+            "name_eu": "The Invisible Place",
+            "name_es": "The Invisible Place",
+            "name_fr": "The Invisible Place",
+            "name_en": "The Invisible Place",
+            "address": "Nowhere",
+            "latitude": 0,
+            "longitude": 0,
+            "telephone": null,
+            "email": null,
+            "url": null,
+            "is_visible": false
         }
     }
 ]

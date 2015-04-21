@@ -15,6 +15,11 @@ class Type(models.Model):
         return u'%s' % self.name
 
 
+class PlaceManager(models.Manager):
+    def visible(self):
+        return self.filter(is_visible=True)
+
+
 class Place(models.Model):
     types = models.ManyToManyField(Type, blank=True, related_name='places')
     name = models.CharField(max_length=100)
@@ -27,6 +32,8 @@ class Place(models.Model):
     latitude = models.DecimalField(max_digits=9, decimal_places=6, null=True, blank=True)
     longitude = models.DecimalField(max_digits=9, decimal_places=6, null=True, blank=True)
     is_visible = models.BooleanField('Visible', default=True)
+
+    objects = PlaceManager()
 
     class Meta(object):
         verbose_name = _('place')

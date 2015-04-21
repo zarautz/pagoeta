@@ -53,13 +53,15 @@ class TideScraper():
 
         return data
 
-    def parse_html(self, month):
-        try:
-            url = ('http://www4.gipuzkoa.net/MedioAmbiente/gipuzkoaingurumena/eu/secciones/playas/'
-                   'mareas.asp?filtroMesMarea=%d')
-            source = get(url % month).text
-        except RequestException:
-            raise ServiceUnavailableException
+    def parse_html(self, month, source=None):
+        """HTML source can be passed for testing purposes."""
+        if not source:
+            try:
+                url = ('http://www4.gipuzkoa.net/MedioAmbiente/gipuzkoaingurumena/eu/secciones/playas/'
+                       'mareas.asp?filtroMesMarea=%d')
+                source = get(url % month).text
+            except RequestException:
+                raise ServiceUnavailableException
 
         data = {}
 
@@ -77,15 +79,16 @@ class TideScraper():
             for col, td in enumerate(cols):
                 """mod % 2 to detect even cols."""
                 tide = 'high' if ((col % 2) == 0) else 'low'
-                data[date_str][tide].append(td.text_content().strip())
+                text = td.text_content().strip()
+                if text != '-':
+                    data[date_str][tide].append(text)
 
         return data
 
 
 class WeatherScraper():
-    def __init__(self, date_list, url=None):
+    def __init__(self, date_list):
         self.date_str_list = [str(date) for date in date_list]
-        self.url = url if url else 'http://www.aemet.es/xml/municipios/localidad_20079.xml'
 
     def get_source(self):
         return {'AEMET': 'http://www.aemet.es/'}
@@ -93,11 +96,17 @@ class WeatherScraper():
     def get_data(self):
         return self.parse_xml()
 
-    def parse_xml(self):
+    def parse_xml(self, source=None):
+        """XML source can be passed for testing purposes."""
+        if not source:
+            try:
+                source = get('http://www.aemet.es/xml/municipios/localidad_20079.xml').text.encode('utf-8')
+            except RequestException:
+                raise ServiceUnavailableException
+
         try:
-            source = get(self.url).text.encode('utf-8')
             root = etree.fromstring(source)
-        except (RequestException, etree.XMLSyntaxError):
+        except etree.XMLSyntaxError:
             raise ServiceUnavailableException
 
         data = {}

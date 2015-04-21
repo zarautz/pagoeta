@@ -11,13 +11,14 @@ from .scrapers import ForecastScraperWrapper
 
 class ForecastViewSet(ViewSet):
     permission_classes = (IsAuthenticatedOrReadOnly,)
+    DAYS_FORECAST = 7
 
     @cache_control(max_age=7200, s_maxage=7200)
     def list(self, request):
         """
         Get current forecast: weather, tides and astronomy data.
         """
-        date_list = [date.today() + timedelta(days=x) for x in range(0, 7)]
+        date_list = [date.today() + timedelta(days=x) for x in range(0, self.DAYS_FORECAST)]
         scraper = ForecastScraperWrapper(date_list)
 
         return Response({
@@ -55,7 +56,7 @@ class WeatherCodeViewSet(ViewSet):
         return Response({
             'meta': {
                 'language': request.LANGUAGE_CODE,
-                'totalCount': WeatherCode.objects.count(),
+                'totalCount': len(data),
             },
             'data': data,
         })
