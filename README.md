@@ -1,6 +1,9 @@
 Pagoeta
 =======
 
+[![travis-badge]][travis]
+[![coveralls-badge]][coveralls]
+
 `Pagoeta` is the code name of the application used to manage the  agenda, places’ information
 and overall information for the city of [Zarautz](http://www.zarautz.org/). It provides a private
 administration area and a **public API** based in the `Open Data` philosophy.
@@ -68,3 +71,9 @@ It is recommended to use [flake8](https://pypi.python.org/pypi/flake8) which com
 (`flake8` is included in the development requirements):
 
     $ flake8 --max-line-length=119 pagoeta
+
+
+[travis-badge]: https://travis-ci.org/zarautz/pagoeta.svg?branch=master
+[travis]: https://travis-ci.org/zarautz/pagoeta
+[coveralls-badge]: https://coveralls.io/repos/zarautz/pagoeta/badge.svg
+[coveralls]: https://coveralls.io/r/zarautz/pagoeta
