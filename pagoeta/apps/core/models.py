@@ -35,7 +35,6 @@ class Image(models.Model):
         super(Image, self).save(*args, **kwargs)
 
     def get_url(self):
-        print self.image.url
         return self.image.url
 
 
