@@ -1,0 +1,18 @@
+language: python
+
+python:
+    - '2.7'
+
+install:
+    - pip install -r requirements.txt
+    - pip install coveralls
+
+before_script:
+    - mysql -e 'create database pagoeta_test;'
+    - python manage.py migrate
+
+script:
+    - coverage run --source='pagoeta/apps' manage.py test pagoeta.apps
+
+after_success:
+    - coveralls

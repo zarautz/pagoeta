@@ -29,7 +29,7 @@ if 'CRED_FILE' in os.environ:
     DEBUG = False
     ALLOWED_HOSTS = ('pagoeta.cloudcontrolled.com', '.pagoeta.cloudcontrolled.com')
 
-elif 'BUILDPACK_RUNNING' in os.environ:
+elif 'BUILDPACK_RUNNING' in os.environ or 'TRAVIS' in os.environ:
     cred_file = os.path.join(BASE_DIR, 'creds.json.txt')
     DEBUG = False
     ALLOWED_HOSTS = ['*']
@@ -141,6 +141,18 @@ DATABASES = {
         }
     }
 }
+
+if 'TRAVIS' in os.environ:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.mysql',
+            'NAME': 'pagoeta_test',
+            'USER': 'travis',
+            'PASSWORD': '',
+            'HOST': 'localhost',
+            'PORT': '',
+        }
+    }
 
 
 # REST API
@@ -261,7 +273,7 @@ STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'pagoeta/static'),
 )
 
-if not DEBUG:
+if not DEBUG and 'TRAVIS' not in os.environ:
     STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
     WHITENOISE_ROOT = os.path.join(BASE_DIR, 'staticfiles/www')
 
