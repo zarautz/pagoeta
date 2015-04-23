@@ -1,13 +1,13 @@
 from django.core.exceptions import ObjectDoesNotExist
 from django.core.urlresolvers import reverse
-from django.http import HttpResponse, Http404
+from django.http import HttpResponse, JsonResponse
 from django.shortcuts import redirect
 from django.views import generic
 from django.views.decorators.cache import cache_control
 from PIL import Image
 from requests import get
 from rest_framework.permissions import IsAuthenticatedOrReadOnly
-from rest_framework.views import APIView
+from rest_framework import status
 from StringIO import StringIO
 
 from .functions import resize_image
@@ -24,7 +24,7 @@ class RedirectView(generic.View):
         return redirect(reverse('django.swagger.base.view'))
 
 
-class ImageView(APIView):
+class ImageView(generic.View):
     """
     Serves dinamically generated images.
     Images are taken directly from the source and then transformations are made.
@@ -44,7 +44,7 @@ class ImageView(APIView):
                 image_url = XeroxImage.objects.get(hash=kwargs.get('hash')).url
 
         except ObjectDoesNotExist:
-            raise Http404()
+            return JsonResponse({'detail': 'Not Found.'}, status=status.HTTP_404_NOT_FOUND)
 
         image = Image.open(StringIO(get(image_url).content))
         image = resize_image(image, kwargs.get('size'))
