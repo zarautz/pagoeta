@@ -7,7 +7,7 @@ from .serializers import PlaceSerializer, PlaceListSerializer
 
 
 class PlaceViewSet(ReadOnlyModelViewSet):
-    queryset = Place.objects.visible().prefetch_related('types')
+    queryset = Place.objects.visible().prefetch_related('types', 'images')
     serializer_class = PlaceSerializer
     DEFAULT_LIMIT = 20
     MAX_LIMIT = 50

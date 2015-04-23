@@ -1,14 +1,12 @@
 import bleach
 import feedparser
-import hashlib
 
 from datetime import datetime
 from django.db import IntegrityError
-from django.core.urlresolvers import reverse
 from lxml.html import fromstring
 from time import mktime
 
-from pagoeta.apps.core.functions import get_absolute_uri
+from pagoeta.apps.core.functions import get_image_sources
 from pagoeta.apps.core.models import XeroxImage
 
 
@@ -54,19 +52,12 @@ class ZuZarautzPostScraper():
         return posts
 
     def get_xerox_image_sources(self, image_source):
-        hash = hashlib.sha1(image_source).hexdigest()
-
         try:
-            x = XeroxImage(hash=hash, url=image_source)
+            x = XeroxImage(url=image_source)
             x.save()
         except IntegrityError:
             pass
 
         return {
-            'source': {
-                'square': get_absolute_uri(reverse('xerox', args=('square', hash))),
-                'small': get_absolute_uri(reverse('xerox', args=('small', hash))),
-                'medium': get_absolute_uri(reverse('xerox', args=('medium', hash))),
-                'large': get_absolute_uri(reverse('xerox', args=('large', hash))),
-            }
+            'source': get_image_sources('xerox', x.hash)
         }

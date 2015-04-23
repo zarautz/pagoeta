@@ -1,6 +1,7 @@
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
 
+from pagoeta.apps.core.models import Image as AbstractImage
 from pagoeta.apps.places.models import Place
 
 
@@ -64,3 +65,16 @@ class Event(models.Model):
 
     def __unicode__(self):
         return u'%s' % self.name
+
+    def image(self):
+        if self.images.count() > 0:
+            return self.images.all()[0]
+        else:
+            return None
+
+
+class Image(AbstractImage):
+    event = models.ForeignKey(Event, null=True, blank=True, related_name='images')
+
+    def get_asset_directory(self):
+        return 'public/events'
