@@ -24,9 +24,10 @@ router_v1.register(r'posts/zuzarautz', ZuZarautzPostViewSet, base_name='zuzaraut
 urlpatterns = [
     url(r'^grappelli/', include('grappelli.urls')),
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^assets/ximg/(?P<filter>[\w-]+)/(?P<hash>[\w-]+).jpeg', core_views.XeroxView.as_view(), name='xerox'),
     url(r'^api/doc/', core_views.RedirectView.as_view(), name='redirect_old_api_docs'),
     url(r'^docs/', include('rest_framework_swagger.urls')),
+    url(r'^img/(?P<source>[epx]+)/(?P<hash>[\w-]+)_(?P<size>[qnzb]+).jpeg', core_views.ImageView.as_view(),
+        name='image'),
     url(r'^v1/', include(router_v1.urls, namespace='v1')),
     url(r'^$', core_views.RedirectView.as_view(), name='redirect'),
 ]

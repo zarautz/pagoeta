@@ -46,10 +46,10 @@ class XeroxViewTest(TestCase):
     def setUp(self):
         self.client = APIClient()
         self.image = XeroxImage.objects.get(pk=1)
-        self.sizes = ('square', 'small')
+        self.sizes = ('q', 'n')
         self.urls = {}
         for size in self.sizes:
-            self.urls[size] = get_absolute_uri(reverse('xerox', args=(size, self.image.hash)))
+            self.urls[size] = get_absolute_uri(reverse('image', args=('x', self.image.hash, size)))
 
     def test_default_response(self):
         response = self.client.get(self.urls[self.sizes[0]])

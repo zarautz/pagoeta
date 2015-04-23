@@ -1,7 +1,14 @@
 from django.contrib import admin
 from modeltranslation.admin import TranslationAdmin
 
-from .models import Event, Category, TargetAge, TargetGroup
+from .models import Event, Category, TargetAge, TargetGroup, Image
+
+
+class ImageInline(admin.TabularInline):
+    model = Image
+    exclude = ('hash',)
+    extra = 0
+    sortable_field_name = 'position'
 
 
 class EventAdmin(TranslationAdmin):
@@ -9,6 +16,7 @@ class EventAdmin(TranslationAdmin):
                     'is_visible', 'is_featured')
     list_filter = ('category', 'start_at', 'end_at')
     search_fields = ('name',)
+    inlines = (ImageInline,)
     raw_id_fields = ('place',)
     related_lookup_fields = {
         'fk': ('place',),

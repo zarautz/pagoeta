@@ -1,13 +1,21 @@
 from django.contrib import admin
 from modeltranslation.admin import TranslationAdmin
 
-from .models import Place, Type
+from .models import Place, Type, Image
+
+
+class ImageInline(admin.TabularInline):
+    model = Image
+    exclude = ('hash',)
+    extra = 0
+    sortable_field_name = 'position'
 
 
 class PlaceAdmin(TranslationAdmin):
-    list_display = ('id', 'name', 'address', 'types_string')
+    list_display = ('id', 'name', 'address', 'types_string', 'is_visible')
     list_filter = ('types', 'is_visible')
     search_fields = ('name', 'address', 'email')
+    inlines = (ImageInline,)
     raw_id_fields = ('types',)
     related_lookup_fields = {
         'm2m': ('types',),
