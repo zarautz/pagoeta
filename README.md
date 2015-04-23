@@ -74,6 +74,6 @@ It is recommended to use [flake8](https://pypi.python.org/pypi/flake8) which com
 
 
 [travis-badge]: https://travis-ci.org/zarautz/pagoeta.svg?branch=master
-[travis]: https://travis-ci.org/zarautz/pagoeta
-[coveralls-badge]: https://coveralls.io/repos/zarautz/pagoeta/badge.svg
-[coveralls]: https://coveralls.io/r/zarautz/pagoeta
+[travis]: https://travis-ci.org/zarautz/pagoeta?branch=master
+[coveralls-badge]: https://coveralls.io/repos/zarautz/pagoeta/badge.svg?branch=master
+[coveralls]: https://coveralls.io/r/zarautz/pagoeta?branch=master
