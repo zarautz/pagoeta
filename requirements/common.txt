@@ -8,6 +8,7 @@ django-modeltranslation==0.9
 boto==2.38.0
 bleach==1.4.1
 cssselect==0.9.1
+django-cors-headers==1.0.0
 django-grappelli==2.6.4
 django-imagekit==3.2.6
 django-storages==1.1.8

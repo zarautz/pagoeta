@@ -66,6 +66,7 @@ INSTALLED_APPS = (
     # Translations
     'modeltranslation',
     # Helpers
+    'corsheaders',
     'djrill',
     'imagekit',
     'storages',
@@ -99,6 +100,7 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.locale.LocaleMiddleware',
     'pagoeta.apps.core.middleware.LanguageOnQueryParamMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -170,6 +172,9 @@ if not DEBUG:
     REST_FRAMEWORK.update({
         'DEFAULT_RENDERER_CLASSES': ('rest_framework.renderers.JSONRenderer',),
     })
+
+CORS_ORIGIN_ALLOW_ALL = True
+CORS_ALLOW_METHODS = ('GET', 'OPTIONS')
 
 SWAGGER_SETTINGS = {
     'exclude_namespaces': [],
