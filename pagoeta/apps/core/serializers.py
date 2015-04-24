@@ -16,3 +16,14 @@ class TranslationModelSerializer(serializers.ModelSerializer):
                 key = field + '_' + language[0]
                 if self.fields.get(key):
                     self.fields.pop(key)
+
+
+class ImageField(serializers.RelatedField):
+    """
+    This field serilizer is used by models that inherit from `pagoeta.core.models.Image`.
+    """
+    def to_representation(self, value):
+        return {
+            'source': value.get_sources(),
+            'isFeatured': value.is_featured,
+        }

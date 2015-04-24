@@ -55,6 +55,7 @@ class Place(models.Model):
 
 
 class Image(AbstractImage):
+    IMAGE_TYPE_IN_URL = 'p'
     place = models.ForeignKey(Place, null=True, blank=True, related_name='images')
 
     def get_asset_directory(self):

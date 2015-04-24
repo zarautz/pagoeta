@@ -74,6 +74,7 @@ class Event(models.Model):
 
 
 class Image(AbstractImage):
+    IMAGE_TYPE_IN_URL = 'e'
     event = models.ForeignKey(Event, null=True, blank=True, related_name='images')
 
     def get_asset_directory(self):

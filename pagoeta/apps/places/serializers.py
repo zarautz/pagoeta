@@ -2,16 +2,8 @@ from rest_framework import serializers
 from rest_framework.reverse import reverse
 
 from .models import Place
-from pagoeta.apps.core.functions import get_absolute_uri, get_image_sources
-from pagoeta.apps.core.serializers import TranslationModelSerializer
-
-
-class ImageField(serializers.RelatedField):
-    def to_representation(self, value):
-        return {
-            'source': get_image_sources('place', value.hash),
-            'isFeatured': value.is_featured,
-        }
+from pagoeta.apps.core.functions import get_absolute_uri
+from pagoeta.apps.core.serializers import TranslationModelSerializer, ImageField
 
 
 class TypeField(serializers.RelatedField):

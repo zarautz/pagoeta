@@ -3,6 +3,10 @@ import uuid
 
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
+from imagekit.models import ProcessedImageField
+from imagekit.processors import ResizeToFit
+
+from .functions import get_image_sources
 
 
 def get_asset_path(instance, filename):
@@ -18,8 +22,12 @@ class ImageManager(models.Manager):
 
 
 class Image(models.Model):
+    IMAGE_TYPE_IN_URL = None
     hash = models.CharField(max_length=40, unique=True, blank=True)
-    image = models.ImageField(upload_to=get_asset_path, null=True, blank=True)
+    image = ProcessedImageField(upload_to=get_asset_path, null=True, blank=True,
+                                processors=(ResizeToFit(1600, 1600, False),),
+                                format='JPEG',
+                                options={'quality': 80})
     is_featured = models.BooleanField(_('Featured'), default=False)
     is_visible = models.BooleanField(_('Visible'), default=True)
     position = models.PositiveSmallIntegerField(_('Position'))
@@ -37,8 +45,12 @@ class Image(models.Model):
     def get_url(self):
         return self.image.url
 
+    def get_sources(self):
+        return get_image_sources(self.IMAGE_TYPE_IN_URL, self.hash) if self.IMAGE_TYPE_IN_URL else None
+
 
 class XeroxImage(models.Model):
+    IMAGE_TYPE_IN_URL = 'x'
     hash = models.CharField(max_length=40, unique=True)
     url = models.URLField(null=True, blank=True)
 
@@ -48,3 +60,6 @@ class XeroxImage(models.Model):
     def save(self, *args, **kwargs):
         self.hash = hashlib.sha1(self.url).hexdigest()
         super(XeroxImage, self).save(*args, **kwargs)
+
+    def get_sources(self):
+        return get_image_sources(self.IMAGE_TYPE_IN_URL, self.hash)

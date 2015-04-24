@@ -59,5 +59,5 @@ class ZuZarautzPostScraper():
             pass
 
         return {
-            'source': get_image_sources('xerox', x.hash)
+            'source': get_image_sources(XeroxImage.IMAGE_TYPE_IN_URL, x.hash)
         }

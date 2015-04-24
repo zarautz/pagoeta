@@ -49,7 +49,8 @@ class XeroxViewTest(TestCase):
         self.sizes = ('q', 'n')
         self.urls = {}
         for size in self.sizes:
-            self.urls[size] = get_absolute_uri(reverse('image', args=('x', self.image.hash, size)))
+            self.urls[size] = get_absolute_uri(reverse('image', args=(XeroxImage.IMAGE_TYPE_IN_URL,
+                                                                      self.image.hash, size)))
 
     def test_default_response(self):
         response = self.client.get(self.urls[self.sizes[0]])
@@ -59,4 +60,4 @@ class XeroxViewTest(TestCase):
     def test_image_sizes(self):
         for size in self.sizes:
             image = Image.open(StringIO(self.client.get(self.urls[size]).content))
-            self.assertEqual(image.size[0], IMAGE_SIZES[size][0])
+            self.assertEqual(image.size[0], IMAGE_SIZES[size]['size'][0])

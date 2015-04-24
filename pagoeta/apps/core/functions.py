@@ -1,13 +1,27 @@
 from django.conf import settings
 from django.core.urlresolvers import reverse
 from PIL import Image, ImageOps
+from requests import get
+from StringIO import StringIO
 
 
 IMAGE_SIZES = {
-    'q': (150, 150),   # square
-    'n': (320, 240),   # small
-    'z': (640, 480),   # medium
-    'b': (1024, 768),  # large
+    'q': {
+        'verbose': 'square',
+        'size': (150, 150),
+    },
+    'n': {
+        'verbose': 'small',
+        'size': (320, 240),
+    },
+    'z': {
+        'verbose': 'medium',
+        'size': (640, 480),
+    },
+    'b': {
+        'verbose': 'large',
+        'size': (1024, 768),
+    },
 }
 
 
@@ -16,29 +30,32 @@ def get_absolute_uri(relative_uri):
     return protocol + settings.SITE_HOST + relative_uri
 
 
-def resize_image(image, size):
-    if size == 'q':
-        image = ImageOps.fit(image, IMAGE_SIZES['q'], Image.ANTIALIAS)
+def transform_external_image(image_url, target_size):
+    """
+    Gets an image from an URL and returns a transformed image.
+    `Image.BICUBIC` gives enough quality here: http://blog.uploadcare.com/pillow-2-7-extended-release-notes/
+    """
+    image = Image.open(StringIO(get(image_url).content))
 
-    elif size in ('n', 'z', 'b'):
-        image.thumbnail(IMAGE_SIZES[size], Image.ANTIALIAS)
+    if target_size == 'q':
+        image = ImageOps.fit(image, IMAGE_SIZES['q']['size'], Image.BICUBIC)
+
+    elif target_size in ('n', 'z', 'b'):
+        image.thumbnail(IMAGE_SIZES[target_size]['size'], Image.BICUBIC)
 
     return image
 
 
-def get_image_sources(source, hash):
-    sources = {
-        'event': 'e',
-        'place': 'p',
-        'xerox': 'x',
-    }
-
-    # We use `string.replace()` to reduce calls to the Django `reverse()` function
-    base_url = get_absolute_uri(reverse('image', args=(sources[source], hash, 'q')))
+def get_image_sources(image_type, hash):
+    """
+    Returns internal URLs to the different image sizes available.
+    We use `string.replace()` to reduce calls to the Django `reverse()` function.
+    """
+    base_url = get_absolute_uri(reverse('image', args=(image_type, hash, 'q')))
 
     return {
-        'square': base_url,
-        'small': base_url.replace('_q', '_n'),
-        'medium': base_url.replace('_q', '_z'),
-        'large': base_url.replace('_q', '_b'),
+        IMAGE_SIZES['q']['verbose']: base_url,
+        IMAGE_SIZES['n']['verbose']: base_url.replace('_q', '_n'),
+        IMAGE_SIZES['z']['verbose']: base_url.replace('_q', '_z'),
+        IMAGE_SIZES['b']['verbose']: base_url.replace('_q', '_b'),
     }

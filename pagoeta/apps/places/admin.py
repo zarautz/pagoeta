@@ -2,13 +2,11 @@ from django.contrib import admin
 from modeltranslation.admin import TranslationAdmin
 
 from .models import Place, Type, Image
+from pagoeta.apps.core.admin import ImageInline as BaseImageInline
 
 
-class ImageInline(admin.TabularInline):
+class ImageInline(BaseImageInline):
     model = Image
-    exclude = ('hash',)
-    extra = 0
-    sortable_field_name = 'position'
 
 
 class PlaceAdmin(TranslationAdmin):
