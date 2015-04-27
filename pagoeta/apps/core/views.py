@@ -4,13 +4,9 @@ from django.http import HttpResponse, JsonResponse
 from django.shortcuts import redirect
 from django.views import generic
 from django.views.decorators.cache import cache_control
-from PIL import Image
-from requests import get
-from rest_framework.permissions import IsAuthenticatedOrReadOnly
 from rest_framework import status
-from StringIO import StringIO
 
-from .functions import resize_image
+from .functions import transform_external_image
 from .models import XeroxImage
 from pagoeta.apps.events.models import Image as EventImage
 from pagoeta.apps.places.models import Image as PlaceImage
@@ -29,26 +25,24 @@ class ImageView(generic.View):
     Serves dinamically generated images.
     Images are taken directly from the source and then transformations are made.
     """
-    permission_classes = (IsAuthenticatedOrReadOnly,)
-
     @cache_control(max_age=31536000, s_maxage=31536000)
     def get(self, request, *args, **kwargs):
-        source = kwargs.get('source')
+        image_type = kwargs.get('image_type')
+        image_hash = kwargs.get('hash')
+        size = kwargs.get('size')
 
         try:
-            if source == 'e':
-                image_url = EventImage.objects.get(hash=kwargs.get('hash')).get_url()
-            elif source == 'p':
-                image_url = PlaceImage.objects.get(hash=kwargs.get('hash')).get_url()
-            elif source == 'x':
-                image_url = XeroxImage.objects.get(hash=kwargs.get('hash')).url
+            if image_type == EventImage.IMAGE_TYPE_IN_URL:
+                image_url = EventImage.objects.get(hash=image_hash).get_url()
+            elif image_type == PlaceImage.IMAGE_TYPE_IN_URL:
+                image_url = PlaceImage.objects.get(hash=image_hash).get_url()
+            elif image_type == XeroxImage.IMAGE_TYPE_IN_URL:
+                image_url = XeroxImage.objects.get(hash=image_hash).url
 
         except ObjectDoesNotExist:
             return JsonResponse({'detail': 'Not Found.'}, status=status.HTTP_404_NOT_FOUND)
 
-        image = Image.open(StringIO(get(image_url).content))
-        image = resize_image(image, kwargs.get('size'))
-
+        image = transform_external_image(image_url, size)
         response = HttpResponse(content_type='image/jpeg')
         image.save(response, 'jpeg')
 

@@ -2,10 +2,10 @@
 Django settings for the project.
 
 For more information on this file, see
-https://docs.djangoproject.com/en/1.8/topics/settings/
+https://docs.djangoproject.com/en/1.7/topics/settings/
 
 For the full list of settings and their values, see
-https://docs.djangoproject.com/en/1.8/ref/settings/
+https://docs.djangoproject.com/en/1.7/ref/settings/
 """
 
 import json
@@ -48,8 +48,8 @@ CONFIG_VARS = creds['CONFIG']['CONFIG_VARS']
 
 
 # Development settings
-# https://docs.djangoproject.com/en/1.8/howto/deployment/checklist/
-# https://docs.djangoproject.com/en/1.8/ref/settings/#std:setting-ADMINS
+# https://docs.djangoproject.com/en/1.7/howto/deployment/checklist/
+# https://docs.djangoproject.com/en/1.7/ref/settings/#std:setting-ADMINS
 
 SECRET_KEY = CONFIG_VARS['secret']
 ADMINS = (('eillarra', 'eneko@illarra.com'),)
@@ -71,6 +71,9 @@ INSTALLED_APPS = (
     'imagekit',
     'storages',
     'wkhtmltopdf',
+    # Admin
+    'grappelli',
+    'django.contrib.admin',
     # Default Django apps
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -86,9 +89,6 @@ INSTALLED_APPS = (
     'pagoeta.apps.health',
     'pagoeta.apps.forecast',
     'pagoeta.apps.posts',
-    # Admin
-    'grappelli',
-    'django.contrib.admin',
 )
 
 # http://stackoverflow.com/questions/4632323/practical-rules-for-django-middleware-ordering
@@ -127,7 +127,7 @@ SITE_HOST = CONFIG_VARS['site_host']
 
 
 # Database
-# https://docs.djangoproject.com/en/1.8/ref/settings/#databases
+# https://docs.djangoproject.com/en/1.7/ref/settings/#databases
 
 DATABASES = {
     'default': {
@@ -166,6 +166,8 @@ REST_FRAMEWORK = {
         'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly',
     ),
     'URL_FIELD_NAME': 'href',
+    'COERCE_DECIMAL_TO_STRING': False,
+    'TIME_FORMAT': '%H:%M'
 }
 
 if not DEBUG:
@@ -194,7 +196,7 @@ SWAGGER_SETTINGS = {
 
 
 # CACHE
-# https://docs.djangoproject.com/en/1.8/topics/cache/
+# https://docs.djangoproject.com/en/1.7/topics/cache/
 
 CACHES = {
     'default': {
@@ -207,7 +209,7 @@ USE_ETAGS = True
 
 
 # Email
-# https://docs.djangoproject.com/en/1.8/topics/email/
+# https://docs.djangoproject.com/en/1.7/topics/email/
 
 MANDRILL_API_KEY = CONFIG_VARS['mandrill__test_key'] if DEBUG else CONFIG_VARS['mandrill__production_key']
 
@@ -224,7 +226,7 @@ SERVER_EMAIL = 'root@zarautz.org'
 
 
 # Internationalization
-# https://docs.djangoproject.com/en/1.8/topics/i18n/
+# https://docs.djangoproject.com/en/1.7/topics/i18n/
 
 LANGUAGE_CODE = 'eu'
 MODELTRANSLATION_DEFAULT_LANGUAGE = LANGUAGE_CODE
@@ -242,7 +244,7 @@ LOCALE_PATHS = (os.path.join(BASE_DIR, 'pagoeta/locale'),)
 
 
 # Time zones
-# https://docs.djangoproject.com/en/1.8/topics/i18n/timezones/
+# https://docs.djangoproject.com/en/1.7/topics/i18n/timezones/
 
 USE_TZ = True
 TIME_ZONE = 'Europe/Madrid'
@@ -251,7 +253,7 @@ TIME_ZONE = 'Europe/Madrid'
 # Media
 # wkhtmltopdf requires MEDIA configuration to be set
 # http://stackoverflow.com/questions/24071290/
-# https://docs.djangoproject.com/en/1.8/ref/settings/#media-root
+# https://docs.djangoproject.com/en/1.7/ref/settings/#media-root
 # https://django-storages.readthedocs.org/en/latest/backends/amazon-S3.html
 
 AWS_HEADERS = {  # see http://developer.yahoo.com/performance/rules.html#expires
@@ -268,8 +270,8 @@ DEFAULT_FILE_STORAGE = 'pagoeta.s3_utils.MediaS3BotoStorage'
 
 
 # Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/1.8/howto/static-files/
-# https://docs.djangoproject.com/en/1.8/howto/static-files/deployment/
+# https://docs.djangoproject.com/en/1.7/howto/static-files/
+# https://docs.djangoproject.com/en/1.7/howto/static-files/deployment/
 # http://whitenoise.readthedocs.org/en/latest/index.html
 
 STATIC_URL = '/static/'
@@ -297,7 +299,7 @@ MARKDOWN_EDITOR_SKIN = 'simple'
 
 
 # Administration area
-# https://docs.djangoproject.com/en/1.8/ref/contrib/admin/
+# https://docs.djangoproject.com/en/1.7/ref/contrib/admin/
 # http://django-grappelli.readthedocs.org/en/latest/index.html
 
 TEMPLATE_CONTEXT_PROCESSORS = global_settings.TEMPLATE_CONTEXT_PROCESSORS + (

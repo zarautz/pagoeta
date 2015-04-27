@@ -2,13 +2,11 @@ from django.contrib import admin
 from modeltranslation.admin import TranslationAdmin
 
 from .models import Place, Type, Image
+from pagoeta.apps.core.admin import ImageInline as BaseImageInline
 
 
-class ImageInline(admin.TabularInline):
+class ImageInline(BaseImageInline):
     model = Image
-    exclude = ('hash',)
-    extra = 0
-    sortable_field_name = 'position'
 
 
 class PlaceAdmin(TranslationAdmin):
@@ -30,11 +28,15 @@ class PlaceAdmin(TranslationAdmin):
         ('Contact information', {
             'fields': ('telephone', 'email', 'url'),
         }),
+        ('Metadata', {
+            'fields': ('is_visible',),
+        }),
     )
 
 
 class TypeAdmin(TranslationAdmin):
     list_display = ('id', 'code', 'name')
+    search_fields = ('code', 'name')
     fieldsets = (
         (None, {
             'fields': ('code', 'name'),

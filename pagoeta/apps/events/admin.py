@@ -2,36 +2,35 @@ from django.contrib import admin
 from modeltranslation.admin import TranslationAdmin
 
 from .models import Event, Category, TargetAge, TargetGroup, Image
+from pagoeta.apps.core.admin import ImageInline as BaseImageInline
 
 
-class ImageInline(admin.TabularInline):
+class ImageInline(BaseImageInline):
     model = Image
-    exclude = ('hash',)
-    extra = 0
-    sortable_field_name = 'position'
 
 
 class EventAdmin(TranslationAdmin):
-    list_display = ('id', 'name', 'start_at', 'end_at', 'category', 'target_age', 'target_group',
+    list_display = ('id', 'name', 'start_date', 'start_time', 'end_date', 'category', 'target_age', 'target_group',
                     'is_visible', 'is_featured')
-    list_filter = ('category', 'start_at', 'end_at')
+    list_filter = ('category', 'start_date', 'end_date')
     search_fields = ('name',)
     inlines = (ImageInline,)
-    raw_id_fields = ('place',)
+    raw_id_fields = ('parent', 'place')
     related_lookup_fields = {
-        'fk': ('place',),
+        'fk': ('parent', 'place'),
     }
     fieldsets = (
         (None, {
-            'fields': ('category', 'name', 'description', 'place'),
+            'fields': ('category', 'place', ('parent', 'is_superevent'), 'name', 'description'),
         }),
         ('Dates', {
-            'fields': ('start_at', 'end_at'),
+            'fields': (('start_date', 'end_date'), ('start_time', 'end_time'),
+                       ('afternoon_start_time', 'afternoon_end_time'), 'is_all_day_event'),
         }),
         ('More information', {
             'fields': ('url', 'price'),
         }),
-        ('Taxonomy', {
+        ('Metadata', {
             'fields': (('target_age', 'target_group'), 'is_visible', 'is_featured'),
         }),
     )

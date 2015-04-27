@@ -1,3 +1,4 @@
+from django.views.decorators.cache import cache_control
 from rest_framework.exceptions import ParseError
 from rest_framework.response import Response
 from rest_framework.viewsets import ViewSet, ReadOnlyModelViewSet
@@ -12,6 +13,7 @@ class PlaceViewSet(ReadOnlyModelViewSet):
     DEFAULT_LIMIT = 20
     MAX_LIMIT = 50
 
+    @cache_control(max_age=7200, s_maxage=7200)
     def list(self, request):
         """
         Get a list of Places.
@@ -115,6 +117,7 @@ class PlaceViewSet(ReadOnlyModelViewSet):
 class TypeViewSet(ViewSet):
     queryset = Type.objects.all()
 
+    @cache_control(max_age=86400, s_maxage=86400)
     def list(self, request):
         """
         Get available Place Types.

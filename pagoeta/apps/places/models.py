@@ -30,7 +30,7 @@ class Place(models.Model):
     telephone = models.CharField(_('Telephone'), max_length=32, null=True, blank=True)
     email = models.EmailField(_('Email'), null=True, blank=True)
     url = models.URLField(_('Website'), null=True, blank=True)
-    price_level = models.CharField(max_length=32, null=True, blank=True)
+    price_level = models.PositiveSmallIntegerField(null=True, blank=True)
     latitude = models.DecimalField(max_digits=18, decimal_places=12, null=True, blank=True)
     longitude = models.DecimalField(max_digits=18, decimal_places=12, null=True, blank=True)
     is_visible = models.BooleanField(_('Visible'), default=True)
@@ -55,6 +55,7 @@ class Place(models.Model):
 
 
 class Image(AbstractImage):
+    IMAGE_TYPE_IN_URL = 'p'
     place = models.ForeignKey(Place, null=True, blank=True, related_name='images')
 
     def get_asset_directory(self):
