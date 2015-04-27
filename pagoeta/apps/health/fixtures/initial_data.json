@@ -4,7 +4,7 @@
         "fields": {
             "id": 1,
             "cofg_id": 120,
-            "place_id": 1
+            "place": 1
         }
     },
     {
@@ -12,7 +12,7 @@
         "fields": {
             "id": 2,
             "cofg_id": 156,
-            "place_id": 1
+            "place": 1
         }
     },
     {
@@ -20,7 +20,7 @@
         "fields": {
             "id": 3,
             "cofg_id": 212,
-            "place_id": 1
+            "place": 1
         }
     },
     {
@@ -28,7 +28,7 @@
         "fields": {
             "id": 4,
             "cofg_id": 269,
-            "place_id": 1
+            "place": 1
         }
     },
     {
@@ -36,7 +36,7 @@
         "fields": {
             "id": 5,
             "cofg_id": 524,
-            "place_id": 1
+            "place": 1
         }
     },
     {
@@ -44,7 +44,7 @@
         "fields": {
             "id": 6,
             "cofg_id": 529,
-            "place_id": 2
+            "place": 2
         }
     },
     {
@@ -52,7 +52,7 @@
         "fields": {
             "id": 7,
             "cofg_id": 829,
-            "place_id": 2
+            "place": 2
         }
     },
     {
@@ -60,7 +60,7 @@
         "fields": {
             "id": 8,
             "cofg_id": 890,
-            "place_id": 2
+            "place": 2
         }
     }
 ]

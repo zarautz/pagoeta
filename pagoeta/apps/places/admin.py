@@ -28,11 +28,15 @@ class PlaceAdmin(TranslationAdmin):
         ('Contact information', {
             'fields': ('telephone', 'email', 'url'),
         }),
+        ('Metadata', {
+            'fields': ('is_visible',),
+        }),
     )
 
 
 class TypeAdmin(TranslationAdmin):
     list_display = ('id', 'code', 'name')
+    search_fields = ('code', 'name')
     fieldsets = (
         (None, {
             'fields': ('code', 'name'),

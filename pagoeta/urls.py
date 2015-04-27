@@ -26,7 +26,7 @@ urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
     url(r'^api/doc/', core_views.RedirectView.as_view(), name='redirect_old_api_docs'),
     url(r'^docs/', include('rest_framework_swagger.urls')),
-    url(r'^img/(?P<image_type>[epx]+)/(?P<hash>[\w-]+)_(?P<size>[qnzb]+).jpg', core_views.ImageView.as_view(),
+    url(r'^img/(?P<image_type>[epx]+)/(?P<hash>[a-f0-9]{40})_(?P<size>[qnzb]+).jpg', core_views.ImageView.as_view(),
         name='image'),
     url(r'^v1/', include(router_v1.urls, namespace='v1')),
     url(r'^$', core_views.RedirectView.as_view(), name='redirect'),

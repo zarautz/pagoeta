@@ -33,7 +33,7 @@ class ForecastViewSet(ViewSet):
 class WeatherCodeViewSet(ViewSet):
     queryset = WeatherCode.objects.all()
 
-    @cache_control(max_age=7200, s_maxage=7200)
+    @cache_control(max_age=86400, s_maxage=86400)
     def list(self, request):
         """
         Get available weather codes (used in the weather forecast).

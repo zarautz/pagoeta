@@ -18,7 +18,7 @@ class EventViewSetListTests(TestCase):
         response = self.client.get(self.url)
         from_date = timezone.now()
         to_date = from_date + timedelta(days=EventViewSet.DEFAULT_DAYS_DIFFERENCE)
-        visible_events_count = Event.objects.visible().filter(start_at__gte=from_date, end_at__lte=to_date).count()
+        visible_events_count = Event.objects.visible().filter(start_date__gte=from_date, end_date__lte=to_date).count()
         self.assertEqual(response.status_code, status.HTTP_200_OK)
         self.assertEqual(response.data['meta']['totalCount'], visible_events_count)
         self.assertEqual(len(response.data['data']), visible_events_count)
@@ -33,7 +33,7 @@ class EventViewSetListTests(TestCase):
 
     def test_parameters_to_too_late(self):
         date_format = '%Y-%m-%d'
-        from_date = timezone.make_aware(datetime.strptime('2013-01-01', date_format))
+        from_date = timezone.make_aware(datetime.strptime('2013-01-01', date_format), timezone.get_current_timezone())
         to_date = from_date + timedelta(days=EventViewSet.MAX_DAYS_DIFFERENCE + 10)
         response = self.client.get(self.url, {'from': datetime.strftime(from_date, date_format),
                                               'to': datetime.strftime(to_date, date_format)})

@@ -21,7 +21,7 @@ class PlaceSerializer(TranslationModelSerializer):
     class Meta(object):
         model = Place
         translation_fields = ('name', 'description')
-        exclude = ('latitude', 'longitude', 'price_level', 'is_visible')
+        exclude = ('latitude', 'longitude', 'price_level', 'is_visible', 'events')
 
     def get_geometry(self, obj):
         return {
@@ -34,7 +34,7 @@ class PlaceListSerializer(PlaceSerializer):
     href = serializers.SerializerMethodField()
 
     class Meta(PlaceSerializer.Meta):
-        exclude = PlaceSerializer.Meta.exclude + ('url', 'description', 'events', 'images')
+        exclude = PlaceSerializer.Meta.exclude + ('url', 'description', 'images')
 
     def get_href(self, obj):
         return get_absolute_uri(reverse('v1:place-detail', (obj.id,)))
