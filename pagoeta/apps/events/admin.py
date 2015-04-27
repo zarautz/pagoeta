@@ -1,4 +1,5 @@
 from django.contrib import admin
+from django.utils.translation import ugettext_lazy as _
 from modeltranslation.admin import TranslationAdmin
 
 from .models import Event, Category, TargetAge, TargetGroup, Image
@@ -11,8 +12,8 @@ class ImageInline(BaseImageInline):
 
 class EventAdmin(TranslationAdmin):
     list_display = ('id', 'name', 'start_date', 'start_time', 'end_date', 'category', 'target_age', 'target_group',
-                    'is_visible', 'is_featured')
-    list_filter = ('category', 'start_date', 'end_date')
+                    'is_visible', 'is_featured', 'is_superevent')
+    list_filter = ('is_superevent', 'category', 'start_date', 'end_date')
     search_fields = ('name',)
     inlines = (ImageInline,)
     raw_id_fields = ('parent', 'place')
@@ -21,16 +22,16 @@ class EventAdmin(TranslationAdmin):
     }
     fieldsets = (
         (None, {
-            'fields': ('category', 'place', ('parent', 'is_superevent'), 'name', 'description'),
+            'fields': (('category', 'is_superevent'), 'place', 'parent', 'name', 'description'),
         }),
-        ('Dates', {
+        (_('fieldset:dates'), {
             'fields': (('start_date', 'end_date'), ('start_time', 'end_time'),
                        ('afternoon_start_time', 'afternoon_end_time'), 'is_all_day_event'),
         }),
-        ('More information', {
+        (_('fieldset:more_information'), {
             'fields': ('url', 'price'),
         }),
-        ('Metadata', {
+        (_('fieldset:metadata'), {
             'fields': (('target_age', 'target_group'), 'is_visible', 'is_featured'),
         }),
     )

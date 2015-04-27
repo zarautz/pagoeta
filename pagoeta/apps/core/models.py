@@ -24,26 +24,29 @@ class ImageManager(models.Manager):
 class Image(models.Model):
     IMAGE_TYPE_IN_URL = None
     hash = models.CharField(max_length=40, unique=True, blank=True)
-    image = ProcessedImageField(upload_to=get_asset_path, null=True, blank=True,
-                                processors=(ResizeToFit(1600, 1600, False),),
-                                format='JPEG',
-                                options={'quality': 80})
-    is_featured = models.BooleanField(_('Featured'), default=False)
-    is_visible = models.BooleanField(_('Visible'), default=True)
-    position = models.PositiveSmallIntegerField(_('Position'))
+    file = ProcessedImageField(upload_to=get_asset_path, null=True, blank=True,
+                               verbose_name=_('label:file'),
+                               processors=(ResizeToFit(1600, 1600, False),),
+                               format='JPEG',
+                               options={'quality': 80})
+    is_featured = models.BooleanField(_('label:is_featured'), default=False)
+    is_visible = models.BooleanField(_('label:is_visible'), default=True)
+    position = models.PositiveSmallIntegerField(_('label:position'))
 
     objects = ImageManager()
 
     class Meta(object):
+        verbose_name = _('model:Image')
+        verbose_name_plural = _('models:Image')
         ordering = ('position',)
         abstract = True
 
     def save(self, *args, **kwargs):
-        self.hash = hashlib.sha1(self.image.url).hexdigest()
+        self.hash = hashlib.sha1(self.file.url).hexdigest()
         super(Image, self).save(*args, **kwargs)
 
     def get_url(self):
-        return self.image.url
+        return self.file.url
 
     def get_sources(self):
         return get_image_sources(self.IMAGE_TYPE_IN_URL, self.hash) if self.IMAGE_TYPE_IN_URL else None

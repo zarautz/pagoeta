@@ -9,8 +9,8 @@ from pagoeta.apps.places.models import Place
 
 
 class Type(models.Model):
-    code = models.CharField(max_length=100)
-    name = models.CharField(max_length=255)
+    code = models.CharField(_('label:code'), max_length=100)
+    name = models.CharField(_('label:name'), max_length=255)
 
     class Meta(object):
         abstract = True
@@ -21,21 +21,23 @@ class Type(models.Model):
 
 class Category(Type):
     class Meta(object):
-        verbose_name = _('category')
-        verbose_name_plural = _('categories')
+        verbose_name = _('model:Category')
+        verbose_name_plural = _('models:Category')
         ordering = ('name',)
 
 
 class TargetAge(Type):
     class Meta(object):
-        verbose_name = _('target age group')
-        verbose_name_plural = _('target age groups')
+        verbose_name = _('model:TargetAge')
+        verbose_name_plural = _('models:TargetAge')
+        ordering = ('id',)
 
 
 class TargetGroup(Type):
     class Meta(object):
-        verbose_name = _('target group')
-        verbose_name_plural = _('target groups')
+        verbose_name = _('model:TargetGroup')
+        verbose_name_plural = _('models:TargetGroup')
+        ordering = ('id',)
 
 
 class EventManager(models.Manager):
@@ -44,37 +46,38 @@ class EventManager(models.Manager):
 
 
 class Event(models.Model):
-    name = models.CharField(max_length=255)
-    description = models.TextField()
-    place = models.ForeignKey(Place, related_name='events', null=True, blank=True)
-    category = models.ForeignKey(Category, related_name='events')
-    target_group = models.ForeignKey(TargetGroup, related_name='events', null=True, blank=True)
-    target_age = models.ForeignKey(TargetAge, related_name='events', null=True, blank=True)
-    start_date = models.DateField()
-    end_date = models.DateField(null=True, blank=True)
-    start_time = models.TimeField(null=True, blank=True)
-    end_time = models.TimeField(null=True, blank=True,
-                                help_text=_('This time will be the morning end time if afternoon times are set.'))
-    afternoon_start_time = models.TimeField(null=True, blank=True)
-    afternoon_end_time = models.TimeField(null=True, blank=True,
-                                          help_text=_('Afternoon times are only needed is the hours are split.'))
-    is_all_day_event = models.BooleanField(_('All day event'), default=False,
-                                           help_text=_('Check this if it is an all day event (no hours).'))
-    price = models.DecimalField(max_digits=6, decimal_places=2, null=True, blank=True)
-    url = models.URLField(null=True, blank=True)
-    is_featured = models.BooleanField(_('Featured'), default=False)
-    is_superevent = models.BooleanField(_('Super event'), default=False,
-                                        help_text=_('Check this if this event can have children events.'))
-    is_visible = models.BooleanField(_('Visible'), default=True)
+    name = models.CharField(_('label:name'), max_length=255)
+    description = models.TextField(_('label:description'))
+    place = models.ForeignKey(Place, related_name='events', null=True, blank=True, verbose_name=_('model:Place'))
+    category = models.ForeignKey(Category, related_name='events', verbose_name=_('model:Category'))
+    target_group = models.ForeignKey(TargetGroup, related_name='events', null=True, blank=True,
+                                     verbose_name=_('model:TargetGroup'))
+    target_age = models.ForeignKey(TargetAge, related_name='events', null=True, blank=True,
+                                   verbose_name=_('model:TargetAge'))
+    start_date = models.DateField(_('label:start_date'))
+    end_date = models.DateField(_('label:end_date'), null=True, blank=True)
+    start_time = models.TimeField(_('label:start_time'), null=True, blank=True)
+    end_time = models.TimeField(_('label:end_time'), null=True, blank=True, help_text=_('help_text:end_time'))
+    afternoon_start_time = models.TimeField(_('label:afternoon_start_time'), null=True, blank=True)
+    afternoon_end_time = models.TimeField(_('label:afternoon_end_time'), null=True, blank=True,
+                                          help_text=_('help_text:afternoon_end_time'))
+    is_all_day_event = models.BooleanField(_('label:is_all_day_event'), default=False,
+                                           help_text=_('help_text:is_all_day_event'))
+    price = models.DecimalField(_('label:price'), max_digits=6, decimal_places=2, null=True, blank=True)
+    url = models.URLField(_('label:url'), null=True, blank=True)
+    is_featured = models.BooleanField(_('label:is_featured'), default=False)
+    is_superevent = models.BooleanField(_('label:is_superevent'), default=False,
+                                        help_text=_('help_text:is_superevent'))
+    is_visible = models.BooleanField(_('label:is_visible'), default=True)
     parent = models.ForeignKey('self', null=True, blank=True, related_name='subevents',
                                limit_choices_to={'is_superevent': True},
-                               help_text=_('Select one if this event is part of a super event.'))
+                               verbose_name=_('label:parent_superevent'), help_text=_('help_text:parent_superevent'))
 
     objects = EventManager()
 
     class Meta(object):
-        verbose_name = _('event')
-        verbose_name_plural = _('events')
+        verbose_name = _('model:Event')
+        verbose_name_plural = _('models:Event')
         ordering = ('start_date', 'start_time')
 
     def clean(self):

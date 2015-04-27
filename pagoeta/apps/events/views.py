@@ -14,7 +14,7 @@ class EventViewSet(ReadOnlyModelViewSet):
                             .prefetch_related('category', 'target_group', 'target_age', 'images',
                                               'place__images', 'place__types')
     serializer_class = EventSerializer
-    DEFAULT_DAYS_DIFFERENCE = 30
+    DEFAULT_DAYS_DIFFERENCE = 7
     MAX_DAYS_DIFFERENCE = 180
 
     @cache_control(max_age=3600, s_maxage=3600)

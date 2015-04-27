@@ -5,13 +5,13 @@ from pagoeta.apps.core.models import Image as AbstractImage
 
 
 class Type(models.Model):
-    code = models.CharField(max_length=32)
-    name = models.CharField(max_length=255)
+    code = models.CharField(_('label:code'), max_length=32)
+    name = models.CharField(_('label:name'), max_length=255)
 
     class Meta(object):
-        verbose_name = _('place type')
-        verbose_name_plural = _('place types')
-        ordering = ('code',)
+        verbose_name = _('model:PlaceType')
+        verbose_name_plural = _('models:PlaceType')
+        ordering = ('name',)
 
     def __unicode__(self):
         return u'%s' % self.name
@@ -23,23 +23,23 @@ class PlaceManager(models.Manager):
 
 
 class Place(models.Model):
-    types = models.ManyToManyField(Type, blank=True, related_name='places')
-    name = models.CharField(_('Name'), max_length=100)
-    description = models.TextField(_('Presentation'), null=True, blank=True)
-    address = models.CharField(_('Address'), max_length=255, null=True, blank=True)
-    telephone = models.CharField(_('Telephone'), max_length=32, null=True, blank=True)
-    email = models.EmailField(_('Email'), null=True, blank=True)
-    url = models.URLField(_('Website'), null=True, blank=True)
-    price_level = models.PositiveSmallIntegerField(null=True, blank=True)
-    latitude = models.DecimalField(max_digits=18, decimal_places=12, null=True, blank=True)
-    longitude = models.DecimalField(max_digits=18, decimal_places=12, null=True, blank=True)
-    is_visible = models.BooleanField(_('Visible'), default=True)
+    types = models.ManyToManyField(Type, blank=True, related_name='places', verbose_name=_('models:PlaceType'))
+    name = models.CharField(_('label:name'), max_length=100)
+    description = models.TextField(_('label:description'), null=True, blank=True)
+    address = models.CharField(_('label:address'), max_length=255, null=True, blank=True)
+    telephone = models.CharField(_('label:telephone'), max_length=32, null=True, blank=True)
+    email = models.EmailField(_('label:email'), null=True, blank=True)
+    url = models.URLField(_('label:url'), null=True, blank=True)
+    price_level = models.PositiveSmallIntegerField(_('label:price_level'), null=True, blank=True)
+    latitude = models.DecimalField(_('label:latitude'), max_digits=18, decimal_places=12, null=True, blank=True)
+    longitude = models.DecimalField(_('label:longitude'), max_digits=18, decimal_places=12, null=True, blank=True)
+    is_visible = models.BooleanField(_('label:is_visible'), default=True)
 
     objects = PlaceManager()
 
     class Meta(object):
-        verbose_name = _('place')
-        verbose_name_plural = _('places')
+        verbose_name = _('model:Place')
+        verbose_name_plural = _('models:Place')
 
     def __unicode__(self):
         return u'%s' % self.name
