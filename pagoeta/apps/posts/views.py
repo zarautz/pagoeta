@@ -9,7 +9,7 @@ from .scrapers import ZuZarautzPostScraper
 class ZuZarautzPostViewSet(ViewSet):
     permission_classes = (IsAuthenticatedOrReadOnly,)
 
-    @cache_control(max_age=7200, s_maxage=7200)
+    @cache_control(max_age=7200)
     def list(self, request):
         """
         Get the latest Zu Zarautz (http://zuzarautz.net/) news (language="eu").

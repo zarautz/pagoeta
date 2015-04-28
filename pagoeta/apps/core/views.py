@@ -25,7 +25,7 @@ class ImageView(generic.View):
     Serves dinamically generated images.
     Images are taken directly from the source and then transformations are made.
     """
-    @cache_control(max_age=31536000, s_maxage=31536000)
+    @cache_control(max_age=31536000)
     def get(self, request, *args, **kwargs):
         image_type = kwargs.get('image_type')
         image_hash = kwargs.get('hash')

@@ -9,7 +9,7 @@ from pagoeta.apps.places.models import Place
 
 
 class Type(models.Model):
-    code = models.CharField(_('label:code'), max_length=100)
+    code = models.CharField(_('label:code'), max_length=100, db_index=True)
     name = models.CharField(_('label:name'), max_length=255)
 
     class Meta(object):

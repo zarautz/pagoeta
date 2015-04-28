@@ -5,7 +5,7 @@ from pagoeta.apps.core.models import Image as AbstractImage
 
 
 class Type(models.Model):
-    code = models.CharField(_('label:code'), max_length=32)
+    code = models.CharField(_('label:code'), max_length=32, db_index=True)
     name = models.CharField(_('label:name'), max_length=255)
 
     class Meta(object):

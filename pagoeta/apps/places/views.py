@@ -13,7 +13,7 @@ class PlaceViewSet(ReadOnlyModelViewSet):
     DEFAULT_LIMIT = 20
     MAX_LIMIT = 50
 
-    @cache_control(max_age=7200, s_maxage=7200)
+    @cache_control(max_age=7200)
     def list(self, request):
         """
         Get a list of Places.
@@ -60,11 +60,14 @@ class PlaceViewSet(ReadOnlyModelViewSet):
             raise ParseError('Limit cannot be higher than %d.' % self.MAX_LIMIT)
 
         if types:
-            if ',' in types and ' ' in types:
+            """Convert spaces to `+` to normalize request parameters."""
+            types.replace(' ', '+')
+
+            if ',' in types and '+' in types:
                 raise ParseError('Only one operator in allowed for `types`: OR (,) or AND (+).')
-            elif ' ' in types:
+            elif '+' in types:
                 types_meta = {
-                    'filter': types.split(' '),
+                    'filter': types.split('+'),
                     'operator': 'AND',
                 }
                 for type_code in types_meta['filter']:
@@ -117,7 +120,7 @@ class PlaceViewSet(ReadOnlyModelViewSet):
 class TypeViewSet(ViewSet):
     queryset = Type.objects.all()
 
-    @cache_control(max_age=86400, s_maxage=86400)
+    @cache_control(max_age=86400)
     def list(self, request):
         """
         Get available Place Types.

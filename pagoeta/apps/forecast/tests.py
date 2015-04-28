@@ -161,8 +161,8 @@ class WeatherScraperTests(TestCase):
         data = self.data[str(self.date_no_periods)]
         self.assertEqual(len(data['forecast']), 1)
         self.assertEqual(data, {
-            'tempMin': 8,
-            'tempMax': 17,
+            'tempMin': None,
+            'tempMax': None,
             'uvMax': None,
             'forecast': [
                 {

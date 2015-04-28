@@ -24,6 +24,7 @@ class EventSerializer(TranslationModelSerializer):
     startAt = serializers.DateTimeField(source='start_at', read_only=True)
     endAt = serializers.DateTimeField(source='end_at', read_only=True)
     timetable = serializers.SerializerMethodField()
+    subEvents = serializers.PrimaryKeyRelatedField(source='subevents', many=True, read_only=True)
     # camelCase some field names
     targetGroup = TypeField(source='target_group', read_only=True)
     targetAge = TypeField(source='target_age', read_only=True)
@@ -39,9 +40,9 @@ class EventSerializer(TranslationModelSerializer):
     def get_timetable(self, obj):
         time_format = settings.REST_FRAMEWORK['TIME_FORMAT']
         if obj.start_time:
-            hours = (
+            hours = [
                 (obj.start_time.strftime(time_format), obj.end_time.strftime(time_format)),
-            ) if obj.end_time else ((obj.start_time.strftime(time_format),))
+            ] if obj.end_time else [(obj.start_time.strftime(time_format),)]
 
             if obj.afternoon_end_time:
                 hours.append((obj.afternoon_start_time.strftime(time_format),

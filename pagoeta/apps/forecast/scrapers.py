@@ -115,10 +115,14 @@ class WeatherScraper():
             date_str = element.get('fecha')
 
             if date_str in self.date_str_list:
+                el = element
+                temp_min = el.xpath('.//temperatura/minima')[0].text if el.xpath('.//temperatura/minima') else None
+                temp_max = el.xpath('.//temperatura/maxima')[0].text if el.xpath('.//temperatura/maxima') else None
+                uv_max = el.find('uv_max').text if el.find('uv_max') is not None else None
                 data[date_str] = {
-                    'tempMin': int(element.xpath('.//temperatura/minima')[0].text),
-                    'tempMax': int(element.xpath('.//temperatura/maxima')[0].text),
-                    'uvMax': int(element.find('uv_max').text) if element.find('uv_max') is not None else None,
+                    'tempMin': int(temp_min) if temp_min else None,
+                    'tempMax': int(temp_max) if temp_max else None,
+                    'uvMax': int(uv_max) if uv_max else None,
                     'forecast': self.parse_forecast_subelements(element),
                 }
 

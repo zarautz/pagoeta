@@ -28,7 +28,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 if 'CRED_FILE' in os.environ:
     cred_file = os.environ['CRED_FILE']
     DEBUG = False
-    ALLOWED_HOSTS = ('pagoeta.cloudcontrolled.com', '.pagoeta.cloudcontrolled.com')
+    ALLOWED_HOSTS = ('pagoeta.cloudcontrolled.com', '.pagoeta.cloudcontrolled.com', 'pagoeta.illarra.com')
 
 elif 'BUILDPACK_RUNNING' in os.environ or 'TRAVIS' in os.environ:
     cred_file = os.path.join(BASE_DIR, 'creds.json.txt')

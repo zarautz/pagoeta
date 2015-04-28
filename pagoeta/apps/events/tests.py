@@ -39,6 +39,13 @@ class EventViewSetListTests(TestCase):
                                               'to': datetime.strftime(to_date, date_format)})
         self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
 
+    def test_parameters_to_munoa_exception(self):
+        date_format = '%Y-%m-%d'
+        to_date = timezone.make_aware(datetime.strptime('2014-02-28', date_format), timezone.get_current_timezone())
+        response = self.client.get(self.url, {'to': '2014-02-31'})
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        self.assertEqual(response.data['meta']['to'], to_date)
+
 
 class EventViewSetDetailTests(TestCase):
     def setUp(self):

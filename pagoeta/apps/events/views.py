@@ -17,7 +17,7 @@ class EventViewSet(ReadOnlyModelViewSet):
     DEFAULT_DAYS_DIFFERENCE = 7
     MAX_DAYS_DIFFERENCE = 180
 
-    @cache_control(max_age=3600, s_maxage=3600)
+    @cache_control(max_age=3600)
     def list(self, request):
         """
         Get a list of Events between two dates, ordered by date (ASC).
@@ -48,7 +48,25 @@ class EventViewSet(ReadOnlyModelViewSet):
             to_date = timezone.make_aware(datetime.strptime(request.GET.get('to', default_to_str), date_format),
                                           timezone.get_current_timezone())
         except ValueError:
-            raise ParseError('Date format should be ISO 8601 YYYY-MM-DD.')
+            """
+            TODO (eillarra)
+            When catching this exception we can do a secund check for the `to_date`.
+            It can happen that the format is good but the day is non-existent (2015-04-31 for example).
+            `munoa` has this bug in the code and this hack solves it. Once `munoa` is up-to-date
+            this hack should dissapear.
+            """
+            to_date_str = request.GET.get('to', False)
+            if to_date_str and to_date_str.endswith('-31'):
+                import calendar
+                import re
+                m = re.match('(\d{4})[/.-](\d{2})[/.-](\d{2})$', to_date_str).groups()
+                if m is None:
+                    raise ParseError('Date format should be ISO 8601 YYYY-MM-DD.')
+                last_day = calendar.monthrange(int(m[0]), int(m[1]))[1]
+                to_date = timezone.make_aware(datetime.strptime(m[0] + '-' + m[1] + '-' + str(last_day), date_format),
+                                              timezone.get_current_timezone())
+            else:
+                raise ParseError('Date format should be ISO 8601 YYYY-MM-DD.')
 
         if (to_date - from_date).days > self.MAX_DAYS_DIFFERENCE:
             raise ParseError('Difference between dates cannot be more than %d days.' % self.MAX_DAYS_DIFFERENCE)
@@ -67,7 +85,7 @@ class EventViewSet(ReadOnlyModelViewSet):
             'data': data,
         })
 
-    @cache_control(max_age=7200, s_maxage=7200)
+    @cache_control(max_age=7200)
     def retrieve(self, request, pk=None):
         """
         Get full information of an Event, including the related Place model.

@@ -58,14 +58,13 @@ class PlaceViewSetListTests(TestCase):
         self.assertEqual(len(response.data['meta']['types']['filter']), 2)
 
     def test_parameters_types_and(self):
-        """Spaces are used here instead of a `+` sign. See: http://stackoverflow.com/questions/29703930/"""
-        response = self.client.get(self.url, {'types': 'one two three'})
+        response = self.client.get(self.url, {'types': 'one+two+three'})
         self.assertEqual(response.status_code, status.HTTP_200_OK)
         self.assertEqual(response.data['meta']['types']['operator'], 'AND')
         self.assertEqual(len(response.data['meta']['types']['filter']), 3)
 
     def test_parameters_types_mixed_operators(self):
-        response = self.client.get(self.url, {'types': 'one,two three'})
+        response = self.client.get(self.url, {'types': 'one,two+three'})
         self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
 
 

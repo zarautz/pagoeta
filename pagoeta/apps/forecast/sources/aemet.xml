@@ -300,6 +300,7 @@
 				<maxima>95</maxima>
 				<minima>50</minima>
 			</humedad_relativa>
+			<uv_max/>
 		</dia>
 		<dia fecha="2015-04-26">
 			<prob_precipitacion>100</prob_precipitacion>
@@ -311,8 +312,8 @@
 			</viento>
 			<racha_max></racha_max>
 			<temperatura>
-				<maxima>17</maxima>
-				<minima>8</minima>
+				<maxima/>
+				<minima/>
 			</temperatura>
 			<sens_termica>
 				<maxima>17</maxima>
