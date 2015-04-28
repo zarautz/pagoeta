@@ -1,5 +1,5 @@
 django==1.7.7
-mysql-python==1.2.5
+psycopg2==2.6
 
 djangorestframework==3.1.1
 django-rest-swagger==0.2.9
@@ -8,6 +8,7 @@ django-modeltranslation==0.9
 boto==2.38.0
 bleach==1.4.1
 cssselect==0.9.1
+dj-database-url==0.3.0
 django-cors-headers==1.0.0
 django-grappelli==2.6.4
 django-imagekit==3.2.6

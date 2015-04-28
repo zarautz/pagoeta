@@ -28,7 +28,7 @@ class PharmacyGuardScraper():
 
     def get_places(self):
         places = {}
-        for obj in Place.objects.filter(id__in=self.place_ids).prefetch_related('types', 'events').all():
+        for obj in Place.objects.filter(id__in=self.place_ids).prefetch_related('types', 'images').all():
             places[obj.id] = PlaceListSerializer(obj).data
 
         return places

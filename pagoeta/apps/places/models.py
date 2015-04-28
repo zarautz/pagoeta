@@ -30,7 +30,7 @@ class Place(models.Model):
     telephone = models.CharField(_('label:telephone'), max_length=32, null=True, blank=True)
     email = models.EmailField(_('label:email'), null=True, blank=True)
     url = models.URLField(_('label:url'), null=True, blank=True)
-    price_level = models.PositiveSmallIntegerField(_('label:price_level'), null=True, blank=True)
+    price_level = models.SmallIntegerField(_('label:price_level'), null=True, blank=True)
     latitude = models.DecimalField(_('label:latitude'), max_digits=18, decimal_places=12, null=True, blank=True)
     longitude = models.DecimalField(_('label:longitude'), max_digits=18, decimal_places=12, null=True, blank=True)
     is_visible = models.BooleanField(_('label:is_visible'), default=True)

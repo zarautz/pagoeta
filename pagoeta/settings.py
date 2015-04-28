@@ -8,6 +8,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/1.7/ref/settings/
 """
 
+import dj_database_url
 import json
 import os
 
@@ -130,26 +131,15 @@ SITE_HOST = CONFIG_VARS['site_host']
 # https://docs.djangoproject.com/en/1.7/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': creds['MYSQLS']['MYSQLS_DATABASE'],
-        'USER': creds['MYSQLS']['MYSQLS_USERNAME'],
-        'PASSWORD': creds['MYSQLS']['MYSQLS_PASSWORD'],
-        'HOST': creds['MYSQLS']['MYSQLS_HOSTNAME'],
-        'PORT': creds['MYSQLS']['MYSQLS_PORT'],
-        'OPTIONS': {
-            'init_command': 'SET storage_engine=INNODB,character_set_connection=utf8,'
-                            'collation_connection=utf8_unicode_ci;',
-        }
-    }
+    'default': dj_database_url.config(default=creds['ELEPHANTSQL']['ELEPHANTSQL_URL'])
 }
 
 if 'TRAVIS' in os.environ:
     DATABASES = {
         'default': {
-            'ENGINE': 'django.db.backends.mysql',
+            'ENGINE': 'django.db.backends.postgresql_psycopg2',
             'NAME': 'pagoeta_test',
-            'USER': 'travis',
+            'USER': 'postgres',
             'PASSWORD': '',
             'HOST': 'localhost',
             'PORT': '',

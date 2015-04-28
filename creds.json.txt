@@ -12,11 +12,7 @@
             "site_host": "site_host"
         }
     },
-    "MYSQLS": {
-        "MYSQLS_DATABASE": "MYSQLS_DATABASE",
-        "MYSQLS_HOSTNAME": "MYSQLS_HOSTNAME",
-        "MYSQLS_PASSWORD": "MYSQLS_PASSWORD",
-        "MYSQLS_PORT": 3306,
-        "MYSQLS_USERNAME": "MYSQLS_USERNAME"
+    "ELEPHANTSQL": {
+        "ELEPHANTSQL_URL": "elephantsql_url"
     }
 }

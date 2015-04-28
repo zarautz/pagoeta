@@ -2,7 +2,7 @@ import bleach
 import feedparser
 
 from datetime import datetime
-from django.db import IntegrityError
+from django.db import transaction, IntegrityError
 from lxml.html import fromstring
 from time import mktime
 
@@ -53,8 +53,9 @@ class ZuZarautzPostScraper():
 
     def get_xerox_image_sources(self, image_source):
         try:
-            x = XeroxImage(url=image_source)
-            x.save()
+            with transaction.atomic():
+                x = XeroxImage(url=image_source)
+                x.save()
         except IntegrityError:
             pass
 
