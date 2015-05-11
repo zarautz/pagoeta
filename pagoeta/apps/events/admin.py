@@ -35,6 +35,20 @@ class EventAdmin(TranslationAdmin):
             'fields': (('target_age', 'target_group'), 'is_visible', 'is_featured'),
         }),
     )
+    actions = ('duplicate_event',)
+
+    def duplicate_event(self, request, queryset):
+        """https://docs.djangoproject.com/en/1.7/topics/db/queries/#copying-model-instances"""
+        for event in queryset:
+            event.id = None
+            event.save()
+
+            for image in event.images.all():
+                image.id = None
+                image.event = event
+                image.save()
+
+    duplicate_event.short_description = _('admin_action:duplicate_event')
 
 
 class TypeAdmin(TranslationAdmin):

@@ -42,7 +42,7 @@ class Image(models.Model):
         abstract = True
 
     def save(self, *args, **kwargs):
-        self.hash = hashlib.sha1(self.file.url).hexdigest()
+        self.hash = hashlib.sha1(str(uuid.uuid1()) + self.file.url).hexdigest()
         super(Image, self).save(*args, **kwargs)
 
     def get_url(self):
