@@ -1,4 +1,4 @@
-from datetime import datetime
+from datetime import datetime, time
 from django.core.exceptions import ValidationError
 from django.db import models
 from django.utils.functional import cached_property
@@ -87,10 +87,12 @@ class Event(models.Model):
         # 1) Check if it is a superevent with a parent event defined
         if self.is_superevent and self.parent:
             raise ValidationError(_('A super event cannot have a parent event.'))
-        # 2) Check if the necessary dates and times are defined
+        # 2) Set an `end_date` by default
+        print self.end_date
+        if not self.end_date:
+            self.end_date = self.start_date
+        # 3) Check if the necessary times are defined
         if not self.is_all_day_event:
-            if not self.end_date:
-                self.end_date = self.start_date
             if not self.start_time:
                 raise ValidationError(_('A start time is required if the event is not an all day event.'))
             if (self.afternoon_start_time or self.afternoon_end_time) and not self.end_time:
@@ -109,13 +111,14 @@ class Event(models.Model):
 
     @cached_property
     def start_at(self):
-        start_time = self.start_time if self.start_time else datetime.min.time()
+        start_time = self.start_time if self.start_time else time.min
         return datetime.combine(self.start_date, start_time)
 
     @cached_property
     def end_at(self):
         end_time = self.afternoon_end_time if self.afternoon_end_time else self.end_time
-        return datetime.combine(self.end_date, end_time) if end_time else None
+        end_time = end_time if end_time else time.max
+        return datetime.combine(self.end_date, end_time)
 
 
 class Image(AbstractImage):

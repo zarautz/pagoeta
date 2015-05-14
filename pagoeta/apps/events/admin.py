@@ -14,6 +14,7 @@ class EventAdmin(TranslationAdmin):
     list_display = ('id', 'name', 'start_date', 'start_time', 'end_date', 'category', 'target_age', 'target_group',
                     'is_visible', 'is_featured', 'is_superevent')
     list_filter = ('is_superevent', 'category', 'start_date', 'end_date')
+    ordering = ('-start_date', '-start_time')
     search_fields = ('name',)
     inlines = (ImageInline,)
     raw_id_fields = ('parent', 'place')

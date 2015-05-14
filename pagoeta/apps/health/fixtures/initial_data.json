@@ -62,5 +62,13 @@
             "cofg_id": 890,
             "place": 2
         }
+    },
+    {
+        "model": "health.pharmacy",
+        "fields": {
+            "id": 9,
+            "cofg_id": 971,
+            "place": 2
+        }
     }
 ]
