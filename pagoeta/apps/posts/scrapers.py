@@ -47,6 +47,7 @@ class ZuZarautzPostScraper():
                 'publishedAt': post.published,
                 'tags': [tag.term.lower() for tag in post.tags],
                 'contentImages': content_images,
+                'files': [],
             })
 
         return posts
