@@ -44,6 +44,16 @@ class EventManager(models.Manager):
     def visible(self):
         return self.filter(is_visible=True)
 
+    def visibleBetweenDates(self, from_date, to_date):
+        Q = models.Q
+        return self.filter(is_visible=True) \
+                   .filter(
+                       Q(start_date__lte=from_date, end_date__gte=from_date) |
+                       Q(start_date__lte=to_date, end_date__gte=to_date) |
+                       Q(start_date__range=(from_date, to_date)) |
+                       Q(end_date__range=(from_date, to_date))
+                   )
+
 
 class Event(models.Model):
     name = models.CharField(_('label:name'), max_length=255)

@@ -71,7 +71,9 @@ class EventViewSet(ReadOnlyModelViewSet):
         if (to_date - from_date).days > self.MAX_DAYS_DIFFERENCE:
             raise ParseError('Difference between dates cannot be more than %d days.' % self.MAX_DAYS_DIFFERENCE)
 
-        queryset = self.queryset.filter(start_date__gte=from_date, end_date__lte=to_date)
+        queryset = Event.objects.visibleBetweenDates(from_date, to_date) \
+                                .prefetch_related('category', 'target_group', 'target_age', 'images',
+                                                  'place__images', 'place__types')
         serializer = EventListSerializer(queryset, many=True)
         data = serializer.data
 
