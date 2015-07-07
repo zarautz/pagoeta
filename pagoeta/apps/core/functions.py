@@ -35,7 +35,8 @@ def transform_external_image(image_url, target_size):
     Gets an image from an URL and returns a transformed image.
     `Image.BICUBIC` gives enough quality here: http://blog.uploadcare.com/pillow-2-7-extended-release-notes/
     """
-    image = Image.open(StringIO(get(image_url).content))
+    headers = {'Referer': 'com.illarra.zarautz.pagoeta', 'user-agent': 'Python'}
+    image = Image.open(StringIO(get(image_url, headers=headers).content))
 
     if target_size == 'q':
         image = ImageOps.fit(image, IMAGE_SIZES['q']['size'], Image.BICUBIC)
