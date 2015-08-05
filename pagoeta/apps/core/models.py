@@ -61,7 +61,7 @@ class XeroxImage(models.Model):
         db_table = 'core_xerox_image'
 
     def save(self, *args, **kwargs):
-        self.hash = hashlib.sha1(self.url).hexdigest()
+        self.hash = hashlib.sha1(self.url.encode('utf-8')).hexdigest()
         super(XeroxImage, self).save(*args, **kwargs)
 
     def get_sources(self):
