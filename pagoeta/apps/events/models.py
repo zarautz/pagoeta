@@ -98,7 +98,6 @@ class Event(models.Model):
         if self.is_superevent and self.parent:
             raise ValidationError(_('A super event cannot have a parent event.'))
         # 2) Set an `end_date` by default
-        print self.end_date
         if not self.end_date:
             self.end_date = self.start_date
         # 3) Check if the necessary times are defined
@@ -112,6 +111,10 @@ class Event(models.Model):
 
     def __unicode__(self):
         return u'%s' % self.name
+
+    @staticmethod
+    def autocomplete_search_fields():
+        return ('name_eu__icontains',)
 
     def image(self):
         if self.images.count() > 0:

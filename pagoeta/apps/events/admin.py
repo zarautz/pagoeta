@@ -11,6 +11,7 @@ class ImageInline(BaseImageInline):
 
 
 class EventAdmin(TranslationAdmin):
+    date_hierarchy = 'start_date'
     list_display = ('id', 'name', 'start_date', 'start_time', 'end_date', 'category', 'target_age', 'target_group',
                     'is_visible', 'is_featured', 'is_superevent')
     list_filter = ('is_superevent', 'category', 'start_date', 'end_date')
@@ -18,7 +19,7 @@ class EventAdmin(TranslationAdmin):
     search_fields = ('name',)
     inlines = (ImageInline,)
     raw_id_fields = ('parent', 'place')
-    related_lookup_fields = {
+    autocomplete_lookup_fields = {
         'fk': ('parent', 'place'),
     }
     fieldsets = (

@@ -16,6 +16,10 @@ class Type(models.Model):
     def __unicode__(self):
         return u'%s' % self.name
 
+    @staticmethod
+    def autocomplete_search_fields():
+        return ('name_eu__icontains', 'code__icontains')
+
 
 class PlaceManager(models.Manager):
     def visible(self):
@@ -42,7 +46,11 @@ class Place(models.Model):
         verbose_name_plural = _('models:Place')
 
     def __unicode__(self):
-        return u'%s' % self.name
+        return u'%s (%s)' % (self.name, self.types_string())
+
+    @staticmethod
+    def autocomplete_search_fields():
+        return ('name_eu__icontains', 'address__icontains', 'email__icontains')
 
     def types_string(self):
         return ', '.join([t.name for t in self.types.all()])

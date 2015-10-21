@@ -6,7 +6,7 @@ from .models import Pharmacy
 class PharmacyAdmin(admin.ModelAdmin):
     list_display = ('id', 'cofg_id', 'place')
     raw_id_fields = ('place',)
-    related_lookup_fields = {
+    autocomplete_lookup_fields = {
         'fk': ('place',),
     }
     fieldsets = (

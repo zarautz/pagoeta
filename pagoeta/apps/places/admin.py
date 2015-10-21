@@ -17,7 +17,7 @@ class PlaceAdmin(TranslationAdmin):
     search_fields = ('name', 'address', 'email')
     inlines = (ImageInline,)
     raw_id_fields = ('types',)
-    related_lookup_fields = {
+    autocomplete_lookup_fields = {
         'm2m': ('types',),
     }
     fieldsets = (
