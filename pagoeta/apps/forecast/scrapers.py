@@ -6,7 +6,7 @@ from .helpers import AstronomicalObserver
 from pagoeta.apps.core.exceptions import ServiceUnavailableException
 
 
-class ForecastScraperWrapper():
+class ForecastScraperWrapper(object):
     def __init__(self, date_list):
         self.date_list = date_list
         self.astronomical_observer = AstronomicalObserver(self.date_list)
@@ -36,7 +36,7 @@ class ForecastScraperWrapper():
         return data
 
 
-class TideScraper():
+class TideScraper(object):
     def __init__(self, date_list):
         self.formatted_date_dict = {}
         for date in date_list:
@@ -86,7 +86,7 @@ class TideScraper():
         return data
 
 
-class WeatherScraper():
+class WeatherScraper(object):
     def __init__(self, date_list):
         self.date_str_list = [str(date) for date in date_list]
 

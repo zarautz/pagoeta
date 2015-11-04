@@ -10,7 +10,7 @@ from pagoeta.apps.core.functions import get_image_sources
 from pagoeta.apps.core.models import XeroxImage
 
 
-class ZuZarautzPostScraper():
+class ZuZarautzPostScraper(object):
     updated = None
 
     def get_source(self):

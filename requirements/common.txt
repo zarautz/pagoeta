@@ -1,8 +1,8 @@
-django==1.8.5
-django-modeltranslation==0.10.1
+django==1.8.6
+django-modeltranslation==0.10.2
 psycopg2==2.6.1
 
-djangorestframework==3.2.4
+djangorestframework==3.3.1
 django-rest-swagger==0.3.4
 
 boto==2.38.0
@@ -10,15 +10,15 @@ bleach==1.4.2
 cssselect==0.9.1
 dj-database-url==0.3.0
 django-cors-headers==1.1.0
-django-grappelli==2.7.1
+django-grappelli==2.7.2
 django-imagekit==3.2.7
 django-storages==1.1.8
 django-wkhtmltopdf==2.0.3
 djrill==1.4.0
-feedparser==5.1.3
+feedparser==5.2.1
 lxml==3.4.4
 pillow==2.9.0
 pyephem==3.7.6.0
-python-magic==0.4.6
-pytz==2015.6
-requests==2.7.0
+python-magic==0.4.10
+pytz==2015.7
+requests==2.8.1

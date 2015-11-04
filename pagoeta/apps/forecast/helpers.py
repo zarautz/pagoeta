@@ -3,7 +3,7 @@ import ephem
 from operator import itemgetter
 
 
-class AstronomicalObserver():
+class AstronomicalObserver(object):
     def __init__(self, date_list):
         self.date_list = date_list
 

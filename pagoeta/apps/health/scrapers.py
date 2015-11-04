@@ -10,7 +10,7 @@ from pagoeta.apps.places.models import Place
 from pagoeta.apps.places.serializers import PlaceListSerializer
 
 
-class PharmacyGuardScraper():
+class PharmacyGuardScraper(object):
     pharmacies = []
     place_ids = []
 
