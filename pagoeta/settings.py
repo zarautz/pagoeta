@@ -277,11 +277,14 @@ if not DEBUG and 'TRAVIS' not in os.environ:
 
 # wkhtmltopdf
 # http://django-wkhtmltopdf.readthedocs.org/en/latest/
+# https://pypi.python.org/pypi/wkhtmltopdf-pack
 
-WKHTMLTOPDF_CMD = '/usr/local/bin/wkhtmltopdf'
+WKHTMLTOPDF_CMD = 'wkhtmltopdf' if DEBUG else 'wkhtmltopdf-pack'
 WKHTMLTOPDF_CMD_OPTIONS = {
     'quiet': True,
+    'page-size': 'A4',
 }
+
 
 # Markdown
 

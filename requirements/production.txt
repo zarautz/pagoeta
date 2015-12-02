@@ -1,4 +1,5 @@
 -r common.txt
 
 gunicorn==19.3.0
-whitenoise==1.0.6
+whitenoise==2.0.6
+wkhtmltopdf-pack==0.12.2.4

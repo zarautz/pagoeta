@@ -1,4 +1,4 @@
-django==1.8.6
+django==1.8.7
 django-modeltranslation==0.10.2
 psycopg2==2.6.1
 
@@ -13,10 +13,10 @@ django-cors-headers==1.1.0
 django-grappelli==2.7.2
 django-imagekit==3.2.7
 django-storages==1.1.8
-django-wkhtmltopdf==2.0.3
+django-wkhtmltopdf==2.1.0
 djrill==1.4.0
 feedparser==5.2.1
-lxml==3.4.4
+lxml==3.5.0
 pillow==2.9.0
 pyephem==3.7.6.0
 python-magic==0.4.10
