@@ -29,7 +29,7 @@ class ForecastScraperWrapper(object):
             data.append({
                 'date': date_str,
                 'astronomy': astronomical_data[date_str],
-                'tide': tide_data[date_str],
+                'tide': tide_data[date_str] if date_str in tide_data else None,
                 'weather': weather_data[date_str] if date_str in weather_data else None,
             })
 
