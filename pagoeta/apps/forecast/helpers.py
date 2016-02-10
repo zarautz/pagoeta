@@ -1,5 +1,6 @@
 import ephem
 
+from django.conf import settings
 from operator import itemgetter
 
 
@@ -9,7 +10,7 @@ class AstronomicalObserver(object):
 
     def get_data(self):
         observer = ephem.Observer()
-        observer.lat, observer.lon, observer.elevation = '43.284410', '-2.172193', 7
+        observer.lat, observer.lon, observer.elevation = settings.ZARAUTZ_LATITUDE, settings.ZARAUTZ_LONGITUDE, 7
         sun, moon = ephem.Sun(), ephem.Moon()
         data = {}
 
