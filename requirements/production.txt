@@ -1,5 +1,7 @@
 -r common.txt
 
+django-bmemcached==0.2.3
 gunicorn==19.4.5
+python-binary-memcached==0.24.6
 whitenoise==2.0.6
 wkhtmltopdf-pack==0.12.2.4

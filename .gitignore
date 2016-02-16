@@ -25,6 +25,6 @@ Thumbs.db
 
 
 # -----------
-# CREDENTIALS
+# CONFIG VARS
 # -----------
-creds.json
+config.json

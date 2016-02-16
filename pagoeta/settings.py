@@ -2,10 +2,10 @@
 Django settings for the project.
 
 For more information on this file, see
-https://docs.djangoproject.com/en/1.7/topics/settings/
+https://docs.djangoproject.com/en/1.8/topics/settings/
 
 For the full list of settings and their values, see
-https://docs.djangoproject.com/en/1.7/ref/settings/
+https://docs.djangoproject.com/en/1.8/ref/settings/
 """
 
 import dj_database_url
@@ -25,34 +25,47 @@ BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 # Local file mimics cloudControl creds
 # https://www.cloudcontrol.com/dev-center/platform-documentation#add-ons
 
-if 'CRED_FILE' in os.environ:
-    cred_file = os.environ['CRED_FILE']
+if 'app__secret_key' in os.environ:
+    config_file = None
     DEBUG = False
-    ALLOWED_HOSTS = ('pagoeta.cloudcontrolled.com', '.pagoeta.cloudcontrolled.com', 'pagoeta.illarra.com')
+    ALLOWED_HOSTS = ('pagoeta.herokuapp.com', 'pagoeta.illarra.com')
 
 elif 'BUILDPACK_RUNNING' in os.environ or 'TRAVIS' in os.environ:
-    cred_file = os.path.join(BASE_DIR, 'creds.json.txt')
+    config_file = os.path.join(BASE_DIR, 'config.json.txt')
     DEBUG = False
     ALLOWED_HOSTS = ['*']
 
 else:
-    cred_file = os.path.join(BASE_DIR, 'creds.json')
+    config_file = os.path.join(BASE_DIR, 'config.json')
     DEBUG = True
     ALLOWED_HOSTS = ('localhost',)
     INTERNAL_IPS = ('127.0.0.1',)
 
-# Load and massage credentials
-cred_data = open(cred_file)
-creds = json.load(cred_data)
-cred_data.close()
-CONFIG_VARS = creds['CONFIG']['CONFIG_VARS']
+# Load config variables
+if config_file:
+    config_data = open(config_file)
+    CONFIG_VARS = json.load(config_data)
+    config_data.close()
+else:
+    CONFIG_VARS = {
+        "app__postgresql_url": os.environ.get('DATABASE_URL'),
+        "app__secret_key": os.environ.get('app__secret_key'),
+        "app__site_host": os.environ.get('app__site_host'),
+        "aws__access_key_id": os.environ.get('aws__access_key_id'),
+        "aws__bucket_name": os.environ.get('aws__bucket_name'),
+        "aws__s3_host": os.environ.get('aws__s3_host'),
+        "aws__secret_access_key": os.environ.get('aws__secret_access_key'),
+        "mandrill__production_key": os.environ.get('mandrill__production_key'),
+        "mandrill__test_key": os.environ.get('mandrill__test_key'),
+        "mandrill__username": os.environ.get('mandrill__username'),
+    }
 
 
 # Development settings
-# https://docs.djangoproject.com/en/1.7/howto/deployment/checklist/
-# https://docs.djangoproject.com/en/1.7/ref/settings/#std:setting-ADMINS
+# https://docs.djangoproject.com/en/1.8/howto/deployment/checklist/
+# https://docs.djangoproject.com/en/1.8/ref/settings/#std:setting-ADMINS
 
-SECRET_KEY = CONFIG_VARS['secret']
+SECRET_KEY = CONFIG_VARS['app__secret_key']
 ADMINS = (('eillarra', 'eneko@illarra.com'),)
 
 TEMPLATE_DEBUG = DEBUG
@@ -124,14 +137,14 @@ WSGI_APPLICATION = 'pagoeta.wsgi.application'
 # absolute URLs in the API, without having access to the `request`
 # object or make extra queries.
 
-SITE_HOST = CONFIG_VARS['site_host']
+SITE_HOST = CONFIG_VARS['app__site_host']
 
 
 # Database
-# https://docs.djangoproject.com/en/1.7/ref/settings/#databases
+# https://docs.djangoproject.com/en/1.8/ref/settings/#databases
 
 DATABASES = {
-    'default': dj_database_url.config(default=creds['ELEPHANTSQL']['ELEPHANTSQL_URL'])
+    'default': dj_database_url.config(default=CONFIG_VARS['app__postgresql_url'])
 }
 
 if 'TRAVIS' in os.environ:
@@ -186,20 +199,32 @@ SWAGGER_SETTINGS = {
 
 
 # CACHE
-# https://docs.djangoproject.com/en/1.7/topics/cache/
+# https://docs.djangoproject.com/en/1.8/topics/cache/
 
-CACHES = {
-    'default': {
-        'BACKEND': 'django.core.cache.backends.locmem.LocMemCache',
+if not DEBUG and 'TRAVIS' not in os.environ:
+    CACHES = {
+        'default': {
+            'BACKEND': 'django_bmemcached.memcached.BMemcached',
+            'LOCATION': os.environ.get('MEMCACHEDCLOUD_SERVERS').split(','),
+            'OPTIONS': {
+                'username': os.environ.get('MEMCACHEDCLOUD_USERNAME'),
+                'password': os.environ.get('MEMCACHEDCLOUD_PASSWORD')
+            }
+        }
     }
-}
+else:
+    CACHES = {
+        'default': {
+            'BACKEND': 'django.core.cache.backends.locmem.LocMemCache',
+        }
+    }
 
 CACHE_MIDDLEWARE_SECONDS = 300
 USE_ETAGS = True
 
 
 # Email
-# https://docs.djangoproject.com/en/1.7/topics/email/
+# https://docs.djangoproject.com/en/1.8/topics/email/
 
 MANDRILL_API_KEY = CONFIG_VARS['mandrill__test_key'] if DEBUG else CONFIG_VARS['mandrill__production_key']
 
@@ -216,7 +241,7 @@ SERVER_EMAIL = 'root@zarautz.org'
 
 
 # Internationalization
-# https://docs.djangoproject.com/en/1.7/topics/i18n/
+# https://docs.djangoproject.com/en/1.8/topics/i18n/
 
 LANGUAGE_CODE = 'eu'
 MODELTRANSLATION_DEFAULT_LANGUAGE = LANGUAGE_CODE
@@ -234,7 +259,7 @@ LOCALE_PATHS = (os.path.join(BASE_DIR, 'pagoeta/locale'),)
 
 
 # Time zones
-# https://docs.djangoproject.com/en/1.7/topics/i18n/timezones/
+# https://docs.djangoproject.com/en/1.8/topics/i18n/timezones/
 
 USE_TZ = True
 TIME_ZONE = 'Europe/Madrid'
@@ -243,7 +268,7 @@ TIME_ZONE = 'Europe/Madrid'
 # Media
 # wkhtmltopdf requires MEDIA configuration to be set
 # http://stackoverflow.com/questions/24071290/
-# https://docs.djangoproject.com/en/1.7/ref/settings/#media-root
+# https://docs.djangoproject.com/en/1.8/ref/settings/#media-root
 # https://django-storages.readthedocs.org/en/latest/backends/amazon-S3.html
 
 AWS_HEADERS = {  # see http://developer.yahoo.com/performance/rules.html#expires
@@ -260,8 +285,8 @@ DEFAULT_FILE_STORAGE = 'pagoeta.s3_utils.MediaS3BotoStorage'
 
 
 # Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/1.7/howto/static-files/
-# https://docs.djangoproject.com/en/1.7/howto/static-files/deployment/
+# https://docs.djangoproject.com/en/1.8/howto/static-files/
+# https://docs.djangoproject.com/en/1.8/howto/static-files/deployment/
 # http://whitenoise.readthedocs.org/en/latest/index.html
 
 STATIC_URL = '/static/'
@@ -292,7 +317,7 @@ MARKDOWN_EDITOR_SKIN = 'simple'
 
 
 # Administration area
-# https://docs.djangoproject.com/en/1.7/ref/contrib/admin/
+# https://docs.djangoproject.com/en/1.8/ref/contrib/admin/
 # http://django-grappelli.readthedocs.org/en/latest/index.html
 
 TEMPLATE_CONTEXT_PROCESSORS = global_settings.TEMPLATE_CONTEXT_PROCESSORS + (

@@ -9,7 +9,7 @@ Pagoeta
 and overall information for the city of [Zarautz](http://www.zarautz.org/). It provides a private
 administration area and a **public API** based in the `Open Data` philosophy.
 
-You can access the API at [http://pagoeta.cloudcontrolled.com/](http://pagoeta.cloudcontrolled.com/).
+You can access the API at [http://pagoeta.herokuapp.com/](http://pagoeta.herokuapp.com/).
 
 API Usage policy
 ----------------
@@ -39,11 +39,10 @@ While in development, you will need to read the dependencies from the following 
 Configuration
 -------------
 The application looks for the necessary configuration/credentials in a JSON file at the root folder.
-This file mimics the credentials file that will be automatically generated at a
-[cloudControl](https://www.cloudcontrol.com/dev-center/quickstart) deployment.
+This file uses the same names we use as config vars in [Heroku](https://devcenter.heroku.com/articles/config-vars).
 
-For development, just copy `creds.json.txt` to `creds.json` and fill in the options (only real database information is
-strictly necessary).
+For development, just copy `config.json.txt` to `config.json` and fill in the options (only real database information
+is strictly necessary).
 
 Once the database configuration is filled in you can generate the necessary tables and load some fixtures using
 `manage.py`:
