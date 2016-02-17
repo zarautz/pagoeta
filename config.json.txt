@@ -7,6 +7,7 @@
     "aws__s3_host": "aws__s3_host",
     "aws__secret_access_key": "aws__secret_access_key",
     "mandrill__production_key": "mandrill__production_key",
+    "mandrill__subaccount": "mandrill__subaccount",
     "mandrill__test_key": "mandrill__test_key",
     "mandrill__username": "mandrill__username"
 }

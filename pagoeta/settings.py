@@ -20,10 +20,8 @@ BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
 
 # Credentials
-# If no `CRED_FILE` environment variable is found, we assume we are
+# If no `app__secret_key` environment variable is found, we assume we are
 # in the DEV environment, and we load a local JSON file
-# Local file mimics cloudControl creds
-# https://www.cloudcontrol.com/dev-center/platform-documentation#add-ons
 
 if 'app__secret_key' in os.environ:
     config_file = None
@@ -56,6 +54,7 @@ else:
         "aws__s3_host": os.environ.get('aws__s3_host'),
         "aws__secret_access_key": os.environ.get('aws__secret_access_key'),
         "mandrill__production_key": os.environ.get('mandrill__production_key'),
+        "mandrill__subaccount": os.environ.get('mandrill__subaccount'),
         "mandrill__test_key": os.environ.get('mandrill__test_key'),
         "mandrill__username": os.environ.get('mandrill__username'),
     }
@@ -187,7 +186,6 @@ SWAGGER_SETTINGS = {
     'enabled_methods': ('get',),
     'info': {
         'title': 'Pagoeta API',
-        'contact': 'team@illarra.com',
         'description': '`Pagoeta` is the public API of the city of Zarautz, Basque Country. '
                        'The information you can find here is free for you to use in your applications, '
                        'but please be gentle with our server (you should cache this results on your side too). '
@@ -215,7 +213,7 @@ if not DEBUG and 'TRAVIS' not in os.environ:
 else:
     CACHES = {
         'default': {
-            'BACKEND': 'django.core.cache.backends.locmem.LocMemCache',
+            'BACKEND': 'django.core.cache.backends.dummy.DummyCache',
         }
     }
 
@@ -227,6 +225,7 @@ USE_ETAGS = True
 # https://docs.djangoproject.com/en/1.8/topics/email/
 
 MANDRILL_API_KEY = CONFIG_VARS['mandrill__test_key'] if DEBUG else CONFIG_VARS['mandrill__production_key']
+MANDRILL_SUBACCOUNT = CONFIG_VARS['mandrill__subaccount']
 
 EMAIL_BACKEND = 'djrill.mail.backends.djrill.DjrillBackend'
 EMAIL_HOST = 'smtp.mandrillapp.com'
