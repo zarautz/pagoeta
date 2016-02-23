@@ -8,9 +8,10 @@ from StringIO import StringIO
 
 from .functions import IMAGE_SIZES, get_absolute_uri
 from .models import XeroxImage
+from pagoeta.apps.places.tests import PlaceTests
 
 
-class LanguageOnQueryParamMiddlewareTests(TestCase):
+class LanguageOnQueryParamMiddlewareTests(PlaceTests):
     def setUp(self):
         self.client = APIClient()
         self.url = reverse('v1:place-type-list')
@@ -43,6 +44,8 @@ class RedirectViewTest(TestCase):
 
 
 class XeroxViewTest(TestCase):
+    fixtures = ['test_data.json']
+
     def setUp(self):
         self.client = APIClient()
         self.image = XeroxImage.objects.get(pk=1)

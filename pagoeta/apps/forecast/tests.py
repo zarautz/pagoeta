@@ -22,6 +22,8 @@ class ForecastViewSetTests(TestCase):
 
 
 class WeatherCodeViewSetTests(TestCase):
+    fixtures = ['test_data.json']
+
     def setUp(self):
         self.client = APIClient()
         self.weather_codes_count = WeatherCode.objects.count()

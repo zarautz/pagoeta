@@ -8,7 +8,11 @@ from .models import Place, Type
 from .views import PlaceViewSet
 
 
-class PlaceViewSetListTests(TestCase):
+class PlaceTests(TestCase):
+    fixtures = ['test_data.json']
+
+
+class PlaceViewSetListTests(PlaceTests):
     def setUp(self):
         self.client = APIClient()
         self.visible_places_count = Place.objects.visible().count()
@@ -68,7 +72,7 @@ class PlaceViewSetListTests(TestCase):
         self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
 
 
-class PlaceViewSetDetailTests(TestCase):
+class PlaceViewSetDetailTests(PlaceTests):
     def setUp(self):
         self.client = APIClient()
         self.place = Place.objects.visible().first()
@@ -85,7 +89,7 @@ class PlaceViewSetDetailTests(TestCase):
         self.assertEqual(response.status_code, status.HTTP_404_NOT_FOUND)
 
 
-class TypeViewSetListTests(TestCase):
+class TypeViewSetListTests(PlaceTests):
     def setUp(self):
         self.client = APIClient()
         self.place_types_count = Type.objects.count()

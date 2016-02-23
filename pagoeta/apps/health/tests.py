@@ -11,7 +11,11 @@ from .scrapers import PharmacyGuardScraper
 from pagoeta.apps.core.exceptions import ServiceUnavailableException
 
 
-class PharmacyViewSetTests(TestCase):
+class HealthTests(TestCase):
+    fixtures = ['test_data.json']
+
+
+class PharmacyViewSetTests(HealthTests):
     def setUp(self):
         self.client = APIClient()
         self.url = reverse('v1:pharmacy-list')
@@ -26,7 +30,7 @@ class PharmacyViewSetTests(TestCase):
             self.assertEqual('2200-2359' in day, True)
 
 
-class PharmacyGuardScraperTests(TestCase):
+class PharmacyGuardScraperTests(HealthTests):
     def setUp(self):
         BASE_DIR = os.path.dirname(__file__)
         self.scraper = PharmacyGuardScraper()

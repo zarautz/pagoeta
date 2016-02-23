@@ -9,7 +9,11 @@ from .models import Event
 from .views import EventViewSet
 
 
-class EventViewSetListTests(TestCase):
+class EventTests(TestCase):
+    fixtures = ['test_data.json']
+
+
+class EventViewSetListTests(EventTests):
     def setUp(self):
         self.client = APIClient()
         self.url = reverse('v1:event-list')
@@ -47,7 +51,7 @@ class EventViewSetListTests(TestCase):
         self.assertEqual(response.data['meta']['to'], to_date)
 
 
-class EventViewSetDetailTests(TestCase):
+class EventViewSetDetailTests(EventTests):
     def setUp(self):
         self.client = APIClient()
         self.event = Event.objects.visible().first()
