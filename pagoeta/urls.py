@@ -7,7 +7,7 @@ from pagoeta.apps.events.views import EventViewSet
 from pagoeta.apps.forecast.views import ForecastViewSet, WeatherCodeViewSet
 from pagoeta.apps.health.views import PharmacyViewSet
 from pagoeta.apps.places.views import PlaceViewSet, TypeViewSet as PlaceTypeViewSet
-from pagoeta.apps.posts.views import ZuZarautzPostViewSet
+from pagoeta.apps.posts.views import HitzaPostViewSet, ZuZarautzPostViewSet
 
 
 # http://www.django-rest-framework.org/api-guide/routers/
@@ -18,6 +18,7 @@ router_v1.register(r'forecast', ForecastViewSet, base_name='forecast')
 router_v1.register(r'pharmacies/duty', PharmacyViewSet, base_name='pharmacy')
 router_v1.register(r'places/types', PlaceTypeViewSet, base_name='place-type')
 router_v1.register(r'places', PlaceViewSet, base_name='place')
+router_v1.register(r'posts/hitza', HitzaPostViewSet, base_name='hitza-post')
 router_v1.register(r'posts/zuzarautz', ZuZarautzPostViewSet, base_name='zuzarautz-post')
 
 
