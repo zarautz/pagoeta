@@ -26,7 +26,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 if 'app__secret_key' in os.environ:
     config_file = None
     DEBUG = False
-    ALLOWED_HOSTS = ('pagoeta.herokuapp.com', 'pagoeta.illarra.com')
+    ALLOWED_HOSTS = ('data.zarautz.xyz', 'pagoeta.illarra.com')  # pagoeta.illarra.com is the legacy URL, to remove
 
 elif 'BUILDPACK_RUNNING' in os.environ or 'TRAVIS' in os.environ:
     config_file = os.path.join(BASE_DIR, 'config.json.txt')
@@ -65,7 +65,7 @@ else:
 # https://docs.djangoproject.com/en/1.8/ref/settings/#std:setting-ADMINS
 
 SECRET_KEY = CONFIG_VARS['app__secret_key']
-ADMINS = (('eillarra', 'eneko@illarra.com'),)
+ADMINS = (('eillarra', 'eneko@zarautz.xyz'),)
 
 TEMPLATE_DEBUG = DEBUG
 TEMPLATE_DIRS = (
@@ -235,8 +235,8 @@ EMAIL_HOST_PASSWORD = MANDRILL_API_KEY
 EMAIL_USE_TLS = True
 
 EMAIL_SUBJECT_PREFIX = '[Pagoeta API] '
-DEFAULT_FROM_EMAIL = 'Pagoeta <pagoeta@zarautz.org>'
-SERVER_EMAIL = 'root@zarautz.org'
+DEFAULT_FROM_EMAIL = 'Pagoeta <pagoeta@zarautz.xyz>'
+SERVER_EMAIL = 'root@zarautz.xyz'
 
 
 # Internationalization

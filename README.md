@@ -9,7 +9,7 @@ Pagoeta
 and overall information for the city of [Zarautz](http://www.zarautz.org/). It provides a private
 administration area and a **public API** based in the `Open Data` philosophy.
 
-You can access the API at [http://pagoeta.herokuapp.com/](http://pagoeta.herokuapp.com/).
+You can access the API at [http://data.zarautz.xyz/](http://data.zarautz.xyz/).
 
 API Usage policy
 ----------------
