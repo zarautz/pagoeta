@@ -44,6 +44,10 @@ if config_file:
     config_data = open(config_file)
     CONFIG_VARS = json.load(config_data)
     config_data.close()
+
+    if 'TRAVIS' in os.environ:
+        """TRAVIS needs the MagicSeaWeed API key to complete the tests. This is added as ENV variable."""
+        CONFIG_VARS['magicseaweed__api_key'] = os.environ.get('magicseaweed__api_key')
 else:
     CONFIG_VARS = {
         'app__postgresql_url': os.environ.get('DATABASE_URL'),
