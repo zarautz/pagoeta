@@ -28,6 +28,7 @@ class BasePostScraper(object):
 
 
 class RssPostScraper(BasePostScraper):
+    source = None
     feed_url = None
     language = None
 
@@ -39,6 +40,7 @@ class RssPostScraper(BasePostScraper):
         allowed_attrs = {
             'a': ['href', 'rel'],
             'img': ['src'],
+            'iframe': ['src', 'frameborder', 'allowfullscreen']
         }
         feedparser._HTMLSanitizer.acceptable_elements = allowed_tags
         source = feedparser.parse(self.feed_url)
@@ -69,16 +71,6 @@ class RssPostScraper(BasePostScraper):
 
 
 class HitzaPostScraper(RssPostScraper):
+    source = {'Zarauzko Hitza': 'http://urolakosta.hitza.eus/author/zarautz/'}
     feed_url = 'http://urolakosta.hitza.eus/author/zarautz/feed/'
     language = 'eu'
-
-    def get_source(self):
-        return {'Zarauzko Hitza': 'http://urolakosta.hitza.eus/author/zarautz/'}
-
-
-class ZuZarautzPostScraper(RssPostScraper):
-    feed_url = 'http://zuzarautz.info/feed/'
-    language = 'eu'
-
-    def get_source(self):
-        return {'Zu Zarautz': 'http://zuzarautz.info/'}

@@ -3,7 +3,7 @@ from rest_framework.permissions import IsAuthenticatedOrReadOnly
 from rest_framework.response import Response
 from rest_framework.viewsets import ViewSet
 
-from .scrapers import ZuZarautzPostScraper, HitzaPostScraper
+from .scrapers import HitzaPostScraper
 
 
 class BasePostViewSet(ViewSet):
@@ -18,7 +18,7 @@ class BasePostViewSet(ViewSet):
             'meta': {
                 'language': scraper.language,
                 'lastUpdated': scraper.updated,
-                'source': scraper.get_source(),
+                'source': scraper.source,
                 'totalCount': len(data),
             },
             'data': data,
@@ -36,12 +36,10 @@ class HitzaPostViewSet(BasePostViewSet):
         return super(HitzaPostViewSet, self).list(request)
 
 
-class ZuZarautzPostViewSet(BasePostViewSet):
-    scraper = ZuZarautzPostScraper()
-
-    @cache_control(max_age=10800)
+class ZuZarautzPostViewSet(HitzaPostViewSet):
+    @cache_control(max_age=3600)
     def list(self, request):
         """
-        Get the latest Zu Zarautz news (language="eu").
+        Deprecated. It now returns Zarauzko Hitza news (language="eu").
         """
         return super(ZuZarautzPostViewSet, self).list(request)
