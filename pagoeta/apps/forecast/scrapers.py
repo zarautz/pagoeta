@@ -1,3 +1,7 @@
+import json
+
+from datetime import datetime
+from django.conf import settings
 from lxml import html, etree
 from requests import get
 from requests.exceptions import RequestException
@@ -11,40 +15,49 @@ class ForecastScraperWrapper(object):
         self.date_list = date_list
         self.astronomical_observer = AstronomicalObserver(self.date_list)
         self.tide_scraper = TideScraper(self.date_list)
+        self.wave_scraper = WaveScraper(self.date_list)
         self.weather_scraper = WeatherScraper(self.date_list)
 
     def get_source(self):
         source = {}
-        source.update(self.tide_scraper.get_source())
-        source.update(self.weather_scraper.get_source())
+        source.update(self.tide_scraper.source)
+        source.update(self.wave_scraper.source)
+        source.update(self.weather_scraper.source)
         return source
 
     def get_data(self):
         astronomical_data = self.astronomical_observer.get_data()
         tide_data = self.tide_scraper.get_data()
+        wave_data = self.wave_scraper.get_data()
         weather_data = self.weather_scraper.get_data()
         data = []
 
         for date_str in [str(date) for date in self.date_list]:
+            weather = weather_data[date_str] if date_str in weather_data else None
+            if weather:
+                weather['pressure'] = wave_data[date_str]['weather']['pressure'] if date_str in wave_data else None
+
             data.append({
                 'date': date_str,
                 'astronomy': astronomical_data[date_str],
+                'charts': wave_data[date_str]['charts'] if date_str in wave_data else None,
                 'tide': tide_data[date_str] if date_str in tide_data else None,
-                'weather': weather_data[date_str] if date_str in weather_data else None,
+                'wave': wave_data[date_str]['wave'] if date_str in wave_data else None,
+                'weather': weather,
+                'wind': wave_data[date_str]['wind'] if date_str in wave_data else None,
             })
 
         return data
 
 
 class TideScraper(object):
+    source = {'Gipuzkoako Foru Aldundia': 'http://www.gipuzkoa.eus/'}
+
     def __init__(self, date_list):
         self.formatted_date_dict = {}
         for date in date_list:
             self.formatted_date_dict[date.strftime('%d/%m/%Y')] = date
         self.months = sorted(list(set([date.month for date in date_list])))
-
-    def get_source(self):
-        return {'Gipuzkoako Foru Aldundia': 'http://www.gipuzkoa.eus/'}
 
     def get_data(self):
         data = {}
@@ -86,12 +99,51 @@ class TideScraper(object):
         return data
 
 
-class WeatherScraper(object):
+class WaveScraper(object):
+    source = {'Magicseaweed Ltd': 'http://magicseaweed.com/Zarautz-Surf-Report/1061/'}
+
     def __init__(self, date_list):
         self.date_str_list = [str(date) for date in date_list]
 
-    def get_source(self):
-        return {'AEMET': 'http://www.aemet.es/'}
+    def get_data(self):
+        return self.parse_json()
+
+    def parse_json(self, source=None):
+        """JSON source can be passed for testing purposes."""
+        if not source:
+            try:
+                url = 'http://magicseaweed.com/api/%s/forecast/?spot_id=1061&units=eu'
+                source = get(url % settings.MAGICSEAWEED_API_KEY).text
+            except RequestException:
+                raise ServiceUnavailableException
+
+        data = {}
+
+        for element in json.loads(source):
+            date_str = datetime.fromtimestamp(element['localTimestamp']).strftime('%Y-%m-%d')
+
+            if date_str in self.date_str_list:
+                data[date_str] = {
+                    'charts': element['charts'],
+                    'wave': {
+                        'rating': {
+                            'solid': element['solidRating'],
+                            'faded': element['fadedRating'],
+                        },
+                        'swell': element['swell'],
+                    },
+                    'weather': element['condition'],
+                    'wind': element['wind'],
+                }
+
+        return data
+
+
+class WeatherScraper(object):
+    source = {'AEMET': 'http://www.aemet.es/es/eltiempo/prediccion/municipios/zarautz-id20079'}
+
+    def __init__(self, date_list):
+        self.date_str_list = [str(date) for date in date_list]
 
     def get_data(self):
         return self.parse_xml()

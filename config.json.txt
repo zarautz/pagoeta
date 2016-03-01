@@ -6,6 +6,8 @@
     "aws__bucket_name": "aws__bucket_name",
     "aws__s3_host": "aws__s3_host",
     "aws__secret_access_key": "aws__secret_access_key",
+    "magicseaweed__api_key": "magicseaweed__api_key",
+    "magicseaweed__secret_key": "magicseaweed__secret_key",
     "mandrill__production_key": "mandrill__production_key",
     "mandrill__subaccount": "mandrill__subaccount",
     "mandrill__test_key": "mandrill__test_key",

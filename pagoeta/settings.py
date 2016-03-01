@@ -28,7 +28,7 @@ if 'app__secret_key' in os.environ:
     DEBUG = False
     ALLOWED_HOSTS = ('data.zarautz.xyz', 'pagoeta.illarra.com')  # pagoeta.illarra.com is the legacy URL, to remove
 
-elif 'BUILDPACK_RUNNING' in os.environ or 'TRAVIS' in os.environ:
+elif 'TRAVIS' in os.environ:
     config_file = os.path.join(BASE_DIR, 'config.json.txt')
     DEBUG = False
     ALLOWED_HOSTS = ['*']
@@ -46,17 +46,19 @@ if config_file:
     config_data.close()
 else:
     CONFIG_VARS = {
-        "app__postgresql_url": os.environ.get('DATABASE_URL'),
-        "app__secret_key": os.environ.get('app__secret_key'),
-        "app__site_host": os.environ.get('app__site_host'),
-        "aws__access_key_id": os.environ.get('aws__access_key_id'),
-        "aws__bucket_name": os.environ.get('aws__bucket_name'),
-        "aws__s3_host": os.environ.get('aws__s3_host'),
-        "aws__secret_access_key": os.environ.get('aws__secret_access_key'),
-        "mandrill__production_key": os.environ.get('mandrill__production_key'),
-        "mandrill__subaccount": os.environ.get('mandrill__subaccount'),
-        "mandrill__test_key": os.environ.get('mandrill__test_key'),
-        "mandrill__username": os.environ.get('mandrill__username'),
+        'app__postgresql_url': os.environ.get('DATABASE_URL'),
+        'app__secret_key': os.environ.get('app__secret_key'),
+        'app__site_host': os.environ.get('app__site_host'),
+        'aws__access_key_id': os.environ.get('aws__access_key_id'),
+        'aws__bucket_name': os.environ.get('aws__bucket_name'),
+        'aws__s3_host': os.environ.get('aws__s3_host'),
+        'aws__secret_access_key': os.environ.get('aws__secret_access_key'),
+        'magicseaweed__api_key': os.environ.get('magicseaweed__api_key'),
+        'magicseaweed__secret_key': os.environ.get('magicseaweed__secret_key'),
+        'mandrill__production_key': os.environ.get('mandrill__production_key'),
+        'mandrill__subaccount': os.environ.get('mandrill__subaccount'),
+        'mandrill__test_key': os.environ.get('mandrill__test_key'),
+        'mandrill__username': os.environ.get('mandrill__username'),
     }
 
 
@@ -331,6 +333,12 @@ DATETIME_FORMAT = DATE_FORMAT + ', ' + TIME_FORMAT
 
 GRAPPELLI_ADMIN_TITLE = 'Pagoeta API'
 GRAPPELLI_CLEAN_INPUT_TYPES = False
+
+
+# EXTERNAL API KEYS
+
+MAGICSEAWEED_API_KEY = CONFIG_VARS['magicseaweed__api_key']
+MAGICSEAWEED_SECRET_KEY = CONFIG_VARS['magicseaweed__secret_key']
 
 
 # Zarautz settings
