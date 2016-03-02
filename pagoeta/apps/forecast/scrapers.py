@@ -1,4 +1,5 @@
 import json
+import time
 
 from datetime import datetime
 from django.conf import settings
@@ -74,8 +75,9 @@ class KostaScraper(BaseScraper):
         data = {'snapshots': [], 'timex': []}
 
         for i, img in enumerate(html.fromstring(source).cssselect('a.monitorizaciones img')):
-            src = img.get('src')
+            """KOSTASystem images have always the same URL, so we need to add a timestamp to cheat XeroxImage."""
             photo_type = 'snapshots' if i < 2 else 'timex'
+            src = img.get('src') + '?' + str(time.time())
             data[photo_type].append(self.get_xerox_image_sources(src)['source'])
 
         return data
