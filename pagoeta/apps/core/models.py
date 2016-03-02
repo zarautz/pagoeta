@@ -56,6 +56,7 @@ class XeroxImage(models.Model):
     IMAGE_TYPE_IN_URL = 'x'
     hash = models.CharField(max_length=40, unique=True)
     url = models.URLField(null=True, blank=True)
+    created_at = models.DateTimeField(auto_now_add=True)
 
     class Meta(object):
         db_table = 'core_xerox_image'
