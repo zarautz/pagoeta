@@ -26,6 +26,7 @@ class ForecastViewSet(ViewSet):
                 'lastUpdated': timezone.now(),
                 'source': scraper.get_source(),
             },
+            'live': scraper.get_live_data(),
             'data': scraper.get_data(),
         })
 

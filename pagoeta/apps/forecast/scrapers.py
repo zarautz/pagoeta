@@ -8,18 +8,21 @@ from requests.exceptions import RequestException
 
 from .helpers import AstronomicalObserver
 from pagoeta.apps.core.exceptions import ServiceUnavailableException
+from pagoeta.apps.core.scrapers import BaseScraper
 
 
 class ForecastScraperWrapper(object):
     def __init__(self, date_list):
         self.date_list = date_list
         self.astronomical_observer = AstronomicalObserver(self.date_list)
+        self.kosta_scraper = KostaScraper()
         self.tide_scraper = TideScraper(self.date_list)
         self.wave_scraper = WaveScraper(self.date_list)
         self.weather_scraper = WeatherScraper(self.date_list)
 
     def get_source(self):
         source = {}
+        source.update(self.kosta_scraper.source)
         source.update(self.tide_scraper.source)
         source.update(self.wave_scraper.source)
         source.update(self.weather_scraper.source)
@@ -46,6 +49,34 @@ class ForecastScraperWrapper(object):
                 'weather': weather,
                 'wind': wave_data[date_str]['wind'] if date_str in wave_data else None,
             })
+
+        return data
+
+    def get_live_data(self):
+        return self.kosta_scraper.get_live_data()
+
+
+class KostaScraper(BaseScraper):
+    source = {'AZTI-Tecnalia': 'http://www.kostasystem.com/en/video-measurement/zarautz-2/'}
+
+    def get_live_data(self):
+        return self.parse_html()
+
+    def parse_html(self, source=None):
+        """HTML source can be passed for testing purposes."""
+        if not source:
+            try:
+                url = ('http://www.kostasystem.com/en/video-measurement/zarautz-2/')
+                source = get(url).text
+            except RequestException:
+                raise ServiceUnavailableException
+
+        data = {'snapshots': [], 'timex': []}
+
+        for i, img in enumerate(html.fromstring(source).cssselect('a.monitorizaciones img')):
+            src = img.get('src')
+            photo_type = 'snapshots' if i < 2 else 'timex'
+            data[photo_type].append(self.get_xerox_image_sources(src)['source'])
 
         return data
 
