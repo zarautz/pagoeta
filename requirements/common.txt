@@ -1,4 +1,4 @@
-django==1.8.9
+django==1.8.11
 django-modeltranslation==0.11
 psycopg2==2.6.1
 
