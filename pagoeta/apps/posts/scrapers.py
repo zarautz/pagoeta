@@ -3,7 +3,7 @@ import feedparser
 
 from datetime import datetime
 from django.template.defaultfilters import slugify
-from lxml.html import fromstring
+from lxml.html import fromstring, tostring
 from time import mktime
 
 from pagoeta.apps.core.scrapers import BaseScraper
@@ -36,8 +36,14 @@ class RssPostScraper(BasePostScraper):
         for post in source.entries:
             content = bleach.clean(post.content[0].value, allowed_tags, allowed_attrs)
             content_images = {}
+            tree = fromstring(content)
 
-            for img in fromstring(content).cssselect('img'):
+            # Some blogs return a standard "The post {{title}} appeared first on {{source}}". Remove it.
+            last_paragraph = tree.cssselect('p')[-1]
+            if 'appeared first on' in last_paragraph.text_content():
+                tree.remove(last_paragraph)
+
+            for img in tree.cssselect('img'):
                 image_source = img.get('src')
                 content_images[image_source] = self.get_xerox_image_sources(image_source)
 
@@ -45,8 +51,7 @@ class RssPostScraper(BasePostScraper):
                 'title': post.title,
                 'permalink': post.link,
                 'author': post.author,
-                'description': post.description,
-                'content': content,
+                'content': tostring(tree),
                 'publishedAt': post.published,
                 'tags': [slugify(tag.term.lower()) for tag in post.tags],
                 'contentImages': content_images,
