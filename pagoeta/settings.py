@@ -59,10 +59,7 @@ else:
         'aws__secret_access_key': os.environ.get('aws__secret_access_key'),
         'magicseaweed__api_key': os.environ.get('magicseaweed__api_key'),
         'magicseaweed__secret_key': os.environ.get('magicseaweed__secret_key'),
-        'mandrill__production_key': os.environ.get('mandrill__production_key'),
-        'mandrill__subaccount': os.environ.get('mandrill__subaccount'),
-        'mandrill__test_key': os.environ.get('mandrill__test_key'),
-        'mandrill__username': os.environ.get('mandrill__username'),
+        'mailgun__api_key': os.environ.get('mailgun__api_key'),
     }
 
 
@@ -85,8 +82,8 @@ INSTALLED_APPS = (
     # Translations
     'modeltranslation',
     # Helpers
+    'anymail',
     'corsheaders',
-    'djrill',
     'imagekit',
     'storages',
     'wkhtmltopdf',
@@ -230,15 +227,17 @@ USE_ETAGS = True
 # Email
 # https://docs.djangoproject.com/en/1.8/topics/email/
 
-MANDRILL_API_KEY = CONFIG_VARS['mandrill__test_key'] if DEBUG else CONFIG_VARS['mandrill__production_key']
-MANDRILL_SUBACCOUNT = CONFIG_VARS['mandrill__subaccount']
+EMAIL_BACKEND = 'anymail.backends.mailgun.MailgunBackend'
 
-EMAIL_BACKEND = 'djrill.mail.backends.djrill.DjrillBackend'
-EMAIL_HOST = 'smtp.mandrillapp.com'
-EMAIL_PORT = '587'
-EMAIL_HOST_USER = CONFIG_VARS['mandrill__username']
-EMAIL_HOST_PASSWORD = MANDRILL_API_KEY
-EMAIL_USE_TLS = True
+ANYMAIL = {
+    'MAILGUN_API_KEY': CONFIG_VARS['mailgun__api_key'],
+    'MAILGUN_SEND_DEFAULTS': {
+        'esp_extra': {
+            'sender_domain': 'zarautz.xyz',
+            'o:testmode': 'yes' if DEBUG else 'no',
+        }
+    }
+}
 
 EMAIL_SUBJECT_PREFIX = '[Pagoeta API] '
 DEFAULT_FROM_EMAIL = 'Pagoeta <pagoeta@zarautz.xyz>'
