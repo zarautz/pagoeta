@@ -338,6 +338,26 @@ GRAPPELLI_ADMIN_TITLE = 'Pagoeta API'
 GRAPPELLI_CLEAN_INPUT_TYPES = False
 
 
+# Logging
+# https://docs.djangoproject.com/en/1.8/topics/logging/#django-security
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'handlers': {
+        'null': {
+            'class': 'logging.NullHandler',
+        },
+    },
+    'loggers': {
+        'django.security.DisallowedHost': {
+            'handlers': ['null'],
+            'propagate': False,
+        },
+    }
+}
+
+
 # EXTERNAL API KEYS
 
 MAGICSEAWEED_API_KEY = CONFIG_VARS['magicseaweed__api_key']
