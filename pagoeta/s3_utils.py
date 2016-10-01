@@ -1,4 +1,7 @@
 from storages.backends.s3boto import S3BotoStorage
 
-MediaS3BotoStorage = lambda: S3BotoStorage(location='media')
-StaticS3BotoStorage = lambda: S3BotoStorage(location='static')
+
+def MediaS3BotoStorage(): S3BotoStorage(location='media')
+
+
+def StaticS3BotoStorage(): S3BotoStorage(location='static')
