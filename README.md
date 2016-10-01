@@ -3,7 +3,7 @@ Pagoeta
 
 [![travis-badge]][travis]
 [![coveralls-badge]][coveralls]
-[![license-badge]](LICENSE.md)
+[![license-badge]](LICENSE)
 
 `Pagoeta` is the code name of the application used to manage the  agenda, places’ information
 and overall information for the city of [Zarautz](http://www.zarautz.org/). It provides a private
