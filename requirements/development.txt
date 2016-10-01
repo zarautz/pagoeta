@@ -1,5 +1,5 @@
 -r common.txt
 
-coverage==4.0.3
-django-debug-toolbar==1.4
-flake8==2.5.4
+coverage==4.2
+django-debug-toolbar==1.5
+flake8==3.0.4

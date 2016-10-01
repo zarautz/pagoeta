@@ -1,7 +1,5 @@
 from django.core.exceptions import ObjectDoesNotExist
-from django.core.urlresolvers import reverse
 from django.http import HttpResponse, JsonResponse
-from django.shortcuts import redirect
 from django.views import generic
 from django.views.decorators.cache import cache_control
 from rest_framework import status
@@ -10,14 +8,6 @@ from .functions import transform_external_image
 from .models import XeroxImage
 from pagoeta.apps.events.models import Image as EventImage
 from pagoeta.apps.places.models import Image as PlaceImage
-
-
-class RedirectView(generic.View):
-    """
-    Redirects to current API version.
-    """
-    def dispatch(self, request, *args, **kwargs):
-        return redirect(reverse('django.swagger.base.view'))
 
 
 class ImageView(generic.View):

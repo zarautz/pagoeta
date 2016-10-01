@@ -40,7 +40,7 @@ class RedirectViewTest(TestCase):
 
     def test_redirect(self):
         response = self.client.get('/')
-        self.assertRedirects(response, reverse('django.swagger.base.view'))
+        self.assertRedirects(response, reverse('django.swagger.base.view'), status_code=301)
 
 
 class XeroxViewTest(TestCase):

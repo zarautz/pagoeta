@@ -5,7 +5,7 @@
             "id": 1,
             "hash": "1f5c889b7eb28d2d0a27f3dd5c8354b619333e47",
             "url": "http://www.google.com/google.jpg",
-            "created_at": "2016-01-01T12:00:00"
+            "created_at": "2016-01-01T12:00:00+00:00"
         }
     }
 ]
