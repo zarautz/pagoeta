@@ -1,5 +1,6 @@
 import json
 import time
+import urllib
 
 from datetime import datetime
 from django.conf import settings
@@ -84,34 +85,45 @@ class KostaScraper(BaseScraper):
 
 
 class TideScraper(object):
-    source = {'Gipuzkoako Foru Aldundia': 'http://www.gipuzkoa.eus/'}
+    source = {'Gipuzkoako Foru Aldundia': 'http://www.gipuzkoaingurumena.eus/'}
 
     def __init__(self, date_list):
         self.formatted_date_dict = {}
         for date in date_list:
             self.formatted_date_dict[date.strftime('%d/%m/%Y')] = date
-        self.months = sorted(list(set([date.month for date in date_list])))
+        self.ymonths = sorted(list(set(['%s-%s' % (date.year, date.month) for date in date_list])))
+
+    def get_url(self, ymonth):
+        ym = str(ymonth).split('-')
+        base_url = 'http://www.gipuzkoaingurumena.eus/es/c/portal/layout'
+        portlet = 'DCJmareas_WAR_DCJmareasportlet_INSTANCE_3Y41WFd6kR9h'
+        params = {
+            'p_l_id': 613952,
+            'p_p_id': portlet,
+            '_' + portlet + '_mes': ym[1],
+            '_' + portlet + '_anyo': ym[0]
+        }
+
+        return base_url + '?' + urllib.urlencode(params)
 
     def get_data(self):
         data = {}
-        for month in self.months:
-            data.update(self.parse_html(month))
+        for ymonth in self.ymonths:
+            data.update(self.parse_html(ymonth))
 
         return data
 
-    def parse_html(self, month, source=None):
+    def parse_html(self, ymonth, source=None):
         """HTML source can be passed for testing purposes."""
         if not source:
             try:
-                url = ('http://www4.gipuzkoa.net/MedioAmbiente/gipuzkoaingurumena/eu/secciones/playas/'
-                       'mareas.asp?filtroMesMarea=%d')
-                source = get(url % month).text
+                source = get(self.get_url(ymonth)).text
             except RequestException:
                 raise ServiceUnavailableException
 
         data = {}
 
-        for row, tr in enumerate(html.fromstring(source).cssselect('.tabla tbody > tr')):
+        for row, tr in enumerate(html.fromstring(source).cssselect('table.footable tbody > tr')):
             cols = tr.cssselect('td')
             date_formatted = cols[0].text_content().strip()
 
@@ -126,7 +138,7 @@ class TideScraper(object):
                 """mod % 2 to detect even cols."""
                 tide = 'high' if ((col % 2) == 0) else 'low'
                 text = td.text_content().strip()
-                if text != '-':
+                if text != '':
                     data[date_str][tide].append(text)
 
         return data

@@ -1,4 +1,5 @@
 import os
+import requests
 
 from datetime import datetime
 from django.conf import settings
@@ -39,17 +40,21 @@ class WeatherCodeViewSetTests(TestCase):
 class TideScraperTests(TestCase):
     def setUp(self):
         BASE_DIR = os.path.dirname(__file__)
-        self.date = datetime.strptime('2015-04-20', '%Y-%m-%d').date()
-        self.date_one_high = datetime.strptime('2015-04-13', '%Y-%m-%d').date()
-        self.date_one_low = datetime.strptime('2015-04-19', '%Y-%m-%d').date()
+        self.date = datetime.strptime('2016-10-10', '%Y-%m-%d').date()
+        self.date_one_high = datetime.strptime('2016-10-25', '%Y-%m-%d').date()
+        self.date_one_low = datetime.strptime('2016-10-20', '%Y-%m-%d').date()
         self.scraper = TideScraper([self.date, self.date_one_high, self.date_one_low])
         self.source = open(os.path.join(BASE_DIR, 'sources/gipuzkoa.html')).read()
 
+    def test_url(self):
+        response = requests.head(self.scraper.get_url('2016-10'))
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+
     def test_parse_html(self):
         data = self.scraper.parse_html(None, self.source)
-        self.assertEqual(data[str(self.date)], {'high': ['06:19', '18:39'], 'low': ['00:00', '12:22']})
-        self.assertEqual(data[str(self.date_one_high)], {'high': ['12:26'], 'low': ['05:59', '18:30']})
-        self.assertEqual(data[str(self.date_one_low)], {'high': ['05:35', '17:56'], 'low': ['11:39']})
+        self.assertEqual(data[str(self.date)], {'high': ['11:12', '00:09'], 'low': ['04:36', '17:35']})
+        self.assertEqual(data[str(self.date_one_high)], {'high': ['13:05'], 'low': ['06:33', '19:18']})
+        self.assertEqual(data[str(self.date_one_low)], {'high': ['07:00', '19:34'], 'low': ['13:13']})
 
 
 class WaveScraperTests(TestCase):
