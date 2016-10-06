@@ -4,7 +4,7 @@ import urllib
 
 from datetime import datetime
 from django.conf import settings
-from lxml import html, etree
+from lxml import etree
 from requests import get
 from requests.exceptions import RequestException
 
@@ -68,14 +68,15 @@ class KostaScraper(BaseScraper):
         """HTML source can be passed for testing purposes."""
         if not source:
             try:
-                url = ('http://www.kostasystem.com/en/video-measurement/zarautz-2/')
+                url = 'http://www.kostasystem.com/en/video-measurement/zarautz-2/'
                 source = get(url).text
             except RequestException:
                 raise ServiceUnavailableException
 
+        tree = etree.fromstring(source, parser=etree.HTMLParser())
         data = {'snapshots': [], 'timex': []}
 
-        for i, img in enumerate(html.fromstring(source).cssselect('a.monitorizaciones img')):
+        for i, img in enumerate(tree.xpath('//a[@class="monitorizaciones"]/img')):
             """KOSTASystem images have always the same URL, so we need to add a timestamp to cheat XeroxImage."""
             photo_type = 'snapshots' if i < 2 else 'timex'
             src = img.get('src') + '?' + str(time.time())
@@ -121,11 +122,12 @@ class TideScraper(object):
             except RequestException:
                 raise ServiceUnavailableException
 
+        tree = etree.fromstring(source, parser=etree.HTMLParser())
         data = {}
 
-        for row, tr in enumerate(html.fromstring(source).cssselect('table.footable tbody > tr')):
-            cols = tr.cssselect('td')
-            date_formatted = cols[0].text_content().strip()
+        for row, tr in enumerate(tree.xpath('//table[@class="footable"]/tbody/tr')):
+            cols = tr.findall('./td')
+            date_formatted = cols[0].text.strip()
 
             if date_formatted in self.formatted_date_dict:
                 date_str = str(self.formatted_date_dict[date_formatted])
@@ -137,9 +139,9 @@ class TideScraper(object):
             for col, td in enumerate(cols):
                 """mod % 2 to detect even cols."""
                 tide = 'high' if ((col % 2) == 0) else 'low'
-                text = td.text_content().strip()
-                if text != '':
-                    data[date_str][tide].append(text)
+                text = td.text
+                if text:
+                    data[date_str][tide].append(text.strip())
 
         return data
 
@@ -197,7 +199,8 @@ class WeatherScraper(object):
         """XML source can be passed for testing purposes."""
         if not source:
             try:
-                source = get('http://www.aemet.es/xml/municipios/localidad_20079.xml').text.encode('utf-8')
+                url = 'http://www.aemet.es/xml/municipios/localidad_20079.xml'
+                source = get(url).text.encode('utf-8')
             except RequestException:
                 raise ServiceUnavailableException
 

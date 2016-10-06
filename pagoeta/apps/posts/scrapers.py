@@ -39,11 +39,11 @@ class RssPostScraper(BasePostScraper):
             tree = fromstring(content)
 
             # Some blogs return a standard "The post {{title}} appeared first on {{source}}". Remove it.
-            last_paragraph = tree.cssselect('p')[-1]
+            last_paragraph = tree.xpath('//p')[-1]
             if 'appeared first on' in last_paragraph.text_content():
                 tree.remove(last_paragraph)
 
-            for img in tree.cssselect('img'):
+            for img in tree.xpath('//img'):
                 image_source = img.get('src')
                 content_images[image_source] = self.get_xerox_image_sources(image_source)
 
