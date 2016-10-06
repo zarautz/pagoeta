@@ -13,6 +13,7 @@ import json
 import os
 
 from django.conf import global_settings
+from urlparse import urlparse
 
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -203,13 +204,14 @@ SWAGGER_SETTINGS = {
 # https://docs.djangoproject.com/en/1.8/topics/cache/
 
 if not DEBUG and 'TRAVIS' not in os.environ:
+    redis_url = urlparse(os.environ.get('REDIS_URL'))
     CACHES = {
         'default': {
-            'BACKEND': 'django_bmemcached.memcached.BMemcached',
-            'LOCATION': os.environ.get('MEMCACHEDCLOUD_SERVERS').split(','),
+            'BACKEND': 'redis_cache.RedisCache',
+            'LOCATION': '{0}:{1}'.format(redis_url.hostname, redis_url.port),
             'OPTIONS': {
-                'username': os.environ.get('MEMCACHEDCLOUD_USERNAME'),
-                'password': os.environ.get('MEMCACHEDCLOUD_PASSWORD')
+                'PASSWORD': redis_url.password,
+                'DB': 0,
             }
         }
     }
