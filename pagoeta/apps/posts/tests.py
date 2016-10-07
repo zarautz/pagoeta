@@ -7,7 +7,7 @@ from rest_framework.test import APIClient
 class HitzaPostViewSetTests(TestCase):
     def setUp(self):
         self.client = APIClient()
-        self.url = reverse('v1:hitza-post-list')
+        self.url = reverse('v2:hitza-post-list')
 
     def test_default_response(self):
         response = self.client.get(self.url)

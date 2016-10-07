@@ -6,16 +6,33 @@ from requests.exceptions import RequestException
 
 from .models import Pharmacy
 from pagoeta.apps.core.exceptions import ServiceUnavailableException
+from pagoeta.apps.osm.scrapers import OpenStreeMapScraper
 from pagoeta.apps.places.models import Place
 from pagoeta.apps.places.serializers import PlaceListSerializer
 
 
 class PharmacyGuardScraper(object):
-    pharmacies = []
+    temp = []
     place_ids = []
 
-    def __init__(self, url=None):
-        self.url = url if url else 'http://m.cofgipuzkoa.com/ws/cofg_ws.php'
+    def __init__(self, **kwargs):
+        self.version = kwargs.get('version', 'v2')
+        self.url = kwargs.get('url', 'http://m.cofgipuzkoa.com/ws/cofg_ws.php')
+
+    def request_data_from_cofg(self, date, guard_time='day'):
+        try:
+            data = {
+                'op': 'getPharmaciesGuard',
+                'lang': 'eu',
+                'month': date.month,
+                'day': date.day,
+                'guardtime': 0 if guard_time == 'day' else 1,
+                'guardzone': 18,
+            }
+
+            return post(self.url, data=data)
+        except RequestException:
+            raise ServiceUnavailableException
 
     def get_source(self):
         return {'COFG': 'https://www.cofgipuzkoa.com/'}
@@ -25,13 +42,6 @@ class PharmacyGuardScraper(object):
             'hours': self.get_hours(),
             'places': self.get_places(),
         }
-
-    def get_places(self):
-        places = {}
-        for obj in Place.objects.filter(id__in=self.place_ids).prefetch_related('types', 'images').all():
-            places[obj.id] = PlaceListSerializer(obj).data
-
-        return places
 
     def get_hours(self):
         today = date.today()
@@ -68,27 +78,40 @@ class PharmacyGuardScraper(object):
 
         return pharmacy_id
 
-    def request_data_from_cofg(self, date, guard_time='day'):
-        try:
-            data = {
-                'op': 'getPharmaciesGuard',
-                'lang': 'eu',
-                'month': date.month,
-                'day': date.day,
-                'guardtime': 0 if guard_time == 'day' else 1,
-                'guardzone': 18,
-            }
-
-            return post(self.url, data=data)
-        except RequestException:
-            raise ServiceUnavailableException
-
     def get_internal_pharmacy_id(self, cofg_pharmacy_id):
-        if not self.pharmacies:
-            self.pharmacies = list(Pharmacy.objects.all())
+        if self.version == 'v1':
+            if not self.temp:
+                self.temp = list(Pharmacy.objects.all())
 
-        pharmacy = [el for el in self.pharmacies if el.cofg_id == cofg_pharmacy_id][0]
-        if pharmacy.place_id not in self.place_ids:
-            self.place_ids.append(pharmacy.place_id)
+            pharmacy = [el for el in self.temp if el.cofg_id == cofg_pharmacy_id][0]
+            if pharmacy.place_id not in self.place_ids:
+                self.place_ids.append(pharmacy.place_id)
+            return pharmacy.place_id
 
-        return pharmacy.place_id
+        if self.version == 'v2':
+            if not self.temp:
+                self.temp = OpenStreeMapScraper().get_data()
+
+            try:
+                pharmacy = self.temp['nodes'][self.temp['index'][self.temp['pharmacies'][cofg_pharmacy_id]]]
+                if pharmacy['id'] not in self.place_ids:
+                    self.place_ids.append(self.temp['pharmacies'][cofg_pharmacy_id])
+                return pharmacy['id']
+            except:
+                return None
+
+    def get_places(self):
+        places = {}
+
+        if self.version == 'v1':
+            for obj in Place.objects.filter(id__in=self.place_ids).prefetch_related('types', 'images').all():
+                places[obj.id] = PlaceListSerializer(obj).data
+
+        if self.version == 'v2':
+            for pk in self.place_ids:
+                try:
+                    places[pk] = self.temp['nodes'][self.temp['index'][pk]]
+                except:
+                    places[pk] = None
+
+        return places

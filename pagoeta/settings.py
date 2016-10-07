@@ -105,6 +105,7 @@ INSTALLED_APPS = (
     'pagoeta.apps.events',
     'pagoeta.apps.health',
     'pagoeta.apps.forecast',
+    'pagoeta.apps.osm',
     'pagoeta.apps.posts',
 )
 
@@ -370,3 +371,4 @@ MAGICSEAWEED_SECRET_KEY = CONFIG_VARS['magicseaweed__secret_key']
 
 ZARAUTZ_LATITUDE = 43.284410
 ZARAUTZ_LONGITUDE = -2.172193
+ZARAUTZ_BBOX = '43.27283095935783,-2.1857213973999023,43.298104185568306,-2.1421623229980464'

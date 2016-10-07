@@ -14,9 +14,9 @@ from pagoeta.apps.core.scrapers import BaseScraper
 
 
 class ForecastScraperWrapper(object):
-    def __init__(self, date_list, version='v2'):
+    def __init__(self, date_list, **kwargs):
         self.date_list = date_list
-        self.version = version
+        self.version = kwargs.get('version', 'v2')
         self.astronomical_observer = AstronomicalObserver(self.date_list)
         self.tide_scraper = TideScraper(self.date_list)
         self.weather_scraper = WeatherScraper(self.date_list)

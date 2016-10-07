@@ -15,20 +15,11 @@ class PharmacyViewSet(ViewSet):
         """
         Get information about pharmacies on duty today and tomorrow.
         The corresponding Places (pharmacies) are included in the response.
-        ---
-        parameters:
-        -   name: language
-            paramType: query
-            type: string
-            description: ISO 639-1 language code.
-            enum: [eu, es, en, fr]
-            defaultValue: eu
         """
-        scraper = PharmacyGuardScraper()
+        scraper = PharmacyGuardScraper(version=request.version)
 
         return Response({
             'meta': {
-                'language': request.LANGUAGE_CODE,
                 'lastUpdated': timezone.now(),
                 'source': scraper.get_source(),
             },

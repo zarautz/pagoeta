@@ -3,6 +3,7 @@ from rest_framework.routers import DefaultRouter
 from pagoeta.apps.events.views import EventViewSet
 from pagoeta.apps.forecast.views import ForecastViewSet, WeatherCodeViewSet
 from pagoeta.apps.health.views import PharmacyViewSet
+from pagoeta.apps.osm.views import NodeViewSet, FeatureViewSet
 from pagoeta.apps.places.views import PlaceViewSet, TypeViewSet as PlaceTypeViewSet
 from pagoeta.apps.posts.views import HitzaPostViewSet, ZuZarautzPostViewSet
 
@@ -22,4 +23,6 @@ class Router(DefaultRouter):
             self.register(r'posts/zuzarautz', ZuZarautzPostViewSet, base_name='zuzarautz-post')
 
         if version == 'v2':
+            self.register(r'places/types', FeatureViewSet, base_name='osm-feature')
+            self.register(r'places', NodeViewSet, base_name='osm-node')
             self.register(r'posts/hitza', HitzaPostViewSet, base_name='hitza-post')

@@ -31,12 +31,17 @@ class PharmacyViewSetTests(HealthTests):
 
 
 class PharmacyGuardScraperTests(HealthTests):
-    def setUp(self):
+    def main_setUp(self):
         BASE_DIR = os.path.dirname(__file__)
-        self.scraper = PharmacyGuardScraper()
         self.source_day = open(os.path.join(BASE_DIR, 'sources/cofg_day.json')).read()
         self.source_night = open(os.path.join(BASE_DIR, 'sources/cofg_night.json')).read()
         self.pharmacies_map = {}
+
+
+class PharmacyGuardScraperTestsV1(PharmacyGuardScraperTests):
+    def setUp(self):
+        self.main_setUp()
+        self.scraper = PharmacyGuardScraper(version='v1')
         for pharmacy in Pharmacy.objects.all():
             self.pharmacies_map[pharmacy.cofg_id] = pharmacy.place_id
 
@@ -47,7 +52,3 @@ class PharmacyGuardScraperTests(HealthTests):
     def test_night(self):
         pharmacy_id = self.scraper.parse_pharmacy_id(None, None, self.source_night)
         self.assertEqual(pharmacy_id, self.pharmacies_map[524])
-
-    def test_404_request(self):
-        scraper = PharmacyGuardScraper('http://m.cofgipuzkoa.com/ws/missing.php')
-        self.assertRaises(ServiceUnavailableException, scraper.parse_pharmacy_id, date.today())
