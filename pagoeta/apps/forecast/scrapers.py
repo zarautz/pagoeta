@@ -14,43 +14,60 @@ from pagoeta.apps.core.scrapers import BaseScraper
 
 
 class ForecastScraperWrapper(object):
-    def __init__(self, date_list):
+    def __init__(self, date_list, version='v2'):
         self.date_list = date_list
+        self.version = version
         self.astronomical_observer = AstronomicalObserver(self.date_list)
-        self.kosta_scraper = KostaScraper()
         self.tide_scraper = TideScraper(self.date_list)
-        self.wave_scraper = WaveScraper(self.date_list)
         self.weather_scraper = WeatherScraper(self.date_list)
+
+        if self.version == 'v2':
+            self.kosta_scraper = KostaScraper()
+            self.wave_scraper = WaveScraper(self.date_list)
 
     def get_source(self):
         source = {}
-        source.update(self.kosta_scraper.source)
         source.update(self.tide_scraper.source)
-        source.update(self.wave_scraper.source)
         source.update(self.weather_scraper.source)
+
+        if self.version == 'v2':
+            source.update(self.kosta_scraper.source)
+            source.update(self.wave_scraper.source)
+
         return source
 
     def get_data(self):
         astronomical_data = self.astronomical_observer.get_data()
         tide_data = self.tide_scraper.get_data()
-        wave_data = self.wave_scraper.get_data()
         weather_data = self.weather_scraper.get_data()
+
+        if self.version == 'v2':
+            wave_data = self.wave_scraper.get_data()
+
         data = []
 
         for date_str in [str(date) for date in self.date_list]:
             weather = weather_data[date_str] if date_str in weather_data else None
-            if weather:
-                weather['pressure'] = wave_data[date_str]['weather']['pressure'] if date_str in wave_data else None
 
-            data.append({
+            res = {}
+            res.update({
                 'date': date_str,
                 'astronomy': astronomical_data[date_str],
-                'charts': wave_data[date_str]['charts'] if date_str in wave_data else None,
                 'tide': tide_data[date_str] if date_str in tide_data else None,
-                'wave': wave_data[date_str]['wave'] if date_str in wave_data else None,
                 'weather': weather,
-                'wind': wave_data[date_str]['wind'] if date_str in wave_data else None,
             })
+
+            if self.version == 'v2':
+                res.update({
+                    'charts': wave_data[date_str]['charts'] if date_str in wave_data else None,
+                    'wave': wave_data[date_str]['wave'] if date_str in wave_data else None,
+                    'wind': wave_data[date_str]['wind'] if date_str in wave_data else None,
+                })
+
+                if weather:
+                    weather['pressure'] = wave_data[date_str]['weather']['pressure'] if date_str in wave_data else None
+
+            data.append(res)
 
         return data
 

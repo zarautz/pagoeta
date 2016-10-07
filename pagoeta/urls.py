@@ -1,26 +1,9 @@
 from django.conf.urls import url, include
 from django.contrib import admin
 from django.views.generic.base import RedirectView
-from rest_framework import routers
 
+from .routers import Router
 from pagoeta.apps.core import views as core_views
-from pagoeta.apps.events.views import EventViewSet
-from pagoeta.apps.forecast.views import ForecastViewSet, WeatherCodeViewSet
-from pagoeta.apps.health.views import PharmacyViewSet
-from pagoeta.apps.places.views import PlaceViewSet, TypeViewSet as PlaceTypeViewSet
-from pagoeta.apps.posts.views import HitzaPostViewSet, ZuZarautzPostViewSet
-
-
-# http://www.django-rest-framework.org/api-guide/routers/
-router_v1 = routers.DefaultRouter()
-router_v1.register(r'events', EventViewSet, base_name='event')
-router_v1.register(r'forecast/weather/codes', WeatherCodeViewSet, base_name='weather-code')
-router_v1.register(r'forecast', ForecastViewSet, base_name='forecast')
-router_v1.register(r'pharmacies/duty', PharmacyViewSet, base_name='pharmacy')
-router_v1.register(r'places/types', PlaceTypeViewSet, base_name='place-type')
-router_v1.register(r'places', PlaceViewSet, base_name='place')
-router_v1.register(r'posts/hitza', HitzaPostViewSet, base_name='hitza-post')
-router_v1.register(r'posts/zuzarautz', ZuZarautzPostViewSet, base_name='zuzarautz-post')
 
 
 urlpatterns = [
@@ -31,6 +14,7 @@ urlpatterns = [
         name='redirect_old_api_docs'),
     url(r'^img/(?P<image_type>[epx]+)/(?P<hash>[a-f0-9]{40})_(?P<size>[qnzb]+).jpg', core_views.ImageView.as_view(),
         name='image'),
-    url(r'^v1/', include(router_v1.urls, namespace='v1')),
+    url(r'^v1/', include(Router('v1').urls, namespace='v1')),
+    url(r'^v2/', include(Router('v2').urls, namespace='v2')),
     url(r'^$', RedirectView.as_view(pattern_name='django.swagger.base.view', permanent=True), name='redirect'),
 ]

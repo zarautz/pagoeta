@@ -19,16 +19,20 @@ class ForecastViewSet(ViewSet):
         Get current forecast: weather, tides and astronomy data.
         """
         date_list = [date.today() + timedelta(days=x) for x in range(0, self.DAYS_FORECAST)]
-        scraper = ForecastScraperWrapper(date_list)
+        scraper = ForecastScraperWrapper(date_list, request.version)
 
-        return Response({
+        res = {
             'meta': {
                 'lastUpdated': timezone.now(),
                 'source': scraper.get_source(),
             },
-            'live': scraper.get_live_data(),
             'data': scraper.get_data(),
-        })
+        }
+
+        if request.version == 'v2':
+            res.update({'live': scraper.get_live_data()})
+
+        return Response(res)
 
 
 class WeatherCodeViewSet(ViewSet):
