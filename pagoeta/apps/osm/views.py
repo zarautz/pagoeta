@@ -38,6 +38,7 @@ class NodeViewSet(ViewSet):
         return Response({
             'meta': {
                 'lastUpdated': scraper.data['updated_at'],
+                'source': scraper.source,
                 'totalCount': len(scraper.data['nodes']),
                 'types': types_meta,
             },
@@ -53,7 +54,7 @@ class NodeViewSet(ViewSet):
         return Response({
             'meta': {
                 'lastUpdated': scraper.data['updated_at'],
-                'url': 'https://www.openstreetmap.org/node/%s' % pk
+                'source': scraper.get_source(pk),
             },
             'data': scraper.get_node(pk),
         })
@@ -73,6 +74,7 @@ class FeatureViewSet(ViewSet):
         return Response({
             'meta': {
                 'lastUpdated': scraper.data['updated_at'],
+                'source': scraper.source,
                 'totalCount': len(data),
             },
             'data': data,

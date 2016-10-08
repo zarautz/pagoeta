@@ -14,6 +14,7 @@ from pagoeta.apps.places.serializers import PlaceListSerializer
 class PharmacyGuardScraper(object):
     temp = []
     place_ids = []
+    source = {'COFG': 'https://www.cofgipuzkoa.com/'}
 
     def __init__(self, **kwargs):
         self.version = kwargs.get('version', 'v2')
@@ -35,7 +36,9 @@ class PharmacyGuardScraper(object):
             raise ServiceUnavailableException
 
     def get_source(self):
-        return {'COFG': 'https://www.cofgipuzkoa.com/'}
+        if self.version == 'v2':
+            self.source.update(OpenStreeMapScraper.source)
+        return self.source
 
     def get_data(self):
         return {

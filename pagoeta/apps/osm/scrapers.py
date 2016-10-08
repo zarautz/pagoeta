@@ -4,14 +4,17 @@ from django.utils import timezone
 from geojson import Point
 from requests import get
 from requests.exceptions import RequestException
+from rest_framework.reverse import reverse
 from urllib import urlencode
 
 from pagoeta.apps.core.exceptions import ServiceUnavailableException
+from pagoeta.apps.core.functions import get_absolute_uri
 
 
 class OpenStreeMapScraper(object):
     """This is our filter. Full list is here: https://wiki.openstreetmap.org/wiki/Map_Features"""
-    """The second tuple is used to ignore some types inside a feature."""
+    """The second list in every tuple is used to ignore some types inside a feature."""
+    source = {'OpenStreetMap': 'https://www.openstreetmap.org/'}
     features = [
         ('amenity', ['bench', 'telephone']),
         ('craft', []),
@@ -26,6 +29,11 @@ class OpenStreeMapScraper(object):
 
     def __init__(self):
         self.data = self.get_data()
+
+    def get_source(self, node_id=None):
+        if node_id:
+            return {'OpenStreetMap':  'https://www.openstreetmap.org/node/%s' % node_id}
+        return self.source
 
     def request_data_from_osm(self):
         try:
@@ -48,6 +56,9 @@ class OpenStreeMapScraper(object):
             fkeys = [feature[0] for feature in self.features]
             response = self.request_data_from_osm()
 
+            """Get a 'reusable' url for nodes."""
+            base_href = get_absolute_uri(reverse('v2:osm-node-detail', ['1237'])).replace('/1237/', '/%s/')
+
             """Massage Overpass response before saving it in the cache."""
             data = {
                 'updated_at': timezone.now(),
@@ -68,6 +79,7 @@ class OpenStreeMapScraper(object):
                 if el['type'] == 'amenity:pharmacy' and 'cofg:id' in el['tags']:
                     data['pharmacies'][int(el['tags']['cofg:id'])] = el['id']
 
+                el['href'] = base_href % el['id']
                 el['geometry'] = Point([el['lon'], el['lat']])
                 del el['lon'], el['lat']
 
@@ -106,4 +118,6 @@ class OpenStreeMapScraper(object):
         return self.data['nodes']
 
     def get_node(self, id):
-        return self.data['nodes'][self.data['index'][int(id)]]
+        node = self.data['nodes'][self.data['index'][int(id)]]
+        del node['href']
+        return node
