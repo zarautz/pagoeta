@@ -27,16 +27,18 @@ class NodeViewSet(ViewSet):
 
         if types:
             types_filter = types.split(',')
-            types_meta = {'filter': types_filter}
-            if len(types_filter) > 1:
-                types_meta['operator'] = 'OR'
 
         data = scraper.get_nodes(types_filter)
 
+        if types_filter:
+            types_meta = {'filter': types_filter, 'count': len(data)}
+            if len(types_filter) > 1:
+                types_meta['operator'] = 'OR'
+
         return Response({
             'meta': {
-                'lastUpdated': scraper.get_updated_at(),
-                'totalCount': len(data),
+                'lastUpdated': scraper.data['updated_at'],
+                'totalCount': len(scraper.data['nodes']),
                 'types': types_meta,
             },
             'data': data,
@@ -50,7 +52,7 @@ class NodeViewSet(ViewSet):
 
         return Response({
             'meta': {
-                'lastUpdated': scraper.get_updated_at(),
+                'lastUpdated': scraper.data['updated_at'],
                 'url': 'https://www.openstreetmap.org/node/%s' % pk
             },
             'data': scraper.get_node(pk),
@@ -70,7 +72,7 @@ class FeatureViewSet(ViewSet):
 
         return Response({
             'meta': {
-                'lastUpdated': scraper.get_updated_at(),
+                'lastUpdated': scraper.data['updated_at'],
                 'totalCount': len(data),
             },
             'data': data,

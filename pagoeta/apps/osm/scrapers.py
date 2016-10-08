@@ -22,6 +22,10 @@ class OpenStreeMapScraper(object):
         ('sport', []),
         ('tourism', [])
     ]
+    data = {}
+
+    def __init__(self):
+        self.data = self.get_data()
 
     def request_data_from_osm(self):
         try:
@@ -84,30 +88,22 @@ class OpenStreeMapScraper(object):
 
         return data
 
-    def get_updated_at(self):
-        data = self.get_data()
-        return data['updated_at']
-
     def get_features(self):
-        data = self.get_data()
-        return data['features']
+        return self.data['features']
 
     def get_nodes(self, types_filter=None):
-        data = self.get_data()
-
         if types_filter:
             output = []
             try:
                 for tf in types_filter:
-                    for node_id in data['features'][tf]['nodes']:
-                        output.append(data['nodes'][data['index'][node_id]])
+                    for node_id in self.data['features'][tf]['nodes']:
+                        output.append(self.data['nodes'][self.data['index'][node_id]])
             except:
                 pass
 
             return output
 
-        return data['nodes']
+        return self.data['nodes']
 
     def get_node(self, id):
-        data = self.get_data()
-        return data['nodes'][data['index'][int(id)]]
+        return self.data['nodes'][self.data['index'][int(id)]]
