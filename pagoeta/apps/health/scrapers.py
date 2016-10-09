@@ -96,7 +96,7 @@ class PharmacyGuardScraper(object):
                 self.temp = OpenStreeMapScraper().get_data()
 
             try:
-                pharmacy = self.temp['nodes'][self.temp['index'][self.temp['pharmacies'][cofg_pharmacy_id]]]
+                pharmacy = self.temp['elements'][self.temp['index'][self.temp['pharmacies'][cofg_pharmacy_id]]]
                 if pharmacy['id'] not in self.place_ids:
                     self.place_ids.append(self.temp['pharmacies'][cofg_pharmacy_id])
                 return pharmacy['id']
@@ -113,7 +113,7 @@ class PharmacyGuardScraper(object):
         if self.version == 'v2':
             for pk in self.place_ids:
                 try:
-                    places[pk] = self.temp['nodes'][self.temp['index'][pk]]
+                    places[pk] = self.temp['elements'][self.temp['index'][pk]]
                 except:
                     places[pk] = None
 

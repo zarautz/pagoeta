@@ -1,3 +1,4 @@
+from collections import OrderedDict
 from django.conf import settings
 from django.core.cache import cache
 from django.utils import timezone
@@ -19,7 +20,7 @@ class OpenStreeMapScraper(object):
         ('amenity', ['bench', 'telephone']),
         ('craft', []),
         ('historic', []),
-        ('leisure', ['slipway']),
+        ('leisure', ['common', 'slipway']),
         ('public_transport', []),
         ('shop', []),
         ('sport', []),
@@ -30,9 +31,10 @@ class OpenStreeMapScraper(object):
     def __init__(self):
         self.data = self.get_data()
 
-    def get_source(self, node_id=None):
-        if node_id:
-            return {'OpenStreetMap':  'https://www.openstreetmap.org/node/%s' % node_id}
+    def get_source(self, element=None):
+        if element:
+            el_type = 'way' if 'way' in element else 'node'
+            return {'OpenStreetMap':  'https://www.openstreetmap.org/%s/%s' % (el_type, element['id'])}
         return self.source
 
     def request_data_from_osm(self):
@@ -40,7 +42,10 @@ class OpenStreeMapScraper(object):
             nodes = ';'.join(
                 ['node[%s]%s' % (f[0], ''.join(['[%s!=%s]' % (f[0], n) for n in f[1]])) for f in self.features]
             )
-            query = '[out:json][bbox:%s];(%s;);out;' % (settings.ZARAUTZ_BBOX, nodes)
+            ways = ';'.join(
+                ['way[%s]%s' % (f[0], ''.join(['[%s!=%s]' % (f[0], n) for n in f[1]])) for f in self.features]
+            )
+            query = '[out:json][bbox:%s];(%s;%s);out center;' % (settings.ZARAUTZ_BBOX, nodes, ways)
             url = 'http://overpass-api.de/api/interpreter?%s' % urlencode({'data': query})
 
             return get(url).json()
@@ -56,14 +61,15 @@ class OpenStreeMapScraper(object):
             fkeys = [feature[0] for feature in self.features]
             response = self.request_data_from_osm()
 
-            """Get a 'reusable' url for nodes."""
+            """Get a 'reusable' url for elements."""
             base_href = get_absolute_uri(reverse('v2:osm-node-detail', ['1237'])).replace('/1237/', '/%s/')
+            types_href = get_absolute_uri(reverse('v2:osm-node-list'))
 
             """Massage Overpass response before saving it in the cache."""
             data = {
                 'updated_at': timezone.now(),
                 'features': {},
-                'nodes': [],
+                'elements': [],
                 'index': {},
                 'pharmacies': {},
             }
@@ -79,22 +85,32 @@ class OpenStreeMapScraper(object):
                 if el['type'] == 'amenity:pharmacy' and 'cofg:id' in el['tags']:
                     data['pharmacies'][int(el['tags']['cofg:id'])] = el['id']
 
-                el['href'] = base_href % el['id']
+                # Check coordinates. Ways will have a `center` attribute.
+                if 'center' in el:
+                    el['way'], el['lat'], el['lon'] = True, el['center']['lat'], el['center']['lon']
+                    del el['center'], el['nodes']
                 el['geometry'] = Point([el['lon'], el['lat']])
-                del el['lon'], el['lat']
+                del el['lat'], el['lon']
+
+                el['href'] = base_href % el['id']
 
                 if el['type'] not in data['features']:
-                    data['features'][el['type']] = {
+                    data['features'][el['type']] = OrderedDict(sorted({
+                        'count': 1,
+                        'elements': [el['id']],
+                        'href': '%s?types=%s' % (types_href, el['type']),
                         'url': 'http://wiki.openstreetmap.org/wiki/Tag:%s' % el['type'].replace(':', '='),
-                        'nodes': [el['id']],
-                        'count': 1
-                    }
+                    }.items()))
                 else:
-                    data['features'][el['type']]['nodes'].append(el['id'])
-                    data['features'][el['type']]['count'] = len(data['features'][el['type']]['nodes'])
+                    data['features'][el['type']]['count'] += 1
+                    data['features'][el['type']]['elements'].append(el['id'])
 
-                data['nodes'].append(el)
-                data['index'][el['id']] = len(data['nodes']) - 1
+                # Order data for a nicer presentation
+                el['tags'] = OrderedDict(sorted(el['tags'].items()))
+                el = OrderedDict(sorted(el.items()))
+
+                data['elements'].append(el)
+                data['index'][el['id']] = len(data['elements']) - 1
 
             cache.set(cache_key, data, cache_ttl)
 
@@ -103,21 +119,21 @@ class OpenStreeMapScraper(object):
     def get_features(self):
         return self.data['features']
 
-    def get_nodes(self, types_filter=None):
+    def get_elements(self, types_filter=None):
         if types_filter:
             output = []
             try:
                 for tf in types_filter:
-                    for node_id in self.data['features'][tf]['nodes']:
-                        output.append(self.data['nodes'][self.data['index'][node_id]])
+                    for node_id in self.data['features'][tf]['elements']:
+                        output.append(self.data['elements'][self.data['index'][node_id]])
             except:
                 pass
 
             return output
 
-        return self.data['nodes']
+        return self.data['elements']
 
-    def get_node(self, id):
-        node = self.data['nodes'][self.data['index'][int(id)]]
+    def get_element(self, id):
+        node = self.data['elements'][self.data['index'][int(id)]]
         del node['href']
         return node

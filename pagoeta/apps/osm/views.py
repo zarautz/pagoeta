@@ -28,7 +28,7 @@ class NodeViewSet(ViewSet):
         if types:
             types_filter = types.split(',')
 
-        data = scraper.get_nodes(types_filter)
+        data = scraper.get_elements(types_filter)
 
         if types_filter:
             types_meta = {'filter': types_filter, 'count': len(data)}
@@ -39,7 +39,7 @@ class NodeViewSet(ViewSet):
             'meta': {
                 'lastUpdated': scraper.data['updated_at'],
                 'source': scraper.source,
-                'totalCount': len(scraper.data['nodes']),
+                'totalCount': len(scraper.data['elements']),
                 'types': types_meta,
             },
             'data': data,
@@ -50,13 +50,14 @@ class NodeViewSet(ViewSet):
         Get detailed information about a Place.
         """
         scraper = OpenStreeMapScraper()
+        el = scraper.get_element(pk)
 
         return Response({
             'meta': {
                 'lastUpdated': scraper.data['updated_at'],
-                'source': scraper.get_source(pk),
+                'source': scraper.get_source(el),
             },
-            'data': scraper.get_node(pk),
+            'data': el,
         })
 
 
