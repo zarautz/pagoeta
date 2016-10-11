@@ -62,8 +62,8 @@ class OpenStreeMapScraper(object):
             response = self.request_data_from_osm()
 
             """Get a 'reusable' url for elements."""
-            base_href = get_absolute_uri(reverse('v2:osm-node-detail', ['1237'])).replace('/1237/', '/%s/')
-            types_href = get_absolute_uri(reverse('v2:osm-node-list'))
+            base_href = get_absolute_uri(reverse('v2:osm-element-detail', ['1237'])).replace('/1237/', '/%s/')
+            types_href = get_absolute_uri(reverse('v2:osm-element-list'))
 
             """Massage Overpass response before saving it in the cache."""
             data = {
@@ -124,8 +124,8 @@ class OpenStreeMapScraper(object):
             output = []
             try:
                 for tf in types_filter:
-                    for node_id in self.data['features'][tf]['elements']:
-                        output.append(self.data['elements'][self.data['index'][node_id]])
+                    for el_id in self.data['features'][tf]['elements']:
+                        output.append(self.data['elements'][self.data['index'][el_id]])
             except:
                 pass
 
@@ -134,6 +134,6 @@ class OpenStreeMapScraper(object):
         return self.data['elements']
 
     def get_element(self, id):
-        node = self.data['elements'][self.data['index'][int(id)]]
-        del node['href']
-        return node
+        element = self.data['elements'][self.data['index'][int(id)]]
+        del element['href']
+        return element

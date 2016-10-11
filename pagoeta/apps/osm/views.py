@@ -6,7 +6,7 @@ from rest_framework.viewsets import ViewSet
 from .scrapers import OpenStreeMapScraper
 
 
-class NodeViewSet(ViewSet):
+class ElementViewSet(ViewSet):
     permission_classes = (IsAuthenticatedOrReadOnly,)
 
     @cache_control(max_age=7200)
