@@ -7,7 +7,7 @@ from rest_framework.test import APIClient
 from StringIO import StringIO
 
 from .functions import IMAGE_SIZES, get_absolute_uri
-from .models import XeroxImage
+from .helpers import XeroxMachine
 from pagoeta.apps.places.tests import PlaceTests
 
 
@@ -48,12 +48,11 @@ class XeroxViewTest(TestCase):
 
     def setUp(self):
         self.client = APIClient()
-        self.image = XeroxImage.objects.get(pk=1)
         self.sizes = ('q', 'n')
         self.urls = {}
+        x_hash = XeroxMachine().save('http://www.google.com/google.jpg')
         for size in self.sizes:
-            self.urls[size] = get_absolute_uri(reverse('image', args=(XeroxImage.IMAGE_TYPE_IN_URL,
-                                                                      self.image.hash, size)))
+            self.urls[size] = get_absolute_uri(reverse('image', args=(XeroxMachine.IMAGE_TYPE_IN_URL, x_hash, size)))
 
     def test_default_response(self):
         response = self.client.get(self.urls[self.sizes[0]])

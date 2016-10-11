@@ -50,20 +50,3 @@ class Image(models.Model):
 
     def get_sources(self):
         return get_image_sources(self.IMAGE_TYPE_IN_URL, self.hash) if self.IMAGE_TYPE_IN_URL else None
-
-
-class XeroxImage(models.Model):
-    IMAGE_TYPE_IN_URL = 'x'
-    hash = models.CharField(max_length=40, unique=True)
-    url = models.URLField(null=True, blank=True)
-    created_at = models.DateTimeField(auto_now_add=True)
-
-    class Meta(object):
-        db_table = 'core_xerox_image'
-
-    def save(self, *args, **kwargs):
-        self.hash = hashlib.sha1(self.url.encode('utf-8')).hexdigest()
-        super(XeroxImage, self).save(*args, **kwargs)
-
-    def get_sources(self):
-        return get_image_sources(self.IMAGE_TYPE_IN_URL, self.hash)
