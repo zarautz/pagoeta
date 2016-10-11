@@ -1,5 +1,4 @@
 from django.conf.urls import url, include
-from django.contrib import admin
 from django.views.generic.base import RedirectView
 
 from .routers import Router
@@ -7,8 +6,6 @@ from pagoeta.apps.core import views as core_views
 
 
 urlpatterns = [
-    url(r'^grappelli/', include('grappelli.urls')),
-    url(r'^admin/', include(admin.site.urls)),
     url(r'^docs/', include('rest_framework_swagger.urls')),
     url(r'^api/doc/', RedirectView.as_view(pattern_name='django.swagger.base.view', permanent=True),
         name='redirect_old_api_docs'),

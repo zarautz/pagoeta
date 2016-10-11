@@ -3,4 +3,3 @@
 django-redis-cache==1.7.0
 gunicorn==19.6.0
 whitenoise==3.2.2
-wkhtmltopdf-pack==0.12.3.0

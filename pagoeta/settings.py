@@ -87,19 +87,14 @@ INSTALLED_APPS = (
     'corsheaders',
     'imagekit',
     'storages',
-    'wkhtmltopdf',
-    # Admin
-    'grappelli',
-    'django.contrib.admin',
     # Default Django apps
     'django.contrib.auth',
     'django.contrib.contenttypes',
-    'django.contrib.messages',
-    'django.contrib.sessions',
     'django.contrib.staticfiles',
-    # Custom apps
+    # Django REST framework
     'rest_framework',
     'rest_framework_swagger',
+    # Custom apps
     'pagoeta.apps.core',
     'pagoeta.apps.places',
     'pagoeta.apps.events',
@@ -115,14 +110,11 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.cache.UpdateCacheMiddleware',
     'django.middleware.gzip.GZipMiddleware',
     'django.middleware.http.ConditionalGetMiddleware',
-    'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.locale.LocaleMiddleware',
     'pagoeta.apps.core.middleware.LanguageOnQueryParamMiddleware',
     'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
-    'django.contrib.auth.middleware.AuthenticationMiddleware',
-    'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'django.middleware.cache.FetchFromCacheMiddleware',
 )
@@ -305,40 +297,6 @@ STATICFILES_DIRS = (
 if not DEBUG and 'TRAVIS' not in os.environ:
     STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
     WHITENOISE_ROOT = os.path.join(BASE_DIR, 'staticfiles/www')
-
-
-# wkhtmltopdf
-# http://django-wkhtmltopdf.readthedocs.org/en/latest/
-# https://pypi.python.org/pypi/wkhtmltopdf-pack
-
-WKHTMLTOPDF_CMD = 'wkhtmltopdf' if DEBUG else 'wkhtmltopdf-pack'
-WKHTMLTOPDF_CMD_OPTIONS = {
-    'quiet': True,
-    'page-size': 'A4',
-}
-
-
-# Markdown
-
-MARKDOWN_EDITOR_SKIN = 'simple'
-
-
-# Administration area
-# https://docs.djangoproject.com/en/1.8/ref/contrib/admin/
-# http://django-grappelli.readthedocs.org/en/latest/index.html
-
-TEMPLATE_CONTEXT_PROCESSORS = global_settings.TEMPLATE_CONTEXT_PROCESSORS + (
-    'django.core.context_processors.request',
-    'django.core.context_processors.media',
-)
-
-FIRST_DAY_OF_WEEK = 1
-DATE_FORMAT = 'N j, Y'
-TIME_FORMAT = 'H:i'
-DATETIME_FORMAT = DATE_FORMAT + ', ' + TIME_FORMAT
-
-GRAPPELLI_ADMIN_TITLE = 'Pagoeta API'
-GRAPPELLI_CLEAN_INPUT_TYPES = False
 
 
 # Logging
