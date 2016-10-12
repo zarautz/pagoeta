@@ -26,7 +26,7 @@ IMAGE_SIZES = {
 
 
 def get_absolute_uri(relative_uri):
-    protocol = 'https://' if settings.SESSION_COOKIE_SECURE else 'http://'
+    protocol = 'https://' if settings.SECURE_SSL_REDIRECT else 'http://'
     return protocol + settings.SITE_HOST + relative_uri
 
 

@@ -12,7 +12,6 @@ import dj_database_url
 import json
 import os
 
-from django.conf import global_settings
 from urlparse import urlparse
 
 
@@ -27,7 +26,8 @@ BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 if 'app__secret_key' in os.environ:
     config_file = None
     DEBUG = False
-    ALLOWED_HOSTS = ('data.zarautz.xyz', 'pagoeta.illarra.com')  # pagoeta.illarra.com is the legacy URL, to remove
+    ALLOWED_HOSTS = ('data.zarautz.xyz',)
+    SECURE_SSL_REDIRECT = True
 
 elif 'TRAVIS' in os.environ:
     config_file = os.path.join(BASE_DIR, 'config.json.txt')
@@ -179,11 +179,11 @@ CORS_ALLOW_METHODS = ('GET', 'OPTIONS')
 
 SWAGGER_SETTINGS = {
     'exclude_namespaces': [],
-    'api_version': '1.0',
+    'api_version': '2.0',
     'enabled_methods': ('get',),
     'info': {
-        'title': 'Pagoeta API',
-        'description': '`Pagoeta` is the public API of the city of Zarautz, Basque Country. '
+        'title': 'Open Zarautz API',
+        'description': 'This is an Open API for the city of Zarautz, Basque Country. '
                        'The information you can find here is free for you to use in your applications, '
                        'but please be gentle with our server (you should cache this results on your side too). '
                        'All data is made available under the Open Database License: '
@@ -228,8 +228,8 @@ ANYMAIL = {
     }
 }
 
-EMAIL_SUBJECT_PREFIX = '[Pagoeta API] '
-DEFAULT_FROM_EMAIL = 'Pagoeta <pagoeta@zarautz.xyz>'
+EMAIL_SUBJECT_PREFIX = '[Open Zarautz API] '
+DEFAULT_FROM_EMAIL = 'Open Zarautz <open@zarautz.xyz>'
 SERVER_EMAIL = 'root@zarautz.xyz'
 
 

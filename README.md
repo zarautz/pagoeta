@@ -5,15 +5,12 @@ Pagoeta
 [![coveralls-badge]][coveralls]
 [![license-badge]](LICENSE)
 
-`Pagoeta` is the code name of the application used to manage the  agenda, places’ information
-and overall information for the city of [Zarautz](http://www.zarautz.org/). It provides a private
-administration area and a **public API** based in the `Open Data` philosophy.
-
-You can access the API at [http://data.zarautz.xyz/](http://data.zarautz.xyz/).
+`Pagoeta` is the code name of the Open API for the city of [Zarautz](http://www.zarautz.org/), based on
+the `Open Data` philosophy. You can access the API at [https://data.zarautz.xyz/](https://data.zarautz.xyz/).
 
 API Usage policy
 ----------------
-Usage of the Pagoeta API is currently unrestricted. API keys are not used. Please be gentle with our server!
+Usage of the Open Zarautz API is currently unrestricted. API keys are not used. Please be gentle with our server!
 In the future, we may require registration and API keys for heavy use.
 
 All data is made available under the [Open Database License](http://opendatacommons.org/licenses/odbl/1.0/).

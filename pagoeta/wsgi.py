@@ -13,7 +13,7 @@ from django.core.wsgi import get_wsgi_application
 
 
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'pagoeta.settings')
-# os.environ['HTTPS'] = 'on'
+os.environ['HTTPS'] = 'on'
 
 try:
     cred_file = os.environ['app__secret_key']
