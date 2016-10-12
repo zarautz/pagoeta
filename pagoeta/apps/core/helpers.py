@@ -11,7 +11,7 @@ class XeroxMachine(object):
     def __init__(self):
         self.data = cache.get(self.cache_key, {})
 
-    def save(self, image_source):
+    def add(self, image_source):
         hash = hashlib.sha1(image_source.encode('utf-8')).hexdigest()
 
         if hash not in self.data:

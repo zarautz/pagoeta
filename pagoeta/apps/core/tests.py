@@ -66,8 +66,8 @@ class XeroxViewTest(TestCase):
         self.sizes = ('q', 'n')
         self.urls = {}
         self.nurls = {}
-        x_hash = XeroxMachine().save('http://www.google.com/google.jpg')
-        no_hash = XeroxMachine().save('http://zarautz.xyz/open.jpg')
+        x_hash = XeroxMachine().add('http://www.google.com/google.jpg')
+        no_hash = XeroxMachine().add('http://zarautz.xyz/open.jpg')
         for size in self.sizes:
             self.urls[size] = get_absolute_uri(reverse('image', args=(XeroxMachine.IMAGE_TYPE_IN_URL, x_hash, size)))
             self.nurls[size] = get_absolute_uri(reverse('image', args=(XeroxMachine.IMAGE_TYPE_IN_URL, no_hash, size)))
@@ -76,6 +76,7 @@ class XeroxViewTest(TestCase):
         response = self.client.get(self.urls[self.sizes[0]])
         self.assertEqual(response.status_code, status.HTTP_200_OK)
         self.assertEqual(response['Content-Type'], 'image/jpeg')
+        self.assertEqual(response['Cache-Control'], 'max-age=604800')
 
     def test_no_response(self):
         response = self.client.get(self.nurls[self.sizes[0]])

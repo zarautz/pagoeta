@@ -1,5 +1,6 @@
 from django.core.exceptions import ObjectDoesNotExist
 from django.http import HttpResponse, JsonResponse
+from django.utils.cache import patch_cache_control
 from django.views import generic
 from django.views.decorators.cache import cache_control
 from rest_framework import status
@@ -17,6 +18,7 @@ class ImageView(generic.View):
     """
     @cache_control(max_age=31536000)
     def get(self, request, *args, **kwargs):
+        cache_max_age = 31536000
         image_type = kwargs.get('image_type')
         image_hash = kwargs.get('hash')
         size = kwargs.get('size')
@@ -30,6 +32,7 @@ class ImageView(generic.View):
                 image_url = PlaceImage.objects.get(hash=image_hash).get_url()
             elif image_type == XeroxMachine.IMAGE_TYPE_IN_URL:
                 image_url = XeroxMachine().get(image_hash)
+                cache_max_age = 604800
         except ObjectDoesNotExist:
             return not_found_response
 
@@ -39,5 +42,7 @@ class ImageView(generic.View):
             image.save(response, 'jpeg')
         except IOError:
             return not_found_response
+
+        patch_cache_control(response, max_age=cache_max_age)
 
         return response
