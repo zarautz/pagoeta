@@ -21,6 +21,8 @@ class ImageView(generic.View):
         image_hash = kwargs.get('hash')
         size = kwargs.get('size')
 
+        not_found_response = JsonResponse({'detail': 'Not Found.'}, status=status.HTTP_404_NOT_FOUND)
+
         try:
             if image_type == EventImage.IMAGE_TYPE_IN_URL:
                 image_url = EventImage.objects.get(hash=image_hash).get_url()
@@ -28,12 +30,14 @@ class ImageView(generic.View):
                 image_url = PlaceImage.objects.get(hash=image_hash).get_url()
             elif image_type == XeroxMachine.IMAGE_TYPE_IN_URL:
                 image_url = XeroxMachine().get(image_hash)
-
         except ObjectDoesNotExist:
-            return JsonResponse({'detail': 'Not Found.'}, status=status.HTTP_404_NOT_FOUND)
+            return not_found_response
 
-        image = transform_external_image(image_url, size)
-        response = HttpResponse(content_type='image/jpeg')
-        image.save(response, 'jpeg')
+        try:
+            image = transform_external_image(image_url, size)
+            response = HttpResponse(content_type='image/jpeg')
+            image.save(response, 'jpeg')
+        except IOError:
+            return not_found_response
 
         return response

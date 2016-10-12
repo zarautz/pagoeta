@@ -208,12 +208,6 @@ if not DEBUG and 'TRAVIS' not in os.environ:
             }
         }
     }
-else:
-    CACHES = {
-        'default': {
-            'BACKEND': 'django.core.cache.backends.dummy.DummyCache',
-        }
-    }
 
 CACHE_MIDDLEWARE_SECONDS = 300
 USE_ETAGS = True

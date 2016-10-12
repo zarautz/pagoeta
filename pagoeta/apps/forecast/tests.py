@@ -12,14 +12,24 @@ from .models import WeatherCode
 from .scrapers import TideScraper, WaveScraper, WeatherScraper
 
 
-class ForecastViewSetTests(TestCase):
+class ForecastViewSetV1Tests(TestCase):
     def setUp(self):
-        self.client = APIClient()
-        self.url = reverse('v1:forecast-list')
+        self.response = APIClient().get(reverse('v1:forecast-list'))
 
     def test_default_response(self):
-        response = self.client.get(self.url)
-        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        self.assertEqual(self.response.status_code, status.HTTP_200_OK)
+        self.assertEqual(len(self.response.data.keys()), 2)
+        self.assertEqual(len(self.response.data['meta']['source'].keys()), 2)
+
+
+class ForecastViewSetV2Tests(TestCase):
+    def setUp(self):
+        self.response = APIClient().get(reverse('v2:forecast-list'))
+
+    def test_default_response(self):
+        self.assertEqual(self.response.status_code, status.HTTP_200_OK)
+        self.assertEqual(len(self.response.data.keys()), 3)
+        self.assertEqual(len(self.response.data['meta']['source'].keys()), 4)
 
 
 class WeatherCodeViewSetTests(TestCase):

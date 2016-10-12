@@ -60,8 +60,6 @@ class EventViewSet(ReadOnlyModelViewSet):
                 import calendar
                 import re
                 m = re.match('(\d{4})[/.-](\d{2})[/.-](\d{2})$', to_date_str).groups()
-                if m is None:
-                    raise ParseError('Date format should be ISO 8601 YYYY-MM-DD.')
                 last_day = calendar.monthrange(int(m[0]), int(m[1]))[1]
                 to_date = timezone.make_aware(datetime.strptime(m[0] + '-' + m[1] + '-' + str(last_day), date_format),
                                               timezone.get_current_timezone())

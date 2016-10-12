@@ -1,3 +1,4 @@
+from geojson import Point
 from rest_framework import serializers
 from rest_framework.reverse import reverse
 
@@ -24,10 +25,7 @@ class PlaceSerializer(TranslationModelSerializer):
         exclude = ('latitude', 'longitude', 'price_level', 'is_visible', 'events')
 
     def get_geometry(self, obj):
-        return {
-            'type': 'Point',
-            'coordinates': (obj.longitude, obj.latitude),
-        }
+        return Point([obj.longitude, obj.latitude])
 
 
 class PlaceListSerializer(PlaceSerializer):

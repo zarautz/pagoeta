@@ -12,13 +12,13 @@ from pagoeta.apps.places.serializers import PlaceListSerializer
 
 
 class PharmacyGuardScraper(object):
-    temp = []
-    place_ids = []
     source = {'COFG': 'https://www.cofgipuzkoa.com/'}
 
     def __init__(self, **kwargs):
         self.version = kwargs.get('version', 'v2')
         self.url = kwargs.get('url', 'http://m.cofgipuzkoa.com/ws/cofg_ws.php')
+        self.temp = None
+        self.place_ids = []
 
     def request_data_from_cofg(self, date, guard_time='day'):
         try:
@@ -31,7 +31,9 @@ class PharmacyGuardScraper(object):
                 'guardzone': 18,
             }
 
-            return post(self.url, data=data)
+            r = post(self.url, data=data)
+            r.raise_for_status()
+            return r
         except RequestException:
             raise ServiceUnavailableException
 
@@ -72,8 +74,6 @@ class PharmacyGuardScraper(object):
         """JSON source can be passed for testing purposes."""
         if not source:
             request = self.request_data_from_cofg(date, guard_time)
-            if request.status_code == 404:
-                raise ServiceUnavailableException
             source = request.text
 
         cofg_pharmacy_id = int(json.loads(source)[0]['id'])
@@ -112,9 +112,6 @@ class PharmacyGuardScraper(object):
 
         if self.version == 'v2':
             for pk in self.place_ids:
-                try:
-                    places[pk] = self.temp['elements'][self.temp['index'][pk]]
-                except:
-                    places[pk] = None
+                places[pk] = self.temp['elements'][self.temp['index'][pk]]
 
         return places

@@ -49,13 +49,13 @@
             "is_featured": false,
             "is_visible": true,
             "name_eu": "Zine emanaldia Modelo Aretoan",
-            "description_eu": "\"El nuevo exotico Hotel Marigold\"\r\nikuslearen eguna 4€",
+            "description_eu": "Description",
             "name_es": "Proyección de cine en el Modelo",
-            "description_es": "\"El nuevo exotico Hotel Marigold\"\r\ndía del espectador 4€",
+            "description_es": "Description",
             "name_en": "Film screening",
-            "description_en": "\"El nuevo exotico Hotel Marigold\"",
+            "description_en": "Description",
             "name_fr": "Projection cinématographique",
-            "description_fr": "\"El nuevo exotico Hotel Marigold\""
+            "description_fr": "Description"
         }
     },
     {
@@ -67,21 +67,47 @@
             "target_age": 1,
             "place": 2,
             "start_date": "2015-04-07",
-            "start_time": "17:00",
+            "start_time": "12:00",
             "end_date": "2015-04-07",
-            "end_time": null,
+            "end_time": "15:00",
+            "afternoon_start_time": "18:00",
+            "afternoon_end_time": "20:00",
             "price": 4,
             "url": null,
             "is_featured": false,
             "is_visible": false,
             "name_eu": "Invisible Zine emanaldia Modelo Aretoan",
-            "description_eu": "\"El nuevo exotico Hotel Marigold\"\r\nikuslearen eguna 4€",
+            "description_eu": "Invisible",
             "name_es": "Invisible Proyección de cine en el Modelo",
-            "description_es": "\"El nuevo exotico Hotel Marigold\"\r\ndía del espectador 4€",
+            "description_es": "Invisible",
             "name_en": "Invisible Film screening",
-            "description_en": "\"El nuevo exotico Hotel Marigold\"",
+            "description_en": "Invisible",
             "name_fr": "Invisible Projection cinématographique",
-            "description_fr": "\"El nuevo exotico Hotel Marigold\""
+            "description_fr": "Invisible"
+        }
+    },
+    {
+        "model": "events.event",
+        "fields": {
+            "id": 3,
+            "category": 1,
+            "target_group": 1,
+            "target_age": 1,
+            "place": 2,
+            "start_date": "2015-04-07",
+            "end_date": "2015-04-07",
+            "price": 4,
+            "url": null,
+            "is_featured": false,
+            "is_visible": false,
+            "name_eu": "Unknown Zine emanaldia Modelo Aretoan",
+            "description_eu": "Unknown",
+            "name_es": "Unknown Proyección de cine en el Modelo",
+            "description_es": "Unknown",
+            "name_en": "Unknown Film screening",
+            "description_en": "Unknown",
+            "name_fr": "Unknown Projection cinématographique",
+            "description_fr": "Unknown"
         }
     }
 ]

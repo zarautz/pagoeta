@@ -23,7 +23,7 @@ class Router(DefaultRouter):
             self.register(r'posts/zuzarautz', ZuZarautzPostViewSet, base_name='zuzarautz-post')
 
         if version == 'v2':
-            self.register(r'health/pharmacies/duty', PharmacyViewSet, base_name='pharmacies-duty')
+            self.register(r'health/pharmacies/duty', PharmacyViewSet, base_name='pharmacy')
             self.register(r'places/types', FeatureViewSet, base_name='osm-feature')
             self.register(r'places', ElementViewSet, base_name='osm-element')
             self.register(r'posts/hitza', HitzaPostViewSet, base_name='hitza-post')

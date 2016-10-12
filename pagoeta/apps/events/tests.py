@@ -6,7 +6,20 @@ from rest_framework import status
 from rest_framework.test import APIClient
 
 from .models import Event
+from .serializers import TypeField, EventListSerializer
 from .views import EventViewSet
+from pagoeta.apps.core.functions import get_absolute_uri
+
+
+class TypeDummyObject(object):
+    code = 'code'
+    name = 'name'
+
+
+class TypeFieldTests(TestCase):
+    def test_representation(self):
+        obj = TypeDummyObject()
+        self.assertEqual({'code': obj.code, 'name': obj.name}, TypeField(read_only=True).to_representation(obj))
 
 
 class EventTests(TestCase):
@@ -56,6 +69,9 @@ class EventViewSetDetailTests(EventTests):
         self.client = APIClient()
         self.event = Event.objects.visible().first()
         self.invisible_event = Event.objects.filter(is_visible=False).first()
+        self.timetable_event = Event.objects.get(pk=2)
+        self.no_timetable_event = Event.objects.get(pk=3)
+        self.serialized_event = EventListSerializer(self.event)
         self.url = reverse('v1:event-detail', args=(self.event.id,))
         self.invisible_url = reverse('v1:event-detail', args=(self.invisible_event.id,))
 
@@ -66,3 +82,15 @@ class EventViewSetDetailTests(EventTests):
     def test_invisible_event(self):
         response = self.client.get(self.invisible_url)
         self.assertEqual(response.status_code, status.HTTP_404_NOT_FOUND)
+
+    def test_serializer_full_timetable(self):
+        self.assertEqual(
+            [('12:00', '15:00'), ('18:00', '20:00')],
+            self.serialized_event.get_timetable(self.timetable_event)
+        )
+
+    def test_serializer_no_timetable(self):
+        self.assertEqual((), self.serialized_event.get_timetable(self.no_timetable_event))
+
+    def test_serializer_href(self):
+        self.assertEqual(get_absolute_uri(self.url), self.serialized_event.get_href(self.event))
