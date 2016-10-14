@@ -182,7 +182,7 @@ SWAGGER_SETTINGS = {
     'api_version': '2.0',
     'enabled_methods': ('get',),
     'info': {
-        'title': 'Open Zarautz API',
+        'title': 'OpenZarautz API',
         'description': 'This is an Open API for the city of Zarautz, Basque Country. '
                        'The information you can find here is free for you to use in your applications, '
                        'but please be gentle with our server (you should cache this results on your side too). '
@@ -228,8 +228,8 @@ ANYMAIL = {
     }
 }
 
-EMAIL_SUBJECT_PREFIX = '[Open Zarautz API] '
-DEFAULT_FROM_EMAIL = 'Open Zarautz <open@zarautz.xyz>'
+EMAIL_SUBJECT_PREFIX = '[OpenZarautz API] '
+DEFAULT_FROM_EMAIL = 'OpenZarautz <open@zarautz.xyz>'
 SERVER_EMAIL = 'root@zarautz.xyz'
 
 

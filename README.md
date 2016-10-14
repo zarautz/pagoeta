@@ -10,7 +10,7 @@ the `Open Data` philosophy. You can access the API at [https://data.zarautz.xyz/
 
 API Usage policy
 ----------------
-Usage of the Open Zarautz API is currently unrestricted. API keys are not used. Please be gentle with our server!
+Usage of the OpenZarautz API is currently unrestricted. API keys are not used. Please be gentle with our server!
 In the future, we may require registration and API keys for heavy use.
 
 All data is made available under the [Open Database License](http://opendatacommons.org/licenses/odbl/1.0/).
@@ -72,6 +72,6 @@ It is recommended to use [flake8](https://pypi.python.org/pypi/flake8) which com
 
 [travis-badge]: https://travis-ci.org/zarautz/pagoeta.svg?branch=master
 [travis]: https://travis-ci.org/zarautz/pagoeta?branch=master
-[coveralls-badge]: https://coveralls.io/repos/zarautz/pagoeta/badge.svg?branch=master
+[coveralls-badge]: https://coveralls.io/repos/github/zarautz/pagoeta/badge.svg?branch=master
 [coveralls]: https://coveralls.io/r/zarautz/pagoeta?branch=master
 [license-badge]: https://img.shields.io/badge/license-MIT-blue.svg
