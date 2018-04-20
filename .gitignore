@@ -1,29 +1,11 @@
-# --------------------
-# OS or Editor folders
-# --------------------
 .DS_Store
 ._*
-.cache
-.idea
-.project
-.settings
-.tmproj
-nbproject
-*.sublime-project
-*.sublime-workspace
-Thumbs.db
 
+__pycache__
+*.py[cod]
+*$py.class
+.mypy_cache
+.vscode
 
-# ---
-# APP
-# ---
 .coverage
-*.pyc
-*.pyo
-*.sass-cache
-
-
-# -----------
-# CONFIG VARS
-# -----------
-config.json
+htmlcov

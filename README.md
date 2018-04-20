@@ -1,12 +1,12 @@
-Pagoeta
-=======
+OpenZarautz API
+===============
 
 [![travis-badge]][travis]
 [![coveralls-badge]][coveralls]
 [![license-badge]](LICENSE)
 
-`Pagoeta` is the code name of the Open API for the city of [Zarautz](http://www.zarautz.org/), based on
-the `Open Data` philosophy. You can access the API at [https://data.zarautz.xyz/](https://data.zarautz.xyz/).
+`Pagoeta` is the code name of the open API for the city of [Zarautz](http://www.zarautz.org/).
+You can access the API at [https://pagoeta.herokuapp.com/](https://pagoeta.herokuapp.com/).
 
 API Usage policy
 ----------------
@@ -22,52 +22,34 @@ Whenever external sources are mentioned you should mention them too when you pre
 For developers
 ==============
 
-Pagoeta uses [Django](https://www.djangoproject.com/) and the
-[Django REST Framework](http://www.django-rest-framework.org/). Feel free to contribute to the project.
+Pagoeta uses [Api Star](https://github.com/encode/apistar). Feel free to contribute to the project.
 
 Application dependencies
 ------------------------
-The application uses the [pip Package Manager](http://pip.readthedocs.org/en/latest/) to install dependencies.
-While in development, you will need to read the dependencies from the following file (includes packages like
-`debug_toolbar`):
+The application uses [Pipenv](https://docs.pipenv.org/#install-pipenv-today) to manage application dependencies.
+While in development, you will need to install all dependencies (includes packages like `flake8`):
 
-    $ pip install -r requirements/development.txt
-
-Configuration
--------------
-The application looks for the necessary configuration/credentials in a JSON file at the root folder.
-This file uses the same names we use as config vars in [Heroku](https://devcenter.heroku.com/articles/config-vars).
-
-For development, just copy `config.json.txt` to `config.json` and fill in the options (only real database information
-is strictly necessary).
-
-Once the database configuration is filled in you can generate the necessary tables and load some fixtures using
-`manage.py`:
-
-    $ python manage.py migrate
+    $ pipenv install --dev
+    $ pipenv shell
 
 Running the server
 ------------------
-    $ python manage.py runserver
+    $ python runserver.py
 
-Running spec tests
+Running unit tests
 ------------------
-    $ python manage.py test pagoeta.apps
+    $ python -m unittest pagoeta.tests
 
 Coverage of the tests
 ---------------------
-    $ coverage run --source='pagoeta/apps' manage.py test pagoeta.apps
+    $ coverage run --source=pagoeta -m unittest discover
     $ coverage report -m
 
 Style guide
 -----------
 Unless otherwise specified, follow
-[Django Coding Style](https://docs.djangoproject.com/en/1.8/internals/contributing/writing-code/coding-style/).
-Tab size is 4 **spaces**. Maximum line length is 119. Furthermore your code has to validate against pyflakes.
-It is recommended to use [flake8](https://pypi.python.org/pypi/flake8) which combines all the checks
-(`flake8` is included in the development requirements):
-
-    $ flake8 --max-line-length=119 pagoeta
+[Django Coding Style](https://docs.djangoproject.com/en/1.11/internals/contributing/writing-code/coding-style/).
+Tab size is 4 **spaces**. Maximum line length is 120. All changes should include tests and pass `flake8`.
 
 
 [travis-badge]: https://travis-ci.org/zarautz/pagoeta.svg?branch=master

@@ -1,21 +1,13 @@
 language: python
 
 python:
-    - "2.7"
-
-addons:
-    - postgresql: "9.4"
+    - "3.6"
 
 install:
-    - pip install -r requirements.txt
-    - pip install coveralls
-
-before_script:
-    - psql -c 'create database pagoeta_test;' -U postgres
-    - python manage.py migrate
+    - pip install --upgrade pip && pip install pipenv coveralls
 
 script:
-    - coverage run --source='pagoeta/apps' manage.py test pagoeta.apps
+    - coverage run --source=pagoeta -m unittest discover
 
 after_success:
     - coveralls
