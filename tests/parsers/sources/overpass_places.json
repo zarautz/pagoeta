@@ -1,0 +1,6375 @@
+
+{
+    "version": 0.6,
+    "generator": "Overpass API 0.7.54.13 ff15392f",
+    "osm3s": {
+      "timestamp_osm_base": "2018-04-23T14:30:02Z",
+      "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
+    },
+    "elements": [
+
+  {
+    "type": "node",
+    "id": 287007157,
+    "lat": 43.2847523,
+    "lon": -2.1588968,
+    "tags": {
+      "amenity": "fuel",
+      "name": "REPSOL",
+      "opening_hours": "Sa-Su 24/7",
+      "operator": "Repsol",
+      "source": "mytic 20080811"
+    }
+  },
+  {
+    "type": "node",
+    "id": 290280780,
+    "lat": 43.2842581,
+    "lon": -2.1712643,
+    "tags": {
+      "name": "Zarautz",
+      "network": "Euskotren Trena",
+      "operator": "Eusko Trenbideak",
+      "public_transport": "stop_position",
+      "railway": "station",
+      "train": "yes"
+    }
+  },
+  {
+    "type": "node",
+    "id": 290283140,
+    "lat": 43.2834857,
+    "lon": -2.1601547,
+    "tags": {
+      "name": "San Pelaio",
+      "network": "Euskotren Trena",
+      "operator": "Eusko Trenbideak",
+      "public_transport": "stop_position",
+      "railway": "halt",
+      "train": "yes"
+    }
+  },
+  {
+    "type": "node",
+    "id": 311051084,
+    "lat": 43.2849790,
+    "lon": -2.1752116,
+    "tags": {
+      "amenity": "parking"
+    }
+  },
+  {
+    "type": "node",
+    "id": 311052090,
+    "lat": 43.2869544,
+    "lon": -2.1768080,
+    "tags": {
+      "amenity": "parking",
+      "name": "Munoa",
+      "noexit": "yes",
+      "wheelchair": "yes"
+    }
+  },
+  {
+    "type": "node",
+    "id": 400886506,
+    "lat": 43.2860823,
+    "lon": -2.1831637,
+    "tags": {
+      "historic": "monument",
+      "name": "Torreoia"
+    }
+  },
+  {
+    "type": "node",
+    "id": 400886718,
+    "lat": 43.2858636,
+    "lon": -2.1764689,
+    "tags": {
+      "historic": "monument",
+      "name": "Makatza etxea"
+    }
+  },
+  {
+    "type": "node",
+    "id": 403344702,
+    "lat": 43.2888602,
+    "lon": -2.1818502,
+    "tags": {
+      "tourism": "viewpoint"
+    }
+  },
+  {
+    "type": "node",
+    "id": 523357772,
+    "lat": 43.2856224,
+    "lon": -2.1761823,
+    "tags": {
+      "addr:city": "Zarautz",
+      "addr:country": "ES",
+      "addr:housenumber": "2",
+      "addr:postcode": "20800",
+      "addr:street": "Zigordia kalea",
+      "amenity": "arts_centre",
+      "b5m:id": "D_51992",
+      "b5m:url": "http://b5m.gipuzkoa.net/b5map/r1/eu/mapa/lekutu/D_51992",
+      "b5m:urlOrto": "http://b5m.gipuzkoa.net/url5000/index.php?id=D_51992&lengua=1&actu=0&categoria=VITO_FOTO",
+      "name": "Modelo Aretoa",
+      "source": "b5m"
+    }
+  },
+  {
+    "type": "node",
+    "id": 523377846,
+    "lat": 43.2822003,
+    "lon": -2.1687869,
+    "tags": {
+      "addr:city": "Zarautz",
+      "addr:housenumber": "41",
+      "addr:postcode": "20800",
+      "addr:street": "Bizkaia kalea",
+      "amenity": "pharmacy",
+      "cofg:id": "269",
+      "drive_through": "no",
+      "name": "Zulaika Olaskoaga",
+      "opening_hours": "Mo-Fr 09:00-13:00,16:45-20:00; Sa 09:00-13:00",
+      "phone": "+34 943 13 39 94"
+    }
+  },
+  {
+    "type": "node",
+    "id": 523377855,
+    "lat": 43.2853486,
+    "lon": -2.1681603,
+    "tags": {
+      "addr:city": "Zarautz",
+      "addr:housenumber": "17B",
+      "addr:postcode": "20800",
+      "addr:street": "Gipuzkoa kalea",
+      "amenity": "pharmacy",
+      "cofg:id": "524",
+      "drive_through": "no",
+      "name": "A.E. Barrenetxea",
+      "opening_hours": "Mo-Fr 09:00-13:00,16:45-20:00; Sa 09:00-13:00",
+      "phone": "+34 943 83 23 98"
+    }
+  },
+  {
+    "type": "node",
+    "id": 523377862,
+    "lat": 43.2852338,
+    "lon": -2.1748942,
+    "tags": {
+      "addr:city": "Zarautz",
+      "addr:housenumber": "17",
+      "addr:postcode": "20800",
+      "addr:street": "Zigordia kalea",
+      "amenity": "pharmacy",
+      "cofg:id": "829",
+      "drive_through": "no",
+      "name": "Gallo Artiñano",
+      "opening_hours": "Mo-Fr 09:00-13:00,16:45-20:00; Sa 09:00-13:00",
+      "phone": "+34 943 13 40 19"
+    }
+  },
+  {
+    "type": "node",
+    "id": 523377870,
+    "lat": 43.2856583,
+    "lon": -2.1741287,
+    "tags": {
+      "addr:city": "Zarautz",
+      "addr:housenumber": "19",
+      "addr:postcode": "20800",
+      "addr:street": "San Frantzisko kalea",
+      "amenity": "pharmacy",
+      "cofg:id": "529",
+      "drive_through": "no",
+      "name": "Larrañaga",
+      "opening_hours": "Mo-Fr 09:00-13:00,16:45-20:00; Sa 09:00-13:00",
+      "phone": "+34 943 13 38 14"
+    }
+  },
+  {
+    "type": "node",
+    "id": 523377885,
+    "lat": 43.2819754,
+    "lon": -2.1612595,
+    "tags": {
+      "amenity": "fire_station",
+      "name": "Suhiltzaileak"
+    }
+  },
+  {
+    "type": "node",
+    "id": 594960176,
+    "lat": 43.2816861,
+    "lon": -2.1742726,
+    "tags": {
+      "name": "Portu-Berri",
+      "shop": "supermarket"
+    }
+  },
+  {
+    "type": "node",
+    "id": 594975019,
+    "lat": 43.2854961,
+    "lon": -2.1732507,
+    "tags": {
+      "amenity": "taxi",
+      "name": "Taxi station"
+    }
+  },
+  {
+    "type": "node",
+    "id": 595245426,
+    "lat": 43.2815506,
+    "lon": -2.1745462,
+    "tags": {
+      "addr:city": "Zarautz",
+      "addr:housenumber": "8",
+      "addr:postcode": "20800",
+      "addr:street": "Urdaneta kalea",
+      "amenity": "pharmacy",
+      "cofg:id": "971",
+      "drive_through": "no",
+      "name": "Arantzazu Izpizua Angoitia",
+      "opening_hours": "Mo-Fr 09:00-13:00,16:45-20:00; Sa 09:00-13:00",
+      "phone": "+34 943 13 31 83"
+    }
+  },
+  {
+    "type": "node",
+    "id": 595313785,
+    "lat": 43.2846264,
+    "lon": -2.1615249,
+    "tags": {
+      "amenity": "restaurant",
+      "name": "Bartolo"
+    }
+  },
+  {
+    "type": "node",
+    "id": 595313786,
+    "lat": 43.2846264,
+    "lon": -2.1614283,
+    "tags": {
+      "name": "Biyona",
+      "shop": "supermarket"
+    }
+  },
+  {
+    "type": "node",
+    "id": 595313787,
+    "lat": 43.2846186,
+    "lon": -2.1613317,
+    "tags": {
+      "amenity": "restaurant",
+      "name": "Pedro-Enea"
+    }
+  },
+  {
+    "type": "node",
+    "id": 595313788,
+    "lat": 43.2848373,
+    "lon": -2.1605485,
+    "tags": {
+      "amenity": "restaurant",
+      "name": "Yubio"
+    }
+  },
+  {
+    "type": "node",
+    "id": 595313791,
+    "lat": 43.2803385,
+    "lon": -2.1668249,
+    "tags": {
+      "amenity": "restaurant",
+      "name": "Itxas-Lur"
+    }
+  },
+  {
+    "type": "node",
+    "id": 595313792,
+    "lat": 43.2824708,
+    "lon": -2.1717923,
+    "tags": {
+      "amenity": "bar",
+      "name": "Isabel"
+    }
+  },
+  {
+    "type": "node",
+    "id": 620143478,
+    "lat": 43.2851564,
+    "lon": -2.1754186,
+    "tags": {
+      "addr:city": "Zarautz",
+      "addr:country": "ES",
+      "addr:housenumber": "6",
+      "addr:postcode": "20800",
+      "addr:street": "Lege Zaharren enparantza",
+      "amenity": "cafe",
+      "b5m:id": "D_51894",
+      "b5m:url": "http://b5m.gipuzkoa.net/b5map/r1/eu/mapa/lekutu/D_51894",
+      "b5m:urlOrto": "http://b5m.gipuzkoa.net/url5000/index.php?id=D_51894&lengua=1&actu=0&categoria=VITO_FOTO",
+      "cuisine": "breakfast;tea;cake;coffee_shop",
+      "internet_access": "wlan",
+      "name": "Oneka by Ogi Berri",
+      "name:es": "Oneka by Ogi Berri",
+      "source": "b5m"
+    }
+  },
+  {
+    "type": "node",
+    "id": 620143837,
+    "lat": 43.2805221,
+    "lon": -2.1708596,
+    "tags": {
+      "addr:city": "Zarautz",
+      "addr:country": "ES",
+      "addr:housenumber": "18",
+      "addr:postcode": "20800",
+      "addr:street": "Araba kalea",
+      "amenity": "college",
+      "b5m:id": "D_52804",
+      "b5m:url": "http://b5m.gipuzkoa.net/b5map/r1/eu/mapa/lekutu/D_52804",
+      "b5m:urlOrto": "http://b5m.gipuzkoa.net/url5000/index.php?id=D_52804&lengua=1&actu=0&categoria=VITO_FOTO",
+      "name": "I.E.S. Lizardi Bhi",
+      "source": "b5m"
+    }
+  },
+  {
+    "type": "node",
+    "id": 620144310,
+    "lat": 43.2837600,
+    "lon": -2.1736719,
+    "tags": {
+      "addr:city": "Zarautz",
+      "addr:country": "ES",
+      "addr:housenumber": "5",
+      "addr:postcode": "20800",
+      "addr:street": "Santa Klara Kalea",
+      "amenity": "restaurant",
+      "b5m:id": "D_52979",
+      "b5m:url": "http://b5m.gipuzkoa.net/b5map/r1/eu/mapa/lekutu/D_52979",
+      "b5m:urlOrto": "http://b5m.gipuzkoa.net/url5000/index.php?id=D_52979&lengua=1&actu=0&categoria=VITO_FOTO",
+      "cuisine": "regional",
+      "name": "Restaurante Otzarreta",
+      "source": "b5m",
+      "website": "http://www.restauranteotzarreta.com/index.php"
+    }
+  },
+  {
+    "type": "node",
+    "id": 620144461,
+    "lat": 43.2860740,
+    "lon": -2.1726457,
+    "tags": {
+      "addr:city": "Zarautz",
+      "addr:country": "ES",
+      "addr:housenumber": "18",
+      "addr:postcode": "20800",
+      "addr:street": "Nafarroa Kalea",
+      "b5m:id": "D_52142",
+      "b5m:url": "http://b5m.gipuzkoa.net/b5map/r1/eu/mapa/lekutu/D_52142",
+      "b5m:urlOrto": "http://b5m.gipuzkoa.net/url5000/index.php?id=D_52142&lengua=1&actu=0&categoria=VITO_FOTO",
+      "leisure": "sports_centre",
+      "name": "Polideportivo",
+      "source": "b5m"
+    }
+  },
+  {
+    "type": "node",
+    "id": 620144542,
+    "lat": 43.2819972,
+    "lon": -2.1693975,
+    "tags": {
+      "addr:city": "Zarautz",
+      "addr:country": "ES",
+      "addr:housenumber": "38",
+      "addr:postcode": "20800",
+      "addr:street": "Bizkaia kalea",
+      "b5m:id": "D_52876",
+      "b5m:url": "http://b5m.gipuzkoa.net/b5map/r1/eu/mapa/lekutu/D_52876",
+      "b5m:urlOrto": "http://b5m.gipuzkoa.net/url5000/index.php?id=D_52876&lengua=1&actu=0&categoria=VITO_FOTO",
+      "craft": "carpenter",
+      "name": "Carpintería Juaristi",
+      "source": "b5m"
+    }
+  },
+  {
+    "type": "node",
+    "id": 620144624,
+    "lat": 43.2811335,
+    "lon": -2.1657981,
+    "tags": {
+      "addr:city": "Zarautz",
+      "addr:country": "ES",
+      "addr:housenumber": "14",
+      "addr:postcode": "20800",
+      "addr:street": "Hegoalde kalea",
+      "b5m:id": "D_52906",
+      "b5m:url": "http://b5m.gipuzkoa.net/b5map/r1/eu/mapa/lekutu/D_52906",
+      "b5m:urlOrto": "http://b5m.gipuzkoa.net/url5000/index.php?id=D_52906&lengua=1&actu=0&categoria=VITO_FOTO",
+      "name": "Peugeot-Talbot",
+      "shop": "car_repair",
+      "source": "b5m"
+    }
+  },
+  {
+    "type": "node",
+    "id": 620144635,
+    "lat": 43.2813317,
+    "lon": -2.1658077,
+    "tags": {
+      "addr:city": "Zarautz",
+      "addr:country": "ES",
+      "addr:housenumber": "12",
+      "addr:postcode": "20800",
+      "addr:street": "Hegoalde kalea",
+      "b5m:id": "D_52905",
+      "b5m:url": "http://b5m.gipuzkoa.net/b5map/r1/eu/mapa/lekutu/D_52905",
+      "b5m:urlOrto": "http://b5m.gipuzkoa.net/url5000/index.php?id=D_52905&lengua=1&actu=0&categoria=VITO_FOTO",
+      "name": "Decoración Bat",
+      "shop": "interior_decoration",
+      "source": "b5m"
+    }
+  },
+  {
+    "type": "node",
+    "id": 620144662,
+    "lat": 43.2829718,
+    "lon": -2.1647499,
+    "tags": {
+      "addr:city": "Zarautz",
+      "addr:country": "ES",
+      "addr:housenumber": "18",
+      "addr:postcode": "20800",
+      "addr:street": "Mitxelena kalea",
+      "b5m:id": "D_52934",
+      "b5m:url": "http://b5m.gipuzkoa.net/b5map/r1/eu/mapa/lekutu/D_52934",
+      "b5m:urlOrto": "http://b5m.gipuzkoa.net/url5000/index.php?id=D_52934&lengua=1&actu=0&categoria=VITO_FOTO",
+      "craft": "carpenter",
+      "name": "Carpintería Larrañaga",
+      "source": "b5m"
+    }
+  },
+  {
+    "type": "node",
+    "id": 620144667,
+    "lat": 43.2829608,
+    "lon": -2.1644789,
+    "tags": {
+      "addr:city": "Zarautz",
+      "addr:country": "ES",
+      "addr:housenumber": "20",
+      "addr:postcode": "20800",
+      "addr:street": "Mitxelena kalea",
+      "b5m:id": "D_52936",
+      "b5m:url": "http://b5m.gipuzkoa.net/b5map/r1/eu/mapa/lekutu/D_52936",
+      "b5m:urlOrto": "http://b5m.gipuzkoa.net/url5000/index.php?id=D_52936&lengua=1&actu=0&categoria=VITO_FOTO",
+      "craft": "carpenter",
+      "name": "Carpintería Larrañaga",
+      "source": "b5m"
+    }
+  },
+  {
+    "type": "node",
+    "id": 620145774,
+    "lat": 43.2881301,
+    "lon": -2.1630541,
+    "tags": {
+      "addr:city": "Zarautz",
+      "addr:country": "ES",
+      "addr:housenumber": "13",
+      "addr:postcode": "20800",
+      "addr:street": "Mendilauta kalea",
+      "b5m:id": "D_52621",
+      "b5m:url": "http://b5m.gipuzkoa.net/b5map/r1/eu/mapa/lekutu/D_52621",
+      "b5m:urlOrto": "http://b5m.gipuzkoa.net/url5000/index.php?id=D_52621&lengua=1&actu=0&categoria=VITO_FOTO",
+      "name": "Hotel Arguiñano",
+      "source": "b5m",
+      "tourism": "hotel"
+    }
+  },
+  {
+    "type": "node",
+    "id": 620401427,
+    "lat": 43.2884867,
+    "lon": -2.1792819,
+    "tags": {
+      "amenity": "restaurant",
+      "name": "Aiten Etxe jatetxea"
+    }
+  },
+  {
+    "type": "node",
+    "id": 656379577,
+    "lat": 43.2899156,
+    "lon": -2.1458735,
+    "tags": {
+      "amenity": "bar"
+    }
+  },
+  {
+    "type": "node",
+    "id": 656379578,
+    "lat": 43.2846072,
+    "lon": -2.1586918,
+    "tags": {
+      "amenity": "bar",
+      "name": "Surtidorea"
+    }
+  },
+  {
+    "type": "node",
+    "id": 656379579,
+    "lat": 43.2852655,
+    "lon": -2.1608813,
+    "tags": {
+      "amenity": "restaurant",
+      "name": "beaxai"
+    }
+  },
+  {
+    "type": "node",
+    "id": 656678746,
+    "lat": 43.2802705,
+    "lon": -2.1685497,
+    "tags": {
+      "amenity": "cafe",
+      "name": "Ziaboga"
+    }
+  },
+  {
+    "type": "node",
+    "id": 731855176,
+    "lat": 43.2885289,
+    "lon": -2.1822167,
+    "tags": {
+      "amenity": "drinking_water"
+    }
+  },
+  {
+    "type": "node",
+    "id": 739396113,
+    "lat": 43.2860323,
+    "lon": -2.1762165,
+    "tags": {
+      "amenity": "bar",
+      "name": "Otamendi"
+    }
+  },
+  {
+    "type": "node",
+    "id": 739480465,
+    "lat": 43.2868292,
+    "lon": -2.1748664,
+    "tags": {
+      "addr:city": "Zarautz",
+      "addr:housenumber": "19",
+      "addr:postcode": "20800",
+      "addr:street": "Bixkonde kalea",
+      "amenity": "ice_cream",
+      "email": "kutixi@gmail.com",
+      "name": "Kutixi Artisau Izozkiak",
+      "website": "http://www.kutixi.com/"
+    }
+  },
+  {
+    "type": "node",
+    "id": 739498895,
+    "lat": 43.2860082,
+    "lon": -2.1768078,
+    "tags": {
+      "amenity": "pub",
+      "name": "Txiki Polit",
+      "tourism": "hostel"
+    }
+  },
+  {
+    "type": "node",
+    "id": 739499295,
+    "lat": 43.2859603,
+    "lon": -2.1765406,
+    "tags": {
+      "amenity": "pub",
+      "name": "Arrano"
+    }
+  },
+  {
+    "type": "node",
+    "id": 837547864,
+    "lat": 43.2871525,
+    "lon": -2.1758728,
+    "tags": {
+      "amenity": "pub",
+      "name": "Marmol"
+    }
+  },
+  {
+    "type": "node",
+    "id": 837553988,
+    "lat": 43.2858363,
+    "lon": -2.1762977,
+    "tags": {
+      "name": "310 skate shop",
+      "shop": "sports"
+    }
+  },
+  {
+    "type": "node",
+    "id": 889380164,
+    "lat": 43.2861483,
+    "lon": -2.1775067,
+    "tags": {
+      "amenity": "restaurant",
+      "name": "Bordatxo",
+      "source": "GeoEuskadi"
+    }
+  },
+  {
+    "type": "node",
+    "id": 890719174,
+    "lat": 43.2825178,
+    "lon": -2.1719538,
+    "tags": {
+      "amenity": "bar",
+      "name": "Xoxoa"
+    }
+  },
+  {
+    "type": "node",
+    "id": 890734259,
+    "lat": 43.2809099,
+    "lon": -2.1717928,
+    "tags": {
+      "amenity": "courthouse",
+      "name": "Epaitegia"
+    }
+  },
+  {
+    "type": "node",
+    "id": 890832121,
+    "lat": 43.2855854,
+    "lon": -2.1741813,
+    "tags": {
+      "amenity": "bank",
+      "name": "Kutxa"
+    }
+  },
+  {
+    "type": "node",
+    "id": 890832162,
+    "lat": 43.2828512,
+    "lon": -2.1732573,
+    "tags": {
+      "amenity": "bank",
+      "name": "Kutxa"
+    }
+  },
+  {
+    "type": "node",
+    "id": 890855780,
+    "lat": 43.2871547,
+    "lon": -2.1752280,
+    "tags": {
+      "amenity": "pub",
+      "name": "Nautico"
+    }
+  },
+  {
+    "type": "node",
+    "id": 890855787,
+    "lat": 43.2868052,
+    "lon": -2.1747097,
+    "tags": {
+      "addr:city": "Zarautz",
+      "addr:housenumber": "1",
+      "addr:postcode": "20800",
+      "addr:street": "Bañeru kalea",
+      "amenity": "ice_cream",
+      "email": "info@arrivati.eus",
+      "name": "Arrivati",
+      "phone": "+34 943 13 34 74",
+      "website": "http://www.arrivati.eu/"
+    }
+  },
+  {
+    "type": "node",
+    "id": 890855788,
+    "lat": 43.2870489,
+    "lon": -2.1759347,
+    "tags": {
+      "amenity": "restaurant",
+      "name": "Kulixka"
+    }
+  },
+  {
+    "type": "node",
+    "id": 890855789,
+    "lat": 43.2869905,
+    "lon": -2.1756670,
+    "tags": {
+      "amenity": "pub",
+      "name": "Ximut"
+    }
+  },
+  {
+    "type": "node",
+    "id": 890855790,
+    "lat": 43.2870533,
+    "lon": -2.1754736,
+    "tags": {
+      "amenity": "pub",
+      "name": "Lau Teilatu"
+    }
+  },
+  {
+    "type": "node",
+    "id": 890855793,
+    "lat": 43.2866381,
+    "lon": -2.1753583,
+    "tags": {
+      "addr:city": "Zarautz",
+      "addr:housenumber": "6",
+      "addr:postcode": "20800",
+      "addr:street": "Nafarroa etorbidea",
+      "amenity": "ice_cream",
+      "name": "Heladería Italiana"
+    }
+  },
+  {
+    "type": "node",
+    "id": 890855794,
+    "lat": 43.2869117,
+    "lon": -2.1752801,
+    "tags": {
+      "amenity": "pub",
+      "name": "Barley Pub"
+    }
+  },
+  {
+    "type": "node",
+    "id": 890855795,
+    "lat": 43.2871532,
+    "lon": -2.1748591,
+    "tags": {
+      "amenity": "pub",
+      "name": "Bederen"
+    }
+  },
+  {
+    "type": "node",
+    "id": 890855796,
+    "lat": 43.2870591,
+    "lon": -2.1752671,
+    "tags": {
+      "amenity": "pub",
+      "name": "Fany"
+    }
+  },
+  {
+    "type": "node",
+    "id": 890855797,
+    "lat": 43.2867665,
+    "lon": -2.1761251,
+    "tags": {
+      "amenity": "bar",
+      "name": "Pagoeta"
+    }
+  },
+  {
+    "type": "node",
+    "id": 890855809,
+    "lat": 43.2869635,
+    "lon": -2.1755427,
+    "tags": {
+      "amenity": "pub",
+      "name": "Kukaña"
+    }
+  },
+  {
+    "type": "node",
+    "id": 890855812,
+    "lat": 43.2870825,
+    "lon": -2.1757312,
+    "tags": {
+      "amenity": "nightclub",
+      "name": "Txanela"
+    }
+  },
+  {
+    "type": "node",
+    "id": 890855814,
+    "lat": 43.2866147,
+    "lon": -2.1751919,
+    "tags": {
+      "amenity": "pub",
+      "name": "Eguzki"
+    }
+  },
+  {
+    "type": "node",
+    "id": 890855816,
+    "lat": 43.2871389,
+    "lon": -2.1758154,
+    "tags": {
+      "amenity": "pub",
+      "name": "Gaba"
+    }
+  },
+  {
+    "type": "node",
+    "id": 890855817,
+    "lat": 43.2871489,
+    "lon": -2.1753292,
+    "tags": {
+      "amenity": "pub",
+      "name": "Marina Txiki"
+    }
+  },
+  {
+    "type": "node",
+    "id": 890855826,
+    "lat": 43.2869489,
+    "lon": -2.1754655,
+    "tags": {
+      "amenity": "pub",
+      "name": "Kupela"
+    }
+  },
+  {
+    "type": "node",
+    "id": 890855828,
+    "lat": 43.2871540,
+    "lon": -2.1750054,
+    "tags": {
+      "amenity": "pub",
+      "name": "Beraetxe"
+    }
+  },
+  {
+    "type": "node",
+    "id": 891061901,
+    "lat": 43.2861349,
+    "lon": -2.1763027,
+    "tags": {
+      "amenity": "bank",
+      "name": "CaixaBank"
+    }
+  },
+  {
+    "type": "node",
+    "id": 891061948,
+    "lat": 43.2861177,
+    "lon": -2.1762162,
+    "tags": {
+      "amenity": "bar",
+      "name": "Alai"
+    }
+  },
+  {
+    "type": "node",
+    "id": 891062024,
+    "lat": 43.2860909,
+    "lon": -2.1768653,
+    "tags": {
+      "addr:country": "ES",
+      "amenity": "bank",
+      "atm:network": "Servired",
+      "atm:operator": "BBVA",
+      "is_in:country": "Spain",
+      "name": "BBVA",
+      "network": "Servired",
+      "operator": "BBVA"
+    }
+  },
+  {
+    "type": "node",
+    "id": 891068270,
+    "lat": 43.2869635,
+    "lon": -2.1743308,
+    "tags": {
+      "information": "office",
+      "name": "Turismo Bulegoa",
+      "tourism": "information"
+    }
+  },
+  {
+    "type": "node",
+    "id": 891068284,
+    "lat": 43.2854780,
+    "lon": -2.1701915,
+    "tags": {
+      "amenity": "restaurant"
+    }
+  },
+  {
+    "type": "node",
+    "id": 892485993,
+    "lat": 43.2864192,
+    "lon": -2.1615374,
+    "tags": {
+      "amenity": "bar",
+      "name": "Gaztelu"
+    }
+  },
+  {
+    "type": "node",
+    "id": 892523683,
+    "lat": 43.2834612,
+    "lon": -2.1738306,
+    "tags": {
+      "amenity": "fast_food",
+      "cuisine": "pizza",
+      "delivery": "yes",
+      "name": "Pizza Sprint",
+      "takeaway": "yes"
+    }
+  },
+  {
+    "type": "node",
+    "id": 892557887,
+    "lat": 43.2851007,
+    "lon": -2.1743100,
+    "tags": {
+      "amenity": "bank",
+      "name": "Laboral Kutxa",
+      "old_name": "Euskadiko Kutxa"
+    }
+  },
+  {
+    "type": "node",
+    "id": 892557913,
+    "lat": 43.2852416,
+    "lon": -2.1741308,
+    "tags": {
+      "shop": "kiosk"
+    }
+  },
+  {
+    "type": "node",
+    "id": 892562640,
+    "lat": 43.2851432,
+    "lon": -2.1714013,
+    "tags": {
+      "addr:city": "Zarautz",
+      "addr:housenumber": "32",
+      "addr:postcode": "20800",
+      "addr:street": "Gipuzkoa kalea",
+      "name": "Ciclos Eizagirre",
+      "opening_hours": "Mo-Fr 09:00-13:00,16:00-20:00; Sa 09:00-13:00",
+      "phone": "+34 943 83 48 69",
+      "service:bicycle:pump": "yes",
+      "service:bicycle:repair": "yes",
+      "shop": "bicycle"
+    }
+  },
+  {
+    "type": "node",
+    "id": 892562653,
+    "lat": 43.2852684,
+    "lon": -2.1711908,
+    "tags": {
+      "amenity": "police",
+      "name": "Udaltzaingoa"
+    }
+  },
+  {
+    "type": "node",
+    "id": 892564589,
+    "lat": 43.2869414,
+    "lon": -2.1760919,
+    "tags": {
+      "amenity": "bar",
+      "name": "Iturri Ondo"
+    }
+  },
+  {
+    "type": "node",
+    "id": 892564594,
+    "lat": 43.2869436,
+    "lon": -2.1760544,
+    "tags": {
+      "amenity": "drinking_water"
+    }
+  },
+  {
+    "type": "node",
+    "id": 892575165,
+    "lat": 43.2867957,
+    "lon": -2.1745097,
+    "tags": {
+      "shop": "inmobiliary"
+    }
+  },
+  {
+    "type": "node",
+    "id": 892575166,
+    "lat": 43.2867846,
+    "lon": -2.1744091,
+    "tags": {
+      "shop": "boutique"
+    }
+  },
+  {
+    "type": "node",
+    "id": 892576078,
+    "lat": 43.2865907,
+    "lon": -2.1748898,
+    "tags": {
+      "name": "Essus surf shop",
+      "shop": "yes"
+    }
+  },
+  {
+    "type": "node",
+    "id": 892576080,
+    "lat": 43.2865844,
+    "lon": -2.1747824,
+    "tags": {
+      "amenity": "restaurant",
+      "name": "Argi"
+    }
+  },
+  {
+    "type": "node",
+    "id": 892576084,
+    "lat": 43.2865920,
+    "lon": -2.1749360,
+    "tags": {
+      "shop": "yes"
+    }
+  },
+  {
+    "type": "node",
+    "id": 1082381448,
+    "lat": 43.2868488,
+    "lon": -2.1755603,
+    "tags": {
+      "amenity": "fast_food",
+      "cuisine": "kebab",
+      "name": "Zarautz"
+    }
+  },
+  {
+    "type": "node",
+    "id": 1096421756,
+    "lat": 43.2865780,
+    "lon": -2.1759583,
+    "tags": {
+      "amenity": "fast_food",
+      "name": "Mele-Mele"
+    }
+  },
+  {
+    "type": "node",
+    "id": 1096438800,
+    "lat": 43.2929698,
+    "lon": -2.1483961,
+    "tags": {
+      "historic": "ruins",
+      "name": "Mollarri"
+    }
+  },
+  {
+    "type": "node",
+    "id": 1715038877,
+    "lat": 43.2759738,
+    "lon": -2.1646234,
+    "tags": {
+      "amenity": "restaurant",
+      "cuisine": "regional",
+      "name": "Arizia sagardotegia"
+    }
+  },
+  {
+    "type": "node",
+    "id": 1945635278,
+    "lat": 43.2862691,
+    "lon": -2.1759331,
+    "tags": {
+      "addr:city": "Zarautz",
+      "addr:housenumber": "7",
+      "addr:postcode": "20800",
+      "addr:street": "Trinitate kalea",
+      "description": "Garoa Liburu-denda, 1973. urtean ernatua eta 2011. urtean kimatua, esporen gustu literarioaz fidatzen den irakurle ororen esperientzia literarioa aberastea eginkizun bakartzat duen parajea da. Ezer gehiago ez, baina ezta ezer gutxiago ere.",
+      "description:es": "La Librería Garoa, fundada en el año 1973 y refundada en 2011, tiene como única brega enriquecer la experiencia literaria de todo lector que confie en nuestro paladar literario y ser un intermediario digno entre escritor y lector. Nada más, pero nada meno",
+      "email": "info@egaroa.com",
+      "internet_access": "no",
+      "kulturklik:id": "20150929125668",
+      "name": "Garoa",
+      "opening_hours": "Mo-Fr 09:00-13:00,16:30-20:00; Sa 09:30-13:00,17:00-20:00",
+      "phone": "+34 943 83 25 07",
+      "shop": "books",
+      "website": "http://www.egaroa.com",
+      "wheelchair": "yes"
+    }
+  },
+  {
+    "type": "node",
+    "id": 1999038079,
+    "lat": 43.2867079,
+    "lon": -2.1764714,
+    "tags": {
+      "addr:housenumber": "943831017",
+      "addr:street": "Nafarroa kalea 1",
+      "name": "Alkar decoracion",
+      "shop": "interior_decoration"
+    }
+  },
+  {
+    "type": "node",
+    "id": 2062827172,
+    "lat": 43.2873462,
+    "lon": -2.1744099,
+    "tags": {
+      "amenity": "drinking_water"
+    }
+  },
+  {
+    "type": "node",
+    "id": 2133050457,
+    "lat": 43.2858549,
+    "lon": -2.1750150,
+    "tags": {
+      "addr:city": "Zarautz",
+      "addr:country": "ES",
+      "addr:housenumber": "28",
+      "addr:postcode": "20800",
+      "addr:street": "Kale Nagusia",
+      "amenity": "bank",
+      "atm": "yes",
+      "atm:network": "4B",
+      "atm:operator": "Banco Santander",
+      "drive_through": "no",
+      "is_in:country": "Spain",
+      "name": "Santander",
+      "network": "4B",
+      "operator": "Banco Santander",
+      "source": "survey"
+    }
+  },
+  {
+    "type": "node",
+    "id": 2441772748,
+    "lat": 43.2872790,
+    "lon": -2.1691330,
+    "tags": {
+      "amenity": "community_centre",
+      "name": "Cruz Roja"
+    }
+  },
+  {
+    "type": "node",
+    "id": 2441772752,
+    "lat": 43.2873028,
+    "lon": -2.1690169,
+    "tags": {
+      "addr:city": "Zarautz",
+      "addr:housenumber": "25",
+      "addr:street": "Paseo Malecon",
+      "amenity": "restaurant",
+      "name": "Garaban"
+    }
+  },
+  {
+    "type": "node",
+    "id": 2441772756,
+    "lat": 43.2872587,
+    "lon": -2.1692942,
+    "tags": {
+      "amenity": "restaurant",
+      "name": "Xarabi"
+    }
+  },
+  {
+    "type": "node",
+    "id": 2441772762,
+    "lat": 43.2860527,
+    "lon": -2.1671606,
+    "tags": {
+      "amenity": "post_box",
+      "operator": "Correos"
+    }
+  },
+  {
+    "type": "node",
+    "id": 2441772774,
+    "lat": 43.2872485,
+    "lon": -2.1694902,
+    "tags": {
+      "amenity": "bicycle_parking",
+      "bicycle_parking": "anchors",
+      "capacity": "12"
+    }
+  },
+  {
+    "type": "node",
+    "id": 2441772781,
+    "lat": 43.2873084,
+    "lon": -2.1695895,
+    "tags": {
+      "amenity": "drinking_water",
+      "indoor": "no"
+    }
+  },
+  {
+    "type": "node",
+    "id": 2441772791,
+    "lat": 43.2877411,
+    "lon": -2.1670030,
+    "tags": {
+      "amenity": "drinking_water",
+      "indoor": "no"
+    }
+  },
+  {
+    "type": "node",
+    "id": 2441844610,
+    "lat": 43.2872316,
+    "lon": -2.1743766,
+    "tags": {
+      "amenity": "toilets"
+    }
+  },
+  {
+    "type": "node",
+    "id": 2441880760,
+    "lat": 43.2846521,
+    "lon": -2.1590344,
+    "tags": {
+      "amenity": "car_wash"
+    }
+  },
+  {
+    "type": "node",
+    "id": 3444758664,
+    "lat": 43.2850256,
+    "lon": -2.1780111,
+    "tags": {
+      "information": "board",
+      "tourism": "information"
+    }
+  },
+  {
+    "type": "node",
+    "id": 3444758840,
+    "lat": 43.2888939,
+    "lon": -2.1824171,
+    "tags": {
+      "hiking": "yes",
+      "information": "guidepost",
+      "tourism": "information"
+    }
+  },
+  {
+    "type": "node",
+    "id": 3444758892,
+    "lat": 43.2894857,
+    "lon": -2.1831341,
+    "tags": {
+      "hiking": "yes",
+      "information": "guidepost",
+      "ref": "GR 121",
+      "tourism": "information"
+    }
+  },
+  {
+    "type": "node",
+    "id": 3558418693,
+    "lat": 43.2880851,
+    "lon": -2.1632069,
+    "tags": {
+      "historic": "monument",
+      "name": "Karlos Argiñano"
+    }
+  },
+  {
+    "type": "node",
+    "id": 3585688793,
+    "lat": 43.2844457,
+    "lon": -2.1777248,
+    "tags": {
+      "addr:city": "Zarautz",
+      "addr:housenumber": "11",
+      "addr:postcode": "20800",
+      "addr:street": "San Inazio kalea",
+      "description": "Bisitariei argazkigintzaren teknika eta artearen bilakaera eskaintzen die era kronologikoan. Argazki objektuen bilduma anitza du bere baitan, eta erregularki argazki ezagunen erakusketak antolatzen ditu.",
+      "description:en": "Takes visitors on a chronological tour of the art and technique of photography. Houses a varied collection of photographic objects and regularly organizes exhibitions by famous photographers.",
+      "description:es": "Ofrece a los visitantes en forma cronológica el desarrollo de la técnica y el arte fotográfico. Alberga una variada colección de objetos fotográficos y regularmente organiza exposiciones de reconocidos fotógrafos.",
+      "description:fr": "Il présente aux visiteurs, selon un ordre chronologique, le développement de la technique et de l’art photographique. Il abrite une collection variée d’objets photographiques et il organise régulièrement des expositions de photographes connus.",
+      "email": "photomuseum@photomuseum.name",
+      "name": "Photomuseum",
+      "opening_hours": "Tu-Su 10:00-14:00,17:00-20:00",
+      "phone": "+34 943 13 09 06",
+      "tourism": "museum",
+      "website": "http://www.photomuseum.name/"
+    }
+  },
+  {
+    "type": "node",
+    "id": 3586152845,
+    "lat": 43.2856403,
+    "lon": -2.1745146,
+    "tags": {
+      "addr:housenumber": "35",
+      "amenity": "bank",
+      "name": "CA bankoa"
+    }
+  },
+  {
+    "type": "node",
+    "id": 3586153204,
+    "lat": 43.2857481,
+    "lon": -2.1743117,
+    "tags": {
+      "addr:housenumber": "36",
+      "name": "Belardenda",
+      "shop": "organic"
+    }
+  },
+  {
+    "type": "node",
+    "id": 3586153205,
+    "lat": 43.2858186,
+    "lon": -2.1744207,
+    "tags": {
+      "addr:housenumber": "34",
+      "name": "Sagasti",
+      "shop": "greengrocer"
+    }
+  },
+  {
+    "type": "node",
+    "id": 3586153793,
+    "lat": 43.2856186,
+    "lon": -2.1743876,
+    "tags": {
+      "addr:city": "Zarautz",
+      "addr:housenumber": "37",
+      "addr:postcode": "20800",
+      "addr:street": "Kale Nagusia",
+      "amenity": "pub",
+      "email": "felix.euskalduna@hotmail.com",
+      "name": "Euskalduna Taberna",
+      "phone": "+34 943 13 03 73",
+      "website": "http://www.euskaldunataberna.es/"
+    }
+  },
+  {
+    "type": "node",
+    "id": 3586305875,
+    "lat": 43.2857251,
+    "lon": -2.1754078,
+    "tags": {
+      "addr:housenumber": "19",
+      "addr:street": "Kale Nagusia",
+      "name": "Kutixi denda Ja",
+      "shop": "tea"
+    }
+  },
+  {
+    "type": "node",
+    "id": 3586306429,
+    "lat": 43.2858975,
+    "lon": -2.1768177,
+    "tags": {
+      "addr:street": "10",
+      "amenity": "restaurant",
+      "name": "Txiki Polit"
+    }
+  },
+  {
+    "type": "node",
+    "id": 3657706119,
+    "lat": 43.2846524,
+    "lon": -2.1768607,
+    "tags": {
+      "name": "Eroski",
+      "shop": "supermarket"
+    }
+  },
+  {
+    "type": "node",
+    "id": 3657710766,
+    "lat": 43.2875817,
+    "lon": -2.1464649,
+    "tags": {
+      "amenity": "drinking_water"
+    }
+  },
+  {
+    "type": "node",
+    "id": 3724453558,
+    "lat": 43.2827633,
+    "lon": -2.1729975,
+    "tags": {
+      "amenity": "bar",
+      "name": "Las Palmeras"
+    }
+  },
+  {
+    "type": "node",
+    "id": 3981810447,
+    "lat": 43.2833415,
+    "lon": -2.1736900,
+    "tags": {
+      "access": "private",
+      "amenity": "parking_entrance"
+    }
+  },
+  {
+    "type": "node",
+    "id": 3981895489,
+    "lat": 43.2843516,
+    "lon": -2.1760056,
+    "tags": {
+      "amenity": "post_office",
+      "name": "Correos"
+    }
+  },
+  {
+    "type": "node",
+    "id": 3993875529,
+    "lat": 43.2879058,
+    "lon": -2.1510902,
+    "tags": {
+      "tourism": "viewpoint"
+    }
+  },
+  {
+    "type": "node",
+    "id": 3993892496,
+    "lat": 43.2873583,
+    "lon": -2.1778567,
+    "tags": {
+      "artist_name": "Juanjo Gurrea Txanka",
+      "material": "steel",
+      "name": "Itsa lema",
+      "start_date": "1996",
+      "tourism": "artwork"
+    }
+  },
+  {
+    "type": "node",
+    "id": 3993892497,
+    "lat": 43.2871833,
+    "lon": -2.1763856,
+    "tags": {
+      "tourism": "viewpoint"
+    }
+  },
+  {
+    "type": "node",
+    "id": 4180718692,
+    "lat": 43.2865013,
+    "lon": -2.1747924,
+    "tags": {
+      "addr:housenumber": "2",
+      "addr:street": "Torre Luzea",
+      "amenity": "restaurant",
+      "name": "Kandela Jatetxea",
+      "opening_hours": "Mo-Su 13:00-13:00, 20:00-23:00",
+      "phone": "+34943834959",
+      "website": "restaurantekandela.com"
+    }
+  },
+  {
+    "type": "node",
+    "id": 4244857805,
+    "lat": 43.2924561,
+    "lon": -2.1501905,
+    "tags": {
+      "colour": "yellow",
+      "hiking": "yes",
+      "information": "guidepost",
+      "material": "wood",
+      "ref": "GR 121;PR-GI 201",
+      "tourism": "information"
+    }
+  },
+  {
+    "type": "node",
+    "id": 4280334199,
+    "lat": 43.2861339,
+    "lon": -2.1768605,
+    "tags": {
+      "addr:housenumber": "7",
+      "addr:street": "Nagusia 7",
+      "name": "Musika Plaza",
+      "tourism": "hotel"
+    }
+  },
+  {
+    "type": "node",
+    "id": 4329062373,
+    "lat": 43.2860628,
+    "lon": -2.1669250,
+    "tags": {
+      "amenity": "drinking_water"
+    }
+  },
+  {
+    "type": "node",
+    "id": 4330855253,
+    "lat": 43.2856446,
+    "lon": -2.1775059,
+    "tags": {
+      "leisure": "sports_centre",
+      "name": "Pagoeta M. E.",
+      "sport": "climbing"
+    }
+  },
+  {
+    "type": "node",
+    "id": 4437668731,
+    "lat": 43.2861029,
+    "lon": -2.1761428,
+    "tags": {
+      "addr:city": "Zarautz",
+      "addr:housenumber": "12",
+      "addr:postcode": "20800",
+      "addr:street": "Kale Nagusia",
+      "amenity": "pharmacy",
+      "cofg:id": "986",
+      "drive_through": "no",
+      "name": "Mutiozabal",
+      "opening_hours": "Mo-Fr 09:00-13:00,16:45-20:00; Sa 09:00-13:00",
+      "phone": "+34 943 83 29 70"
+    }
+  },
+  {
+    "type": "node",
+    "id": 4437670185,
+    "lat": 43.2867677,
+    "lon": -2.1630318,
+    "tags": {
+      "addr:city": "Zarautz",
+      "addr:housenumber": "5F",
+      "addr:postcode": "20800",
+      "addr:street": "Zinkunegi kalea",
+      "amenity": "pharmacy",
+      "cofg:id": "890",
+      "drive_through": "no",
+      "name": "Iriarte Uranga",
+      "opening_hours": "Mo-Fr 09:00-13:00,16:45-20:00; Sa 09:00-13:00",
+      "phone": "+34 943 13 29 83"
+    }
+  },
+  {
+    "type": "node",
+    "id": 4437773609,
+    "lat": 43.2802950,
+    "lon": -2.1661904,
+    "tags": {
+      "addr:city": "Zarautz",
+      "addr:housenumber": "5",
+      "addr:postcode": "20800",
+      "addr:street": "Santuiturri plaza",
+      "amenity": "pharmacy",
+      "cofg:id": "1057",
+      "drive_through": "no",
+      "name": "B. Esparza Echarri",
+      "opening_hours": "Mo-Fr 09:00-13:00,16:45-20:00; Sa 09:00-13:00",
+      "phone": "+34 943 50 47 83"
+    }
+  },
+  {
+    "type": "node",
+    "id": 4438956427,
+    "lat": 43.2863233,
+    "lon": -2.1774888,
+    "tags": {
+      "addr:city": "Zarautz",
+      "addr:housenumber": "1",
+      "addr:postcode": "20800",
+      "addr:street": "Elizaurre kalea",
+      "email": "info@menosca.com",
+      "name": "Menosca, Zarauzko Arte eta Historia Museoa",
+      "name:en": "Menosca, Art and History Museum of Zarautz",
+      "name:es": "Menosca, Museo de Arte e Historia",
+      "name:fr": "Menosca, Musée d’Art et d’Histoire de Zarautz",
+      "phone": "+34 943 83 52 81",
+      "tourism": "museum",
+      "website": "http://www.menosca.com/museo.php"
+    }
+  },
+  {
+    "type": "node",
+    "id": 4624370391,
+    "lat": 43.2939485,
+    "lon": -2.1489513,
+    "tags": {
+      "tourism": "viewpoint"
+    }
+  },
+  {
+    "type": "node",
+    "id": 4624370393,
+    "lat": 43.2939388,
+    "lon": -2.1489138,
+    "tags": {
+      "tourism": "information"
+    }
+  },
+  {
+    "type": "node",
+    "id": 4624370397,
+    "lat": 43.2917444,
+    "lon": -2.1480152,
+    "tags": {
+      "tourism": "viewpoint"
+    }
+  },
+  {
+    "type": "node",
+    "id": 4624370399,
+    "lat": 43.2935932,
+    "lon": -2.1483800,
+    "tags": {
+      "tourism": "information"
+    }
+  },
+  {
+    "type": "node",
+    "id": 4624370404,
+    "lat": 43.2930915,
+    "lon": -2.1480313,
+    "tags": {
+      "tourism": "viewpoint"
+    }
+  },
+  {
+    "type": "node",
+    "id": 4624370405,
+    "lat": 43.2935991,
+    "lon": -2.1484122,
+    "tags": {
+      "tourism": "viewpoint"
+    }
+  },
+  {
+    "type": "node",
+    "id": 4624370419,
+    "lat": 43.2917210,
+    "lon": -2.1479831,
+    "tags": {
+      "tourism": "information"
+    }
+  },
+  {
+    "type": "node",
+    "id": 4624379357,
+    "lat": 43.2833665,
+    "lon": -2.1660102,
+    "tags": {
+      "amenity": "restaurant",
+      "cuisine": "spanish",
+      "name": "Bar Restaurante Mondra"
+    }
+  },
+  {
+    "type": "node",
+    "id": 4636021390,
+    "lat": 43.2904051,
+    "lon": -2.1523283,
+    "tags": {
+      "amenity": "drinking_water"
+    }
+  },
+  {
+    "type": "node",
+    "id": 4636021391,
+    "lat": 43.2928914,
+    "lon": -2.1484927,
+    "tags": {
+      "tourism": "information"
+    }
+  },
+  {
+    "type": "node",
+    "id": 4775433126,
+    "lat": 43.2842676,
+    "lon": -2.1607675,
+    "tags": {
+      "artwork_type": "sculpture",
+      "tourism": "artwork"
+    }
+  },
+  {
+    "type": "node",
+    "id": 4775433127,
+    "lat": 43.2846910,
+    "lon": -2.1595888,
+    "tags": {
+      "artist_name": "Jesús Rodriguez Jauregi",
+      "artwork_type": "sculpture",
+      "date": "1994",
+      "material": "iron",
+      "tourism": "artwork"
+    }
+  },
+  {
+    "type": "node",
+    "id": 4810216999,
+    "lat": 43.2908333,
+    "lon": -2.1527118,
+    "tags": {
+      "hiking": "yes",
+      "information": "map",
+      "map_size": "region",
+      "map_type": "topo",
+      "name": "GR 35 Altxonbide ibilbidea",
+      "tourism": "information"
+    }
+  },
+  {
+    "type": "node",
+    "id": 4810217000,
+    "lat": 43.2908331,
+    "lon": -2.1526869,
+    "tags": {
+      "hiking": "yes",
+      "information": "guidepost",
+      "material": "wood",
+      "operator": "DSS2016.EU",
+      "ref": "GR 35;GR 121;PR-GI 201",
+      "tourism": "information"
+    }
+  },
+  {
+    "type": "node",
+    "id": 4847010062,
+    "lat": 43.2872014,
+    "lon": -2.1633712,
+    "tags": {
+      "name": "Albergue de peregrinos",
+      "tourism": "hostel"
+    }
+  },
+  {
+    "type": "node",
+    "id": 4934239051,
+    "lat": 43.2841609,
+    "lon": -2.1709529,
+    "tags": {
+      "name": "Zarautz",
+      "network": "Euskotren Trena",
+      "operator": "Eusko Trenbideak",
+      "public_transport": "stop_position",
+      "train": "yes"
+    }
+  },
+  {
+    "type": "node",
+    "id": 4943420605,
+    "lat": 43.2855924,
+    "lon": -2.1722522,
+    "tags": {
+      "addr:city": "Zarautz",
+      "addr:housenumber": "6",
+      "addr:street": "Donibane Plaza",
+      "amenity": "restaurant",
+      "cuisine": "steak_house",
+      "name": "Asador Telesforo"
+    }
+  },
+  {
+    "type": "node",
+    "id": 4943455941,
+    "lat": 43.2842476,
+    "lon": -2.1737441,
+    "tags": {
+      "addr:city": "Zarautz",
+      "addr:housenumber": "10",
+      "addr:street": "San Franzisko Kalea",
+      "amenity": "restaurant",
+      "cuisine": "spanish",
+      "name": "Asador Lagunak",
+      "website": "http://www.asadorlagunak.com/"
+    }
+  },
+  {
+    "type": "node",
+    "id": 4943482792,
+    "lat": 43.2853763,
+    "lon": -2.1768085,
+    "tags": {
+      "addr:city": "Zarautz",
+      "addr:housenumber": "1",
+      "addr:street": "Ipar Kalea",
+      "amenity": "restaurant",
+      "cuisine": "spanish",
+      "name": "Okamika"
+    }
+  },
+  {
+    "type": "node",
+    "id": 5017913422,
+    "lat": 43.2868908,
+    "lon": -2.1752017,
+    "tags": {
+      "amenity": "cafe",
+      "name": "Crêpes"
+    }
+  },
+  {
+    "type": "node",
+    "id": 5041715321,
+    "lat": 43.2862799,
+    "lon": -2.1755285,
+    "tags": {
+      "addr:housenumber": "9",
+      "addr:street": "Azara kalea",
+      "name": "Dubla",
+      "name:es": "Dubla",
+      "shop": "clothes"
+    }
+  },
+  {
+    "type": "node",
+    "id": 5041715322,
+    "lat": 43.2851504,
+    "lon": -2.1752601,
+    "tags": {
+      "amenity": "bicycle_parking",
+      "operator": "public"
+    }
+  },
+  {
+    "type": "node",
+    "id": 5044258821,
+    "lat": 43.2890075,
+    "lon": -2.1610065,
+    "tags": {
+      "addr:postcode": "20800",
+      "addr:street": "Itsasertza",
+      "amenity": "bar",
+      "email": "bar@shelter.surf",
+      "name": "Shelter Surf Bar",
+      "phone": "+34943580285",
+      "website": "http://www.shelter.surf"
+    }
+  },
+  {
+    "type": "node",
+    "id": 5044258921,
+    "lat": 43.2864581,
+    "lon": -2.1756866,
+    "tags": {
+      "addr:housenumber": "8",
+      "addr:street": "Azara kalea",
+      "amenity": "restaurant",
+      "cuisine": "italian_pizza",
+      "name": "Izarra",
+      "name:es": "Izarra"
+    }
+  },
+  {
+    "type": "node",
+    "id": 5063457123,
+    "lat": 43.2807541,
+    "lon": -2.1770479,
+    "tags": {
+      "leisure": "playground"
+    }
+  },
+  {
+    "type": "node",
+    "id": 5063519772,
+    "lat": 43.2871556,
+    "lon": -2.1757115,
+    "tags": {
+      "amenity": "pub",
+      "name": "Marea Gora"
+    }
+  },
+  {
+    "type": "node",
+    "id": 5063526921,
+    "lat": 43.2806571,
+    "lon": -2.1760868,
+    "tags": {
+      "leisure": "playground"
+    }
+  },
+  {
+    "type": "node",
+    "id": 5063526922,
+    "lat": 43.2807641,
+    "lon": -2.1770844,
+    "tags": {
+      "amenity": "drinking_water"
+    }
+  },
+  {
+    "type": "node",
+    "id": 5063527121,
+    "lat": 43.2807636,
+    "lon": -2.1772005,
+    "tags": {
+      "leisure": "playground"
+    }
+  },
+  {
+    "type": "node",
+    "id": 5074981157,
+    "lat": 43.2872174,
+    "lon": -2.1693347,
+    "tags": {
+      "amenity": "ice_cream",
+      "name": "Carlos Arribas Maestro Heladero",
+      "takeaway": "yes"
+    }
+  },
+  {
+    "type": "node",
+    "id": 5074995932,
+    "lat": 43.2861978,
+    "lon": -2.1767268,
+    "tags": {
+      "amenity": "restaurant",
+      "name": "Joshe Mari"
+    }
+  },
+  {
+    "type": "node",
+    "id": 5074996985,
+    "lat": 43.2860825,
+    "lon": -2.1626497,
+    "tags": {
+      "amenity": "drinking_water"
+    }
+  },
+  {
+    "type": "node",
+    "id": 5175014132,
+    "lat": 43.2857197,
+    "lon": -2.1748972,
+    "tags": {
+      "historic": "monument",
+      "name": "Torre Lucea"
+    }
+  },
+  {
+    "type": "node",
+    "id": 5175014133,
+    "lat": 43.2858404,
+    "lon": -2.1749716,
+    "tags": {
+      "historic": "monument",
+      "name": "Torre Lucea"
+    }
+  },
+  {
+    "type": "node",
+    "id": 5196704036,
+    "lat": 43.2858665,
+    "lon": -2.1740393,
+    "tags": {
+      "addr:city": "Zarautz",
+      "addr:housenumber": "17",
+      "addr:postcode": "20800",
+      "addr:street": "San Frantzisko kalea",
+      "email": "goxokitoki@gmail.com",
+      "name": "Dulzia",
+      "opening_hours": "Mo-Su 09:00-21:00",
+      "phone": "+34 943507681",
+      "shop": "gift"
+    }
+  },
+  {
+    "type": "node",
+    "id": 5393689750,
+    "lat": 43.2846163,
+    "lon": -2.1610526,
+    "tags": {
+      "addr:city": "Zarautz",
+      "addr:housenumber": "68",
+      "addr:postcode": "20800",
+      "addr:province": "Gipuzkoa",
+      "addr:street": "Gipuzkoa Kalea",
+      "amenity": "pharmacy",
+      "name": "Marta Gamindez Campos",
+      "phone": "9.43477584E8"
+    }
+  },
+  {
+    "type": "node",
+    "id": 5393691229,
+    "lat": 43.2846163,
+    "lon": -2.1610526,
+    "tags": {
+      "addr:city": "Zarautz",
+      "addr:housenumber": "68",
+      "addr:postcode": "20800",
+      "addr:province": "Gipuzkoa",
+      "addr:street": "Gipuzkoa Kalea",
+      "amenity": "pharmacy",
+      "name": "Marta Gamindez Campos",
+      "phone": "9.43477584E8"
+    }
+  },
+  {
+    "type": "node",
+    "id": 5484550021,
+    "lat": 43.2837534,
+    "lon": -2.1771709,
+    "tags": {
+      "tourism": "hotel"
+    }
+  },
+  {
+    "type": "node",
+    "id": 5508016221,
+    "lat": 43.2860743,
+    "lon": -2.1761027,
+    "tags": {
+      "amenity": "doctors",
+      "name": "IMQ MEDICINA FAMILIAR"
+    }
+  },
+  {
+    "type": "node",
+    "id": 5520642321,
+    "lat": 43.2823637,
+    "lon": -2.1765400,
+    "tags": {
+      "amenity": "fountain",
+      "name": "Agua potable"
+    }
+  },
+  {
+    "type": "way",
+    "id": 27251780,
+    "center": {
+      "lat": 43.2859976,
+      "lon": -2.1667625
+    },
+    "nodes": [
+      299097500,
+      3404679284,
+      299097501,
+      3404679289,
+      3404685310,
+      3404685301,
+      299097502,
+      739514935,
+      299097500
+    ],
+    "tags": {
+      "leisure": "park",
+      "name": "Gure Ametsa Parkea",
+      "surface": "grass"
+    }
+  },
+  {
+    "type": "way",
+    "id": 27251911,
+    "center": {
+      "lat": 43.2885241,
+      "lon": -2.1569958
+    },
+    "nodes": [
+      299100046,
+      4581609688,
+      299100047,
+      299101070,
+      299100049,
+      4385154050,
+      299101071,
+      299101072,
+      299100052,
+      299100053,
+      4385154045,
+      299101073,
+      299100055,
+      4581602770,
+      4581602772,
+      299100056,
+      4775433006,
+      4581602765,
+      4775433010,
+      4581602763,
+      299101074,
+      4775433009,
+      299101075,
+      299100059,
+      661507854,
+      299101076,
+      4775433008,
+      4775433007,
+      299100046
+    ],
+    "tags": {
+      "leisure": "golf_course",
+      "name": "Real Golf Club de Zarautz",
+      "sport": "golf"
+    }
+  },
+  {
+    "type": "way",
+    "id": 28323078,
+    "center": {
+      "lat": 43.2827333,
+      "lon": -2.1750634
+    },
+    "nodes": [
+      311045984,
+      311045985,
+      311045986,
+      311045987,
+      311045988,
+      311045989,
+      311045984
+    ],
+    "tags": {
+      "amenity": "parking",
+      "description": "Includes residents-only parking, fines applicable for non-residents"
+    }
+  },
+  {
+    "type": "way",
+    "id": 28323541,
+    "center": {
+      "lat": 43.2854096,
+      "lon": -2.1751277
+    },
+    "nodes": [
+      311051431,
+      311051432,
+      311051433,
+      311051435,
+      311051431
+    ],
+    "tags": {
+      "amenity": "townhall",
+      "building": "yes",
+      "name": "Udaletxea"
+    }
+  },
+  {
+    "type": "way",
+    "id": 28327446,
+    "center": {
+      "lat": 43.2816678,
+      "lon": -2.1646629
+    },
+    "nodes": [
+      311087476,
+      311087477,
+      311087479,
+      311087480,
+      311087481,
+      311087476
+    ],
+    "tags": {
+      "building": "yes",
+      "name": "Eroski",
+      "shop": "supermarket"
+    }
+  },
+  {
+    "type": "way",
+    "id": 28327447,
+    "center": {
+      "lat": 43.2811904,
+      "lon": -2.1645515
+    },
+    "nodes": [
+      311087483,
+      311087484,
+      311087485,
+      311087486,
+      311087488,
+      311087483
+    ],
+    "tags": {
+      "amenity": "parking"
+    }
+  },
+  {
+    "type": "way",
+    "id": 30640427,
+    "center": {
+      "lat": 43.2786205,
+      "lon": -2.1485179
+    },
+    "nodes": [
+      338870022,
+      338870023,
+      338870024,
+      338870025,
+      338870022
+    ],
+    "tags": {
+      "leisure": "pitch",
+      "name": "Asti Futbol Zelaia",
+      "sport": "soccer",
+      "surface": "grass"
+    }
+  },
+  {
+    "type": "way",
+    "id": 30640428,
+    "center": {
+      "lat": 43.2783364,
+      "lon": -2.1497969
+    },
+    "nodes": [
+      338870026,
+      338870027,
+      338870029,
+      338870030,
+      338870026
+    ],
+    "tags": {
+      "leisure": "pitch",
+      "sport": "rugby",
+      "surface": "grass"
+    }
+  },
+  {
+    "type": "way",
+    "id": 30640429,
+    "center": {
+      "lat": 43.2777607,
+      "lon": -2.1488080
+    },
+    "nodes": [
+      338870031,
+      338870032,
+      338870033,
+      338870035,
+      338870031
+    ],
+    "tags": {
+      "leisure": "pitch",
+      "sport": "soccer",
+      "surface": "grass"
+    }
+  },
+  {
+    "type": "way",
+    "id": 41985721,
+    "center": {
+      "lat": 43.2820270,
+      "lon": -2.1700960
+    },
+    "nodes": [
+      520518853,
+      520518866,
+      520518870,
+      311188237,
+      520518853
+    ],
+    "tags": {
+      "amenity": "community_centre",
+      "building": "civic",
+      "contact:facebook": "https://www.facebook.com/putzuzulo",
+      "contact:website": "http://www.putzuzulo.eus/",
+      "name": "Putzuzulo Gaztetxea",
+      "operator:type": "community",
+      "wikidata": "Q12266362",
+      "wikipedia": "eu:Putzuzulo gaztetxea"
+    }
+  },
+  {
+    "type": "way",
+    "id": 45290184,
+    "center": {
+      "lat": 43.2893139,
+      "lon": -2.1468136
+    },
+    "nodes": [
+      575233908,
+      575233909,
+      661525807,
+      575233910,
+      4581282258,
+      4581282257,
+      661525806,
+      4581282256,
+      4581282255,
+      661525808,
+      4581282254,
+      575233911,
+      575233912,
+      575233913,
+      661525820,
+      4581282277,
+      4581282249,
+      661525819,
+      661525814,
+      4581285085,
+      4581282250,
+      661525815,
+      661525817,
+      661525816,
+      4581285084,
+      661525804,
+      661525805,
+      661525813,
+      4581285081,
+      4581285082,
+      4581285083,
+      661525809,
+      4581285079,
+      4581285080,
+      661525810,
+      661525811,
+      661525812,
+      661525818,
+      4581282197,
+      4581282196,
+      661525823,
+      4581282195,
+      4581282193,
+      4581282194,
+      661529294,
+      661529272,
+      661529275,
+      661529273,
+      4581282232,
+      661525824,
+      4581282231,
+      2314388112,
+      575233916,
+      575233917,
+      4581285086,
+      575233918,
+      661525827,
+      4581283059,
+      575233919,
+      575233920,
+      575233921,
+      661525826,
+      575233922,
+      661525825,
+      575233908
+    ],
+    "tags": {
+      "designation": "Camping Zarautz",
+      "name": "Gran Camping Zarautz",
+      "tourism": "camp_site",
+      "website": "www.grancampingzarautz.com/"
+    }
+  },
+  {
+    "type": "way",
+    "id": 45290186,
+    "center": {
+      "lat": 43.2865257,
+      "lon": -2.1543168
+    },
+    "nodes": [
+      575233924,
+      575233926,
+      575233927,
+      575233928,
+      1888949281,
+      1888949267,
+      1888949251,
+      1888949239,
+      575233930,
+      575233932,
+      575233934,
+      1888949240,
+      575233936,
+      1888949246,
+      575233938,
+      1888949255,
+      575233940,
+      575233941,
+      4581325749,
+      4581325751,
+      4581325750,
+      4581325752,
+      4581325753,
+      575233942,
+      1888949294,
+      575233943,
+      4581325754,
+      575233944,
+      1888949298,
+      1888949300,
+      1888949296,
+      575233945,
+      575233946,
+      1888949292,
+      575233924
+    ],
+    "tags": {
+      "name": "Camping Talai Mendi",
+      "tourism": "camp_site"
+    }
+  },
+  {
+    "type": "way",
+    "id": 45290521,
+    "center": {
+      "lat": 43.2805365,
+      "lon": -2.1708378
+    },
+    "nodes": [
+      575238634,
+      575238637,
+      889479967,
+      889479981,
+      889480003,
+      889479991,
+      889480012,
+      889479939,
+      575238641,
+      575238645,
+      889479945,
+      889479972,
+      889479988,
+      575238647,
+      889479947,
+      889480009,
+      889479937,
+      889479934,
+      575238650,
+      575238653,
+      889479943,
+      889479952,
+      889479960,
+      575238656,
+      889480014,
+      575238659,
+      575238662,
+      575238664,
+      575238668,
+      575238684,
+      889479941,
+      575238688,
+      575238634
+    ],
+    "tags": {
+      "amenity": "school",
+      "building": "yes",
+      "name": "Lizardi institutua"
+    }
+  },
+  {
+    "type": "way",
+    "id": 46513035,
+    "center": {
+      "lat": 43.2790315,
+      "lon": -2.1765476
+    },
+    "nodes": [
+      594988159,
+      594988163,
+      594988167,
+      594988174,
+      594988176,
+      889479963,
+      889479957,
+      594988181,
+      889419635,
+      594988185,
+      594988192,
+      594988199,
+      594988203,
+      594988206,
+      594988210,
+      594988216,
+      594988219,
+      889479953,
+      594988159
+    ],
+    "tags": {
+      "amenity": "school",
+      "name": "La Salle Ikastetxea"
+    }
+  },
+  {
+    "type": "way",
+    "id": 46521287,
+    "center": {
+      "lat": 43.2840461,
+      "lon": -2.1596114
+    },
+    "nodes": [
+      595156401,
+      595156408,
+      4775433122,
+      4775433121,
+      595156411,
+      595156413,
+      595156415,
+      595156418,
+      595156422,
+      595156424,
+      4385380708,
+      595156401
+    ],
+    "tags": {
+      "addr:city": "Zarautz",
+      "addr:country": "ES",
+      "addr:housenumber": "14",
+      "addr:postcode": "20800",
+      "addr:street": "Maria Etxetxiki Kalea",
+      "amenity": "school",
+      "b5m:id": "D_52768",
+      "b5m:url": "http://b5m.gipuzkoa.net/b5map/r1/eu/mapa/lekutu/D_52768",
+      "b5m:urlOrto": "http://b5m.gipuzkoa.net/url5000/index.php?id=D_52768&lengua=1&actu=0&categoria=VITO_FOTO",
+      "name": "Salbatore Mitxelena Ikastola",
+      "source": "b5m"
+    }
+  },
+  {
+    "type": "way",
+    "id": 46521447,
+    "center": {
+      "lat": 43.2862913,
+      "lon": -2.1628242
+    },
+    "nodes": [
+      595165939,
+      595165942,
+      4775432402,
+      4775432403,
+      595165946,
+      595165948,
+      595165953,
+      595165939
+    ],
+    "tags": {
+      "leisure": "park",
+      "name": "Pilartxo Enea Parkea"
+    }
+  },
+  {
+    "type": "way",
+    "id": 46561720,
+    "center": {
+      "lat": 43.2881706,
+      "lon": -2.1629787
+    },
+    "nodes": [
+      595313793,
+      739485832,
+      595313794,
+      891090810,
+      891090868,
+      891090820,
+      891090790,
+      739485835,
+      739485836,
+      595313795,
+      595313793
+    ],
+    "tags": {
+      "amenity": "restaurant",
+      "building": "yes",
+      "name": "Karlos Argiñano",
+      "source": "gps",
+      "stars": "4",
+      "tourism": "hotel"
+    }
+  },
+  {
+    "type": "way",
+    "id": 46568553,
+    "center": {
+      "lat": 43.2830728,
+      "lon": -2.1686403
+    },
+    "nodes": [
+      595338587,
+      595338588,
+      595338590,
+      595338592,
+      595338587
+    ],
+    "tags": {
+      "leisure": "playground",
+      "sport": "basketball",
+      "surface": "paved"
+    }
+  },
+  {
+    "type": "way",
+    "id": 46568568,
+    "center": {
+      "lat": 43.2827839,
+      "lon": -2.1687101
+    },
+    "nodes": [
+      595338624,
+      595338627,
+      595338628,
+      595338630,
+      595338624
+    ],
+    "tags": {
+      "leisure": "playground",
+      "sport": "soccer",
+      "surface": "paved"
+    }
+  },
+  {
+    "type": "way",
+    "id": 48225797,
+    "center": {
+      "lat": 43.2804807,
+      "lon": -2.1608814
+    },
+    "nodes": [
+      612927746,
+      612927750,
+      612927753,
+      612927755,
+      612927758,
+      612927746
+    ],
+    "tags": {
+      "landuse": "recreation_ground",
+      "sport": "athletics",
+      "surface": "paved"
+    }
+  },
+  {
+    "type": "way",
+    "id": 49577129,
+    "center": {
+      "lat": 43.2865236,
+      "lon": -2.1651727
+    },
+    "nodes": [
+      630493123,
+      630493124,
+      630493125,
+      630493126,
+      630493123
+    ],
+    "tags": {
+      "leisure": "swimming_pool",
+      "source": "B5M",
+      "sport": "swimming"
+    }
+  },
+  {
+    "type": "way",
+    "id": 49577130,
+    "center": {
+      "lat": 43.2866607,
+      "lon": -2.1653155
+    },
+    "nodes": [
+      630493130,
+      630493119,
+      630493120,
+      630493121,
+      630493122,
+      630493116,
+      630493117,
+      630493118,
+      630493127,
+      630493128,
+      630493129,
+      630493131,
+      630493133,
+      630493135,
+      630493137,
+      630493130
+    ],
+    "tags": {
+      "leisure": "swimming_pool",
+      "source": "B5M",
+      "sport": "swimming"
+    }
+  },
+  {
+    "type": "way",
+    "id": 49577132,
+    "center": {
+      "lat": 43.2867685,
+      "lon": -2.1650166
+    },
+    "nodes": [
+      630493139,
+      630493152,
+      630493153,
+      630493140,
+      630493139
+    ],
+    "tags": {
+      "leisure": "pitch",
+      "source": "B5M",
+      "sport": "tennis"
+    }
+  },
+  {
+    "type": "way",
+    "id": 51444654,
+    "center": {
+      "lat": 43.2759486,
+      "lon": -2.1649525
+    },
+    "nodes": [
+      656674203,
+      656674185,
+      656674174,
+      656674205,
+      656674201,
+      656674199,
+      656674203
+    ],
+    "tags": {
+      "amenity": "parking",
+      "name": "Arizia"
+    }
+  },
+  {
+    "type": "way",
+    "id": 51444657,
+    "center": {
+      "lat": 43.2758226,
+      "lon": -2.1648248
+    },
+    "nodes": [
+      656674163,
+      656674207,
+      656674209,
+      656674196,
+      656674212,
+      656674176,
+      656674163
+    ],
+    "tags": {
+      "amenity": "parking",
+      "name": "Arizia"
+    }
+  },
+  {
+    "type": "way",
+    "id": 51445042,
+    "center": {
+      "lat": 43.2801934,
+      "lon": -2.1679856
+    },
+    "nodes": [
+      656678749,
+      656678748,
+      656678747,
+      656678750,
+      656678749
+    ],
+    "tags": {
+      "leisure": "playground"
+    }
+  },
+  {
+    "type": "way",
+    "id": 51445074,
+    "center": {
+      "lat": 43.2803821,
+      "lon": -2.1694762
+    },
+    "nodes": [
+      656679706,
+      656679703,
+      311196230,
+      889480005,
+      889479949,
+      311196222,
+      311196220,
+      889479969,
+      889479959,
+      311196235,
+      656679705,
+      656679708,
+      656679706
+    ],
+    "tags": {
+      "building": "yes",
+      "leisure": "sports_centre",
+      "name": "Aritzbatalde udalkiroldegia"
+    }
+  },
+  {
+    "type": "way",
+    "id": 51854344,
+    "center": {
+      "lat": 43.2894073,
+      "lon": -2.1458992
+    },
+    "nodes": [
+      661529285,
+      4581282227,
+      4581282226,
+      661529287,
+      4581282228,
+      4581282229,
+      661529288,
+      661529290,
+      661529291,
+      661529293,
+      661529315,
+      661525824,
+      4581282232,
+      661529273,
+      661529275,
+      661529272,
+      661529294,
+      661529285
+    ],
+    "tags": {
+      "amenity": "parking"
+    }
+  },
+  {
+    "type": "way",
+    "id": 51855211,
+    "center": {
+      "lat": 43.2888432,
+      "lon": -2.1605053
+    },
+    "nodes": [
+      661539694,
+      661539696,
+      661539681,
+      661539682,
+      661539683,
+      661539684,
+      661539685,
+      661539687,
+      661539688,
+      661539691,
+      661539692,
+      661539690,
+      661539697,
+      661539698,
+      661539700,
+      661539694
+    ],
+    "tags": {
+      "golf": "green",
+      "leisure": "pitch",
+      "sport": "golf"
+    }
+  },
+  {
+    "type": "way",
+    "id": 51855212,
+    "center": {
+      "lat": 43.2891830,
+      "lon": -2.1587476
+    },
+    "nodes": [
+      661539730,
+      661539729,
+      661539723,
+      661539711,
+      661539712,
+      661539731,
+      661539732,
+      661539733,
+      661539734,
+      661539735,
+      661539736,
+      661539737,
+      661539738,
+      661539739,
+      661539730
+    ],
+    "tags": {
+      "golf": "green",
+      "leisure": "pitch",
+      "sport": "golf"
+    }
+  },
+  {
+    "type": "way",
+    "id": 54739922,
+    "center": {
+      "lat": 43.2780485,
+      "lon": -2.1508749
+    },
+    "nodes": [
+      689318168,
+      689318204,
+      689318179,
+      689318176,
+      689318164,
+      689318154,
+      689318168
+    ],
+    "tags": {
+      "tourism": "picnic_site"
+    }
+  },
+  {
+    "type": "way",
+    "id": 54739924,
+    "center": {
+      "lat": 43.2773306,
+      "lon": -2.1497107
+    },
+    "nodes": [
+      689318198,
+      689318148,
+      689318185,
+      689318170,
+      689318198
+    ],
+    "tags": {
+      "leisure": "miniature_golf"
+    }
+  },
+  {
+    "type": "way",
+    "id": 54739925,
+    "center": {
+      "lat": 43.2777739,
+      "lon": -2.1505545
+    },
+    "nodes": [
+      689318172,
+      689318208,
+      689318183,
+      689318167,
+      689318172
+    ],
+    "tags": {
+      "amenity": "bar",
+      "building": "yes",
+      "name": "Txiki-golf"
+    }
+  },
+  {
+    "type": "way",
+    "id": 59604638,
+    "center": {
+      "lat": 43.2858892,
+      "lon": -2.1749923
+    },
+    "nodes": [
+      739394540,
+      739394538,
+      739394539,
+      890832222,
+      890831894,
+      739394541,
+      739394540
+    ],
+    "tags": {
+      "addr:city": "Zarautz",
+      "addr:housenumber": "28",
+      "addr:postcode": "20800",
+      "addr:street": "Kale Nagusia",
+      "historic": "heritage",
+      "name": "Torre Luzea",
+      "source": "B5M",
+      "wikipedia": "es:Torre Luzea"
+    }
+  },
+  {
+    "type": "way",
+    "id": 59604747,
+    "center": {
+      "lat": 43.2855864,
+      "lon": -2.1749771
+    },
+    "nodes": [
+      739395196,
+      739395193,
+      890832130,
+      739395197,
+      890832249,
+      5030492085,
+      739395191,
+      739395192,
+      5030471142,
+      739395195,
+      739395190,
+      739395194,
+      739395196
+    ],
+    "tags": {
+      "addr:city": "Zarautz",
+      "addr:postcode": "20800",
+      "amenity": "marketplace",
+      "building": "yes",
+      "name": "Berdura plaza",
+      "name:es": "Plaza de verduras",
+      "name:eu": "Berdura plaza",
+      "source": "B5M"
+    }
+  },
+  {
+    "type": "way",
+    "id": 59613835,
+    "center": {
+      "lat": 43.2885067,
+      "lon": -2.1630652
+    },
+    "nodes": [
+      739474252,
+      739474245,
+      739474244,
+      739474250,
+      2133050579,
+      739474252
+    ],
+    "tags": {
+      "leisure": "pitch",
+      "source": "PNOA",
+      "source:date": "2009",
+      "sport": "skateboard",
+      "surface": "paved"
+    }
+  },
+  {
+    "type": "way",
+    "id": 59615799,
+    "center": {
+      "lat": 43.2871122,
+      "lon": -2.1685598
+    },
+    "nodes": [
+      739494248,
+      739494255,
+      739494252,
+      739494246,
+      739494120,
+      739494249,
+      739494248
+    ],
+    "tags": {
+      "leisure": "swimming_pool",
+      "source": "PNOA",
+      "source:date": "2009",
+      "sport": "swimming"
+    }
+  },
+  {
+    "type": "way",
+    "id": 59619565,
+    "center": {
+      "lat": 43.2858112,
+      "lon": -2.1692301
+    },
+    "nodes": [
+      739547751,
+      739547700,
+      739547799,
+      739547723,
+      739593594,
+      739547694,
+      739547759,
+      739547744,
+      739547793,
+      739547775,
+      739547827,
+      739547790,
+      739547707,
+      739547751
+    ],
+    "tags": {
+      "amenity": "library",
+      "building": "yes",
+      "name": "Sanz Enea"
+    }
+  },
+  {
+    "type": "way",
+    "id": 59619569,
+    "center": {
+      "lat": 43.2856554,
+      "lon": -2.1678945
+    },
+    "nodes": [
+      739547712,
+      739547802,
+      739547797,
+      739547717,
+      739547683,
+      739547748,
+      739547711,
+      739547769,
+      739547712
+    ],
+    "tags": {
+      "building": "yes",
+      "name": "Hotel Zarauz",
+      "stars": "3",
+      "tourism": "hotel"
+    }
+  },
+  {
+    "type": "way",
+    "id": 59619832,
+    "center": {
+      "lat": 43.2843431,
+      "lon": -2.1732980
+    },
+    "nodes": [
+      739560653,
+      739560656,
+      739560632,
+      739560672,
+      739560653
+    ],
+    "tags": {
+      "leisure": "playground",
+      "name": "Lagunak"
+    }
+  },
+  {
+    "type": "way",
+    "id": 59619835,
+    "center": {
+      "lat": 43.2841028,
+      "lon": -2.1692972
+    },
+    "nodes": [
+      739560664,
+      739560649,
+      739560639,
+      739560669,
+      739560664
+    ],
+    "tags": {
+      "leisure": "playground"
+    }
+  },
+  {
+    "type": "way",
+    "id": 59620594,
+    "center": {
+      "lat": 43.2835079,
+      "lon": -2.1676890
+    },
+    "nodes": [
+      739577106,
+      739577120,
+      739577088,
+      739577127,
+      739577106
+    ],
+    "tags": {
+      "leisure": "playground"
+    }
+  },
+  {
+    "type": "way",
+    "id": 59700786,
+    "center": {
+      "lat": 43.2823773,
+      "lon": -2.1784929
+    },
+    "nodes": [
+      740853951,
+      740853943,
+      740853954,
+      740853937,
+      740853947,
+      740853930,
+      740853935,
+      740853945,
+      740853926,
+      740853940,
+      740853950,
+      740853934,
+      740853951
+    ],
+    "tags": {
+      "amenity": "clinic",
+      "building": "yes",
+      "emergency": "yes",
+      "name": "Centro de Salud de Zarautz"
+    }
+  },
+  {
+    "type": "way",
+    "id": 59704342,
+    "center": {
+      "lat": 43.2830979,
+      "lon": -2.1793014
+    },
+    "nodes": [
+      740875498,
+      740875515,
+      740875528,
+      740875501,
+      740875512,
+      740875525,
+      740875497,
+      740875509,
+      740875521,
+      740875533,
+      740875504,
+      740875517,
+      740875530,
+      740875535,
+      740875507,
+      740875520,
+      740875532,
+      740875503,
+      740875516,
+      740875529,
+      740875502,
+      740875513,
+      740875526,
+      740875499,
+      740875510,
+      740875522,
+      740875534,
+      740875505,
+      740875518,
+      740875500,
+      740875511,
+      740875524,
+      740875537,
+      740875523,
+      740875536,
+      740875508,
+      740875498
+    ],
+    "tags": {
+      "building": "yes",
+      "name": "Youth Hostel Zarautz",
+      "operator": "REAJ",
+      "tourism": "hostel"
+    }
+  },
+  {
+    "type": "way",
+    "id": 59708783,
+    "center": {
+      "lat": 43.2798262,
+      "lon": -2.1736791
+    },
+    "nodes": [
+      741022893,
+      741023090,
+      741022907,
+      741022971,
+      741022893
+    ],
+    "tags": {
+      "leisure": "pitch",
+      "sport": "basketball",
+      "surface": "paved"
+    }
+  },
+  {
+    "type": "way",
+    "id": 59708786,
+    "center": {
+      "lat": 43.2801403,
+      "lon": -2.1735985
+    },
+    "nodes": [
+      741023019,
+      741022893,
+      741022971,
+      741022957,
+      741023042,
+      741023019
+    ],
+    "tags": {
+      "leisure": "pitch",
+      "sport": "soccer",
+      "surface": "paved"
+    }
+  },
+  {
+    "type": "way",
+    "id": 59711239,
+    "center": {
+      "lat": 43.2842311,
+      "lon": -2.1735856
+    },
+    "nodes": [
+      741056006,
+      889470136,
+      741055986,
+      741056015,
+      741055974,
+      741055983,
+      741056006
+    ],
+    "tags": {
+      "building": "yes",
+      "name": "Lagunak",
+      "tourism": "hostel"
+    }
+  },
+  {
+    "type": "way",
+    "id": 59832263,
+    "center": {
+      "lat": 43.2862867,
+      "lon": -2.1697694
+    },
+    "nodes": [
+      742532490,
+      742532455,
+      742532470,
+      742532497,
+      742532525,
+      742532464,
+      742532488,
+      742532516,
+      742532490
+    ],
+    "tags": {
+      "amenity": "clinic",
+      "building": "yes",
+      "name": "Zarauzko Gurutze Gorria"
+    }
+  },
+  {
+    "type": "way",
+    "id": 60142872,
+    "center": {
+      "lat": 43.2864398,
+      "lon": -2.1777581
+    },
+    "nodes": [
+      747149326,
+      892544380,
+      892544358,
+      892544377,
+      892544369,
+      892544363,
+      892544365,
+      892544386,
+      892544376,
+      892544366,
+      892544374,
+      747149327,
+      747149342,
+      747149356,
+      747149366,
+      747149388,
+      747149402,
+      747149406,
+      747149419,
+      747149427,
+      747149434,
+      747149435,
+      747149439,
+      747149451,
+      747149460,
+      747149471,
+      747149481,
+      747149495,
+      747149326
+    ],
+    "tags": {
+      "addr:city": "Zarautz",
+      "addr:housenumber": "1",
+      "addr:postcode": "20800",
+      "addr:street": "Elizaurre kalea",
+      "amenity": "place_of_worship",
+      "building": "church",
+      "building:architecture": "gothic",
+      "denomination": "roman_catholic",
+      "name": "Santa Maria la Real parrokia",
+      "name:es": "Parroquia de Santa María la Real",
+      "phone": "+34 943 835 281",
+      "religion": "christian",
+      "source": "B5M"
+    }
+  },
+  {
+    "type": "way",
+    "id": 70119693,
+    "center": {
+      "lat": 43.2892439,
+      "lon": -2.1819103
+    },
+    "nodes": [
+      837554016,
+      837554010,
+      837553994,
+      837553993,
+      837553979,
+      837554023,
+      837554016
+    ],
+    "tags": {
+      "addr:city": "Zarautz",
+      "addr:country": "ES",
+      "addr:housenumber": "8",
+      "addr:postcode": "20800",
+      "addr:street": "Santa Barbara Auzoa",
+      "amenity": "place_of_worship",
+      "b5m:id": "D_53243",
+      "b5m:url": "http://b5m.gipuzkoa.net/b5map/r1/eu/mapa/lekutu/D_53243",
+      "b5m:urlOrto": "http://b5m.gipuzkoa.net/url5000/index.php?id=D_53243&lengua=1&actu=0&categoria=VITO_FOTO",
+      "building": "chapel",
+      "denomination": "catholic",
+      "name": "Santa Barbara",
+      "religion": "christian",
+      "source": "b5m"
+    }
+  },
+  {
+    "type": "way",
+    "id": 75313559,
+    "center": {
+      "lat": 43.2871858,
+      "lon": -2.1725207
+    },
+    "nodes": [
+      889333481,
+      889333539,
+      889333415,
+      889333516,
+      889333481
+    ],
+    "tags": {
+      "leisure": "pitch",
+      "source": "PNOA",
+      "source:date": "2009",
+      "sport": "table_tennis"
+    }
+  },
+  {
+    "type": "way",
+    "id": 75313562,
+    "center": {
+      "lat": 43.2872309,
+      "lon": -2.1725230
+    },
+    "nodes": [
+      889333390,
+      889333444,
+      889333716,
+      889333381,
+      889333546,
+      889333390
+    ],
+    "tags": {
+      "leisure": "pitch",
+      "source": "PNOA",
+      "source:date": "2009",
+      "sport": "table_tennis"
+    }
+  },
+  {
+    "type": "way",
+    "id": 75316021,
+    "center": {
+      "lat": 43.2857676,
+      "lon": -2.1729002
+    },
+    "nodes": [
+      889370962,
+      889371135,
+      890832235,
+      889371040,
+      890832237,
+      889371078,
+      889371000,
+      889370948,
+      889371106,
+      889371134,
+      889371024,
+      890831909,
+      890831937,
+      890832095,
+      890832232,
+      889370969,
+      890831816,
+      890831959,
+      890832103,
+      889370916,
+      889370976,
+      889371044,
+      889370962
+    ],
+    "tags": {
+      "addr:city": "Zarautz",
+      "addr:housenumber": "5",
+      "addr:postcode": "20800",
+      "addr:street": "Gipuzkoa kalea",
+      "amenity": "school",
+      "building": "yes",
+      "name": "Oteitza Lizeo Politeknikoa",
+      "operator": "Ikastolen Elkartea",
+      "phone": "+34 943111000",
+      "source": "GeoEuskadi",
+      "website": "http://www.oteitzalp.org",
+      "wheelchair": "yes"
+    }
+  },
+  {
+    "type": "way",
+    "id": 75316023,
+    "center": {
+      "lat": 43.2860580,
+      "lon": -2.1737985
+    },
+    "nodes": [
+      889371139,
+      889370941,
+      889371088,
+      889371014,
+      889371139
+    ],
+    "tags": {
+      "building": "yes",
+      "leisure": "sports_centre",
+      "source": "GeoEuskadi",
+      "sport": "pelota"
+    }
+  },
+  {
+    "type": "way",
+    "id": 75316024,
+    "center": {
+      "lat": 43.2860438,
+      "lon": -2.1726268
+    },
+    "nodes": [
+      889370952,
+      889371075,
+      889370998,
+      889370944,
+      889370952
+    ],
+    "tags": {
+      "building": "yes",
+      "leisure": "sports_centre",
+      "name": "Antoniano, kiroldegia",
+      "source": "GeoEuskadi"
+    }
+  },
+  {
+    "type": "way",
+    "id": 75316026,
+    "center": {
+      "lat": 43.2861554,
+      "lon": -2.1733718
+    },
+    "nodes": [
+      889371048,
+      889371084,
+      889371013,
+      889370951,
+      889371114,
+      889370914,
+      889371056,
+      889370947,
+      889371015,
+      889370918,
+      889371101,
+      889371048
+    ],
+    "tags": {
+      "amenity": "place_of_worship",
+      "building": "yes",
+      "denomination": "catholic",
+      "name": "Frantzizkotarren eliza",
+      "religion": "christian",
+      "source": "GeoEuskadi"
+    }
+  },
+  {
+    "type": "way",
+    "id": 75316028,
+    "center": {
+      "lat": 43.2860122,
+      "lon": -2.1736908
+    },
+    "nodes": [
+      889371110,
+      889370901,
+      889371052,
+      889371108,
+      889371110
+    ],
+    "tags": {
+      "leisure": "pitch",
+      "sport": "basketball",
+      "surface": "paved"
+    }
+  },
+  {
+    "type": "way",
+    "id": 75316031,
+    "center": {
+      "lat": 43.2857805,
+      "lon": -2.1736610
+    },
+    "nodes": [
+      889371026,
+      889370926,
+      889370950,
+      889371113,
+      889371018,
+      889370964,
+      889370989,
+      890831923,
+      889370922,
+      889370994,
+      889371084,
+      889371048,
+      890832125,
+      889370973,
+      890831972,
+      890831822,
+      890832148,
+      889371026
+    ],
+    "tags": {
+      "amenity": "school",
+      "building": "yes",
+      "name": "Antoniano Ikastetxea",
+      "source": "GeoEuskadi"
+    }
+  },
+  {
+    "type": "way",
+    "id": 75318873,
+    "center": {
+      "lat": 43.2796843,
+      "lon": -2.1771711
+    },
+    "nodes": [
+      889419781,
+      889419575,
+      889419741,
+      889419686,
+      889419781
+    ],
+    "tags": {
+      "leisure": "sports_centre",
+      "source": "GeoEuskadi",
+      "sport": "basketball",
+      "surface": "paved"
+    }
+  },
+  {
+    "type": "way",
+    "id": 75318875,
+    "center": {
+      "lat": 43.2788035,
+      "lon": -2.1768669
+    },
+    "nodes": [
+      889419769,
+      889419571,
+      889419738,
+      889419789,
+      889419769
+    ],
+    "tags": {
+      "leisure": "pitch",
+      "sport": "football",
+      "surface": "paved"
+    }
+  },
+  {
+    "type": "way",
+    "id": 75318877,
+    "center": {
+      "lat": 43.2793186,
+      "lon": -2.1770293
+    },
+    "nodes": [
+      889419621,
+      889419725,
+      889419666,
+      889419581,
+      889419621
+    ],
+    "tags": {
+      "leisure": "sports_centre",
+      "source": "GeoEuskadi",
+      "sport": "team_handball",
+      "surface": "paved"
+    }
+  },
+  {
+    "type": "way",
+    "id": 75318879,
+    "center": {
+      "lat": 43.2793833,
+      "lon": -2.1772863
+    },
+    "nodes": [
+      889419668,
+      889419783,
+      889419717,
+      889419744,
+      889419668
+    ],
+    "tags": {
+      "building": "yes",
+      "source": "GeoEuskadi",
+      "sport": "pelota",
+      "surface": "paved"
+    }
+  },
+  {
+    "type": "way",
+    "id": 75318880,
+    "center": {
+      "lat": 43.2787871,
+      "lon": -2.1768816
+    },
+    "nodes": [
+      889419713,
+      889419739,
+      889419684,
+      889419722,
+      889419663,
+      889419579,
+      889419742,
+      889419772,
+      889419714,
+      889419661,
+      889419792,
+      889419679,
+      889419615,
+      889419713
+    ],
+    "tags": {
+      "leisure": "sports_centre",
+      "source": "GeoEuskadi",
+      "sport": "athletics",
+      "surface": "paved"
+    }
+  },
+  {
+    "type": "way",
+    "id": 75318882,
+    "center": {
+      "lat": 43.2784089,
+      "lon": -2.1766976
+    },
+    "nodes": [
+      889419795,
+      889419624,
+      889419761,
+      889419711,
+      889419759,
+      889419690,
+      889419728,
+      889419795
+    ],
+    "tags": {
+      "leisure": "playground",
+      "source": "GeoEuskadi",
+      "surface": "paved"
+    }
+  },
+  {
+    "type": "way",
+    "id": 75318883,
+    "center": {
+      "lat": 43.2792725,
+      "lon": -2.1767518
+    },
+    "nodes": [
+      889419765,
+      889419797,
+      889419734,
+      889419669,
+      889419765
+    ],
+    "tags": {
+      "leisure": "sports_centre",
+      "source": "GeoEuskadi",
+      "sport": "team_handball",
+      "surface": "paved"
+    }
+  },
+  {
+    "type": "way",
+    "id": 75319035,
+    "center": {
+      "lat": 43.2778822,
+      "lon": -2.1748518
+    },
+    "nodes": [
+      889426532,
+      889426580,
+      889426673,
+      889426636,
+      889426592,
+      889426695,
+      889426544,
+      889426667,
+      889426630,
+      889426565,
+      889426606,
+      889426532
+    ],
+    "tags": {
+      "brand": "Opel",
+      "building": "yes",
+      "name": "Arregi",
+      "shop": "car",
+      "source": "GeoEuskadi"
+    }
+  },
+  {
+    "type": "way",
+    "id": 75323129,
+    "center": {
+      "lat": 43.2838744,
+      "lon": -2.1729063
+    },
+    "nodes": [
+      889470125,
+      889470053,
+      889470031,
+      889470082,
+      889470062,
+      889470034,
+      889470183,
+      889470013,
+      889470168,
+      889470132,
+      889470098,
+      889470051,
+      889470015,
+      889470170,
+      889470133,
+      889470155,
+      889470122,
+      889470093,
+      3981799967,
+      889470074,
+      889470167,
+      889470131,
+      889470096,
+      889470080,
+      889470125
+    ],
+    "tags": {
+      "amenity": "place_of_worship",
+      "building": "yes",
+      "denomination": "catholic",
+      "name": "Klarisen konbentua",
+      "religion": "christian"
+    }
+  },
+  {
+    "type": "way",
+    "id": 75323134,
+    "center": {
+      "lat": 43.2837684,
+      "lon": -2.1737572
+    },
+    "nodes": [
+      889470063,
+      889470091,
+      889470025,
+      889470068,
+      889470048,
+      889470012,
+      889470032,
+      889470182,
+      889470152,
+      889470119,
+      889470047,
+      889470010,
+      889470164,
+      889470130,
+      889470151,
+      889470117,
+      889470086,
+      889470066,
+      889470180,
+      889470084,
+      889470063
+    ],
+    "tags": {
+      "amenity": "restaurant",
+      "building": "yes",
+      "cuisine": "regional",
+      "delivery": "no",
+      "description": "Restaurante con cocina de autor situado en Zarautz. Especialista en banquetes y bodas.",
+      "name": "Otzarreta Jatetxea",
+      "outdoor_seating": "yes",
+      "smoking": "outside",
+      "source": "GeoEuskadi",
+      "takeaway": "no"
+    }
+  },
+  {
+    "type": "way",
+    "id": 75334741,
+    "center": {
+      "lat": 43.2820013,
+      "lon": -2.1612754
+    },
+    "nodes": [
+      889490570,
+      889490584,
+      889490582,
+      889490572,
+      889490569,
+      889490568,
+      889490585,
+      889490562,
+      889490583,
+      889490576,
+      889490574,
+      889490567,
+      889490570
+    ],
+    "tags": {
+      "amenity": "fire_station",
+      "building": "yes"
+    }
+  },
+  {
+    "type": "way",
+    "id": 75343439,
+    "center": {
+      "lat": 43.2826082,
+      "lon": -2.1622024
+    },
+    "nodes": [
+      889510416,
+      889510372,
+      889510362,
+      889510412,
+      889510421,
+      889510410,
+      889510402,
+      889510391,
+      889510375,
+      889510366,
+      889510416
+    ],
+    "tags": {
+      "building": "yes",
+      "name": "Arrona Hermanos",
+      "shop": "department_store"
+    }
+  },
+  {
+    "type": "way",
+    "id": 75343445,
+    "center": {
+      "lat": 43.2816424,
+      "lon": -2.1634499
+    },
+    "nodes": [
+      889510393,
+      889510368,
+      889510417,
+      889510395,
+      889510382,
+      889510376,
+      889510393
+    ],
+    "tags": {
+      "brand": "Citroën",
+      "building": "yes",
+      "shop": "car"
+    }
+  },
+  {
+    "type": "way",
+    "id": 75345893,
+    "center": {
+      "lat": 43.2843157,
+      "lon": -2.1777867
+    },
+    "nodes": [
+      889517655,
+      889517660,
+      889517661,
+      889517658,
+      889517655
+    ],
+    "tags": {
+      "leisure": "sports_centre",
+      "sport": "pelota",
+      "surface": "paved"
+    }
+  },
+  {
+    "type": "way",
+    "id": 75352527,
+    "center": {
+      "lat": 43.2845867,
+      "lon": -2.1671904
+    },
+    "nodes": [
+      889524665,
+      889524663,
+      889524664,
+      889524661,
+      889524665
+    ],
+    "tags": {
+      "amenity": "police",
+      "name": "Ertzaintza"
+    }
+  },
+  {
+    "type": "way",
+    "id": 75450990,
+    "center": {
+      "lat": 43.2802767,
+      "lon": -2.1599316
+    },
+    "nodes": [
+      890804081,
+      890804113,
+      890804202,
+      890804151,
+      890804081
+    ],
+    "tags": {
+      "leisure": "pitch",
+      "source": "GeoEuskadi",
+      "sport": "basketball",
+      "surface": "paved"
+    }
+  },
+  {
+    "type": "way",
+    "id": 75450994,
+    "center": {
+      "lat": 43.2810935,
+      "lon": -2.1606340
+    },
+    "nodes": [
+      890804143,
+      890804077,
+      890804176,
+      890804133,
+      890804143
+    ],
+    "tags": {
+      "amenity": "school",
+      "building": "yes",
+      "name": "Haureskola",
+      "source": "GeoEuskadi"
+    }
+  },
+  {
+    "type": "way",
+    "id": 75451184,
+    "center": {
+      "lat": 43.2806168,
+      "lon": -2.1623278
+    },
+    "nodes": [
+      890811142,
+      890811059,
+      890811178,
+      890811135,
+      890811082,
+      890811011,
+      890811142
+    ],
+    "tags": {
+      "amenity": "school"
+    }
+  },
+  {
+    "type": "way",
+    "id": 75451185,
+    "center": {
+      "lat": 43.2804668,
+      "lon": -2.1626819
+    },
+    "nodes": [
+      890811064,
+      890811165,
+      890811110,
+      890811052,
+      890811064
+    ],
+    "tags": {
+      "building": "yes",
+      "source": "GeoEuskadi",
+      "sport": "pelota"
+    }
+  },
+  {
+    "type": "way",
+    "id": 75451188,
+    "center": {
+      "lat": 43.2808285,
+      "lon": -2.1625034
+    },
+    "nodes": [
+      890811028,
+      890811123,
+      890811079,
+      890811169,
+      890811121,
+      890811062,
+      890811179,
+      890811136,
+      890811087,
+      890811025,
+      890811151,
+      890811111,
+      890811055,
+      890811171,
+      890811124,
+      890811080,
+      890811190,
+      890811138,
+      890811097,
+      890811188,
+      890811137,
+      890811089,
+      890811028
+    ],
+    "tags": {
+      "amenity": "school",
+      "building": "yes",
+      "name": "Orokieta",
+      "source": "GeoEuskadi"
+    }
+  },
+  {
+    "type": "way",
+    "id": 75452194,
+    "center": {
+      "lat": 43.2857285,
+      "lon": -2.1735994
+    },
+    "nodes": [
+      889370964,
+      890831874,
+      890832199,
+      890832060,
+      890831900,
+      890832229,
+      890832092,
+      890831934,
+      890832250,
+      890832087,
+      890831923,
+      889370989,
+      889370964
+    ],
+    "tags": {
+      "amenity": "school",
+      "building": "yes",
+      "source": "GeoEuskadi"
+    }
+  },
+  {
+    "type": "way",
+    "id": 75464332,
+    "center": {
+      "lat": 43.2806490,
+      "lon": -2.1623174
+    },
+    "nodes": [
+      890931846,
+      890931778,
+      890931731,
+      890931830,
+      890931846
+    ],
+    "tags": {
+      "leisure": "pitch",
+      "source": "PNOA",
+      "source:date": "2009",
+      "sport": "soccer",
+      "surface": "paved"
+    }
+  },
+  {
+    "type": "way",
+    "id": 75464335,
+    "center": {
+      "lat": 43.2804853,
+      "lon": -2.1623963
+    },
+    "nodes": [
+      890931765,
+      890931780,
+      890931737,
+      890931841,
+      890931765
+    ],
+    "tags": {
+      "leisure": "pitch",
+      "source": "PNOA",
+      "source:date": "2009",
+      "sport": "basketball",
+      "surface": "paved"
+    }
+  },
+  {
+    "type": "way",
+    "id": 75464338,
+    "center": {
+      "lat": 43.2802091,
+      "lon": -2.1630812
+    },
+    "nodes": [
+      890931741,
+      890931773,
+      890931727,
+      890931816,
+      890931741
+    ],
+    "tags": {
+      "leisure": "pitch",
+      "source": "PNOA",
+      "source:date": "2009",
+      "sport": "handball_team",
+      "surface": "paved"
+    }
+  },
+  {
+    "type": "way",
+    "id": 75464339,
+    "center": {
+      "lat": 43.2808733,
+      "lon": -2.1620086
+    },
+    "nodes": [
+      890931759,
+      890931820,
+      890931790,
+      890931738,
+      890931759
+    ],
+    "tags": {
+      "leisure": "pitch",
+      "source": "PNOA",
+      "source:date": "2009",
+      "sport": "basketball",
+      "surface": "paved"
+    }
+  },
+  {
+    "type": "way",
+    "id": 75483603,
+    "center": {
+      "lat": 43.2855996,
+      "lon": -2.1762743
+    },
+    "nodes": [
+      891061962,
+      891062012,
+      891061841,
+      891061991,
+      891061927,
+      891061859,
+      891061894,
+      891061834,
+      891061976,
+      891061917,
+      891062008,
+      891061946,
+      891061865,
+      891061832,
+      891061891,
+      891061962
+    ],
+    "tags": {
+      "amenity": "arts_centre",
+      "building": "yes",
+      "name": "Cine Modelo",
+      "source": "GeoEuskadi"
+    }
+  },
+  {
+    "type": "way",
+    "id": 75484112,
+    "center": {
+      "lat": 43.2855321,
+      "lon": -2.1700607
+    },
+    "nodes": [
+      891068288,
+      891068292,
+      891068205,
+      891068272,
+      891068244,
+      891068211,
+      891068226,
+      891068290,
+      891068258,
+      891068230,
+      891068209,
+      891068288
+    ],
+    "tags": {
+      "building": "hotel",
+      "name": "Hotel Alameda",
+      "source": "GeoEuskadi",
+      "stars": "3",
+      "tourism": "hotel"
+    }
+  },
+  {
+    "type": "way",
+    "id": 75488773,
+    "center": {
+      "lat": 43.2860217,
+      "lon": -2.1551217
+    },
+    "nodes": [
+      891114996,
+      891115002,
+      891115014,
+      891115008,
+      1888949263,
+      891115004,
+      891115006,
+      891115001,
+      891115011,
+      891114996
+    ],
+    "tags": {
+      "amenity": "restaurant",
+      "building": "yes",
+      "internet_access": "wlan",
+      "internet_access:fee": "no",
+      "source": "GeoEuskadi"
+    }
+  },
+  {
+    "type": "way",
+    "id": 75488875,
+    "center": {
+      "lat": 43.2848465,
+      "lon": -2.1577861
+    },
+    "nodes": [
+      891115516,
+      891115523,
+      891115489,
+      891115515,
+      891115501,
+      891115492,
+      891115497,
+      891115490,
+      891115518,
+      891115502,
+      891115516
+    ],
+    "tags": {
+      "addr:city": "Zarautz",
+      "addr:country": "ES",
+      "addr:housenumber": "47",
+      "addr:postcode": "20800",
+      "addr:street": "Nafarroa Kalea",
+      "amenity": "restaurant",
+      "b5m:id": "D_52211",
+      "b5m:url": "http://b5m.gipuzkoa.net/b5map/r1/eu/mapa/lekutu/D_52211",
+      "b5m:urlOrto": "http://b5m.gipuzkoa.net/url5000/index.php?id=D_52211&lengua=1&actu=0&categoria=VITO_FOTO",
+      "building": "yes",
+      "name": "Zubi-Ondo",
+      "source": "b5m"
+    }
+  },
+  {
+    "type": "way",
+    "id": 75592045,
+    "center": {
+      "lat": 43.2845423,
+      "lon": -2.1607722
+    },
+    "nodes": [
+      892501616,
+      4775433128,
+      892501632,
+      892501565,
+      892501646,
+      892501578,
+      892501608,
+      892501639,
+      892501614,
+      892501616
+    ],
+    "tags": {
+      "addr:city": "Zarautz",
+      "addr:country": "ES",
+      "addr:housenumber": "70",
+      "addr:postcode": "20800",
+      "addr:street": "Gipuzkoa kalea",
+      "amenity": "place_of_worship",
+      "b5m:id": "D_52327",
+      "b5m:url": "http://b5m.gipuzkoa.net/b5map/r1/eu/mapa/lekutu/D_52327",
+      "b5m:urlOrto": "http://b5m.gipuzkoa.net/url5000/index.php?id=D_52327&lengua=1&actu=0&categoria=VITO_FOTO",
+      "building": "yes",
+      "denomination": "roman_catholic",
+      "image": "File:San_Pelaio_eliza.jpg",
+      "name": "San Pelaio eliza",
+      "name:es": "Iglesia de San Pelayo",
+      "name:eu": "San Pelaio eliza",
+      "religion": "christian",
+      "source": "b5m"
+    }
+  },
+  {
+    "type": "way",
+    "id": 75592049,
+    "center": {
+      "lat": 43.2842021,
+      "lon": -2.1600851
+    },
+    "nodes": [
+      892501584,
+      892501599,
+      892501586,
+      892501618,
+      892501584
+    ],
+    "tags": {
+      "leisure": "pitch",
+      "source": "PNOA",
+      "source:date": "2009",
+      "sport": "pelota",
+      "surface": "paved"
+    }
+  },
+  {
+    "type": "way",
+    "id": 75597283,
+    "center": {
+      "lat": 43.2871449,
+      "lon": -2.1773181
+    },
+    "nodes": [
+      892546522,
+      892546482,
+      892546497,
+      892546491,
+      892546505,
+      892546519,
+      892546486,
+      892546520,
+      892546513,
+      892546504,
+      892546517,
+      892546485,
+      892546503,
+      892546484,
+      892546502,
+      892546516,
+      892546522
+    ],
+    "tags": {
+      "building": "yes",
+      "historic": "monument",
+      "name": "Narros Jauregia",
+      "name:es": "Palacio de Narros",
+      "source": "GeoEuskadi",
+      "wikidata": "Q9054530",
+      "wikipedia": "es:Palacio de Narros"
+    }
+  },
+  {
+    "type": "way",
+    "id": 75597802,
+    "center": {
+      "lat": 43.2854712,
+      "lon": -2.1739833
+    },
+    "nodes": [
+      889419655,
+      892557876,
+      892557892,
+      889419696,
+      889419655
+    ],
+    "tags": {
+      "leisure": "sports_centre",
+      "name": "Frontoi Txiki",
+      "sport": "pelota"
+    }
+  },
+  {
+    "type": "way",
+    "id": 75599667,
+    "center": {
+      "lat": 43.2806969,
+      "lon": -2.1631669
+    },
+    "nodes": [
+      892565386,
+      892565387,
+      892565388,
+      4581302126,
+      892565385,
+      892565386
+    ],
+    "tags": {
+      "amenity": "police",
+      "name": "Cuartel de la Guardia Civil"
+    }
+  },
+  {
+    "type": "way",
+    "id": 75601344,
+    "center": {
+      "lat": 43.2872720,
+      "lon": -2.1460389
+    },
+    "nodes": [
+      892578029,
+      892578052,
+      892578035,
+      892578043,
+      892578056,
+      892578060,
+      892578032,
+      892578048,
+      892578029
+    ],
+    "tags": {
+      "amenity": "restaurant",
+      "building": "yes",
+      "name": "Txakoli Talai-berri",
+      "source": "GeoEuskadi"
+    }
+  },
+  {
+    "type": "way",
+    "id": 125103804,
+    "center": {
+      "lat": 43.2869230,
+      "lon": -2.1740057
+    },
+    "nodes": [
+      1390275348,
+      1390275345,
+      1390275346,
+      1390275350,
+      1390275348
+    ],
+    "tags": {
+      "leisure": "playground"
+    }
+  },
+  {
+    "type": "way",
+    "id": 125103805,
+    "center": {
+      "lat": 43.2862217,
+      "lon": -2.1747058
+    },
+    "nodes": [
+      1390275330,
+      1390275325,
+      1390275317,
+      1390275329,
+      1390275330
+    ],
+    "tags": {
+      "leisure": "playground"
+    }
+  },
+  {
+    "type": "way",
+    "id": 125104595,
+    "center": {
+      "lat": 43.2805377,
+      "lon": -2.1706321
+    },
+    "nodes": [
+      1390277077,
+      1390277072,
+      1390277071,
+      1390277066,
+      1390277065,
+      889479947,
+      889480009,
+      1390277064,
+      311196222,
+      311196220,
+      3993903002,
+      575238659,
+      575238662,
+      3993903003,
+      575238688,
+      575238634,
+      1390277077
+    ],
+    "tags": {
+      "amenity": "school",
+      "barrier": "wall"
+    }
+  },
+  {
+    "type": "way",
+    "id": 125104596,
+    "center": {
+      "lat": 43.2804063,
+      "lon": -2.1704948
+    },
+    "nodes": [
+      1390277070,
+      1390277068,
+      1390277067,
+      1390277069,
+      1390277070
+    ],
+    "tags": {
+      "leisure": "pitch",
+      "sport": "soccer"
+    }
+  },
+  {
+    "type": "way",
+    "id": 125104597,
+    "center": {
+      "lat": 43.2807802,
+      "lon": -2.1704029
+    },
+    "nodes": [
+      1390277076,
+      1390277074,
+      1390277073,
+      1390277075,
+      1390277076
+    ],
+    "tags": {
+      "leisure": "track",
+      "sport": "soccer"
+    }
+  },
+  {
+    "type": "way",
+    "id": 125104949,
+    "center": {
+      "lat": 43.2805996,
+      "lon": -2.1724687
+    },
+    "nodes": [
+      1390279105,
+      1390279103,
+      1390279102,
+      1390279104,
+      1390279105
+    ],
+    "tags": {
+      "leisure": "playground"
+    }
+  },
+  {
+    "type": "way",
+    "id": 125104950,
+    "center": {
+      "lat": 43.2822324,
+      "lon": -2.1765045
+    },
+    "nodes": [
+      1390279109,
+      1390279108,
+      1390279106,
+      1390279107,
+      1390279109
+    ],
+    "tags": {
+      "leisure": "playground"
+    }
+  },
+  {
+    "type": "way",
+    "id": 125104951,
+    "center": {
+      "lat": 43.2801219,
+      "lon": -2.1665014
+    },
+    "nodes": [
+      1390279100,
+      1390279099,
+      1390279098,
+      1390279101,
+      1390279100
+    ],
+    "tags": {
+      "leisure": "playground"
+    }
+  },
+  {
+    "type": "way",
+    "id": 125105396,
+    "center": {
+      "lat": 43.2871587,
+      "lon": -2.1593575
+    },
+    "nodes": [
+      1390284610,
+      1390284607,
+      1390284614,
+      1390284615,
+      1390284610
+    ],
+    "tags": {
+      "leisure": "pitch",
+      "source": "PNOA",
+      "source:date": "2009",
+      "sport": "tennis"
+    }
+  },
+  {
+    "type": "way",
+    "id": 125105397,
+    "center": {
+      "lat": 43.2868324,
+      "lon": -2.1597433
+    },
+    "nodes": [
+      1390284609,
+      1390284603,
+      1390284602,
+      1390284606,
+      1390284609
+    ],
+    "tags": {
+      "leisure": "pitch",
+      "source": "PNOA",
+      "source:date": "2009",
+      "sport": "tennis"
+    }
+  },
+  {
+    "type": "way",
+    "id": 125105398,
+    "center": {
+      "lat": 43.2871124,
+      "lon": -2.1590884
+    },
+    "nodes": [
+      1390284613,
+      1390284608,
+      1390284604,
+      1390284612,
+      1390284613
+    ],
+    "tags": {
+      "leisure": "pitch",
+      "source": "PNOA",
+      "source:date": "2009",
+      "sport": "tennis"
+    }
+  },
+  {
+    "type": "way",
+    "id": 125105399,
+    "center": {
+      "lat": 43.2872087,
+      "lon": -2.1595804
+    },
+    "nodes": [
+      1390284616,
+      1390284611,
+      1390284610,
+      1390284615,
+      1390284616
+    ],
+    "tags": {
+      "leisure": "pitch",
+      "source": "PNOA",
+      "source:date": "2009",
+      "sport": "tennis"
+    }
+  },
+  {
+    "type": "way",
+    "id": 152567076,
+    "center": {
+      "lat": 43.2829048,
+      "lon": -2.1716986
+    },
+    "nodes": [
+      1653779415,
+      1653779412,
+      1653779411,
+      739547718,
+      1653779413,
+      1653779415
+    ],
+    "tags": {
+      "amenity": "parking",
+      "capacity": "200",
+      "fee": "no",
+      "name": "Aparcamiento",
+      "parking": "surface"
+    }
+  },
+  {
+    "type": "way",
+    "id": 152606191,
+    "center": {
+      "lat": 43.2862542,
+      "lon": -2.1691401
+    },
+    "nodes": [
+      1654140788,
+      1654140792,
+      1654140790,
+      1654140797,
+      1654140796,
+      1654140805,
+      1654140798,
+      1654140794,
+      1654140788
+    ],
+    "tags": {
+      "designation": "Parkea",
+      "leisure": "park"
+    }
+  },
+  {
+    "type": "way",
+    "id": 152716547,
+    "center": {
+      "lat": 43.2826672,
+      "lon": -2.1732761
+    },
+    "nodes": [
+      1655064718,
+      1655064721,
+      1655064723,
+      1655064724,
+      1655064718
+    ],
+    "tags": {
+      "designation": "Sagasti Plaza",
+      "leisure": "playground",
+      "name": "Sagasti Plaza"
+    }
+  },
+  {
+    "type": "way",
+    "id": 152717842,
+    "center": {
+      "lat": 43.2818549,
+      "lon": -2.1729945
+    },
+    "nodes": [
+      1655071398,
+      1655071402,
+      1655071394,
+      1655071392,
+      1655071398
+    ],
+    "tags": {
+      "leisure": "park"
+    }
+  },
+  {
+    "type": "way",
+    "id": 178560015,
+    "center": {
+      "lat": 43.2859296,
+      "lon": -2.1551091
+    },
+    "nodes": [
+      1888949259,
+      1888949263,
+      891115008,
+      891115014,
+      1888949259
+    ],
+    "tags": {
+      "building": "yes",
+      "shop": "outdoor"
+    }
+  },
+  {
+    "type": "way",
+    "id": 178560019,
+    "center": {
+      "lat": 43.2864713,
+      "lon": -2.1536043
+    },
+    "nodes": [
+      1888949285,
+      1888949283,
+      1888949289,
+      1888949290,
+      1888949285
+    ],
+    "tags": {
+      "amenity": "toilets",
+      "building": "yes"
+    }
+  },
+  {
+    "type": "way",
+    "id": 203299951,
+    "center": {
+      "lat": 43.2803832,
+      "lon": -2.1590167
+    },
+    "nodes": [
+      2133050508,
+      2133050509,
+      2133050506,
+      2133050505,
+      2133050508
+    ],
+    "tags": {
+      "leisure": "pitch",
+      "source": "PNOA",
+      "source:date": "2009",
+      "sport": "tennis",
+      "surface": "paved"
+    }
+  },
+  {
+    "type": "way",
+    "id": 203299952,
+    "center": {
+      "lat": 43.2803331,
+      "lon": -2.1594534
+    },
+    "nodes": [
+      2133050507,
+      2133050503,
+      2133050505,
+      2133050508,
+      2133050507
+    ],
+    "tags": {
+      "leisure": "pitch",
+      "source": "PNOA",
+      "source:date": "2009",
+      "sport": "tennis",
+      "surface": "paved"
+    }
+  },
+  {
+    "type": "way",
+    "id": 203299953,
+    "center": {
+      "lat": 43.2868347,
+      "lon": -2.1594868
+    },
+    "nodes": [
+      2133050569,
+      2133050570,
+      2133050564,
+      2133050561,
+      2133050569
+    ],
+    "tags": {
+      "leisure": "pitch",
+      "source": "PNOA",
+      "source:date": "2009",
+      "sport": "padel"
+    }
+  },
+  {
+    "type": "way",
+    "id": 203299954,
+    "center": {
+      "lat": 43.2866529,
+      "lon": -2.1595665
+    },
+    "nodes": [
+      2133050559,
+      2133050562,
+      2133050554,
+      2133050553,
+      2133050559
+    ],
+    "tags": {
+      "leisure": "pitch",
+      "source": "PNOA",
+      "source:date": "2009",
+      "sport": "padel"
+    }
+  },
+  {
+    "type": "way",
+    "id": 203299955,
+    "center": {
+      "lat": 43.2868077,
+      "lon": -2.1593707
+    },
+    "nodes": [
+      2133050569,
+      2133050568,
+      2133050558,
+      2133050561,
+      2133050569
+    ],
+    "tags": {
+      "leisure": "pitch",
+      "source": "PNOA",
+      "source:date": "2009",
+      "sport": "padel"
+    }
+  },
+  {
+    "type": "way",
+    "id": 220659298,
+    "center": {
+      "lat": 43.2832448,
+      "lon": -2.1584567
+    },
+    "nodes": [
+      2297503037,
+      2297503042,
+      2297503045,
+      2297503047,
+      2297503050,
+      2297503053,
+      2297503056,
+      2297503059,
+      2297503062,
+      2297503037
+    ],
+    "tags": {
+      "amenity": "fuel",
+      "building": "yes",
+      "name": "Petronor",
+      "operator": "Petronor"
+    }
+  },
+  {
+    "type": "way",
+    "id": 236114609,
+    "center": {
+      "lat": 43.2881022,
+      "lon": -2.1636027
+    },
+    "nodes": [
+      2441772804,
+      2441772798,
+      2441772802,
+      2441772805,
+      2441772804
+    ],
+    "tags": {
+      "leisure": "pitch",
+      "sport": "beachvolleyball"
+    }
+  },
+  {
+    "type": "way",
+    "id": 236114610,
+    "center": {
+      "lat": 43.2880430,
+      "lon": -2.1639745
+    },
+    "nodes": [
+      2441772800,
+      2441772794,
+      2441772796,
+      2441772803,
+      2441772800
+    ],
+    "tags": {
+      "leisure": "pitch",
+      "sport": "beachvolleyball"
+    }
+  },
+  {
+    "type": "way",
+    "id": 236114611,
+    "center": {
+      "lat": 43.2873322,
+      "lon": -2.1700435
+    },
+    "nodes": [
+      2441772785,
+      2441772777,
+      2441772779,
+      2441772787,
+      2441772785
+    ],
+    "tags": {
+      "leisure": "playground"
+    }
+  },
+  {
+    "type": "way",
+    "id": 236124982,
+    "center": {
+      "lat": 43.2862164,
+      "lon": -2.1782614
+    },
+    "nodes": [
+      2441848612,
+      2441848610,
+      2441848619,
+      2441848626,
+      2441848630,
+      2441848639,
+      2441848645,
+      2441848651,
+      2441848653,
+      2441848654,
+      2441848658,
+      2441848657,
+      2441848656,
+      2441848649,
+      2441848640,
+      2441848631,
+      2441848624,
+      2441848618,
+      2441848612
+    ],
+    "tags": {
+      "leisure": "garden"
+    }
+  },
+  {
+    "type": "way",
+    "id": 236124983,
+    "center": {
+      "lat": 43.2861922,
+      "lon": -2.1782054
+    },
+    "nodes": [
+      2441848609,
+      2441848611,
+      2441848616,
+      2441848623,
+      2441848628,
+      2441848633,
+      2441848635,
+      2441848637,
+      2441848634,
+      2441848641,
+      2441848647,
+      2441848648,
+      2441848646,
+      2441848644,
+      2441848642,
+      2441848638,
+      2441848632,
+      2441848627,
+      2441848621,
+      2441848615,
+      2441848609
+    ],
+    "tags": {
+      "leisure": "garden"
+    }
+  },
+  {
+    "type": "way",
+    "id": 236124984,
+    "center": {
+      "lat": 43.2860299,
+      "lon": -2.1782452
+    },
+    "nodes": [
+      2441848606,
+      2441848602,
+      2441848601,
+      2441848605,
+      2441848606
+    ],
+    "tags": {
+      "leisure": "garden"
+    }
+  },
+  {
+    "type": "way",
+    "id": 236124985,
+    "center": {
+      "lat": 43.2860321,
+      "lon": -2.1783181
+    },
+    "nodes": [
+      2441848608,
+      2441848604,
+      2441848603,
+      2441848607,
+      2441848608
+    ],
+    "tags": {
+      "leisure": "garden"
+    }
+  },
+  {
+    "type": "way",
+    "id": 236124986,
+    "center": {
+      "lat": 43.2860188,
+      "lon": -2.1780449
+    },
+    "nodes": [
+      2441848613,
+      2441848614,
+      2441848617,
+      2441848622,
+      2441848625,
+      2441848598,
+      2441848599,
+      2441848613
+    ],
+    "tags": {
+      "leisure": "garden"
+    }
+  },
+  {
+    "type": "way",
+    "id": 236131542,
+    "center": {
+      "lat": 43.2864413,
+      "lon": -2.1643023
+    },
+    "nodes": [
+      2441898182,
+      2441898183,
+      2441898184,
+      2441898185,
+      2441898194,
+      2441898193,
+      2441898196,
+      2441898195,
+      2441898192,
+      2441898191,
+      2441898182
+    ],
+    "tags": {
+      "access": "private",
+      "amenity": "parking",
+      "parking": "surface"
+    }
+  },
+  {
+    "type": "way",
+    "id": 259519242,
+    "center": {
+      "lat": 43.2819724,
+      "lon": -2.1736834
+    },
+    "nodes": [
+      2649486959,
+      2649486961,
+      2649486963,
+      2649486965,
+      2649486967,
+      2649486969,
+      2649486959
+    ],
+    "tags": {
+      "leisure": "playground",
+      "name": "Martiñene Plaza"
+    }
+  },
+  {
+    "type": "way",
+    "id": 332924971,
+    "center": {
+      "lat": 43.2899565,
+      "lon": -2.1787974
+    },
+    "nodes": [
+      891046012,
+      891046014,
+      3400476007,
+      3400476009,
+      3400476013,
+      3400476014,
+      3400476012,
+      3400476004,
+      3400476000,
+      3400475995,
+      3400469192,
+      3400475993,
+      3400475996,
+      3400475997,
+      3400476002,
+      3400476003,
+      891046012
+    ],
+    "tags": {
+      "leisure": "marina",
+      "natural": "water"
+    }
+  },
+  {
+    "type": "way",
+    "id": 395182449,
+    "center": {
+      "lat": 43.2867759,
+      "lon": -2.1716200
+    },
+    "nodes": [
+      3980844142,
+      3980844141,
+      3980844145,
+      3980844147,
+      3980844142
+    ],
+    "tags": {
+      "leisure": "swimming_pool"
+    }
+  },
+  {
+    "type": "way",
+    "id": 395182450,
+    "center": {
+      "lat": 43.2867057,
+      "lon": -2.1676823
+    },
+    "nodes": [
+      3980844144,
+      3980844140,
+      3980844139,
+      3980844143,
+      3980844144
+    ],
+    "tags": {
+      "leisure": "swimming_pool"
+    }
+  },
+  {
+    "type": "way",
+    "id": 395182451,
+    "center": {
+      "lat": 43.2865331,
+      "lon": -2.1636270
+    },
+    "nodes": [
+      3980844135,
+      3980844131,
+      3980844132,
+      3980844138,
+      3980844135
+    ],
+    "tags": {
+      "leisure": "swimming_pool"
+    }
+  },
+  {
+    "type": "way",
+    "id": 395182452,
+    "center": {
+      "lat": 43.2865351,
+      "lon": -2.1635248
+    },
+    "nodes": [
+      3980844133,
+      3980844134,
+      3980844137,
+      3980844136,
+      3980844133
+    ],
+    "tags": {
+      "leisure": "swimming_pool"
+    }
+  },
+  {
+    "type": "way",
+    "id": 395182453,
+    "center": {
+      "lat": 43.2870134,
+      "lon": -2.1725845
+    },
+    "nodes": [
+      3980846457,
+      3980846458,
+      3980844156,
+      3980844154,
+      3980844153,
+      3980844155,
+      3980846457
+    ],
+    "tags": {
+      "leisure": "swimming_pool"
+    }
+  },
+  {
+    "type": "way",
+    "id": 395182454,
+    "center": {
+      "lat": 43.2868507,
+      "lon": -2.1724211
+    },
+    "nodes": [
+      3980844152,
+      3980844151,
+      3980844149,
+      3980844146,
+      3980844148,
+      3980844150,
+      3980844152
+    ],
+    "tags": {
+      "leisure": "swimming_pool"
+    }
+  },
+  {
+    "type": "way",
+    "id": 395183133,
+    "center": {
+      "lat": 43.2881749,
+      "lon": -2.1793419
+    },
+    "nodes": [
+      3980853500,
+      3980853498,
+      3980853495,
+      3980853494,
+      3980853496,
+      3980853497,
+      3980853499,
+      3980853500
+    ],
+    "tags": {
+      "access": "private",
+      "amenity": "parking"
+    }
+  },
+  {
+    "type": "way",
+    "id": 395264461,
+    "center": {
+      "lat": 43.2829284,
+      "lon": -2.1627414
+    },
+    "nodes": [
+      3981763840,
+      3981763824,
+      3981763834,
+      3981763838,
+      3981763840
+    ],
+    "tags": {
+      "amenity": "parking"
+    }
+  },
+  {
+    "type": "way",
+    "id": 395269315,
+    "center": {
+      "lat": 43.2837090,
+      "lon": -2.1745617
+    },
+    "nodes": [
+      3981810452,
+      3981810449,
+      3981810448,
+      3981810450,
+      3981810451,
+      3981810452
+    ],
+    "tags": {
+      "amenity": "parking"
+    }
+  },
+  {
+    "type": "way",
+    "id": 395269317,
+    "center": {
+      "lat": 43.2828937,
+      "lon": -2.1740758
+    },
+    "nodes": [
+      3981810446,
+      3981810439,
+      3981810438,
+      3981810441,
+      3981810442,
+      3981810445,
+      3981810446
+    ],
+    "tags": {
+      "amenity": "parking"
+    }
+  },
+  {
+    "type": "way",
+    "id": 395281430,
+    "center": {
+      "lat": 43.2821092,
+      "lon": -2.1772457
+    },
+    "nodes": [
+      3981917975,
+      3981917974,
+      3981917973,
+      3981917965,
+      3981917972,
+      3981917975
+    ],
+    "tags": {
+      "leisure": "park",
+      "surface": "grass"
+    }
+  },
+  {
+    "type": "way",
+    "id": 395281431,
+    "center": {
+      "lat": 43.2819516,
+      "lon": -2.1762147
+    },
+    "nodes": [
+      3981917967,
+      3981917961,
+      3981917963,
+      3981917968,
+      3981917971,
+      3981917970,
+      3981917967
+    ],
+    "tags": {
+      "leisure": "park",
+      "surface": "grass"
+    }
+  },
+  {
+    "type": "way",
+    "id": 395281432,
+    "center": {
+      "lat": 43.2819040,
+      "lon": -2.1768161
+    },
+    "nodes": [
+      3981917969,
+      3981917962,
+      3981917960,
+      3981917959,
+      3981917964,
+      3981917966,
+      3981917969
+    ],
+    "tags": {
+      "leisure": "park",
+      "surface": "grass"
+    }
+  },
+  {
+    "type": "way",
+    "id": 395284660,
+    "center": {
+      "lat": 43.2781142,
+      "lon": -2.1753006
+    },
+    "nodes": [
+      3981950410,
+      3981950408,
+      3981950406,
+      3981950404,
+      3981950405,
+      3981950407,
+      3981950409,
+      3981950410
+    ],
+    "tags": {
+      "amenity": "recycling",
+      "name": "Garbigunea",
+      "recycling_type": "centre"
+    }
+  },
+  {
+    "type": "way",
+    "id": 395285547,
+    "center": {
+      "lat": 43.2782851,
+      "lon": -2.1719329
+    },
+    "nodes": [
+      3981958191,
+      3981958189,
+      3981958192,
+      3981958194,
+      3981958196,
+      3981958199,
+      3981958200,
+      3981958201,
+      3981958198,
+      3981958197,
+      3981958195,
+      3981958193,
+      3981958190,
+      3981958191
+    ],
+    "tags": {
+      "leisure": "park",
+      "surface": "grass"
+    }
+  },
+  {
+    "type": "way",
+    "id": 395286414,
+    "center": {
+      "lat": 43.2776329,
+      "lon": -2.1719853
+    },
+    "nodes": [
+      3981967852,
+      3981967855,
+      3981967854,
+      3981967851,
+      3981967850,
+      3981967852
+    ],
+    "tags": {
+      "leisure": "park",
+      "surface": "grass"
+    }
+  },
+  {
+    "type": "way",
+    "id": 396566397,
+    "center": {
+      "lat": 43.2796778,
+      "lon": -2.1650841
+    },
+    "nodes": [
+      3993785338,
+      3993785308,
+      3993785326,
+      3993785342,
+      3993785338
+    ],
+    "tags": {
+      "leisure": "pitch",
+      "sport": "football"
+    }
+  },
+  {
+    "type": "way",
+    "id": 396566398,
+    "center": {
+      "lat": 43.2797774,
+      "lon": -2.1647122
+    },
+    "nodes": [
+      3993785344,
+      3993785336,
+      3993785341,
+      3993785345,
+      3993785344
+    ],
+    "tags": {
+      "leisure": "pitch",
+      "sport": "football"
+    }
+  },
+  {
+    "type": "way",
+    "id": 396571356,
+    "center": {
+      "lat": 43.2848118,
+      "lon": -2.1696921
+    },
+    "nodes": [
+      3993848379,
+      3993848335,
+      3993848334,
+      3993848322,
+      3993848289,
+      3993848288,
+      3993848378,
+      3993848379
+    ],
+    "tags": {
+      "amenity": "school",
+      "name": "Colegio María Inmaculada"
+    }
+  },
+  {
+    "type": "way",
+    "id": 396574177,
+    "center": {
+      "lat": 43.2889635,
+      "lon": -2.1566656
+    },
+    "nodes": [
+      3993875920,
+      3993875921,
+      3993875919,
+      3993875916,
+      3993875913,
+      3993875911,
+      3993875910,
+      3993875909,
+      3993875912,
+      3993875914,
+      3993875915,
+      3993875917,
+      3993875918,
+      3993875920
+    ],
+    "tags": {
+      "golf": "green",
+      "leisure": "pitch",
+      "sport": "golf"
+    }
+  },
+  {
+    "type": "way",
+    "id": 396574181,
+    "center": {
+      "lat": 43.2850562,
+      "lon": -2.1575147
+    },
+    "nodes": [
+      3993875463,
+      3993875470,
+      3993875469,
+      3993875468,
+      3993875467,
+      3993875466,
+      3993875465,
+      3993875464,
+      3993875458,
+      3993875457,
+      3993875459,
+      3993875460,
+      3993875462,
+      3993875461,
+      3993875463
+    ],
+    "tags": {
+      "access": "private",
+      "amenity": "parking"
+    }
+  },
+  {
+    "type": "way",
+    "id": 396574186,
+    "center": {
+      "lat": 43.2899182,
+      "lon": -2.1548685
+    },
+    "nodes": [
+      3993876121,
+      3993876111,
+      3993876109,
+      3993876108,
+      3993876106,
+      3993876103,
+      3993876107,
+      3993876110,
+      3993876112,
+      3993876114,
+      3993876116,
+      3993876117,
+      3993876121
+    ],
+    "tags": {
+      "golf": "green",
+      "leisure": "pitch",
+      "sport": "golf"
+    }
+  },
+  {
+    "type": "way",
+    "id": 396574187,
+    "center": {
+      "lat": 43.2880807,
+      "lon": -2.1602542
+    },
+    "nodes": [
+      3993875698,
+      3993875688,
+      3993875681,
+      3993875678,
+      3993875673,
+      3993875666,
+      3993875554,
+      3993875550,
+      3993875546,
+      3993875547,
+      3993875556,
+      3993875668,
+      3993875674,
+      3993875682,
+      3993875690,
+      3993875695,
+      3993875697,
+      3993875694,
+      3993875699,
+      3993875698
+    ],
+    "tags": {
+      "golf": "green",
+      "leisure": "pitch",
+      "sport": "golf"
+    }
+  },
+  {
+    "type": "way",
+    "id": 396574188,
+    "center": {
+      "lat": 43.2885687,
+      "lon": -2.1547890
+    },
+    "nodes": [
+      3993875908,
+      3993875907,
+      3993875904,
+      3993875901,
+      3993875899,
+      3993875897,
+      3993875891,
+      3993875882,
+      3993875877,
+      3993875872,
+      3993875875,
+      3993875885,
+      3993875893,
+      3993875898,
+      3993875900,
+      3993875902,
+      3993875903,
+      3993875905,
+      3993875906,
+      3993875908
+    ],
+    "tags": {
+      "golf": "green",
+      "leisure": "pitch",
+      "sport": "golf"
+    }
+  },
+  {
+    "type": "way",
+    "id": 396574189,
+    "center": {
+      "lat": 43.2868623,
+      "lon": -2.1587344
+    },
+    "nodes": [
+      3993875504,
+      3993875506,
+      3993875507,
+      3993875505,
+      3993875503,
+      3993875501,
+      3993875495,
+      3993875487,
+      3993875483,
+      3993875478,
+      3993875476,
+      3993875473,
+      3993875474,
+      3993875475,
+      3993875477,
+      3993875482,
+      3993875486,
+      3993875488,
+      3993875493,
+      3993875499,
+      3993875502,
+      3993875504
+    ],
+    "tags": {
+      "golf": "green",
+      "leisure": "pitch",
+      "sport": "golf"
+    }
+  },
+  {
+    "type": "way",
+    "id": 396574192,
+    "center": {
+      "lat": 43.2893562,
+      "lon": -2.1537583
+    },
+    "nodes": [
+      3993876077,
+      3993876074,
+      3993876072,
+      3993876070,
+      3993876068,
+      3993876066,
+      3993876064,
+      3993876062,
+      3993876061,
+      3993876057,
+      3993875952,
+      3993875947,
+      3993875946,
+      3993875955,
+      3993876063,
+      3993876065,
+      3993876067,
+      3993876069,
+      3993876071,
+      3993876073,
+      3993876075,
+      3993876076,
+      3993876077
+    ],
+    "tags": {
+      "golf": "green",
+      "leisure": "pitch",
+      "sport": "golf"
+    }
+  },
+  {
+    "type": "way",
+    "id": 396574193,
+    "center": {
+      "lat": 43.2884096,
+      "lon": -2.1607133
+    },
+    "nodes": [
+      3993875889,
+      3993875887,
+      3993875879,
+      3993875868,
+      3993875861,
+      3993875857,
+      3993875755,
+      3993875754,
+      3993875752,
+      3993875750,
+      3993875748,
+      3993875747,
+      3993875749,
+      3993875751,
+      3993875753,
+      3993875756,
+      3993875858,
+      3993875867,
+      3993875874,
+      3993875881,
+      3993875884,
+      3993875888,
+      3993875889
+    ],
+    "tags": {
+      "golf": "green",
+      "leisure": "pitch",
+      "sport": "golf"
+    }
+  },
+  {
+    "type": "way",
+    "id": 396574194,
+    "center": {
+      "lat": 43.2880064,
+      "lon": -2.1606131
+    },
+    "nodes": [
+      3993875671,
+      3993875672,
+      3993875669,
+      3993875667,
+      3993875665,
+      3993875662,
+      3993875659,
+      3993875555,
+      3993875551,
+      3993875545,
+      3993875543,
+      3993875539,
+      3993875535,
+      3993875531,
+      3993875533,
+      3993875538,
+      3993875540,
+      3993875544,
+      3993875552,
+      3993875661,
+      3993875664,
+      3993875670,
+      3993875671
+    ],
+    "tags": {
+      "golf": "green",
+      "leisure": "pitch",
+      "sport": "golf"
+    }
+  },
+  {
+    "type": "way",
+    "id": 396574195,
+    "center": {
+      "lat": 43.2882329,
+      "lon": -2.1607069
+    },
+    "nodes": [
+      3993875746,
+      3993875745,
+      3993875744,
+      3993875741,
+      3993875737,
+      3993875734,
+      3993875730,
+      3993875725,
+      3993875724,
+      3993875718,
+      3993875716,
+      3993875708,
+      3993875706,
+      3993875707,
+      3993875710,
+      3993875711,
+      3993875720,
+      3993875723,
+      3993875728,
+      3993875731,
+      3993875733,
+      3993875740,
+      3993875743,
+      3993875746
+    ],
+    "tags": {
+      "golf": "green",
+      "leisure": "pitch",
+      "sport": "golf"
+    }
+  },
+  {
+    "type": "way",
+    "id": 396574196,
+    "center": {
+      "lat": 43.2903472,
+      "lon": -2.1535211
+    },
+    "nodes": [
+      3993876139,
+      3993876130,
+      3993876128,
+      3993876127,
+      3993876125,
+      3993876123,
+      3993876124,
+      3993876126,
+      3993876129,
+      3993876131,
+      3993876132,
+      3993876134,
+      3993876138,
+      3993876141,
+      3993876143,
+      3993876144,
+      3993876145,
+      3993876142,
+      3993876140,
+      3993876139
+    ],
+    "tags": {
+      "golf": "green",
+      "leisure": "pitch",
+      "sport": "golf"
+    }
+  },
+  {
+    "type": "way",
+    "id": 396802037,
+    "center": {
+      "lat": 43.2823179,
+      "lon": -2.1716746
+    },
+    "nodes": [
+      3996409458,
+      3996409461,
+      3996409457,
+      3996409459,
+      3996409458
+    ],
+    "tags": {
+      "leisure": "playground"
+    }
+  },
+  {
+    "type": "way",
+    "id": 396802959,
+    "center": {
+      "lat": 43.2826267,
+      "lon": -2.1746576
+    },
+    "nodes": [
+      3996420965,
+      3996420959,
+      3996420966,
+      3996420963,
+      3996420965
+    ],
+    "tags": {
+      "leisure": "playground"
+    }
+  },
+  {
+    "type": "way",
+    "id": 440762566,
+    "center": {
+      "lat": 43.2827357,
+      "lon": -2.1517000
+    },
+    "nodes": [
+      4385380567,
+      4385380568,
+      4385380569,
+      4385380570,
+      4385380571,
+      4385380572,
+      4385380573,
+      4385380574,
+      4385380575,
+      4385380576,
+      4385380577,
+      4385380578,
+      4385380567
+    ],
+    "tags": {
+      "leisure": "playground",
+      "name": "Jolastokia"
+    }
+  },
+  {
+    "type": "way",
+    "id": 442792478,
+    "center": {
+      "lat": 43.2834791,
+      "lon": -2.1603388
+    },
+    "nodes": [
+      4404500306,
+      4404500307,
+      4482445525
+    ],
+    "tags": {
+      "public_transport": "platform",
+      "railway": "platform"
+    }
+  },
+  {
+    "type": "way",
+    "id": 451411906,
+    "center": {
+      "lat": 43.2842076,
+      "lon": -2.1707202
+    },
+    "nodes": [
+      4482445529,
+      4482445527
+    ],
+    "tags": {
+      "public_transport": "platform",
+      "railway": "platform"
+    }
+  },
+  {
+    "type": "way",
+    "id": 451411907,
+    "center": {
+      "lat": 43.2841793,
+      "lon": -2.1708635
+    },
+    "nodes": [
+      5200933416,
+      5200933417,
+      5200933418,
+      5200933419,
+      5200933420,
+      4482445528,
+      5200933416
+    ],
+    "tags": {
+      "area": "yes",
+      "public_transport": "platform",
+      "railway": "platform"
+    }
+  },
+  {
+    "type": "way",
+    "id": 462790701,
+    "center": {
+      "lat": 43.2870073,
+      "lon": -2.1465287
+    },
+    "nodes": [
+      4581283113,
+      4581283114,
+      4581283115,
+      4581283116,
+      4581283117,
+      4581283118,
+      4581283119,
+      4581283120,
+      4581283121,
+      4581283113
+    ],
+    "tags": {
+      "amenity": "parking",
+      "name": "Berazadi Berri"
+    }
+  },
+  {
+    "type": "way",
+    "id": 484789832,
+    "center": {
+      "lat": 43.2859990,
+      "lon": -2.1627165
+    },
+    "nodes": [
+      4775432401,
+      4775432400,
+      4775432399,
+      4775432398,
+      4775432397,
+      4775432396,
+      4775432395,
+      4775432394,
+      4775432393,
+      4775432401
+    ],
+    "tags": {
+      "leisure": "playground"
+    }
+  },
+  {
+    "type": "way",
+    "id": 484789837,
+    "center": {
+      "lat": 43.2836101,
+      "lon": -2.1534539
+    },
+    "nodes": [
+      4775432415,
+      4775432414,
+      4775432413,
+      4775432412,
+      4775432415
+    ],
+    "tags": {
+      "access": "private",
+      "leisure": "pitch",
+      "sport": "pelota"
+    }
+  },
+  {
+    "type": "way",
+    "id": 484789842,
+    "center": {
+      "lat": 43.2832501,
+      "lon": -2.1534039
+    },
+    "nodes": [
+      4775432948,
+      4775432947,
+      4775432946,
+      4775432945,
+      4775432944,
+      4775432943,
+      4775432942,
+      4775432941,
+      4775432940,
+      4775432939,
+      4775432938,
+      4775432937,
+      4775432936,
+      4775432935,
+      4775432934,
+      4775432933,
+      4775432932,
+      4775432931,
+      4775432948
+    ],
+    "tags": {
+      "access": "private",
+      "leisure": "swimming_pool"
+    }
+  },
+  {
+    "type": "way",
+    "id": 484789845,
+    "center": {
+      "lat": 43.2834364,
+      "lon": -2.1533043
+    },
+    "nodes": [
+      4775432952,
+      4775432951,
+      4775432950,
+      4775432949,
+      4775432952
+    ],
+    "tags": {
+      "access": "private",
+      "leisure": "pitch",
+      "sport": "tennis"
+    }
+  },
+  {
+    "type": "way",
+    "id": 484789858,
+    "center": {
+      "lat": 43.2844275,
+      "lon": -2.1610922
+    },
+    "nodes": [
+      4775432988,
+      4775432987,
+      4775432986,
+      4775432985,
+      4775432988
+    ],
+    "tags": {
+      "leisure": "playground"
+    }
+  },
+  {
+    "type": "way",
+    "id": 484789863,
+    "center": {
+      "lat": 43.2837068,
+      "lon": -2.1593248
+    },
+    "nodes": [
+      4775433020,
+      4775433019,
+      4775433018,
+      4775433017,
+      4775433020
+    ],
+    "tags": {
+      "leisure": "pitch",
+      "sport": "multi"
+    }
+  },
+  {
+    "type": "way",
+    "id": 484789864,
+    "center": {
+      "lat": 43.2836966,
+      "lon": -2.1600411
+    },
+    "nodes": [
+      4775433124,
+      4775433123,
+      4775433122,
+      4775433121,
+      4775433124
+    ],
+    "tags": {
+      "leisure": "pitch",
+      "sport": "multi"
+    }
+  },
+  {
+    "type": "way",
+    "id": 520750801,
+    "center": {
+      "lat": 43.2857871,
+      "lon": -2.1715444
+    },
+    "nodes": [
+      5074995928,
+      5074995929,
+      5074995930,
+      5074995931,
+      5074995928
+    ],
+    "tags": {
+      "leisure": "playground"
+    }
+  }
+
+    ]
+  }
