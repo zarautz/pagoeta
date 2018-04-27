@@ -26,7 +26,7 @@ class IngurumenaTidesParser(HtmlParser):
                     text = td.text
                     if not text:
                         continue
-                    """mod % 2 to detect even cols."""
+
                     if (col % 2) == 0:
                         tides.high.append(text.strip())
                     else:
