@@ -2,7 +2,7 @@ import os
 
 from unittest import TestCase
 
-from pagoeta.parsers.kosta import KostaParser
+from pagoeta.feeds.kosta import KostaParser
 
 
 BASE_DIR = os.path.dirname(__file__)
@@ -12,7 +12,7 @@ class IngurumenaParserTests(TestCase):
     @classmethod
     def setUpClass(self):
         with open(os.path.join(BASE_DIR, 'sources', 'kosta.html'), 'rb') as file:
-            parser = KostaParser(source=file.read())
+            parser = KostaParser(content=file.read())
             self.data = parser.parse()
 
     def test_parse(self):

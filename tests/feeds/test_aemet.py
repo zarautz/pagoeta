@@ -3,7 +3,7 @@ import os
 from datetime import datetime
 from unittest import TestCase
 
-from pagoeta.parsers.aemet import AemetParser
+from pagoeta.feeds.aemet import AemetParser
 
 
 BASE_DIR = os.path.dirname(__file__)
@@ -18,7 +18,7 @@ class MagicseaweedParserTests(TestCase):
         self.date_no_periods = datetime.strptime('2015-04-26', '%Y-%m-%d').date()
 
         with open(os.path.join(BASE_DIR, 'sources', 'aemet.xml'), 'rb') as file:
-            parser = AemetParser(source=file.read())
+            parser = AemetParser(content=file.read())
             self.data = parser.parse(
                 dates=[self.date, self.date_some_periods, self.date_two_periods, self.date_no_periods]
             )

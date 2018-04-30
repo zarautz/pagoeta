@@ -1,4 +1,6 @@
-from apistar import App, Route
+from apistar import ASyncApp, Route, Include
+
+from .handlers import forecast
 
 
 def welcome():
@@ -9,6 +11,10 @@ def welcome():
 
 routes = [
     Route('/', method='GET', handler=welcome),
+    Include('/v2/forecast', name='forecast', routes=forecast.routes),
 ]
 
-app = App(routes=routes)
+event_hooks = [
+]
+
+app = ASyncApp(routes=routes, event_hooks=event_hooks)

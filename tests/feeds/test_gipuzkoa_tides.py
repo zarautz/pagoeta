@@ -3,13 +3,13 @@ import os
 from datetime import datetime
 from unittest import TestCase
 
-from pagoeta.parsers.ingurumena import TideTable, IngurumenaTidesParser
+from pagoeta.feeds.gipuzkoa_tides import TideTable, GipuzkoaTidesParser
 
 
 BASE_DIR = os.path.dirname(__file__)
 
 
-class IngurumenaTidesParserTests(TestCase):
+class GipuzkoaTidesParserTests(TestCase):
     @classmethod
     def setUpClass(self):
         self.date = datetime.strptime('2016-10-10', '%Y-%m-%d').date()
@@ -17,7 +17,7 @@ class IngurumenaTidesParserTests(TestCase):
         self.date_one_high = datetime.strptime('2016-10-25', '%Y-%m-%d').date()
 
         with open(os.path.join(BASE_DIR, 'sources', 'ingurumena_tides.html'), 'rb') as file:
-            parser = IngurumenaTidesParser(source=file.read())
+            parser = GipuzkoaTidesParser(content=file.read())
             self.data = parser.parse(dates=[self.date, self.date_one_high, self.date_one_low])
 
     def test_parse(self):

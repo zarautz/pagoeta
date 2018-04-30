@@ -2,7 +2,8 @@ import time
 
 from typing import List, NamedTuple
 
-from .base import HtmlParser
+from .base import BaseFeed, HtmlParser
+from .typing import FeedRequest, FeedResponse
 
 
 class KostaImages(NamedTuple):
@@ -22,3 +23,13 @@ class KostaParser(HtmlParser):
                 output.timex.append(src)
 
         return output
+
+
+class KostaFeed(BaseFeed):
+    parser = KostaParser
+
+    def prepare_requests(self) -> List[FeedRequest]:
+        return [FeedRequest('http://www.kostasystem.com/monitorizaciones/zarautz/')]
+
+    def process_response(self, response: FeedResponse):
+        return self.parser(content=response.content).parse()

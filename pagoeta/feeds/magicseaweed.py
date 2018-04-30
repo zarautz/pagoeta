@@ -2,7 +2,9 @@ import datetime
 
 from typing import Dict, List
 
-from .base import JsonParser
+from pagoeta.settings import MAGICSEAWEED_API_KEY
+from .base import BaseFeed, JsonParser
+from .typing import FeedRequest, FeedResponse
 
 
 class MagicseaweedParser(JsonParser):
@@ -28,3 +30,16 @@ class MagicseaweedParser(JsonParser):
                 }
 
         return data
+
+
+class MagicseaweedFeed(BaseFeed):
+    parser = MagicseaweedParser
+
+    def prepare_requests(self) -> List[FeedRequest]:
+        return [FeedRequest(
+            f'http://magicseaweed.com/api/{MAGICSEAWEED_API_KEY}/forecast/?spot_id=1061&units=eu',
+            {'dates': self.dates}
+        )]
+
+    def process_response(self, response: FeedResponse):
+        return self.parser(content=response.content).parse(**response.config)

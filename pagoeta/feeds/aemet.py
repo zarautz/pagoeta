@@ -1,10 +1,15 @@
-from .base import DateListType, XmlParser
+import datetime
+
+from typing import List
+
+from .base import BaseFeed, XmlParser
+from .typing import FeedRequest, FeedResponse
 
 
 class AemetParser(XmlParser):
     source_encoding = 'ISO-8859-15'
 
-    def parse(self, *, dates: DateListType = []):
+    def parse(self, *, dates: List[datetime.date]):
         data = {}
         date_str_list = [str(date) for date in dates]
 
@@ -63,3 +68,13 @@ class AemetParser(XmlParser):
             'wind_direction': wind_map[element.xpath('.//viento%s/direccion' % xpattern)[0].text],
             'wind_speed': int(element.xpath('.//viento%s/velocidad' % xpattern)[0].text),
         }
+
+
+class AemetFeed(BaseFeed):
+    parser = AemetParser
+
+    def prepare_requests(self) -> List[FeedRequest]:
+        return [FeedRequest('http://www.aemet.es/xml/municipios/localidad_20079.xml', {'dates': self.dates})]
+
+    def process_responses(self, responses: List[FeedResponse]):
+        return [self.parser(content=res.content).parse(**res.config) for res in responses]

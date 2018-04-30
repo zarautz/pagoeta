@@ -3,7 +3,7 @@ import os
 from datetime import datetime
 from unittest import TestCase
 
-from pagoeta.parsers.gipuzkoa import GaoBulletin, GipuzkoaGaoParser
+from pagoeta.feeds.gipuzkoa_gao import GaoBulletin, GipuzkoaGaoParser
 
 
 BASE_DIR = os.path.dirname(__file__)
@@ -15,7 +15,7 @@ class GipuzkoaGaoParserTests(TestCase):
         self.date = datetime.strptime('2018-04-16', '%Y-%m-%d').date()
 
         with open(os.path.join(BASE_DIR, 'sources', 'gipuzkoa_gao.html'), 'rb') as file:
-            self.parser = GipuzkoaGaoParser(source=file.read())
+            self.parser = GipuzkoaGaoParser(content=file.read())
             self.data = self.parser.parse(date=self.date)
 
     def test_parse(self):
