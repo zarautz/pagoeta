@@ -11,16 +11,16 @@ BASE_DIR = os.path.dirname(__file__)
 
 class MagicseaweedParserTests(TestCase):
     @classmethod
-    def setUpClass(self):
-        self.date = datetime.strptime('2015-04-21', '%Y-%m-%d').date()
-        self.date_some_periods = datetime.strptime('2015-04-20', '%Y-%m-%d').date()
-        self.date_two_periods = datetime.strptime('2015-04-23', '%Y-%m-%d').date()
-        self.date_no_periods = datetime.strptime('2015-04-26', '%Y-%m-%d').date()
+    def setUpClass(cls):
+        cls.date = datetime.strptime('2015-04-21', '%Y-%m-%d').date()
+        cls.date_some_periods = datetime.strptime('2015-04-20', '%Y-%m-%d').date()
+        cls.date_two_periods = datetime.strptime('2015-04-23', '%Y-%m-%d').date()
+        cls.date_no_periods = datetime.strptime('2015-04-26', '%Y-%m-%d').date()
 
         with open(os.path.join(BASE_DIR, 'sources', 'aemet.xml'), 'rb') as file:
             parser = AemetParser(content=file.read())
-            self.data = parser.parse(
-                dates=[self.date, self.date_some_periods, self.date_two_periods, self.date_no_periods]
+            cls.data = parser.parse(
+                dates=[cls.date, cls.date_some_periods, cls.date_two_periods, cls.date_no_periods]
             )
 
     def test_parse(self):

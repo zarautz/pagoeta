@@ -11,14 +11,14 @@ BASE_DIR = os.path.dirname(__file__)
 
 class GipuzkoaTidesParserTests(TestCase):
     @classmethod
-    def setUpClass(self):
-        self.date = datetime.strptime('2016-10-10', '%Y-%m-%d').date()
-        self.date_one_low = datetime.strptime('2016-10-20', '%Y-%m-%d').date()
-        self.date_one_high = datetime.strptime('2016-10-25', '%Y-%m-%d').date()
+    def setUpClass(cls):
+        cls.date = datetime.strptime('2016-10-10', '%Y-%m-%d').date()
+        cls.date_one_low = datetime.strptime('2016-10-20', '%Y-%m-%d').date()
+        cls.date_one_high = datetime.strptime('2016-10-25', '%Y-%m-%d').date()
 
         with open(os.path.join(BASE_DIR, 'sources', 'ingurumena_tides.html'), 'rb') as file:
             parser = GipuzkoaTidesParser(content=file.read())
-            self.data = parser.parse(dates=[self.date, self.date_one_high, self.date_one_low])
+            cls.data = parser.parse(dates=[cls.date, cls.date_one_high, cls.date_one_low])
 
     def test_parse(self):
         self.assertEqual(self.data[0], TideTable(self.date, ['04:36', '17:35'], ['11:12', '00:09']))

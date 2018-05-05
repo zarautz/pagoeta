@@ -11,12 +11,12 @@ BASE_DIR = os.path.dirname(__file__)
 
 class GipuzkoaGaoParserTests(TestCase):
     @classmethod
-    def setUpClass(self):
-        self.date = datetime.strptime('2018-04-16', '%Y-%m-%d').date()
+    def setUpClass(cls):
+        cls.date = datetime.strptime('2018-04-16', '%Y-%m-%d').date()
 
         with open(os.path.join(BASE_DIR, 'sources', 'gipuzkoa_gao.html'), 'rb') as file:
-            self.parser = GipuzkoaGaoParser(content=file.read())
-            self.data = self.parser.parse(date=self.date)
+            cls.parser = GipuzkoaGaoParser(content=file.read())
+            cls.data = cls.parser.parse(date=cls.date)
 
     def test_parse(self):
         self.assertEqual(len(self.data), 2)

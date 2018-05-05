@@ -13,7 +13,7 @@ class SeaSpider(BaseSpider):
         import json
 
         def default(obj):
-            if type(obj) is datetime.date or type(obj) is datetime.datetime:
+            if isinstance(obj, (datetime.date, datetime.datetime)):
                 return obj.isoformat()
 
         return json.dumps(responses, default=default)

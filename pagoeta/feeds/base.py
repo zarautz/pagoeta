@@ -1,6 +1,7 @@
 import datetime
 import json
 
+from defusedxml.lxml import fromstring
 from lxml import etree
 from typing import List
 
@@ -32,25 +33,35 @@ class BaseParser:
 
 
 class XmlParser(BaseParser):
-    parser = None
+    parser = etree.XMLParser(ns_clean=True)
 
     @property
     def tree(self):
         try:
-            return etree.fromstring(self.content, parser=self.parser)
+            return fromstring(self.content, parser=self.parser)
         except etree.XMLSyntaxError:
             raise Exception  # TODO: custom Exception
+
+    def parse(self):
+        raise NotImplementedError
 
 
 class HtmlParser(XmlParser):
     parser = etree.HTMLParser()
 
+    def parse(self):
+        raise NotImplementedError
+
 
 class RssFeedParser(XmlParser):
-    pass
+    def parse(self):
+        raise NotImplementedError
 
 
 class JsonParser(BaseParser):
     @property
     def json(self):
         return json.loads(self.content)
+
+    def parse(self):
+        raise NotImplementedError

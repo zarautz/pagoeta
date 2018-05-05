@@ -50,7 +50,7 @@ class CofgFeed(BaseFeed):
         test = [self.parser(content=res.content).parse(**res.config) for res in responses]
 
         def default(obj):
-            if type(obj) is datetime.date or type(obj) is datetime.datetime:
+            if isinstance(obj, (datetime.date, datetime.datetime)):
                 return obj.isoformat()
 
         return json.dumps(test, default=default)

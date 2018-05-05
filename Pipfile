@@ -9,6 +9,7 @@ python_version = "3.6"
 [packages]
 aiohttp = "*"
 apistar = "*"
+defusedxml = "*"
 ephem = "*"
 geojson = "*"
 gunicorn = "*"

@@ -10,10 +10,10 @@ BASE_DIR = os.path.dirname(__file__)
 
 class IngurumenaParserTests(TestCase):
     @classmethod
-    def setUpClass(self):
+    def setUpClass(cls):
         with open(os.path.join(BASE_DIR, 'sources', 'kosta.html'), 'rb') as file:
             parser = KostaParser(content=file.read())
-            self.data = parser.parse()
+            cls.data = parser.parse()
 
     def test_parse(self):
         self.assertEqual(len(self.data.snapshots), 2)
