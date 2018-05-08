@@ -18,7 +18,7 @@ class GipuzkoaTidesParser(HtmlParser):
     def parse(self, *, dates: List[datetime.date]) -> List[TideTable]:
         output = []
 
-        for row, tr in enumerate(self.tree.xpath('//table[@class="footable"]/tbody/tr')):
+        for tr in self.tree.xpath('//table[@class="footable"]/tbody/tr'):
             cols = tr.findall('./td')
             row_date = datetime.datetime.strptime(cols[0].text.strip(), '%d/%m/%Y').date()
 
@@ -42,6 +42,9 @@ class GipuzkoaTidesParser(HtmlParser):
 
 class GipuzkoaTidesFeed(BaseFeed):
     parser = GipuzkoaTidesParser
+
+    def __init__(self, *, dates: List[datetime.date] = []) -> None:
+        self.dates = dates
 
     def prepare_requests(self) -> List[FeedRequest]:
         reqs = []

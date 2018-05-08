@@ -8,32 +8,22 @@ from .typing import FeedRequest, FeedResponse
 
 
 class MagicseaweedParser(JsonParser):
-    def parse(self, *, dates: List[datetime.date]) -> Dict[datetime.date, dict]:
+    def parse(self, *, dates: List[datetime.date]) -> Dict[str, dict]:
         data = {}
-        date_str_list = [str(date) for date in dates]
 
-        for element in self.json:
-            date_str = datetime.datetime.fromtimestamp(element['localTimestamp']).strftime('%Y-%m-%d')
-
-            if date_str in date_str_list:
-                data[date_str] = {
-                    'charts': element['charts'],
-                    'wave': {
-                        'rating': {
-                            'solid': element['solidRating'],
-                            'faded': element['fadedRating'],
-                        },
-                        'swell': element['swell'],
-                    },
-                    'weather': element['condition'],
-                    'wind': element['wind'],
-                }
+        for element in self.data:
+            date = datetime.datetime.fromtimestamp(element['localTimestamp']).date()
+            if date in dates:
+                data[str(date)] = element
 
         return data
 
 
 class MagicseaweedFeed(BaseFeed):
     parser = MagicseaweedParser
+
+    def __init__(self, *, dates: List[datetime.date] = []) -> None:
+        self.dates = dates
 
     def prepare_requests(self) -> List[FeedRequest]:
         return [FeedRequest(

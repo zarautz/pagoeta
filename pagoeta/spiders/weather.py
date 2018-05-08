@@ -2,19 +2,18 @@ import json
 
 from typing import List
 
-from pagoeta.feeds import BaseFeed, GipuzkoaTidesFeed, KostaFeed, MagicseaweedFeed
+from pagoeta.feeds import BaseFeed, AemetFeed, MagicseaweedFeed
 from pagoeta.feeds.typing import FeedResponse
 from pagoeta.utils import get_next_dates
 from .base import BaseSpider
 
 
-class SeaSpider(BaseSpider):
+class WeatherSpider(BaseSpider):
     @staticmethod
     def get_feeds() -> List[BaseFeed]:
         dates = get_next_dates(5)
         return [
-            GipuzkoaTidesFeed(dates=dates),
-            KostaFeed(),
+            AemetFeed(dates=dates),
             MagicseaweedFeed(dates=dates),
         ]
 

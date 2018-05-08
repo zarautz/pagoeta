@@ -6,6 +6,46 @@ from .base import BaseFeed, XmlParser
 from .typing import FeedRequest, FeedResponse
 
 
+def parse_forecast_subelements(element):
+    period_groups = {
+        1: ('00-06', '06-12', '12-18', '18-24'),
+        2: ('00-12', '12-24'),
+        3: ('00-24',)
+    }
+    forecast_data = []
+
+    if element.xpath('.//estado_cielo[@periodo="00-06"]'):
+        period_group = 1
+    elif element.xpath('.//estado_cielo[@periodo="00-12"]'):
+        period_group = 2
+    else:
+        period_group = 3
+
+    if period_group == 3:
+        period = period_groups[period_group][0]
+        forecast_data.append(parse_forecast(element, period, False))
+    else:
+        for period in period_groups[period_group]:
+            # check if data for a given period exists
+            if element.xpath('.//estado_cielo[@periodo="%s"]' % period)[0].text:
+                forecast_data.append(parse_forecast(element, period, True))
+
+    return forecast_data
+
+
+def parse_forecast(element, period, is_detailed=False):
+    wind_map = {'N': 'N', 'NE': 'NE', 'E': 'E', 'SE': 'SE', 'S': 'S', 'SO': 'SW', 'O': 'W', 'NO': 'NW', 'C': 'C'}
+    xpattern = ('[@periodo="%s"]' % period) if is_detailed else ''
+
+    return {
+        'period': period,
+        'code': int(element.xpath('.//estado_cielo%s' % xpattern)[0].text.replace('n', '')),
+        'precipitation_prob': int(element.xpath('.//prob_precipitacion%s' % xpattern)[0].text),
+        'wind_direction': wind_map[element.xpath('.//viento%s/direccion' % xpattern)[0].text],
+        'wind_speed': int(element.xpath('.//viento%s/velocidad' % xpattern)[0].text),
+    }
+
+
 class AemetParser(XmlParser):
     source_encoding = 'ISO-8859-15'
 
@@ -25,56 +65,23 @@ class AemetParser(XmlParser):
                     'temp_min': int(temp_min) if temp_min else None,
                     'temp_max': int(temp_max) if temp_max else None,
                     'uv_max': int(uv_max) if uv_max else None,
-                    'forecast': self.parse_forecast_subelements(element),
+                    'forecast': parse_forecast_subelements(element),
                 }
 
         return data
-
-    def parse_forecast_subelements(self, element):
-        period_groups = {
-            1: ('00-06', '06-12', '12-18', '18-24'),
-            2: ('00-12', '12-24'),
-            3: ('00-24',)
-        }
-        forecast_data = []
-
-        if element.xpath('.//estado_cielo[@periodo="00-06"]'):
-            period_group = 1
-        elif element.xpath('.//estado_cielo[@periodo="00-12"]'):
-            period_group = 2
-        else:
-            period_group = 3
-
-        if period_group == 3:
-            period = period_groups[period_group][0]
-            forecast_data.append(self.parse_forecast(element, period, False))
-        else:
-            for period in period_groups[period_group]:
-                """We need to check if data for a given period exists,
-                because AEMET hides the data once the period is over."""
-                if element.xpath('.//estado_cielo[@periodo="%s"]' % period)[0].text:
-                    forecast_data.append(self.parse_forecast(element, period, True))
-
-        return forecast_data
-
-    def parse_forecast(self, element, period, is_detailed=False):
-        wind_map = {'N': 'N', 'NE': 'NE', 'E': 'E', 'SE': 'SE', 'S': 'S', 'SO': 'SW', 'O': 'W', 'NO': 'NW', 'C': 'C'}
-        xpattern = ('[@periodo="%s"]' % period) if is_detailed else ''
-
-        return {
-            'period': period,
-            'code': int(element.xpath('.//estado_cielo%s' % xpattern)[0].text.replace('n', '')),
-            'precipitation_prob': int(element.xpath('.//prob_precipitacion%s' % xpattern)[0].text),
-            'wind_direction': wind_map[element.xpath('.//viento%s/direccion' % xpattern)[0].text],
-            'wind_speed': int(element.xpath('.//viento%s/velocidad' % xpattern)[0].text),
-        }
 
 
 class AemetFeed(BaseFeed):
     parser = AemetParser
 
-    def prepare_requests(self) -> List[FeedRequest]:
-        return [FeedRequest('http://www.aemet.es/xml/municipios/localidad_20079.xml', {'dates': self.dates})]
+    def __init__(self, *, dates: List[datetime.date] = []) -> None:
+        self.dates = dates
 
-    def process_responses(self, responses: List[FeedResponse]):
-        return [self.parser(content=res.content).parse(**res.config) for res in responses]
+    def prepare_requests(self) -> List[FeedRequest]:
+        return [FeedRequest(
+            'http://www.aemet.es/xml/municipios/localidad_20079.xml',
+            {'dates': self.dates}
+        )]
+
+    def process_response(self, response: FeedResponse):
+        return self.parser(content=response.content).parse(**response.config)

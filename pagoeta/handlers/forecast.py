@@ -1,11 +1,14 @@
 from apistar import Route
 
-from pagoeta.spiders import SeaSpider
-from pagoeta.utils import get_next_dates
+from pagoeta.spiders import SeaSpider, WeatherSpider
 
 
 async def get_sea_forecast() -> dict:
-    return await SeaSpider(dates=get_next_dates(5)).run()
+    return await SeaSpider().run()
+
+
+async def get_weather_forecast() -> dict:
+    return await WeatherSpider().run()
 
 
 def list_weather_codes() -> list:
@@ -14,4 +17,5 @@ def list_weather_codes() -> list:
 
 routes = [
     Route('/sea/', method='GET', handler=get_sea_forecast),
+    Route('/weather/', method='GET', handler=get_weather_forecast),
 ]

@@ -46,11 +46,5 @@ class GipuzkoaGaoFeed(BaseFeed):
 
         return reqs
 
-    def process_responses(self, responses: List[FeedResponse]):
-        import json
-
-        def default(obj):
-            if isinstance(obj, (datetime.date, datetime.datetime)):
-                return obj.isoformat()
-
-        return json.dumps([self.parser(content=res.content).parse(**res.config) for res in responses], default=default)
+    def process_response(self, response: FeedResponse):
+        return self.parser(content=response.content).parse(**response.config)

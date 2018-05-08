@@ -1,8 +1,7 @@
-import datetime
 import json
 
 from defusedxml.lxml import fromstring
-from lxml import etree
+from lxml.etree import HTMLParser, XMLParser, XMLSyntaxError
 from typing import List
 
 from .typing import FeedRequest, FeedResponse
@@ -10,10 +9,6 @@ from .typing import FeedRequest, FeedResponse
 
 class BaseFeed:
     parser = None
-
-    def __init__(self, *, dates: List[datetime.date] = [], locale: str = 'eu') -> None:
-        self.dates = dates
-        self.locale = locale
 
     def prepare_requests(self) -> List[FeedRequest]:
         raise NotImplementedError
@@ -33,13 +28,13 @@ class BaseParser:
 
 
 class XmlParser(BaseParser):
-    parser = etree.XMLParser(ns_clean=True)
+    parser = XMLParser(ns_clean=True)
 
     @property
     def tree(self):
         try:
             return fromstring(self.content, parser=self.parser)
-        except etree.XMLSyntaxError:
+        except XMLSyntaxError:
             raise Exception  # TODO: custom Exception
 
     def parse(self):
@@ -47,7 +42,7 @@ class XmlParser(BaseParser):
 
 
 class HtmlParser(XmlParser):
-    parser = etree.HTMLParser()
+    parser = HTMLParser()
 
     def parse(self):
         raise NotImplementedError
@@ -60,7 +55,7 @@ class RssFeedParser(XmlParser):
 
 class JsonParser(BaseParser):
     @property
-    def json(self):
+    def data(self):
         return json.loads(self.content)
 
     def parse(self):

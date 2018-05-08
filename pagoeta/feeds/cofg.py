@@ -1,5 +1,4 @@
 import datetime
-import json
 
 from typing import List, NamedTuple
 
@@ -19,11 +18,14 @@ class OnDutyPharmacy(NamedTuple):
 
 class CofgParser(JsonParser):
     def parse(self, *, date: datetime.date, duty: int) -> OnDutyPharmacy:
-        return OnDutyPharmacy(date, duty, int(self.json[0]['id']))
+        return OnDutyPharmacy(date, duty, int(self.data[0]['id']))
 
 
 class CofgFeed(BaseFeed):
     parser = CofgParser
+
+    def __init__(self, *, dates: List[datetime.date] = []) -> None:
+        self.dates = dates
 
     def prepare_requests(self) -> List[FeedRequest]:
         reqs = []
@@ -46,11 +48,5 @@ class CofgFeed(BaseFeed):
 
         return reqs
 
-    def process_responses(self, responses: List[FeedResponse]):
-        test = [self.parser(content=res.content).parse(**res.config) for res in responses]
-
-        def default(obj):
-            if isinstance(obj, (datetime.date, datetime.datetime)):
-                return obj.isoformat()
-
-        return json.dumps(test, default=default)
+    def process_response(self, response: FeedResponse):
+        return self.parser(content=response.content).parse(**response.config)

@@ -1,5 +1,6 @@
 import asyncio
 import datetime
+import json
 
 from aiohttp import ClientSession
 from typing import Dict, List
@@ -9,13 +10,16 @@ from pagoeta.feeds.typing import FeedRequest, FeedResponse
 
 
 class BaseSpider:
-    feed_classes: List[BaseFeed] = []
     requests: Dict[BaseFeed, List[FeedRequest]] = {}
 
-    def __init__(self, *, dates: List[datetime.date] = [], locale: str = 'eu') -> None:
-        self.dates = dates
-        self.locale = locale
-        self.feeds = [feed_class(dates=dates, locale=locale) for feed_class in self.feed_classes]
+    @staticmethod
+    def json_default(obj):
+        if isinstance(obj, (datetime.date, datetime.datetime)):
+            return obj.isoformat()
+
+    @staticmethod
+    def get_feeds() -> List[BaseFeed]:
+        raise NotImplementedError
 
     def process_responses(self, responses: List[FeedResponse]):
         raise NotImplementedError
@@ -29,25 +33,10 @@ class BaseSpider:
         tasks = []
 
         async with ClientSession() as session:
-            for feed in self.feeds:
+            for feed in self.get_feeds():
                 for req in feed.prepare_requests():
                     t = asyncio.ensure_future(self.fetch(session, feed, req))
                     tasks.append(t)
 
             responses = await asyncio.gather(*tasks)
-            return self.process_responses(responses)
-
-    """
-    def run(self):
-        import requests
-
-        responses = []
-
-        with requests.Session() as session:
-            for feed in self.feeds:
-                for req in feed.prepare_requests():
-                    res = session.request(req.method, req.url, data=req.data)
-                    responses.append(feed.process_response(response=FeedResponse(res.content, req.config)))
-
-        return self.process_responses(responses)
-    """
+            return json.dumps(self.process_responses(responses), default=self.json_default)
